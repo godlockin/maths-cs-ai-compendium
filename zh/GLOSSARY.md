@@ -672,6 +672,55 @@
 
 ---
 
+## 19. 生物学与蛋白质设计 (Biology & Protein Design)
+
+| 英文 | 中文 | 备注 |
+|---|---|---|
+| amino acid | 氨基酸 | |
+| peptide bond | 肽键 | |
+| primary / secondary / tertiary / quaternary structure | 一级 / 二级 / 三级 / 四级结构 | 蛋白质结构层级 |
+| alpha helix (α-helix) | α 螺旋 | |
+| beta sheet (β-sheet) | β 折叠 | |
+| Anfinsen's dogma | 安芬森法则 | 天然态由序列决定 |
+| protein folding problem | 蛋白质折叠问题 | |
+| multiple sequence alignment (MSA) | 多序列比对 | |
+| coevolution | 共进化 | |
+| contact map | 接触图 | |
+| CASP | 蛋白质结构预测关键评估 | 缩写常保留 |
+| GDT-TS | 全局距离检验-总分 | 评估结构 |
+| TM-score | TM 评分 | 评估结构 |
+| pLDDT | 局部距离差异置信度 | AlphaFold 置信度 |
+| PAE (Predicted Aligned Error) | 预测对齐误差 | |
+| Evoformer | Evoformer | AlphaFold 2 的核心模块 |
+| Invariant Point Attention (IPA) | 不变点注意力 | |
+| Frame Aligned Point Error (FAPE) | 框架对齐点误差 | |
+| AlphaFold DB | AlphaFold 数据库 | |
+| inverse folding | 逆折叠 | |
+| de novo protein design | 蛋白质从头设计 | |
+| hallucination (protein) | 蛋白质幻觉 | 用优化生成新蛋白 |
+| diffusion model | 扩散模型 | |
+| denoiser | 去噪器 | 扩散模型组件 |
+| equivariant | 等变 | |
+| invariant (math) | 不变量 | |
+| protein language model | 蛋白质语言模型 | |
+| Amino Acid BERT / ProtBERT | ProtBERT | 保留 |
+| ESM (Evolutionary Scale Modeling) | ESM | 蛋白语言模型家族, 保留 |
+| backbone | 骨架 | 蛋白语境指主链 |
+| side chain | 侧链 | |
+| Cα (alpha carbon) | Cα 原子 | |
+| rotamer | 旋转异构体 | |
+| catalytic residue | 催化残基 | |
+| epitope / paratope | 表位 / 互补位 | 抗原/抗体互作面 |
+| antibody / immunoglobulin | 抗体 / 免疫球蛋白 | |
+| TCR (T cell receptor) | T 细胞受体 | 缩写常保留 |
+| nanobody | 纳米抗体 | |
+| binder | 结合分子 | 蛋白设计产物 |
+| de novo enzyme | 从头酶 | |
+| wet-lab validation | 湿实验验证 | 实验验证 |
+
+---
+
+
 ## 18. 文风与隐喻处理 (Style & Metaphor)
 
 > 本书大量使用比喻、玩笑与文化梗以提升可读性。翻译时**保留其风格张力**,不必逐字直译, 而是给出等效的中文表达。
@@ -700,6 +749,83 @@
 | syntactic sugar | 语法糖 | |
 | ninja / hacker (colloquial) | 高手 / 极客 | 视语境 |
 | a picture is worth a thousand words | 一图胜千言 | |
+
+---
+
+## 20. 医疗 AI (Healthcare AI)
+
+| 英文 | 中文 | 备注 |
+|---|---|---|
+| medical imaging | 医学影像 | |
+| X-ray / CT / MRI / ultrasound | X 光 / CT / MRI / 超声 | 缩写常保留 |
+| mammography | 乳腺 X 光 (mammography) | |
+| pathology | 病理 | |
+| whole-slide image (WSI) | 全切片图像 | 病理图像 |
+| radiomics | 影像组学 | |
+| DICOM | DICOM | 医学影像标准格式, 缩写不译 |
+| PACS | PACS | 影像归档系统, 缩写不译 |
+| EHR (Electronic Health Record) | 电子健康档案 | 缩写常保留 |
+| EMR (Electronic Medical Record) | 电子病历 | 缩写常保留 |
+| FHIR (Fast Healthcare Interoperability Resources) | FHIR | HL7 医疗数据交换标准, 缩写不译 |
+| HL7 | HL7 | 医疗信息交换协议, 缩写不译 |
+| clinical note | 临床笔记 | |
+| SOAP (Subjective/Objective/Assessment/Plan) | SOAP 笔记 | 临床文档结构, 缩写不译 |
+| ICD (International Classification of Diseases) | 国际疾病分类 | 缩写常保留 |
+| ICD-10 / ICD-11 | ICD-10 / ICD-11 | 版本号保留 |
+| medical LLM | 医疗大语言模型 | |
+| medical imaging segmentation | 医学影像分割 | |
+| Dice coefficient | Dice 系数 | 分割评估指标 |
+| IoU (Intersection over Union) | 交并比 | |
+| nnU-Net | nnU-Net | 保留 |
+| MedSAM | MedSAM | 保留 |
+| U-Net | U-Net | 保留 |
+| domain adaptation | 域自适应 | |
+| external validation | 外部验证 | |
+| distribution shift | 分布漂移 | |
+| pharmacogenomics (PGx) | 药理基因组学 | 缩写常保留 |
+| CYP450 | CYP450 | 细胞色素 P450 酶家族, 缩写不译 |
+| CYP2D6 / CYP2C19 | CYP2D6 / CYP2C19 | 酶亚型, 缩写不译 |
+| CPIC | CPIC | 临床药物基因组学实施联盟, 缩写不译 |
+| polygenic risk score (PRS) | 多基因风险评分 | |
+| clinical decision support (CDS) | 临床决策支持 | 缩写常保留 |
+| differential diagnosis | 鉴别诊断 | |
+| surgical robot | 手术机器人 | |
+| Da Vinci | Da Vinci | 达芬奇手术系统 |
+| visual servoing | 视觉伺服 | |
+| FDA | FDA | 美国食品药品监督管理局, 缩写不译 |
+| 510(k) | 510(k) | FDA 上市前通知路径, 缩写不译 |
+| De Novo | De Novo | FDA 全新分类, 不译 |
+| PMA (Premarket Approval) | 上市前批准 | |
+| NMPA | NMPA | 国家药品监督管理局 (中国), 缩写不译 |
+| CE / CE-MDR | CE / CE-MDR | 欧盟合规标识, 缩写不译 |
+| MDR (Medical Device Regulation) | 医疗器械法规 | 欧盟 2021 生效 |
+| HIPAA | HIPAA | 美国医疗隐私法, 缩写不译 |
+| GDPR | GDPR | 欧盟通用数据保护条例, 缩写不译 |
+| PHI (Protected Health Information) | 受保护健康信息 | |
+| de-identification | 去标识化 | |
+| differential privacy | 差分隐私 | |
+| federated learning (FL) | 联邦学习 | 缩写常保留 |
+| homomorphic encryption | 同态加密 | |
+| fairness (algorithmic) | (算法) 公平性 | |
+| demographic parity | 人口统计均等 | |
+| equalized odds | 等化机会 | |
+| predictive parity | 预测均等 | |
+| explainability / interpretability | 可解释性 | 两者同义, 视语境 |
+| Grad-CAM | Grad-CAM | 梯度加权类激活映射, 保留 |
+| SHAP | SHAP | SHapley 加法解释, 缩写不译 |
+| radiologist | 放射科医生 | |
+| pathologist | 病理学家 | |
+| surgeon | 外科医生 | |
+| oncology | 肿瘤学 | |
+| cardiology | 心脏病学 | |
+| ophthalmology | 眼科学 | |
+| radiology | 放射学 | |
+| internal medicine | 内科 | |
+| precision medicine | 精准医疗 | |
+| drug-drug interaction (DDI) | 药物-药物相互作用 | |
+| adverse drug event (ADE) | 药品不良事件 | |
+| electronic phenotyping | 电子表型 | |
+| ICU (Intensive Care Unit) | 重症监护病房 | 缩写常保留 |
 
 ---
 

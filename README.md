@@ -33,10 +33,12 @@ This repo includes an MCP server that lets any AI assistant (Claude Code, Cursor
 | 12 | [Graph Neural Networks](chapter%2012%20-%20graph%20neural%20networks/01.%20geometric%20deep%20learning.md) | geometric deep learning, graph theory, GNNs, graph attention, Graph Transformers, 3D equivariant networks | Available |
 | 13 | [Computing & OS](chapter%2013%20-%20computing%20and%20OS/01.%20discrete%20maths.md) | discrete maths, computer architecture, operating systems, concurrency, parallelism, programming languages | Available |
 | 14 | [Data Structures & Algorithms](chapter%2014%20-%20data%20structures%20and%20algorithms/00.%20foundations.md) | Big O, recursion, backtracking, DP, arrays, hashing, linked lists, stacks, trees, graphs, sorting, binary search | Available |
-| 15 | [Production Software Engineering](chapter%2015%20-%20production%20software%20engineering/01.%20linux%20and%20CMD.md) | Linux, Git, codebase design, testing, CI/CD, Docker, model serving, MLOps, monitoring, best way to use coding agents | Available |
+| 15 | [Production Software Engineering](chapter%2015%20-%20production%20software%20engineering/01.%20linux%20and%20CMD.md) | Linux, Git, codebase design, testing, CI/CD, Docker, model serving, MLOps, monitoring, best way to use coding agents | Draft (coding tasks pending) |
 | 16 | [SIMD & GPU Programming](chapter%2016%20-%20SIMD%20and%20GPU%20programming/00.%20why%20C%2B%2B%20and%20how%20ML%20frameworks%20work.md) | C++ for ML, how frameworks work, hardware fundamentals, ARM NEON/I8MM/SME2, x86 AVX, GPU/CUDA, Triton, TPUs, RISC-V, Vulkan, WebGPU | Available |
 | 17 | [AI Inference](chapter%2017%20-%20AI%20inference/01.%20quantisation.md) | quantisation, efficient architectures, serving and batching, edge inference, speculative decoding, cost optimisation | Available |
-| 18 | [ML Systems Design](chapter%2018%20-%20ML%20systems%20design/01.%20systems%20design%20fundamentals.md) | systems fundamentals, cloud computing, distributed systems, ML lifecycle, feature stores, A/B testing, recommendation/search/ads/fraud design examples | Available |
+| 18 | [ML Systems Design](chapter%2018%20-%20ML%20systems%20design/01.%20systems%20design%20fundamentals.md) | systems fundamentals, cloud computing, distributed systems, ML lifecycle, feature stores, A/B testing, recommendation/search/ads/fraud design examples | Draft (coding tasks pending) |
+| 19 | [Applied AI](chapter%2019%20-%20applied%20AI/01.%20AI%20for%20finance.md) | AI for finance, protein design, drug discovery, agentic systems, healthcare | Draft/Stub |
+| 20 | [Bleeding Edge AI](chapter%2020%20-%20bleeding%20edge%20AI/01.%20quantum%20machine%20learning.md) | quantum ML, neuromorphic computing, datacentres in space, decentralised AI, brain-machine interfaces | Draft/Stub |
 
 ## Foreword
 
