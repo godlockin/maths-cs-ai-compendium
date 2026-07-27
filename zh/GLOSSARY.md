@@ -9,6 +9,58 @@
 
 ---
 
+## 0. 全书数学记号约定 (Global Notation Conventions)
+
+> 本节为**全书统一**的数学排版规范,凡未特别声明的章节均遵循此约定。若某章因领域惯例需偏离(如统计中矩阵有时以斜体表示),须在该章开头显式说明。
+
+### 0.1 标量、向量、矩阵、张量
+
+| 对象 | 记号 | 示例 | 说明 |
+|---|---|---|---|
+| 标量 (scalar) | 小写斜体 | $x, y, \alpha, \lambda$ | 单个实数或复数 |
+| 向量 (vector) | 小写粗体 | $\mathbf{x}, \mathbf{v}, \boldsymbol{\theta}$ | **默认列向量**; 行向量记作 $\mathbf{x}^\top$ |
+| 矩阵 (matrix) | 大写粗体 | $\mathbf{A}, \mathbf{W}, \mathbf{X}$ | 元素 $A_{ij}$ 用大写斜体加下标 |
+| 张量 (tensor) | 花体或书法体 | $\mathcal{T}, \mathsf{T}$ | 三阶及以上 |
+
+**分量约定**: $\mathbf{x} = (x_1, x_2, \ldots, x_n)^\top \in \mathbb{R}^n$; 矩阵 $\mathbf{A} \in \mathbb{R}^{m \times n}$ 的第 $i$ 行第 $j$ 列元素记作 $A_{ij}$ 或 $[\mathbf{A}]_{ij}$。
+
+### 0.2 集合与空间
+
+| 对象 | 记号 | 示例 |
+|---|---|---|
+| 一般集合 | 花体大写 | $\mathcal{X}, \mathcal{Y}, \mathcal{D}$ (数据集), $\mathcal{H}$ (假设空间) |
+| 数域 | 空心体 | $\mathbb{R}, \mathbb{Z}, \mathbb{N}, \mathbb{C}, \mathbb{Q}$ |
+| 幂集 | $2^{\mathcal{X}}$ 或 $\mathcal{P}(\mathcal{X})$ | |
+
+### 0.3 概率与统计
+
+| 对象 | 记号 | 说明 |
+|---|---|---|
+| 概率测度 / 事件概率 | 大写 $P$ 或 $\mathbb{P}$ | 如 $P(A), \mathbb{P}(X > 0)$ |
+| 概率密度 / 质量函数 | 小写 $p$ 或 $q$ | 如 $p(x), p(x \mid y)$ |
+| 随机变量 | 大写斜体 | $X, Y, Z$ |
+| 随机变量取值 | 小写斜体 | $x, y, z$ (即 $X = x$) |
+| 期望 | $\mathbb{E}$ | $\mathbb{E}_{x \sim p}[f(x)]$ |
+| 方差 / 协方差 | $\mathrm{Var}, \mathrm{Cov}$ | 直立体 |
+| 分布记号 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | 分布名用花体或直立体 |
+
+**关键区分**: $P$ 是**测度/概率**(无量纲, 取值 $[0,1]$), $p$ 是**密度**(可 $>1$, 对连续变量而言); 二者不可混用。
+
+### 0.4 常见算子与函数
+
+- 微分算子: $\mathrm{d}, \partial, \nabla$ (直立体); 梯度 $\nabla_{\mathbf{x}} f$。
+- 期望、方差、迹、秩等具名算子用直立体: $\mathbb{E}, \mathrm{Var}, \mathrm{tr}, \mathrm{rank}$。
+- $\log$ 默认以 $e$ 为底(自然对数); 需其他底时显式写作 $\log_2, \log_{10}$。
+- 转置用 $\mathbf{A}^\top$(避免与共轭 $\mathbf{A}^*$、Hermite 转置 $\mathbf{A}^{\mathsf{H}}$ 混淆)。
+
+### 0.5 索引与遍历
+
+- 样本索引用 $i, j$ (上标括号): $\mathbf{x}^{(i)}$ 表示第 $i$ 个样本, $x_j^{(i)}$ 表示第 $i$ 个样本的第 $j$ 维。
+- 迭代/时间步用 $t$: $\boldsymbol{\theta}^{(t)}$ 表示第 $t$ 步的参数。
+- 层号用上标方括号: $\mathbf{W}^{[l]}$ 表示第 $l$ 层权重(深度学习章节)。
+
+---
+
 ## 1. 数学基础 (Foundations of Math)
 
 | 英文 | 中文 | 备注 |
