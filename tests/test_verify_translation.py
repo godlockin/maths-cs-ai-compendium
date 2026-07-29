@@ -75,7 +75,44 @@ class VerifyTranslationTests(unittest.TestCase):
         )
         self.assertTrue(any(f["rule_id"] == "P1-SEMANTIC" for f in report["findings"]))
 
-    def test_punctuation_checks_all_ascii_marks(self):
+    def test_semantic_ignores_source_language_quotations_and_blockquotes(self):
+        for target in (
+            '“This sentence remains entirely in English and should be allowed.”\n',
+            '> This sentence remains entirely in English and should be allowed.\n',
+        ):
+            with self.subTest(target=target):
+                report = self._report_for("中文源内容。\n", target)
+                self.assertFalse(any(f["rule_id"] == "P1-SEMANTIC" for f in report["findings"]))
+
+    def test_semantic_ignores_uppercase_abbreviation_combinations(self):
+        report = self._report_for("中文源内容。\n", "API and GPU models\n")
+        self.assertFalse(any(f["rule_id"] == "P1-SEMANTIC" for f in report["findings"]))
+
+    def test_source_and_target_map_by_stable_numeric_prefix(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source_dir, target_dir = root / "source", root / "target"
+            source_dir.mkdir(); target_dir.mkdir()
+            (source_dir / "01. source title.md").write_text("中文。\n", encoding="utf-8")
+            (target_dir / "01. 中文标题.md").write_text("中文。\n", encoding="utf-8")
+            report = verify_chapter(source_dir, target_dir)
+            self.assertEqual("PASS", report["status"])
+            self.assertEqual(1, report["metrics"]["files"])
+
+    def test_missing_or_duplicate_numeric_prefix_rejects_mapping(self):
+        cases = ((["01. source.md", "02. source.md"], ["01. target.md"]),
+                 (["01. first.md", "01. second.md"], ["01. target.md"]))
+        for source_names, target_names in cases:
+            with self.subTest(source_names=source_names):
+                with tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory); source_dir, target_dir = root / "source", root / "target"
+                    source_dir.mkdir(); target_dir.mkdir()
+                    for name in source_names: (source_dir / name).write_text("中文。\n", encoding="utf-8")
+                    for name in target_names: (target_dir / name).write_text("中文。\n", encoding="utf-8")
+                    report = verify_chapter(source_dir, target_dir)
+                    self.assertEqual("FAIL", report["status"])
+                    self.assertTrue(any(f["rule_id"] == "P0-FILE-MAP" for f in report["findings"]))
+
         for mark in ",.:;?!":
             with self.subTest(mark=mark):
                 report = self._report_for("中文源内容。\n", f"中文内容{mark}\n")

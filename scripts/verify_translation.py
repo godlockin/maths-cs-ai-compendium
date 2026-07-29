@@ -27,11 +27,27 @@ def strip_enhancements(text: str) -> str:
 def markdown_files(directory: Path) -> list[Path]: return sorted(directory.glob("*.md"))
 
 def map_files(source_dir: Path, target_dir: Path) -> list[tuple[Path, Path]]:
-    if not source_dir.is_dir() or not target_dir.is_dir(): raise ValueError("source and target directories must exist")
-    source_files, target_files = markdown_files(source_dir), markdown_files(target_dir)
-    if len(source_files) != len(target_files): raise ValueError(f"file count differs: source={len(source_files)} target={len(target_files)}")
-    if [p.name for p in source_files] != [p.name for p in target_files]: raise ValueError("source and target markdown filename mapping differs")
-    return list(zip(source_files, target_files))
+    if not source_dir.is_dir() or not target_dir.is_dir():
+        raise ValueError("source and target directories must exist")
+
+    def indexed_files(directory: Path, side: str) -> dict[int, Path]:
+        indexed: dict[int, Path] = {}
+        for path in markdown_files(directory):
+            match = re.match(r"^(\d+)\.", path.name)
+            if match is None:
+                raise ValueError(f"{side} markdown filename lacks parseable numeric prefix: {path.name}")
+            index = int(match.group(1))
+            if index in indexed:
+                raise ValueError(f"{side} markdown numeric prefix is duplicated: {index:02d}")
+            indexed[index] = path
+        return indexed
+
+    source_files, target_files = indexed_files(source_dir, "source"), indexed_files(target_dir, "target")
+    if set(source_files) != set(target_files):
+        missing = sorted(set(source_files) - set(target_files))
+        extra = sorted(set(target_files) - set(source_files))
+        raise ValueError(f"markdown numeric prefix sets differ: missing_target={missing} extra_target={extra}")
+    return [(source_files[index], target_files[index]) for index in sorted(source_files)]
 
 @dataclass(frozen=True)
 class _Unit:
@@ -161,11 +177,15 @@ def _spacing_findings(text: str, source: Path, target: Path) -> list[Finding]:
 def _semantic_candidate(source_text: str, target_text: str, source: Path, target: Path) -> list[Finding]:
     """Flag target prose dominated by a long untranslated Latin run."""
     findings: list[Finding] = []
-    for index, prose in enumerate((u.value for u in _unit_scan(target_text) if u.kind == "prose"), 1):
+    # Markdown blockquotes are explicitly allowed source-language quotations.
+    semantic_text = "\n".join(line for line in target_text.splitlines() if not re.match(r"^\s*>\s?", line))
+    for index, prose in enumerate((u.value for u in _unit_scan(semantic_text) if u.kind == "prose"), 1):
         candidate = re.sub(r"!?\[[^\]]*\]\([^)]*\)|https?://\S+", "", prose)
         candidate = re.sub(r"`[^`]*`|\$[^$]*\$", "", candidate)
         candidate = re.sub(r"[（(][^）)]*[A-Za-z][^）)]*[）)]", "", candidate)
-        candidate = re.sub(r"['\"](?:[^'\"]|\\.)*['\"]", "", candidate)
+        candidate = re.sub(r"['\"‘’“”](?:[^'\"‘’“”]|\\.)*['\"‘’“”]", "", candidate)
+        # All-uppercase tokens, including slash/hyphen combinations, are abbreviations.
+        candidate = re.sub(r"\b[A-Z][A-Z0-9]*(?:[/-][A-Z0-9]+)*\b", "", candidate)
         if re.search(r"[A-Za-z](?:[A-Za-z ,.'-]{11,})", candidate) and len(re.findall(r"[一-鿿]", candidate)) < 3:
             findings.append(_finding("P1-SEMANTIC", "P1", source, target, f"prose unit {index}: long Latin run with insufficient Han text"))
     return findings
@@ -223,6 +243,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(output, end="")
     except OSError as error:
         parser.error(str(error))
-    return 1 if report["status"] == "FAIL" else 0
+    if report["status"] == "FAIL":
+        return 2 if any(f["rule_id"] == "P0-FILE-MAP" for f in report["findings"]) else 1
+    return 0
 
 if __name__ == "__main__": raise SystemExit(main())
