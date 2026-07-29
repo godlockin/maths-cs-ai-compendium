@@ -128,6 +128,9 @@ def _unit_scan(text: str) -> list[_Unit]:
         links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", line)
         if links:
             _flush_paragraph(units, paragraph)
+            prose = re.sub(r"!?\[[^\]]*\]\(([^)]+)\)", "", line)
+            if prose.strip():
+                units.append(_Unit("prose", line))
             units.extend(_Unit("asset", url.strip()) for url in links)
             index += 1
             continue

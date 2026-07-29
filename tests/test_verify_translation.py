@@ -22,6 +22,12 @@ class VerifyTranslationTests(unittest.TestCase):
         report = verify_chapter(SOURCE, ROOT / "target_missing_paragraph", strict=False)
         self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
 
+    def test_inline_link_does_not_hide_missing_prose(self):
+        report = verify_chapter(
+            ROOT / "source_inline_link", ROOT / "target_inline_link", strict=False
+        )
+        self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
+
     def test_unlabelled_expansion_is_p1(self):
         report = verify_chapter(SOURCE, ROOT / "target_unlabelled_expansion", strict=False)
         self.assertTrue(any(f["rule_id"] == "P1-UNLABELLED-EXPANSION" for f in report["findings"]))
