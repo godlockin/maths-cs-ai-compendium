@@ -1,0 +1,37 @@
+name: Translation QA Baseline
+
+on:
+  pull_request:
+    paths:
+      - 'chapter 09 - audio and speech/**'
+      - 'chapter 10 - multimodal learning/**'
+      - 'zh/第09章 - 音频与语音/**'
+      - 'zh/第10章 - 多模态学习/**'
+      - 'scripts/verify_translation.py'
+  push:
+    branches: [main]
+    paths:
+      - 'chapter 09 - audio and speech/**'
+      - 'chapter 10 - multimodal learning/**'
+      - 'zh/第09章 - 音频与语音/**'
+      - 'zh/第10章 - 多模态学习/**'
+      - 'scripts/verify_translation.py'
+  workflow_dispatch:
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate Chapter 09 and 10 QA reports
+        run: |
+          mkdir -p /tmp/translation-qa
+          python3 scripts/verify_translation.py --source-dir "chapter 09 - audio and speech" --target-dir "zh/第09章 - 音频与语音" --chapter 09 --report /tmp/translation-qa/ch09.json || true
+          python3 scripts/verify_translation.py --source-dir "chapter 10 - multimodal learning" --target-dir "zh/第10章 - 多模态学习" --chapter 10 --report /tmp/translation-qa/ch10.json || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: translation-qa-baseline
+          path: /tmp/translation-qa
