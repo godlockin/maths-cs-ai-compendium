@@ -190,6 +190,41 @@ def _semantic_candidate(source_text: str, target_text: str, source: Path, target
             findings.append(_finding("P1-SEMANTIC", "P1", source, target, f"prose unit {index}: long Latin run with insufficient Han text"))
     return findings
 
+def _prose_for_metrics(text: str) -> str:
+    return _visible_text(text)
+
+
+def _enhancement_text(text: str) -> str:
+    matches: list[str] = []
+    for pattern in (SUMMARY, NAV, KEY_POINTS, LABELLED_NOTE):
+        matches.extend(match.group(0) for match in pattern.finditer(text))
+    return _visible_text("\n".join(matches))
+
+
+def prose_token_metrics(source_text: str, target_text: str) -> dict[str, object]:
+    """Count translatable prose and separately count recognised enhancements."""
+    try:
+        import tiktoken
+
+        encoder = tiktoken.get_encoding("cl100k_base")
+        count = lambda value: len(encoder.encode(value))
+        tokenizer, confidence = "tiktoken", "high"
+    except ImportError:
+        count = lambda value: len(re.findall(r"[一-鿿]|[A-Za-z]+|\d+", value))
+        tokenizer, confidence = "estimate", "low"
+    source_tokens = count(_prose_for_metrics(source_text))
+    target_tokens = count(_prose_for_metrics(strip_enhancements(target_text)))
+    enhancement_tokens = count(_enhancement_text(target_text))
+    return {
+        "source_tokens": source_tokens,
+        "target_tokens": target_tokens,
+        "enhancement_tokens": enhancement_tokens,
+        "ratio": None if source_tokens == 0 else round(target_tokens / source_tokens, 4),
+        "tokenizer": tokenizer,
+        "confidence": confidence,
+    }
+
+
 def verify_file(source: Path, target: Path) -> list[Finding]:
     source_text, target_text = strip_enhancements(source.read_text(encoding="utf-8")), strip_enhancements(target.read_text(encoding="utf-8")); findings: list[Finding] = []
     if _math_blocks(source_text) != _math_blocks(target_text): findings.append(_finding("P0-MATH", "P0", source, target, "ordered $$ blocks differ byte-for-byte"))
@@ -206,7 +241,24 @@ def verify_chapter(source_dir: Path, target_dir: Path, strict: bool = False) -> 
     try: pairs = map_files(source_dir, target_dir)
     except ValueError as error: return {"status": "FAIL", "findings": [asdict(_finding("P0-FILE-MAP", "P0", source_dir, target_dir, str(error)))], "metrics": {}}
     findings = [finding for source, target in pairs for finding in verify_file(source, target)]
-    metrics = {"files": len(pairs), "findings": len(findings), "by_severity": {level: sum(f.severity == level for f in findings) for level in ("P0", "P1", "P2")}}
+    file_metrics = [prose_token_metrics(source.read_text(encoding="utf-8"), target.read_text(encoding="utf-8")) for source, target in pairs]
+    source_tokens = sum(metric["source_tokens"] for metric in file_metrics)
+    target_tokens = sum(metric["target_tokens"] for metric in file_metrics)
+    enhancement_tokens = sum(metric["enhancement_tokens"] for metric in file_metrics)
+    metrics = {
+        "files": len(pairs),
+        "findings": len(findings),
+        "by_severity": {level: sum(f.severity == level for f in findings) for level in ("P0", "P1", "P2")},
+        "tokens": {
+            "source_tokens": source_tokens,
+            "target_tokens": target_tokens,
+            "enhancement_tokens": enhancement_tokens,
+            "ratio": None if source_tokens == 0 else round(target_tokens / source_tokens, 4),
+            "tokenizer": file_metrics[0]["tokenizer"] if file_metrics else "estimate",
+            "confidence": file_metrics[0]["confidence"] if file_metrics else "low",
+        },
+        "model_agent_tokens": {"status": "unavailable", "reason": "repository has no per-call model token ledger"},
+    }
     blocked = any(f.severity in {"P0", "P1"} or (strict and f.severity == "P2") for f in findings)
     return {"status": "FAIL" if blocked else "PASS", "findings": [asdict(f) for f in findings], "metrics": metrics}
 
