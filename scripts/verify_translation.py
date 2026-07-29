@@ -61,6 +61,42 @@ def _flush_paragraph(units: list[_Unit], paragraph: list[str]) -> None:
         paragraph.clear()
 
 
+def _line_structure(line: str) -> tuple[str, str, str] | None:
+    list_item = re.match(r"^(\s*)(?:[-*+] |\d+[.)] )(.*)$", line)
+    if list_item:
+        indent, body = list_item.groups()
+        nesting = str(len(indent.replace("\t", "    ")) // 2)
+        return "list", nesting, body
+    blockquote = re.match(r"^\s*>\s?(.*)$", line)
+    if blockquote:
+        return "admonition", "", blockquote.group(1)
+    if re.match(r"^\s*\|.*\|\s*$", line):
+        return "table", "", line.strip()[1:-1]
+    return None
+
+
+def _normalized_prose(text: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"!?\[[^\]]*\]\(([^)]+)\)", "", text)).strip()
+
+
+def _parse_line(line: str) -> list[_Unit] | None:
+    links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", line)
+    structure = _line_structure(line)
+    if not links and structure is None:
+        return None
+    units: list[_Unit] = []
+    if structure is not None:
+        kind, metadata, prose = structure
+        units.append(_Unit(kind, metadata))
+    else:
+        prose = line
+    normalized = _normalized_prose(prose)
+    if normalized:
+        units.append(_Unit("prose", normalized))
+    units.extend(_Unit("asset", url.strip()) for url in links)
+    return units
+
+
 def _unit_scan(text: str) -> list[_Unit]:
     lines = text.splitlines()
     units: list[_Unit] = []
@@ -109,6 +145,12 @@ def _unit_scan(text: str) -> list[_Unit]:
                     index += 1
             units.append(_Unit("formula", "\n".join(body)))
             continue
+        parsed = _parse_line(line)
+        if parsed is not None:
+            _flush_paragraph(units, paragraph)
+            units.extend(parsed)
+            index += 1
+            continue
         list_item = re.match(r"^(\s*)(?:[-*+] |\d+[.)] )", line)
         if list_item:
             _flush_paragraph(units, paragraph)
@@ -123,15 +165,6 @@ def _unit_scan(text: str) -> list[_Unit]:
         if re.match(r"^\s*\|.*\|\s*$", line):
             _flush_paragraph(units, paragraph)
             units.append(_Unit("table"))
-            index += 1
-            continue
-        links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", line)
-        if links:
-            _flush_paragraph(units, paragraph)
-            prose = re.sub(r"!?\[[^\]]*\]\(([^)]+)\)", "", line)
-            if prose.strip():
-                units.append(_Unit("prose", line))
-            units.extend(_Unit("asset", url.strip()) for url in links)
             index += 1
             continue
         paragraph.append(line)

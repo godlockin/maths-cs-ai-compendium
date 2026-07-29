@@ -1,4 +1,5 @@
 from pathlib import Path
+import tempfile
 import unittest
 
 from scripts.verify_translation import verify_chapter
@@ -8,6 +9,17 @@ SOURCE = ROOT / "source"
 
 
 class VerifyTranslationTests(unittest.TestCase):
+    def _report_for(self, source_text: str, target_text: str):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source_dir = root / "source"
+            target_dir = root / "target"
+            source_dir.mkdir()
+            target_dir.mkdir()
+            (source_dir / "01.md").write_text(source_text, encoding="utf-8")
+            (target_dir / "01.md").write_text(target_text, encoding="utf-8")
+            return verify_chapter(source_dir, target_dir, strict=False)
+
     def test_valid_target_passes_with_labelled_enhancements(self):
         report = verify_chapter(SOURCE, ROOT / "target_valid", strict=False)
         self.assertEqual("PASS", report["status"])
@@ -25,6 +37,27 @@ class VerifyTranslationTests(unittest.TestCase):
     def test_inline_link_does_not_hide_missing_prose(self):
         report = verify_chapter(
             ROOT / "source_inline_link", ROOT / "target_inline_link", strict=False
+        )
+        self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
+
+    def test_list_url_only_does_not_hide_missing_prose(self):
+        report = self._report_for(
+            "- Source item [source](https://example.com)\n",
+            "- [target](https://example.com)\n",
+        )
+        self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
+
+    def test_blockquote_url_only_does_not_hide_missing_prose(self):
+        report = self._report_for(
+            "> Source note [source](https://example.com)\n",
+            "> [target](https://example.com)\n",
+        )
+        self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
+
+    def test_table_url_only_does_not_hide_missing_prose(self):
+        report = self._report_for(
+            "| Source item [source](https://example.com) |\n",
+            "| [target](https://example.com) |\n",
         )
         self.assertTrue(any(f["rule_id"] == "P0-SOURCE-COVERAGE" for f in report["findings"]))
 
