@@ -4,7 +4,6 @@ import argparse
 import json
 import re
 from dataclasses import asdict, dataclass
-from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Sequence
 
@@ -108,33 +107,67 @@ def _code_equal(source: str, target: str) -> bool:
 
 def _finding(rule: str, severity: str, source: Path, target: Path, message: str) -> Finding: return Finding(rule, severity, str(source), str(target), message)
 
-def _protected_line(line: str) -> str:
-    line = re.sub(r"`[^`]*`", "", line); line = re.sub(r"!?\[[^\]]*\]\([^)]+\)", "", line); return re.sub(r"https?://\S+", "", line)
+def _visible_text(text: str) -> str:
+    """Return prose text, masking fenced code, block/inline math, code, links, and URLs."""
+    visible: list[str] = []
+    in_fence = False
+    fence_char = ""
+    in_block_math = False
+    for line in text.splitlines():
+        stripped = line.strip()
+        fence = re.match(r"^\s*(```+|~~~+)", line)
+        if fence:
+            marker = fence.group(1)
+            if not in_fence:
+                in_fence, fence_char = True, marker[0]
+            elif marker[0] == fence_char:
+                in_fence = False
+            visible.append("")
+            continue
+        if in_fence:
+            visible.append("")
+            continue
+        if in_block_math:
+            visible.append("")
+            if "$$" in stripped:
+                in_block_math = False
+            continue
+        if stripped.startswith("$$"):
+            in_block_math = stripped.count("$$") < 2
+            visible.append("")
+            continue
+        clean = re.sub(r"`[^`]*`", "", line)
+        clean = re.sub(r"\\$[^$]*\\$|\$[^$]*\$", "", clean)
+        clean = re.sub(r"!?\[[^\]]*\]\([^)]*\)", "", clean)
+        clean = re.sub(r"https?://\S+", "", clean)
+        visible.append(clean)
+    return "\n".join(visible)
+
 
 def _punctuation_findings(text: str, source: Path, target: Path) -> list[Finding]:
-    for number, line in enumerate(text.splitlines(), 1):
-        if re.match(r"^\s*(?:```|~~~|\$\$)", line): continue
-        if re.search(r"[一-鿿][,!?;:]|[,!?;:][一-鿿]", _protected_line(line)):
-            return [_finding("P2-PUNCTUATION", "P2", source, target, f"line {number}: ASCII punctuation adjacent to CJK prose")]
+    visible = _visible_text(text)
+    if re.search(rf"[一-鿿][,.:;?!]|[,.:;?!][一-鿿]", visible):
+        return [_finding("P2-PUNCTUATION", "P2", source, target, "ASCII punctuation adjacent to CJK prose")]
     return []
+
 
 def _spacing_findings(text: str, source: Path, target: Path) -> list[Finding]:
-    for number, line in enumerate(text.splitlines(), 1):
-        if re.match(r"^\s*(?:```|~~~|\$\$)", line): continue
-        clean = _protected_line(line)
-        for word in re.findall(r"[A-Za-z][A-Za-z0-9+.#-]{2,}", clean):
-            if word.isupper() or re.fullmatch(r"[A-Za-z]{1,3}\d+", word): continue
-            if re.search(rf"[一-鿿]{re.escape(word)}|{re.escape(word)}[一-鿿]", clean):
-                return [_finding("P2-SPACING", "P2", source, target, f"line {number}: missing CJK/Latin word spacing")]
+    visible = _visible_text(text)
+    if re.search(r"[一-鿿][A-Za-z0-9]|[A-Za-z0-9][一-鿿]", visible):
+        return [_finding("P2-SPACING", "P2", source, target, "missing CJK/ASCII spacing")]
     return []
 
+
 def _semantic_candidate(source_text: str, target_text: str, source: Path, target: Path) -> list[Finding]:
-    source_prose = [u.value for u in _unit_scan(source_text) if u.kind == "prose"]; target_prose = [u.value for u in _unit_scan(target_text) if u.kind == "prose"]; findings = []
-    for index, (left, right) in enumerate(zip(source_prose, target_prose), 1):
-        latin_left, latin_right = re.findall(r"[A-Za-z]{3,}", left.lower()), re.findall(r"[A-Za-z]{3,}", right.lower())
-        if len(latin_left) >= 4 and len(latin_right) >= 4:
-            score = SequenceMatcher(None, " ".join(latin_left), " ".join(latin_right)).ratio()
-            if score < 0.25: findings.append(_finding("P1-SEMANTIC", "P1", source, target, f"prose unit {index}: low lexical similarity candidate ({score:.2f})"))
+    """Flag target prose dominated by a long untranslated Latin run."""
+    findings: list[Finding] = []
+    for index, prose in enumerate((u.value for u in _unit_scan(target_text) if u.kind == "prose"), 1):
+        candidate = re.sub(r"!?\[[^\]]*\]\([^)]*\)|https?://\S+", "", prose)
+        candidate = re.sub(r"`[^`]*`|\$[^$]*\$", "", candidate)
+        candidate = re.sub(r"[（(][^）)]*[A-Za-z][^）)]*[）)]", "", candidate)
+        candidate = re.sub(r"['\"](?:[^'\"]|\\.)*['\"]", "", candidate)
+        if re.search(r"[A-Za-z](?:[A-Za-z ,.'-]{11,})", candidate) and len(re.findall(r"[一-鿿]", candidate)) < 3:
+            findings.append(_finding("P1-SEMANTIC", "P1", source, target, f"prose unit {index}: long Latin run with insufficient Han text"))
     return findings
 
 def verify_file(source: Path, target: Path) -> list[Finding]:
@@ -157,25 +190,39 @@ def verify_chapter(source_dir: Path, target_dir: Path, strict: bool = False) -> 
     blocked = any(f.severity in {"P0", "P1"} or (strict and f.severity == "P2") for f in findings)
     return {"status": "FAIL" if blocked else "PASS", "findings": [asdict(f) for f in findings], "metrics": metrics}
 
+def _resolve_chapter_dir(directory: Path, chapter: str | None) -> Path:
+    if not directory.is_dir():
+        raise ValueError(f"directory does not exist: {directory}")
+    if chapter and not any(directory.glob("*.md")):
+        return directory / chapter
+    return directory
+
+
+def _with_metadata(report: dict, chapter: str | None) -> dict:
+    return {"chapter": chapter, "status": report["status"], "findings": report["findings"], "metrics": report["metrics"]}
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Verify translated markdown structure"); parser.add_argument("--source-dir", type=Path, required=True); parser.add_argument("--target-dir", type=Path, required=True); parser.add_argument("--chapter"); parser.add_argument("--report", type=Path); parser.add_argument("--strict", action="store_true"); parser.add_argument("--metrics-only", action="store_true"); args = parser.parse_args(argv)
-    source_dir, target_dir = (args.source_dir / args.chapter if args.chapter else args.source_dir), (args.target_dir / args.chapter if args.chapter else args.target_dir)
-    try: report = verify_chapter(source_dir, target_dir, strict=args.strict)
-    except (OSError, UnicodeError, ValueError) as error: parser.error(str(error))
-    if report["findings"] and report["findings"][0]["rule_id"] == "P0-FILE-MAP":
-        output = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
-        if args.report:
-            try:
-                args.report.parent.mkdir(parents=True, exist_ok=True); args.report.write_text(output, encoding="utf-8")
-            except OSError as error: parser.error(str(error))
-        else: print(output, end="")
-        return 2
-    if args.metrics_only: report = {"status": report["status"], "metrics": report["metrics"]}
+    try:
+        source_dir = _resolve_chapter_dir(args.source_dir, args.chapter)
+        target_dir = _resolve_chapter_dir(args.target_dir, args.chapter)
+        if not source_dir.is_dir() or not target_dir.is_dir():
+            raise ValueError(f"chapter directory does not exist: {source_dir if not source_dir.is_dir() else target_dir}")
+        report = verify_chapter(source_dir, target_dir, strict=args.strict)
+    except (OSError, UnicodeError, ValueError) as error:
+        parser.error(str(error))
+    report = _with_metadata(report, args.chapter)
+    if args.metrics_only:
+        report["findings"] = []
     output = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     try:
-        if args.report: args.report.parent.mkdir(parents=True, exist_ok=True); args.report.write_text(output, encoding="utf-8")
-        else: print(output, end="")
-    except OSError as error: parser.error(str(error))
+        if args.report:
+            args.report.parent.mkdir(parents=True, exist_ok=True); args.report.write_text(output, encoding="utf-8")
+        else:
+            print(output, end="")
+    except OSError as error:
+        parser.error(str(error))
     return 1 if report["status"] == "FAIL" else 0
 
 if __name__ == "__main__": raise SystemExit(main())

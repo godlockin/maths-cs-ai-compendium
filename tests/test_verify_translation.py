@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -65,9 +68,51 @@ class VerifyTranslationTests(unittest.TestCase):
         report = verify_chapter(SOURCE, ROOT / "target_unlabelled_expansion", strict=False)
         self.assertTrue(any(f["rule_id"] == "P1-UNLABELLED-EXPANSION" for f in report["findings"]))
 
-    def test_halfwidth_punctuation_warns_and_strict_fails(self):
-        warning = verify_chapter(SOURCE, ROOT / "target_punctuation", strict=False)
-        strict = verify_chapter(SOURCE, ROOT / "target_punctuation", strict=True)
-        self.assertTrue(any(f["rule_id"] == "P2-PUNCTUATION" for f in warning["findings"]))
-        self.assertEqual("PASS", warning["status"])
-        self.assertEqual("FAIL", strict["status"])
+    def test_semantic_finds_untranslated_english_in_target_prose(self):
+        report = self._report_for(
+            "中文源内容。\n",
+            "This sentence remains entirely in English and should be detected.\n",
+        )
+        self.assertTrue(any(f["rule_id"] == "P1-SEMANTIC" for f in report["findings"]))
+
+    def test_punctuation_checks_all_ascii_marks(self):
+        for mark in ",.:;?!":
+            with self.subTest(mark=mark):
+                report = self._report_for("中文源内容。\n", f"中文内容{mark}\n")
+                self.assertTrue(any(f["rule_id"] == "P2-PUNCTUATION" for f in report["findings"]))
+
+    def test_p2_ignores_fences_block_math_and_inline_math(self):
+        target = "```python\n中文, code\n```\n\n$$\n中文, math\n$$\n\n中文$ x,y $内容\n"
+        report = self._report_for(target, target)
+        self.assertFalse(any(f["rule_id"].startswith("P2-") for f in report["findings"]))
+
+    def test_spacing_flags_han_adjacent_ascii_letter_or_digit(self):
+        report = self._report_for("中文源内容。\n", "中文AI内容\n中文2内容\n")
+        self.assertTrue(any(f["rule_id"] == "P2-SPACING" for f in report["findings"]))
+
+    def test_spacing_ignores_inline_code(self):
+        target = "中文 `AI` 内容\n中文 `2` 内容\n"
+        report = self._report_for(target, target)
+        self.assertFalse(any(f["rule_id"] == "P2-SPACING" for f in report["findings"]))
+
+    def test_cli_report_has_metadata_and_chapter_is_not_appended(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "01.md").write_text("中文。\n", encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, "scripts/verify_translation.py", "--source-dir", str(root),
+                 "--target-dir", str(root), "--chapter", "09", "--metrics-only"],
+                check=False, capture_output=True, text=True,
+            )
+            self.assertEqual(0, result.returncode)
+            report = json.loads(result.stdout)
+            self.assertEqual("09", report["chapter"])
+            self.assertEqual([], report["findings"])
+            self.assertIn("metrics", report)
+
+    def test_cli_missing_directory_exits_two(self):
+        result = subprocess.run(
+            [sys.executable, "scripts/verify_translation.py", "--source-dir", "/missing", "--target-dir", "/missing"],
+            check=False, capture_output=True, text=True,
+        )
+        self.assertEqual(2, result.returncode)
