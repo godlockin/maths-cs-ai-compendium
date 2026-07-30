@@ -153,3 +153,72 @@ class VerifyTranslationTests(unittest.TestCase):
             check=False, capture_output=True, text=True,
         )
         self.assertEqual(2, result.returncode)
+
+    def test_p0_coverage_ignores_f12_enhancement_blocks(self):
+        source = (
+            "# 标题\n"
+            "\n"
+            "正文段落一.\n"
+            "\n"
+            "正文段落二.\n"
+        )
+        target = (
+            "# 标题\n"
+            "\n"
+            "> **一句话总结**: 中文扩展.\n"
+            "\n"
+            "## 🗺️ 本章导览\n"
+            "- 第 1 节\n"
+            "- 第 2 节\n"
+            "\n"
+            "正文段落一.\n"
+            "\n"
+            "正文段落二.\n"
+            "\n"
+            "---\n"
+            "\n"
+            "## 📌 本节要点\n"
+            "- **要点 1**: 说明\n"
+            "- **要点 2**: 说明\n"
+        )
+        report = self._report_for(source, target)
+        rule_ids = {f["rule_id"] for f in report["findings"]}
+        self.assertNotIn("P0-SOURCE-COVERAGE", rule_ids)
+        self.assertNotIn("P0-STRUCTURE", rule_ids)
+        self.assertNotIn("P1-UNLABELLED-EXPANSION", rule_ids)
+
+    def test_p0_code_tolerates_localised_python_comments(self):
+        source = "```python\nfor i in range(3):  # loop three times\n    print(i)\n```\n"
+        target = "```python\nfor i in range(3):  # 循环三次\n    print(i)\n```\n"
+        report = self._report_for(source, target)
+        self.assertFalse(any(f["rule_id"] == "P0-CODE" for f in report["findings"]))
+
+    def test_p0_code_still_flags_real_code_drift(self):
+        source = "```python\nx = 1\n```\n"
+        target = "```python\nx = 2\n```\n"
+        report = self._report_for(source, target)
+        self.assertTrue(any(f["rule_id"] == "P0-CODE" for f in report["findings"]))
+
+    def test_p0_coverage_accepts_labelled_expansion_units(self):
+        source = "# 标题\n\n原文段落.\n"
+        target = (
+            "# 标题\n\n"
+            "> **一句话总结**: 扩展.\n\n"
+            "原文段落.\n\n"
+            "> **补充说明**: 补充.\n"
+        )
+        report = self._report_for(source, target)
+        rule_ids = {f["rule_id"] for f in report["findings"]}
+        self.assertNotIn("P0-SOURCE-COVERAGE", rule_ids)
+        self.assertNotIn("P1-UNLABELLED-EXPANSION", rule_ids)
+
+    def test_p0_structure_accepts_extra_enhancement_headings(self):
+        source = "# 标题\n\n原文段落.\n"
+        target = (
+            "# 标题\n\n"
+            "## 🗺️ 本章导览\n- 第 1 节\n- 第 2 节\n\n"
+            "原文段落.\n\n"
+            "---\n\n## 📌 本节要点\n- 要点 1\n"
+        )
+        report = self._report_for(source, target)
+        self.assertNotIn("P0-STRUCTURE", {f["rule_id"] for f in report["findings"]})

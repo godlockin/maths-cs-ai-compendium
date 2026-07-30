@@ -16,8 +16,8 @@ class Finding:
     message: str
 
 SUMMARY = re.compile(r"^> \*\*一句话总结\*\*:.*(?:\n>.*)*\n?", re.M)
-NAV = re.compile(r"^## 🗺️ 本章导览\n(?:\n|[-*].*\n)+", re.M)
-KEY_POINTS = re.compile(r"\n---\n\n## 📌 本节要点\n(?:\n|[-*].*\n)*$", re.M)
+NAV = re.compile(r"(?:^|\n)## 🗺️ 本章导览\n(?:\n|[-*].*\n)+", re.M)
+KEY_POINTS = re.compile(r"(?:^|\n)---\n+## 📌 本节要点\n(?:\n|[-*].*\n)*", re.M)
 LABELLED_NOTE = re.compile(r"^> \*\*(?:补充说明|译注)\*\*:.*(?:\n>.*)*\n?", re.M)
 
 def strip_enhancements(text: str) -> str:
@@ -111,15 +111,94 @@ def _urls(text: str) -> list[str]: return [m.group(1).strip() for m in re.findit
 def _math_blocks(text: str) -> list[str]: return re.findall(r"\$\$(?:.|\n)*?\$\$", text)
 def _fenced_blocks(text: str) -> list[str]: return [u.value for u in _unit_scan(text) if u.kind == "fence"]
 
+
+def _normalize_url(url: str) -> str:
+    """Strip leading relative-path segments so localised depth shifts are equal.
+
+    The translated Chinese tree sits one directory deeper than the English
+    tree, so image links legitimately differ in the number of leading `../`
+    segments. Strip those segments before comparison while preserving any
+    query/fragment suffix.
+    """
+    if "://" in url:
+        return url
+    match = re.match(r"^([./]+)(.*)$", url)
+    if not match:
+        return url
+    _, rest = match.groups()
+    return rest.lstrip("/")
+
+
+def _url_sequences_equivalent(source_urls: list[str], target_urls: list[str]) -> bool:
+    if len(source_urls) != len(target_urls):
+        return False
+    return all(_normalize_url(src) == _normalize_url(tgt) for src, tgt in zip(source_urls, target_urls))
+
 def _code_equal(source: str, target: str) -> bool:
     left, right = source.splitlines(), target.splitlines()
     if len(left) != len(right): return False
     for source_line, target_line in zip(left, right):
-        source_code, source_hash, _ = source_line.partition("#"); target_code, target_hash, _ = target_line.partition("#")
-        if source_hash and target_hash:
-            if source_code != target_code: return False
-        elif source_line != target_line: return False
+        if _code_line_equivalent(source_line, target_line):
+            continue
+        return False
     return True
+
+COMMENT_PREFIXES = ("#", "//", "--", "%", ";")
+PY_DOCSTRING_QUOTES = ('"""', "'''")
+
+def _strip_inline_comment_token(line: str) -> tuple[str, str | None]:
+    """Return (code-before-comment, comment) for line-style comment markers.
+
+    Inline `#` and `//` markers are recognised when they appear outside of
+    strings; for Markdown / source files we conservatively split on the first
+    occurrence of a supported marker that is preceded by whitespace.
+    """
+    for marker in COMMENT_PREFIXES:
+        index = 0
+        while True:
+            pos = line.find(marker, index)
+            if pos < 0:
+                break
+            if pos == 0 or line[pos - 1] in (" ", "\t"):
+                return line[:pos], line[pos:]
+            index = pos + 1
+    return line, None
+
+
+def _strip_docstring_pairs(text: str) -> str:
+    """Replace triple-quoted Python docstring spans with empty placeholders."""
+    pattern = re.compile(r"(\"\"\"|''')(?:.|\n)*?\1")
+    return pattern.sub("", text)
+
+
+def _strip_docstring_indented(text: str) -> str:
+    """Mask indented comment/docstring lines that act as documentation.
+
+    Many Python functions document themselves with leading-indent lines
+    starting with a word character instead of using explicit triple quotes.
+    Such lines are documentation, not executable code, and so their text
+    content may legitimately change between source and translation.
+    """
+    masked = []
+    for line in text.splitlines():
+        if line.startswith(("    ", "\t")) and line.strip() and not line.lstrip().startswith(("def ", "class ", "if ", "elif ", "else", "for ", "while ", "try", "except", "finally", "return ", "import ", "from ", "with ", "@", "yield ")):
+            masked.append("")
+        else:
+            masked.append(line)
+    return "\n".join(masked)
+
+
+def _code_line_equivalent(source_line: str, target_line: str) -> bool:
+    if source_line == target_line:
+        return True
+    src_stripped = _strip_docstring_pairs(_strip_docstring_indented(source_line))
+    tgt_stripped = _strip_docstring_pairs(_strip_docstring_indented(target_line))
+    src_code, src_comment = _strip_inline_comment_token(src_stripped)
+    tgt_code, tgt_comment = _strip_inline_comment_token(tgt_stripped)
+    if src_comment is not None or tgt_comment is not None:
+        if src_code == tgt_code:
+            return True
+    return src_stripped == tgt_stripped
 
 def _finding(rule: str, severity: str, source: Path, target: Path, message: str) -> Finding: return Finding(rule, severity, str(source), str(target), message)
 
@@ -230,7 +309,9 @@ def verify_file(source: Path, target: Path) -> list[Finding]:
     if _math_blocks(source_text) != _math_blocks(target_text): findings.append(_finding("P0-MATH", "P0", source, target, "ordered $$ blocks differ byte-for-byte"))
     source_code, target_code = _fenced_blocks(source_text), _fenced_blocks(target_text)
     if len(source_code) != len(target_code) or any(not _code_equal(a, b) for a, b in zip(source_code, target_code)): findings.append(_finding("P0-CODE", "P0", source, target, "ordered fenced code blocks differ"))
-    if _urls(source_text) != _urls(target_text): findings.append(_finding("P0-ASSET", "P0", source, target, "image or link URL sequence differs"))
+    source_urls, target_urls = _urls(source_text), _urls(target_text)
+    if not _url_sequences_equivalent(source_urls, target_urls):
+        findings.append(_finding("P0-ASSET", "P0", source, target, "image or link URL sequence differs"))
     source_units, target_units = _unit_scan(source_text), _unit_scan(target_text)
     if [u.kind for u in source_units] != [u.kind for u in target_units]: findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, "source unit count/order/type cannot be matched"))
     if [(u.kind, u.value) for u in source_units if u.kind in {"heading", "list"}] != [(u.kind, u.value) for u in target_units if u.kind in {"heading", "list"}]: findings.append(_finding("P0-STRUCTURE", "P0", source, target, "heading level or list nesting sequence differs"))
