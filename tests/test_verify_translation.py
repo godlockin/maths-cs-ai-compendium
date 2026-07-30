@@ -222,3 +222,29 @@ class VerifyTranslationTests(unittest.TestCase):
         )
         report = self._report_for(source, target)
         self.assertNotIn("P0-STRUCTURE", {f["rule_id"] for f in report["findings"]})
+
+    def test_p0_coverage_accepts_extra_enhancement_list_items(self):
+        source = "# 标题\n\n原文段落.\n"
+        target = (
+            "# 标题\n\n"
+            "> **一句话总结**: 概述.\n"
+            "\n"
+            "## 🗺️ 本章导览\n"
+            "- 导览条目 A\n"
+            "- 导览条目 B\n"
+            "- 导览条目 C\n"
+            "\n"
+            "原文段落.\n"
+            "\n"
+            "---\n"
+            "\n"
+            "## 📌 本节要点\n"
+            "- 要点 1: 解释\n"
+            "- 要点 2: 解释\n"
+            "- 要点 3: 解释\n"
+        )
+        report = self._report_for(source, target)
+        rule_ids = {f["rule_id"] for f in report["findings"]}
+        self.assertNotIn("P0-SOURCE-COVERAGE", rule_ids)
+        self.assertNotIn("P0-STRUCTURE", rule_ids)
+        self.assertNotIn("P1-UNLABELLED-EXPANSION", rule_ids)

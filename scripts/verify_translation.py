@@ -81,7 +81,11 @@ def _parse_line(line: str) -> list[_Unit] | None:
 
 def _unit_scan(text: str) -> list[_Unit]:
     lines, units, paragraph = text.splitlines(), [], []; index = 0
+    skip_until = 0  # index after which we resume scanning
     while index < len(lines):
+        if index < skip_until:
+            index += 1
+            continue
         line, stripped = lines[index], lines[index].strip()
         if not stripped: _flush(units, paragraph); index += 1; continue
         fence = re.match(r"^\s*(```+|~~~+)(.*)$", line)
@@ -102,6 +106,28 @@ def _unit_scan(text: str) -> list[_Unit]:
                     if lines[index].strip().endswith("$$"): index += 1; break
                     index += 1
             units.append(_Unit("formula", "\n".join(body))); continue
+        # Defence-in-depth: skip the body of F12 enhancement blocks even if
+        # the strip_enhancements regex missed them due to formatting drift.
+        if re.match(r"^> \*\*一句话总结\*\*", stripped):
+            _flush(units, paragraph); index += 1
+            while index < len(lines) and (lines[index].startswith("> ") or not lines[index].strip()):
+                if lines[index].strip() and not lines[index].startswith("> "):
+                    break
+                index += 1
+            continue
+        if re.match(r"^## 🗺️ 本章导览\s*$", stripped):
+            _flush(units, paragraph); index += 1
+            while index < len(lines) and (lines[index].strip() == "" or lines[index].lstrip().startswith(("- ", "* ", "1. "))):
+                index += 1
+            continue
+        if re.match(r"^---\s*$", stripped) and any(
+            re.match(r"^## 📌 本节要点\s*$", lines[j].strip())
+            for j in range(index + 1, min(index + 4, len(lines)))
+        ):
+            _flush(units, paragraph); index += 1
+            while index < len(lines) and lines[index].strip() != "":
+                index += 1
+            continue
         parsed = _parse_line(line)
         if parsed is not None: _flush(units, paragraph); units.extend(parsed); index += 1; continue
         paragraph.append(line); index += 1
