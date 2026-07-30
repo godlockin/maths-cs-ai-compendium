@@ -174,6 +174,66 @@ def scan_content_alignment(report: AuditReport, file: Path) -> None:
         if expected != actual:
             report.add("ALIGN", "ERROR", file, f"文件名 {expected} ≠ 标题第 {actual} 节 (内容-位置错位)")
 
+    # 启发式: 内容-主题 vs 源章节对齐
+    topic_match = re.search(r"第\s+\d+\s*节\s*·\s*(.+?)$", text.splitlines()[0] if text else "")
+    if topic_match:
+        lecture_topic = topic_match.group(1).strip()
+        _check_topic_against_source(report, file, lecture_topic, text)
+
+
+def _check_topic_against_source(report: AuditReport, file: Path, lecture_topic: str, body: str) -> None:
+    """启发式: 找到源章节(同名 N. 章节) → 检查讲稿正文是否包含源章节标题的核心 token.
+
+    仅在源章节存在 + 教辅讲稿正文足够长(>1000 字符) 时启用. 对空讲稿 / 占位文件豁免.
+    """
+    # 推断源章节路径
+    chapter_dir = file.parent  # 教辅/讲解稿/第XX章
+    chapter_match = re.search(r"第(\d+)章", chapter_dir.name)
+    if not chapter_match:
+        return
+    chap_num = chapter_match.group(1)
+    repo_root = chapter_dir.parents[2]  # zh/教辅/讲解稿 → zh/教辅 → zh → repo
+    # chap directory 命名格式 'chapter 11 - autonomous systems' (任意 chap 后数字)
+    candidates = list(repo_root.glob(f"chapter *"))
+    src_dir = None
+    for c in candidates:
+        # Match 'chapter NN' with chap_num
+        if re.match(rf"chapter\s+0?{chap_num}\b", c.name):
+            src_dir = c
+            break
+    if src_dir is None or not src_dir.is_dir():
+        return
+
+    # 找 N. <topic>.md 源章节
+    name_match = re.match(r"(\d+)\.", file.name)
+    if not name_match:
+        return
+    seq = int(name_match.group(1))
+    src_files = sorted(src_dir.glob("*.md"))
+    if seq > len(src_files):
+        return
+    src_file = src_files[seq - 1]
+    src_text = src_file.read_text(encoding="utf-8")
+
+    # 提取源章节的 H1 标题
+    src_h1_match = re.search(r"^#\s+(.+?)$", src_text, re.M)
+    if not src_h1_match:
+        return
+    src_title = src_h1_match.group(1).strip()
+
+    # 提取英文有意义的 tokens (>=3 字符的英文/数字混合 token)
+    en_tokens_src = set(re.findall(r"\b[A-Za-z][A-Za-z0-9-]{2,}\b", src_title.lower()))
+    en_tokens_body = set(re.findall(r"\b[A-Za-z][A-Za-z0-9-]{2,}\b", body.lower()))
+    if not en_tokens_src:
+        return
+
+    # 计算交集与覆盖
+    matched = en_tokens_src & en_tokens_body
+    coverage = len(matched) / len(en_tokens_src)
+    if coverage < 0.20 and len(en_tokens_src) >= 2:
+        missing = sorted(en_tokens_src - en_tokens_body)[:8]
+        report.add("TOPIC", "WARN", file, f"讲稿正文与源章节 (序号 {seq}) 主题关键词重合率 {coverage:.0%}, 缺: {missing}")
+
 
 def scan_policy_minimums(report: AuditReport, file: Path, kind: str) -> None:
     """扫描 7: 模板遵循 - 各类材料的最小节点数/题数/卡片数."""
