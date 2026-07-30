@@ -1,0 +1,85 @@
+name: audit-jiaofu
+
+on:
+  push:
+    paths:
+      - 'zh/教辅/**'
+      - 'scripts/audit_jiaofu.py'
+  pull_request:
+    paths:
+      - 'zh/教辅/**'
+      - 'scripts/audit_jiaofu.py'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Run audit once, capture JSON report and human summary. Always run
+      # so the artifact + PR comment are always available, then enforce
+      # ERROR-based blocking in the next step.
+      - name: Run audit and capture report
+        if: always()
+        run: |
+          mkdir -p reports
+          python3 scripts/audit_jiaofu.py zh/教辅 --all --json reports/jiaofu-audit.json || true
+          python3 scripts/audit_jiaofu.py zh/教辅 --all || true
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jiaofu-audit-report
+          path: reports/jiaofu-audit.json
+          if-no-files-found: ignore
+
+      - name: Comment on PR with summary
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'reports/jiaofu-audit.json';
+            let summary = '教辅 QA audit 报告未生成';
+            try {
+              const r = JSON.parse(fs.readFileSync(path, 'utf-8'));
+              const errors = r.findings.filter(f => f.severity === 'ERROR').length;
+              const warns = r.findings.filter(f => f.severity === 'WARN').length;
+              const scanned = r.files_scanned;
+              summary = `📚 教辅 audit · scanned=${scanned} files · ERROR=${errors} · WARN=${warns}`;
+              if (errors > 0) summary += '\n\n⚠️ 本次包含 ERROR 级违规,请运行 `python3 scripts/audit_jiaofu.py zh/教辅 --chapter <N>` 详查。';
+              else if (warns > 0) summary += '\n\n请审视剩余 WARN,评估是否需要处理。';
+              else summary += '\n\n✅ 干净，可合并。';
+            } catch (e) {
+              summary = '教辅 QA audit 失败: ' + e.message;
+            }
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary,
+            });
+
+      # Final blocking step: read JSON, exit non-zero if any ERROR.
+      # Uses only GitHub-provided environment variables (no PR / commit
+      # metadata), avoiding shell-injection surface.
+      - name: Block on ERROR
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          try:
+              r = json.load(open('reports/jiaofu-audit.json'))
+          except FileNotFoundError:
+              sys.exit('audit report missing')
+          errors = [f for f in r['findings'] if f['severity'] == 'ERROR']
+          print(f'教辅 audit ERROR count: {len(errors)}')
+          for e in errors[:10]:
+              print(f'  - {e["kind"]:8s} {e["path"][-60:]} :: {e["message"][:80]}')
+          sys.exit(1 if errors else 0)
+          PY
