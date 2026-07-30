@@ -151,7 +151,11 @@ def scan_disease(report: AuditReport, file: Path) -> None:
     for pat, label in issues:
         if pat in text:
             # 例外: 阶段测试题中的 TODO 是练习题代码占位 (学生实现)
-            is_exercise = "E1" in text and "TODO" in text and "# 评分" in text
+            is_exercise = (
+                "TODO" in text
+                and any(marker in text for marker in ("E1", "A1", "B1", "C1", "D1"))
+                and any(sm in text for sm in ("# 评分", "评分要点", "**答案**"))
+            )
             if pat == "TODO" and is_exercise:
                 continue
             report.add("DISEASE", "WARN", file, f"{label}")
