@@ -1,28 +1,28 @@
 # 中英术语对照表 · Glossary
 
-> 本表为《maths-cs-ai-compendium》中译工程的**术语规范**。凡书中出现的名词、缩写、隐喻,一律以本表为准; 遇歧义, 采用**"备注"**列指定的首选译法。
+> 本表为《maths-cs-ai-compendium》中译工程的**术语规范**。凡书中出现的名词、缩写、隐喻，一律以本表为准；遇歧义，采用**"备注"**列指定的首选译法。
 >
-> - 缩写(MLP/CNN/GPU 等)通常**不译**,直接沿用英文。
+> - 缩写(MLP/CNN/GPU 等)通常**不译**，直接沿用英文。
 > - 大写专有名词(Transformer, ResNet, PyTorch)保留英文。
 > - 数学符号、公式一律不译。
-> - 有争议的译法在备注中列出,采用首选。
+> - 有争议的译法在备注中列出，采用首选。
 
 ---
 
 ## 0. 全书数学记号约定 (Global Notation Conventions)
 
-> 本节为**全书统一**的数学排版规范,凡未特别声明的章节均遵循此约定。若某章因领域惯例需偏离(如统计中矩阵有时以斜体表示),须在该章开头显式说明。
+> 本节为**全书统一**的数学排版规范，凡未特别声明的章节均遵循此约定。若某章因领域惯例需偏离(如统计中矩阵有时以斜体表示)，须在该章开头显式说明。
 
 ### 0.1 标量、向量、矩阵、张量
 
 | 对象 | 记号 | 示例 | 说明 |
 |---|---|---|---|
 | 标量 (scalar) | 小写斜体 | $x, y, \alpha, \lambda$ | 单个实数或复数 |
-| 向量 (vector) | 小写粗体 | $\mathbf{x}, \mathbf{v}, \boldsymbol{\theta}$ | **默认列向量**; 行向量记作 $\mathbf{x}^\top$ |
+| 向量 (vector) | 小写粗体 | $\mathbf{x}, \mathbf{v}, \boldsymbol{\theta}$ | **默认列向量**；行向量记作 $\mathbf{x}^\top$ |
 | 矩阵 (matrix) | 大写粗体 | $\mathbf{A}, \mathbf{W}, \mathbf{X}$ | 元素 $A_{ij}$ 用大写斜体加下标 |
 | 张量 (tensor) | 花体或书法体 | $\mathcal{T}, \mathsf{T}$ | 三阶及以上 |
 
-**分量约定**: $\mathbf{x} = (x_1, x_2, \ldots, x_n)^\top \in \mathbb{R}^n$; 矩阵 $\mathbf{A} \in \mathbb{R}^{m \times n}$ 的第 $i$ 行第 $j$ 列元素记作 $A_{ij}$ 或 $[\mathbf{A}]_{ij}$。
+**分量约定**: $\mathbf{x} = (x_1, x_2, \ldots, x_n)^\top \in \mathbb{R}^n$；矩阵 $\mathbf{A} \in \mathbb{R}^{m \times n}$ 的第 $i$ 行第 $j$ 列元素记作 $A_{ij}$ 或 $[\mathbf{A}]_{ij}$。
 
 ### 0.2 集合与空间
 
@@ -44,20 +44,20 @@
 | 方差 / 协方差 | $\mathrm{Var}, \mathrm{Cov}$ | 直立体 |
 | 分布记号 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | 分布名用花体或直立体 |
 
-**关键区分**: $P$ 是**测度/概率**(无量纲, 取值 $[0,1]$), $p$ 是**密度**(可 $>1$, 对连续变量而言); 二者不可混用。
+**关键区分**: $P$ 是**测度/概率**(无量纲，取值 $[0,1]$), $p$ 是**密度**(可 $>1$，对连续变量而言)；二者不可混用。
 
 ### 0.4 常见算子与函数
 
-- 微分算子: $\mathrm{d}, \partial, \nabla$ (直立体); 梯度 $\nabla_{\mathbf{x}} f$。
-- 期望、方差、迹、秩等具名算子用直立体: $\mathbb{E}, \mathrm{Var}, \mathrm{tr}, \mathrm{rank}$。
-- $\log$ 默认以 $e$ 为底(自然对数); 需其他底时显式写作 $\log_2, \log_{10}$。
+- 微分算子：$\mathrm{d}, \partial, \nabla$ (直立体)；梯度 $\nabla_{\mathbf{x}} f$。
+- 期望、方差、迹、秩等具名算子用直立体：$\mathbb{E}, \mathrm{Var}, \mathrm{tr}, \mathrm{rank}$。
+- $\log$ 默认以 $e$ 为底(自然对数)；需其他底时显式写作 $\log_2, \log_{10}$。
 - 转置用 $\mathbf{A}^\top$(避免与共轭 $\mathbf{A}^*$、Hermite 转置 $\mathbf{A}^{\mathsf{H}}$ 混淆)。
 
 ### 0.5 索引与遍历
 
-- 样本索引用 $i, j$ (上标括号): $\mathbf{x}^{(i)}$ 表示第 $i$ 个样本, $x_j^{(i)}$ 表示第 $i$ 个样本的第 $j$ 维。
+- 样本索引用 $i, j$ (上标括号): $\mathbf{x}^{(i)}$ 表示第 $i$ 个样本，$x_j^{(i)}$ 表示第 $i$ 个样本的第 $j$ 维。
 - 迭代/时间步用 $t$: $\boldsymbol{\theta}^{(t)}$ 表示第 $t$ 步的参数。
-- 层号用上标方括号: $\mathbf{W}^{[l]}$ 表示第 $l$ 层权重(深度学习章节)。
+- 层号用上标方括号：$\mathbf{W}^{[l]}$ 表示第 $l$ 层权重(深度学习章节)。
 
 ---
 
@@ -70,7 +70,7 @@
 | lemma | 引理 | |
 | corollary | 推论 | |
 | proof | 证明 | |
-| field | 域 | 抽象代数意义, 非 "field of study" |
+| field | 域 | 抽象代数意义，非 "field of study" |
 | set | 集合 | |
 | subset | 子集 | |
 | function | 函数 | |
@@ -102,7 +102,7 @@
 | scalar multiplication | 标量乘法 | |
 | linear combination | 线性组合 | |
 | linear independence | 线性无关 | |
-| span | 张成 | 亦作 "生成"; 采用 "张成" |
+| span | 张成 | 亦作 "生成"；采用 "张成" |
 | basis | 基 | |
 | dimension | 维度 | |
 | coordinate | 坐标 | |
@@ -133,7 +133,7 @@
 | cosine similarity | 余弦相似度 | |
 | projection | 投影 | |
 | linear transformation | 线性变换 | |
-| feature vector | 特征向量 | ML 语境; 与线代 eigenvector 区分 |
+| feature vector | 特征向量 | ML 语境；与线代 eigenvector 区分 |
 | tensor | 张量 | |
 | broadcasting | 广播 | NumPy/PyTorch 语义 |
 
@@ -161,7 +161,7 @@
 | learning rate | 学习率 | |
 | optimizer | 优化器 | |
 | momentum | 动量 | |
-| Adam | Adam | 优化器名, 保留 |
+| Adam | Adam | 优化器名，保留 |
 | RMSProp | RMSProp | 保留 |
 | weight decay | 权重衰减 | |
 | loss function | 损失函数 | |
@@ -226,7 +226,7 @@
 | self-supervised learning | 自监督学习 | |
 | reinforcement learning | 强化学习 | |
 | training | 训练 | |
-| inference | 推理 | 亦作 "推断"; 采用 "推理" |
+| inference | 推理 | 亦作 "推断"；采用 "推理" |
 | validation | 验证 | |
 | test set | 测试集 | |
 | overfitting | 过拟合 | |
@@ -277,10 +277,10 @@
 | backpropagation | 反向传播 | |
 | backward pass | 反向传播 | 同上 |
 | activation function | 激活函数 | |
-| ReLU | ReLU | 保留;释义时说"修正线性单元" |
+| ReLU | ReLU | 保留；释义时说"修正线性单元" |
 | sigmoid | Sigmoid | 保留 |
 | tanh | tanh | 保留 |
-| GELU | GELU | 保留;高斯误差线性单元 |
+| GELU | GELU | 保留；高斯误差线性单元 |
 | Swish | Swish | 保留 |
 | softmax | Softmax | 保留 |
 | weight | 权重 | |
@@ -294,11 +294,11 @@
 | initialization | 初始化 | |
 | Xavier initialization | Xavier 初始化 | 亦作 "Glorot 初始化" |
 | He initialization | He 初始化 | 亦作 "Kaiming 初始化" |
-| batch normalization | 批归一化 | 亦作 "批量标准化"; 首选 "批归一化" |
+| batch normalization | 批归一化 | 亦作 "批量标准化"；首选 "批归一化" |
 | layer normalization | 层归一化 | |
 | instance normalization | 实例归一化 | |
 | group normalization | 组归一化 | |
-| dropout | Dropout | 保留;释义时说"随机丢弃" |
+| dropout | Dropout | 保留；释义时说"随机丢弃" |
 | vanishing gradient | 梯度消失 | |
 | exploding gradient | 梯度爆炸 | |
 | skip connection / residual connection | 跳跃连接 / 残差连接 | |
@@ -313,15 +313,15 @@
 | kernel / filter | 卷积核 / 滤波器 | |
 | stride | 步长 | |
 | padding | 填充 | |
-| dilation | 膨胀 / 空洞 | 首选 "膨胀"; 亦作 "空洞卷积" (dilated conv) |
+| dilation | 膨胀 / 空洞 | 首选 "膨胀"；亦作 "空洞卷积" (dilated conv) |
 | pooling | 池化 | |
 | max pooling | 最大池化 | |
 | average pooling | 平均池化 | |
 | global average pooling (GAP) | 全局平均池化 | |
 | depthwise separable convolution | 深度可分离卷积 | |
 | RNN (Recurrent Neural Network) | 循环神经网络 | 缩写常保留 |
-| LSTM | LSTM | 长短期记忆网络, 缩写常保留 |
-| GRU | GRU | 门控循环单元, 缩写常保留 |
+| LSTM | LSTM | 长短期记忆网络，缩写常保留 |
+| GRU | GRU | 门控循环单元，缩写常保留 |
 | forget gate | 遗忘门 | |
 | input gate | 输入门 | |
 | output gate | 输出门 | |
@@ -337,7 +337,7 @@
 | reparameterization trick | 重参数化技巧 | |
 | ResNet | ResNet | 保留 |
 | DenseNet | DenseNet | 保留 |
-| Inception | Inception | 保留;释义"Inception 模块" |
+| Inception | Inception | 保留；释义"Inception 模块" |
 | VGG | VGG | 保留 |
 | AlexNet / LeNet | AlexNet / LeNet | 保留 |
 | MobileNet | MobileNet | 保留 |
@@ -367,7 +367,7 @@
 | positional encoding | 位置编码 | |
 | sinusoidal encoding | 正弦位置编码 | |
 | RoPE (Rotary Position Embedding) | 旋转位置编码 | 缩写常保留 |
-| ALiBi | ALiBi | 保留;释义"带线性偏置的注意力" |
+| ALiBi | ALiBi | 保留；释义"带线性偏置的注意力" |
 | causal mask | 因果掩码 | |
 | masked language modelling (MLM) | 掩码语言建模 | 缩写常保留 |
 | causal language modelling (CLM) | 因果语言建模 | 缩写常保留 |
@@ -402,9 +402,9 @@
 | adapter | 适配器 | |
 | prefix tuning | 前缀微调 | |
 | prompt tuning | 提示微调 | |
-| RLHF | RLHF | 基于人类反馈的强化学习, 缩写常保留 |
+| RLHF | RLHF | 基于人类反馈的强化学习，缩写常保留 |
 | SFT (Supervised Fine-Tuning) | 有监督微调 | 缩写常保留 |
-| DPO | DPO | 直接偏好优化, 缩写常保留 |
+| DPO | DPO | 直接偏好优化，缩写常保留 |
 | perplexity | 困惑度 | |
 | BLEU / ROUGE / METEOR | BLEU / ROUGE / METEOR | 保留 |
 
@@ -451,7 +451,7 @@
 | sample rate | 采样率 | |
 | spectrogram | 频谱图 | |
 | mel-spectrogram | 梅尔频谱图 | |
-| MFCC | MFCC | 梅尔频率倒谱系数, 缩写常保留 |
+| MFCC | MFCC | 梅尔频率倒谱系数，缩写常保留 |
 | Fourier transform | 傅里叶变换 | |
 | FFT (Fast Fourier Transform) | 快速傅里叶变换 | |
 | STFT | 短时傅里叶变换 | 缩写常保留 |
@@ -497,7 +497,7 @@
 | GraphSAGE | GraphSAGE | 保留 |
 | pooling (graph) | 图池化 | |
 | autonomous system | 自主系统 | |
-| SLAM | SLAM | 同步定位与建图, 缩写常保留 |
+| SLAM | SLAM | 同步定位与建图，缩写常保留 |
 | Kalman filter | 卡尔曼滤波 | |
 | PID controller | PID 控制器 | 缩写不译 |
 | policy | 策略 | |
@@ -599,11 +599,11 @@
 | speculative execution | 推测执行 | |
 | instruction-level parallelism (ILP) | 指令级并行 | |
 | data-level parallelism | 数据级并行 | |
-| SIMD | SIMD | 单指令多数据, 缩写不译 |
-| SIMT | SIMT | 单指令多线程, 缩写不译 |
+| SIMD | SIMD | 单指令多数据，缩写不译 |
+| SIMT | SIMT | 单指令多线程，缩写不译 |
 | vector register | 向量寄存器 | |
-| SSE / AVX / AVX-512 | SSE / AVX / AVX-512 | x86 指令集, 保留 |
-| NEON / SVE | NEON / SVE | ARM 指令集, 保留 |
+| SSE / AVX / AVX-512 | SSE / AVX / AVX-512 | x86 指令集，保留 |
+| NEON / SVE | NEON / SVE | ARM 指令集，保留 |
 | intrinsic | 内建函数 | 亦作 "内置函数" |
 | GPU | GPU | 缩写不译 |
 | CUDA | CUDA | 保留 |
@@ -611,7 +611,7 @@
 | TPU | TPU | 缩写不译 |
 | ASIC | ASIC | 缩写不译 |
 | FPGA | FPGA | 缩写不译 |
-| FLOPS | FLOPS | 每秒浮点运算数, 缩写不译 |
+| FLOPS | FLOPS | 每秒浮点运算数，缩写不译 |
 | bandwidth | 带宽 | |
 | latency | 延迟 | |
 | throughput | 吞吐量 | |
@@ -619,7 +619,7 @@
 | arithmetic intensity | 算术强度 | 亦作 "计算强度" |
 | memory-bound | 内存受限 | |
 | compute-bound | 计算受限 | |
-| kernel (GPU) | 核函数 | GPU 语境; 与 OS kernel 区分 |
+| kernel (GPU) | 核函数 | GPU 语境；与 OS kernel 区分 |
 | kernel fusion | 算子融合 | 亦作 "核融合" |
 | warp | Warp | 保留;CUDA 术语 |
 | block / grid | 块 / 网格 | CUDA 术语 |
@@ -628,7 +628,7 @@
 | tensor core | Tensor Core | 保留 |
 | FMA (Fused Multiply-Add) | 融合乘加 | |
 | BLAS | BLAS | 保留 |
-| GEMM | GEMM | 通用矩阵乘, 保留 |
+| GEMM | GEMM | 通用矩阵乘，保留 |
 
 ---
 
@@ -687,7 +687,7 @@
 | logging | 日志 | |
 | metrics | 指标 | |
 | tracing | 链路追踪 | |
-| DAG | DAG | 有向无环图, 缩写常保留 |
+| DAG | DAG | 有向无环图，缩写常保留 |
 | dataflow | 数据流 | |
 | MLOps | MLOps | 保留 |
 | feature store | 特征仓库 | |
@@ -701,7 +701,7 @@
 
 | 英文 | 中文 | 备注 |
 |---|---|---|
-| agent | 智能体 / Agent | 首选 "智能体"; 高频语境保留 "Agent" |
+| agent | 智能体 / Agent | 首选 "智能体"；高频语境保留 "Agent" |
 | tool use / function calling | 工具调用 / 函数调用 | |
 | RAG (Retrieval-Augmented Generation) | 检索增强生成 | 缩写常保留 |
 | retriever | 检索器 | |
@@ -717,7 +717,7 @@
 | world model | 世界模型 | |
 | foundation model | 基础模型 | |
 | emergence | 涌现 | |
-| grokking | Grokking | 保留;释义"顿悟式泛化" |
+| grokking | Grokking | 保留；释义"顿悟式泛化" |
 | test-time compute | 测试时计算 | |
 | reasoning model | 推理模型 | |
 | Mixture of Depths | 深度混合 | 参照 MoE |
@@ -756,7 +756,7 @@
 | invariant (math) | 不变量 | |
 | protein language model | 蛋白质语言模型 | |
 | Amino Acid BERT / ProtBERT | ProtBERT | 保留 |
-| ESM (Evolutionary Scale Modeling) | ESM | 蛋白语言模型家族, 保留 |
+| ESM (Evolutionary Scale Modeling) | ESM | 蛋白语言模型家族，保留 |
 | backbone | 骨架 | 蛋白语境指主链 |
 | side chain | 侧链 | |
 | Cα (alpha carbon) | Cα 原子 | |
@@ -775,7 +775,7 @@
 
 ## 18. 文风与隐喻处理 (Style & Metaphor)
 
-> 本书大量使用比喻、玩笑与文化梗以提升可读性。翻译时**保留其风格张力**,不必逐字直译, 而是给出等效的中文表达。
+> 本书大量使用比喻、玩笑与文化梗以提升可读性。翻译时**保留其风格张力**，不必逐字直译，而是给出等效的中文表达。
 
 | 英文原句 / 说法 | 中文对照 | 备注 |
 |---|---|---|
@@ -795,7 +795,7 @@
 | ignite the deep learning revolution | 点燃深度学习革命 | AlexNet 语境 |
 | hit a wall | 撞上了墙 | 时钟频率停滞语境 |
 | the era ended | 那个时代结束了 | |
-| garbage in, garbage out | 垃圾进, 垃圾出 (GIGO) | 缩写常保留 |
+| garbage in, garbage out | 垃圾进，垃圾出 (GIGO) | 缩写常保留 |
 | toy example | 玩具示例 | |
 | bells and whistles | 花里胡哨的功能 | 视语境亦可译 "附加功能" |
 | syntactic sugar | 语法糖 | |
@@ -814,14 +814,14 @@
 | pathology | 病理 | |
 | whole-slide image (WSI) | 全切片图像 | 病理图像 |
 | radiomics | 影像组学 | |
-| DICOM | DICOM | 医学影像标准格式, 缩写不译 |
-| PACS | PACS | 影像归档系统, 缩写不译 |
+| DICOM | DICOM | 医学影像标准格式，缩写不译 |
+| PACS | PACS | 影像归档系统，缩写不译 |
 | EHR (Electronic Health Record) | 电子健康档案 | 缩写常保留 |
 | EMR (Electronic Medical Record) | 电子病历 | 缩写常保留 |
-| FHIR (Fast Healthcare Interoperability Resources) | FHIR | HL7 医疗数据交换标准, 缩写不译 |
-| HL7 | HL7 | 医疗信息交换协议, 缩写不译 |
+| FHIR (Fast Healthcare Interoperability Resources) | FHIR | HL7 医疗数据交换标准，缩写不译 |
+| HL7 | HL7 | 医疗信息交换协议，缩写不译 |
 | clinical note | 临床笔记 | |
-| SOAP (Subjective/Objective/Assessment/Plan) | SOAP 笔记 | 临床文档结构, 缩写不译 |
+| SOAP (Subjective/Objective/Assessment/Plan) | SOAP 笔记 | 临床文档结构，缩写不译 |
 | ICD (International Classification of Diseases) | 国际疾病分类 | 缩写常保留 |
 | ICD-10 / ICD-11 | ICD-10 / ICD-11 | 版本号保留 |
 | medical LLM | 医疗大语言模型 | |
@@ -835,24 +835,24 @@
 | external validation | 外部验证 | |
 | distribution shift | 分布漂移 | |
 | pharmacogenomics (PGx) | 药理基因组学 | 缩写常保留 |
-| CYP450 | CYP450 | 细胞色素 P450 酶家族, 缩写不译 |
-| CYP2D6 / CYP2C19 | CYP2D6 / CYP2C19 | 酶亚型, 缩写不译 |
-| CPIC | CPIC | 临床药物基因组学实施联盟, 缩写不译 |
+| CYP450 | CYP450 | 细胞色素 P450 酶家族，缩写不译 |
+| CYP2D6 / CYP2C19 | CYP2D6 / CYP2C19 | 酶亚型，缩写不译 |
+| CPIC | CPIC | 临床药物基因组学实施联盟，缩写不译 |
 | polygenic risk score (PRS) | 多基因风险评分 | |
 | clinical decision support (CDS) | 临床决策支持 | 缩写常保留 |
 | differential diagnosis | 鉴别诊断 | |
 | surgical robot | 手术机器人 | |
 | Da Vinci | Da Vinci | 达芬奇手术系统 |
 | visual servoing | 视觉伺服 | |
-| FDA | FDA | 美国食品药品监督管理局, 缩写不译 |
-| 510(k) | 510(k) | FDA 上市前通知路径, 缩写不译 |
-| De Novo | De Novo | FDA 全新分类, 不译 |
+| FDA | FDA | 美国食品药品监督管理局，缩写不译 |
+| 510(k) | 510(k) | FDA 上市前通知路径，缩写不译 |
+| De Novo | De Novo | FDA 全新分类，不译 |
 | PMA (Premarket Approval) | 上市前批准 | |
-| NMPA | NMPA | 国家药品监督管理局 (中国), 缩写不译 |
-| CE / CE-MDR | CE / CE-MDR | 欧盟合规标识, 缩写不译 |
+| NMPA | NMPA | 国家药品监督管理局 (中国)，缩写不译 |
+| CE / CE-MDR | CE / CE-MDR | 欧盟合规标识，缩写不译 |
 | MDR (Medical Device Regulation) | 医疗器械法规 | 欧盟 2021 生效 |
-| HIPAA | HIPAA | 美国医疗隐私法, 缩写不译 |
-| GDPR | GDPR | 欧盟通用数据保护条例, 缩写不译 |
+| HIPAA | HIPAA | 美国医疗隐私法，缩写不译 |
+| GDPR | GDPR | 欧盟通用数据保护条例，缩写不译 |
 | PHI (Protected Health Information) | 受保护健康信息 | |
 | de-identification | 去标识化 | |
 | differential privacy | 差分隐私 | |
@@ -862,9 +862,9 @@
 | demographic parity | 人口统计均等 | |
 | equalized odds | 等化机会 | |
 | predictive parity | 预测均等 | |
-| explainability / interpretability | 可解释性 | 两者同义, 视语境 |
-| Grad-CAM | Grad-CAM | 梯度加权类激活映射, 保留 |
-| SHAP | SHAP | SHapley 加法解释, 缩写不译 |
+| explainability / interpretability | 可解释性 | 两者同义，视语境 |
+| Grad-CAM | Grad-CAM | 梯度加权类激活映射，保留 |
+| SHAP | SHAP | SHapley 加法解释，缩写不译 |
 | radiologist | 放射科医生 | |
 | pathologist | 病理学家 | |
 | surgeon | 外科医生 | |
@@ -883,10 +883,9 @@
 
 ## 使用说明
 
-1. **一致性优先**: 同一术语在全书内保持单一译法, 参见本表 "备注" 列的首选项。
-2. **首次出现**: 首次出现时使用 "**中文译名 (English)**" 形式, 后续可只用中文或缩写。
-3. **缩写规则**: 缩写 (MLP/CNN/GPU/RLHF 等) 一律保留英文, 不译。
-4. **公式与代码**: 数学符号、变量名、代码标识符一律不译。
-5. **专有名词**: 模型/架构/框架名 (Transformer/BERT/PyTorch/CUDA 等) 保留英文。
-6. **争议裁决**: 遇到多译法, 以本表为准; 本表未覆盖的, 参照《人工智能名词》(全国科学技术名词审定委员会) 与常见中文教材惯例。
-
+1. **一致性优先**：同一术语在全书内保持单一译法，参见本表 "备注" 列的首选项。
+2. **首次出现**：首次出现时使用 "**中文译名 (English)**" 形式，后续可只用中文或缩写。
+3. **缩写规则**：缩写 (MLP/CNN/GPU/RLHF 等) 一律保留英文，不译。
+4. **公式与代码**：数学符号、变量名、代码标识符一律不译。
+5. **专有名词**：模型/架构/框架名 (Transformer/BERT/PyTorch/CUDA 等) 保留英文。
+6. **争议裁决**：遇到多译法，以本表为准；本表未覆盖的，参照《人工智能名词》(全国科学技术名词审定委员会) 与常见中文教材惯例。
