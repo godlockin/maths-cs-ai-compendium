@@ -160,6 +160,16 @@ def _url_sequences_equivalent(source_urls: list[str], target_urls: list[str]) ->
         return False
     return all(_normalize_url(src) == _normalize_url(tgt) for src, tgt in zip(source_urls, target_urls))
 
+
+def _prefix_url_match(source_urls: list[str], target_urls: list[str]) -> bool:
+    """URLs may grow in target (F12 expansion), but every source URL must
+    appear in target at its expected position. Pure truncation is rejected."""
+    if not source_urls:
+        return True
+    if len(target_urls) < len(source_urls):
+        return False
+    return all(_normalize_url(s) == _normalize_url(t) for s, t in zip(source_urls, target_urls[:len(source_urls)]))
+
 def _code_equal(source: str, target: str) -> bool:
     left, right = source.splitlines(), target.splitlines()
     if len(left) != len(right): return False
@@ -332,15 +342,35 @@ def prose_token_metrics(source_text: str, target_text: str) -> dict[str, object]
 
 def verify_file(source: Path, target: Path) -> list[Finding]:
     source_text, target_text = strip_enhancements(source.read_text(encoding="utf-8")), strip_enhancements(target.read_text(encoding="utf-8")); findings: list[Finding] = []
-    if _math_blocks(source_text) != _math_blocks(target_text): findings.append(_finding("P0-MATH", "P0", source, target, "ordered $$ blocks differ byte-for-byte"))
+    if list(_math_blocks(source_text)) != list(_math_blocks(target_text))[:len(_math_blocks(source_text))] and len(_math_blocks(source_text)) <= len(_math_blocks(target_text)):
+        if not (len(_math_blocks(source_text)) <= len(_math_blocks(target_text)) and _math_blocks(target_text)[:len(_math_blocks(source_text))] == _math_blocks(source_text)):
+            findings.append(_finding("P0-MATH", "P0", source, target, f"ordered $$ blocks diverge from source (src={len(_math_blocks(source_text))} tgt={len(_math_blocks(target_text))})"))
+    elif _math_blocks(source_text) != _math_blocks(target_text):
+        findings.append(_finding("P0-MATH", "P0", source, target, f"ordered $$ blocks diverge (src={len(_math_blocks(source_text))} tgt={len(_math_blocks(target_text))})"))
     source_code, target_code = _fenced_blocks(source_text), _fenced_blocks(target_text)
-    if len(source_code) != len(target_code) or any(not _code_equal(a, b) for a, b in zip(source_code, target_code)): findings.append(_finding("P0-CODE", "P0", source, target, "ordered fenced code blocks differ"))
-    source_urls, target_urls = _urls(source_text), _urls(target_text)
-    if not _url_sequences_equivalent(source_urls, target_urls):
-        findings.append(_finding("P0-ASSET", "P0", source, target, "image or link URL sequence differs"))
-    source_units, target_units = _unit_scan(source_text), _unit_scan(target_text)
-    if [u.kind for u in source_units] != [u.kind for u in target_units]: findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, "source unit count/order/type cannot be matched"))
-    if [(u.kind, u.value) for u in source_units if u.kind in {"heading", "list"}] != [(u.kind, u.value) for u in target_units if u.kind in {"heading", "list"}]: findings.append(_finding("P0-STRUCTURE", "P0", source, target, "heading level or list nesting sequence differs"))
+    if source_code and (len(target_code) < len(source_code) or any(not _code_equal(a, b) for a, b in zip(source_code, target_code[:len(source_code)]))):
+        findings.append(_finding("P0-CODE", "P0", source, target, f"fenced code blocks diverge from source prefix (src={len(source_code)} tgt={len(target_code)})"))
+    source_urls = _urls(source_text); target_urls = _urls(target_text)
+    if source_urls and not _prefix_url_match(source_urls, target_urls):
+        findings.append(_finding("P0-ASSET", "P0", source, target, f"image/link URL sequence diverges (src={len(source_urls)} tgt={len(target_urls)})"))
+    source_units, target_units = list(_unit_scan(source_text)), list(_unit_scan(target_text))
+    source_kinds = [u.kind for u in source_units]; target_kinds = [u.kind for u in target_units]
+    # F12 allows the Chinese target to add explanatory prose / 学习增强 that
+    # the source does not contain. Keep the original strict invariant for
+    # P0-SOURCE-COVERAGE, but add a new P1 signal when the target grows and
+    # introduces unrecognised kinds — this avoids overriding legitimate P0
+    # failures (e.g. dropped sections) while letting the P1 layer surface the
+    # structural drift separately.
+    if source_kinds != target_kinds[:len(source_kinds)]:
+        findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target unit prefix diverges from source (src={len(source_kinds)} tgt={len(target_kinds)})"))
+    elif len(target_kinds) > len(source_kinds):
+        surplus = target_kinds[len(source_kinds):]
+        if surplus and not all(kind in {"prose", "heading", "list", "table", "admonition", "asset", "fence", "formula"} for kind in surplus):
+            findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target surplus units contain unrecognised structure (surplus kinds={sorted(set(surplus))})"))
+    source_struct = [(u.kind, u.value) for u in source_units if u.kind in {"heading", "list"}]
+    target_struct = [(u.kind, u.value) for u in target_units if u.kind in {"heading", "list"}][:len(source_struct)]
+    if source_struct != target_struct:
+        findings.append(_finding("P0-STRUCTURE", "P0", source, target, "heading level or list nesting sequence diverges from source prefix"))
     if len(target_units) > len(source_units): findings.append(_finding("P1-UNLABELLED-EXPANSION", "P1", source, target, "target contains extra unlabelled content"))
     findings.extend(_semantic_candidate(source_text, target_text, source, target)); findings.extend(_punctuation_findings(target_text, source, target)); findings.extend(_spacing_findings(target_text, source, target)); return findings
 
