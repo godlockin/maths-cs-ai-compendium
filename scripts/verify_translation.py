@@ -170,6 +170,61 @@ def _prefix_url_match(source_urls: list[str], target_urls: list[str]) -> bool:
         return False
     return all(_normalize_url(s) == _normalize_url(t) for s, t in zip(source_urls, target_urls[:len(source_urls)]))
 
+
+ALLOWED_ENHANCEMENT_KINDS = {"prose", "heading", "list", "table", "admonition", "asset", "fence", "formula"}
+
+
+def _align_units(source_units: list[_Unit], target_units: list[_Unit]) -> tuple[list[_Unit], list[_Unit]]:
+    """Return (unmatched_source_units, unmatched_target_units) under LCS
+    alignment of (kind, value-for-heading-or-list) signatures.
+
+    Each source unit must be matched by a target unit; any target unit that
+    remains unmatched is surfaceable as F12 enhancement above.
+    """
+    source_signatures = [(u.kind, u.value if u.kind in {"heading", "list"} else "") for u in source_units]
+    target_signatures = [(u.kind, u.value if u.kind in {"heading", "list"} else "") for u in target_units]
+    n, m = len(source_signatures), len(target_signatures)
+    dp = [[0] * (m + 1) for _ in range(n + 1)]
+    for i in range(n - 1, -1, -1):
+        for j in range(m - 1, -1, -1):
+            if source_signatures[i] == target_signatures[j]:
+                dp[i][j] = dp[i + 1][j + 1] + 1
+            else:
+                dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
+    matched_source: set[int] = set()
+    matched_target: set[int] = set()
+    i = j = 0
+    while i < n and j < m:
+        if source_signatures[i] == target_signatures[j]:
+            matched_source.add(i)
+            matched_target.add(j)
+            i += 1
+            j += 1
+        elif dp[i + 1][j] >= dp[i][j + 1]:
+            i += 1
+        else:
+            j += 1
+    unmatched_source = [u for idx, u in enumerate(source_units) if idx not in matched_source]
+    unmatched_target = [u for idx, u in enumerate(target_units) if idx not in matched_target]
+    return unmatched_source, unmatched_target
+
+
+def _unmatched_source_units(source_units: list[_Unit], target_units: list[_Unit]) -> list[_Unit]:
+    """Return the source units that could not be matched to any target unit
+    during LCS alignment. These constitute lost coverage and trigger P0."""
+    unmatched_source, _ = _align_units(source_units, target_units)
+    return unmatched_source
+
+
+def _prefix_url_match(source_urls: list[str], target_urls: list[str]) -> bool:
+    """URLs may grow in target (F12 expansion), but every source URL must
+    appear in target at its expected position. Pure truncation is rejected."""
+    if not source_urls:
+        return True
+    if len(target_urls) < len(source_urls):
+        return False
+    return all(_normalize_url(s) == _normalize_url(t) for s, t in zip(source_urls, target_urls[:len(source_urls)]))
+
 def _code_equal(source: str, target: str) -> bool:
     left, right = source.splitlines(), target.splitlines()
     if len(left) != len(right): return False
@@ -354,23 +409,29 @@ def verify_file(source: Path, target: Path) -> list[Finding]:
     if source_urls and not _prefix_url_match(source_urls, target_urls):
         findings.append(_finding("P0-ASSET", "P0", source, target, f"image/link URL sequence diverges (src={len(source_urls)} tgt={len(target_urls)})"))
     source_units, target_units = list(_unit_scan(source_text)), list(_unit_scan(target_text))
-    source_kinds = [u.kind for u in source_units]; target_kinds = [u.kind for u in target_units]
-    # F12 allows the Chinese target to add explanatory prose / 学习增强 that
-    # the source does not contain. Keep the original strict invariant for
-    # P0-SOURCE-COVERAGE, but add a new P1 signal when the target grows and
-    # introduces unrecognised kinds — this avoids overriding legitimate P0
-    # failures (e.g. dropped sections) while letting the P1 layer surface the
-    # structural drift separately.
-    if source_kinds != target_kinds[:len(source_kinds)]:
-        findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target unit prefix diverges from source (src={len(source_kinds)} tgt={len(target_kinds)})"))
-    elif len(target_kinds) > len(source_kinds):
-        surplus = target_kinds[len(source_kinds):]
-        if surplus and not all(kind in {"prose", "heading", "list", "table", "admonition", "asset", "fence", "formula"} for kind in surplus):
-            findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target surplus units contain unrecognised structure (surplus kinds={sorted(set(surplus))})"))
+    # Sequence-alignment (LCS) based unit coverage:
+    #   - each source unit must be matched to a target unit of the same
+    #     (kind, value-for-heading-or-list) signature;
+    #   - target units that are not matched by any source unit are tolerated
+    #     as long as their kind belongs to the allowed F12 expansion set;
+    #   - otherwise P0 fires with concrete unmatched source / target units.
+    unmatched_source, unmatched_target = _align_units(source_units, target_units)
+    if unmatched_source:
+        summary = ", ".join(f"{u.kind}@{u.value[:30]}" for u in unmatched_source[:3])
+        findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target lost {len(unmatched_source)} source unit(s): {summary}"))
+    elif unmatched_target:
+        illegal = [u for u in unmatched_target if u.kind not in ALLOWED_ENHANCEMENT_KINDS]
+        if illegal:
+            summary = ", ".join(f"{u.kind}" for u in illegal[:5])
+            findings.append(_finding("P0-SOURCE-COVERAGE", "P0", source, target, f"target surplus introduced unrecognised structure: {summary}"))
     source_struct = [(u.kind, u.value) for u in source_units if u.kind in {"heading", "list"}]
-    target_struct = [(u.kind, u.value) for u in target_units if u.kind in {"heading", "list"}][:len(source_struct)]
-    if source_struct != target_struct:
-        findings.append(_finding("P0-STRUCTURE", "P0", source, target, "heading level or list nesting sequence diverges from source prefix"))
+    target_struct = [(u.kind, u.value) for u in target_units if u.kind in {"heading", "list"}]
+    struct_units_source = [u for u in source_units if u.kind in {"heading", "list"}]
+    struct_units_target = [u for u in target_units if u.kind in {"heading", "list"}]
+    unmatched_struct_source, _ = _align_units(struct_units_source, struct_units_target)
+    if unmatched_struct_source:
+        summary = ", ".join(f"{u.kind}@{u.value[:30]}" for u in unmatched_struct_source[:3])
+        findings.append(_finding("P0-STRUCTURE", "P0", source, target, f"target lost {len(unmatched_struct_source)} structural unit(s): {summary}"))
     if len(target_units) > len(source_units): findings.append(_finding("P1-UNLABELLED-EXPANSION", "P1", source, target, "target contains extra unlabelled content"))
     findings.extend(_semantic_candidate(source_text, target_text, source, target)); findings.extend(_punctuation_findings(target_text, source, target)); findings.extend(_spacing_findings(target_text, source, target)); return findings
 
