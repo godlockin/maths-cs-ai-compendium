@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">AUC-ROC 曲线示意</text>
+  <!-- Axes -->
+  <g transform="translate(100, 100)">
+    <line x1="0" y1="320" x2="500" y2="320" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="320" stroke="#94a3b8" stroke-width="2"/>
+    <text x="-10" y="-10" text-anchor="end" fill="#94a3b8" font-size="13">TPR ↑</text>
+    <text x="510" y="335" text-anchor="middle" fill="#94a3b8" font-size="13">FPR →</text>
+    <!-- ROC curve -->
+    <path d="M 0 320 Q 100 60, 250 30 Q 400 10, 500 0" fill="none" stroke="#10b981" stroke-width="3"/>
+    <!-- Random -->
+    <line x1="0" y1="320" x2="500" y2="0" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="260" y="170" text-anchor="middle" fill="#64748b" font-size="11">Random (AUC=0.5)</text>
+    <text x="300" y="80" text-anchor="middle" fill="#10b981" font-size="12" font-weight="bold">Good Model (AUC=0.9)</text>
+    <text x="450" y="250" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="bold">Perfect (AUC=1.0)</text>
+  </g>
+  <!-- Formulas -->
+  <g transform="translate(50, 440)">
+    <text x="350" y="0" text-anchor="middle" fill="#cbd5e1" font-size="13">AUC = ∫₀¹ TPR(FPR⁻¹(x)) dx = P(score(+)) > score(−)</text>
+    <text x="350" y="25" text-anchor="middle" fill="#94a3b8" font-size="11">· 与阈值无关 · 等价于 Wilcoxon-Mann-Whitney U 统计量</text>
+  </g>
+</svg>

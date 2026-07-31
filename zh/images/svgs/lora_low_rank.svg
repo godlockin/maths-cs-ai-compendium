@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">LoRA 低秩适配微调</text>
+  <!-- Frozen weights -->
+  <g transform="translate(80, 130)">
+    <rect x="0" y="0" width="180" height="180" fill="#475569" opacity="0.4" stroke="#475569" stroke-width="2"/>
+    <text x="90" y="100" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">W (冻结)</text>
+    <text x="90" y="125" text-anchor="middle" fill="#94a3b8" font-size="11">d × d</text>
+    <text x="90" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">原始预训练权重</text>
+  </g>
+  <!-- LoRA A -->
+  <g transform="translate(310, 100)">
+    <rect x="0" y="0" width="80" height="240" fill="#3b82f6" opacity="0.5" stroke="#3b82f6" stroke-width="2"/>
+    <text x="40" y="120" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">A</text>
+    <text x="40" y="140" text-anchor="middle" fill="#cbd5e1" font-size="11">d × r</text>
+    <text x="40" y="160" text-anchor="middle" fill="#94a3b8" font-size="10">高斯初始化</text>
+  </g>
+  <!-- LoRA B -->
+  <g transform="translate(420, 200)">
+    <rect x="0" y="0" width="80" height="80" fill="#10b981" opacity="0.5" stroke="#10b981" stroke-width="2"/>
+    <text x="40" y="40" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">B</text>
+    <text x="40" y="55" text-anchor="middle" fill="#cbd5e1" font-size="11">r × d</text>
+  </g>
+  <!-- Merge -->
+  <g transform="translate(540, 200)">
+    <circle cx="40" cy="40" r="35" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+    <text x="40" y="35" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="bold">+</text>
+    <text x="40" y="55" text-anchor="middle" fill="#cbd5e1" font-size="10">合并</text>
+  </g>
+  <!-- Output -->
+  <g transform="translate(660, 200)">
+    <rect x="0" y="0" width="100" height="80" fill="#ec4899" opacity="0.4" stroke="#ec4899" stroke-width="2" rx="4"/>
+    <text x="50" y="35" text-anchor="middle" fill="#fff" font-size="13">W + α·B·A</text>
+    <text x="50" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">output</text>
+  </g>
+  <!-- Arrows -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="260" y1="220" x2="310" y2="220"/>
+    <line x1="390" y1="220" x2="420" y2="240"/>
+    <line x1="500" y1="240" x2="540" y2="240"/>
+    <line x1="620" y1="240" x2="660" y2="240"/>
+    <line x1="260" y1="260" x2="540" y2="260"/>
+    <line x1="620" y1="260" x2="660" y2="260"/>
+  </g>
+  <!-- Math -->
+  <text x="400" y="430" text-anchor="middle" fill="#cbd5e1" font-size="14">h = W·x + (B·A)·x · (α/r)</text>
+  <text x="400" y="455" text-anchor="middle" fill="#94a3b8" font-size="12">可训练参数: r(d+d) ≪ d² — 节省 99%+ 显存 (r=8, d=4096)</text>
+  <text x="400" y="478" text-anchor="middle" fill="#94a3b8" font-size="11">应用: PEFT / QLoRA / AdaLoRA / LoRA-FA</text>
+</svg>
