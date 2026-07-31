@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">梯度下降示意</text>
+
+  <!-- 损失曲线 -->
+  <path d="M 80 380 Q 250 360 350 250 T 620 130" fill="none" stroke="#4a90e2" stroke-width="3"/>
+  <text x="80" y="80" class="small" fill="#4a90e2" font-weight="bold">f(x) 凸函数</text>
+
+  <!-- 最优点 -->
+  <circle cx="540" cy="160" r="6" fill="#e74c3c"/>
+  <text x="555" y="155" class="label" fill="#e74c3c" font-weight="bold">最优点 x*</text>
+
+  <!-- 起始点 -->
+  <circle cx="120" cy="370" r="6" fill="#f5a623"/>
+  <text x="135" y="365" class="label" fill="#f5a623" font-weight="bold">起始 x₀</text>
+
+  <!-- 迭代路径 -->
+  <circle cx="220" cy="330" r="5" fill="#f5a623"/>
+  <circle cx="320" cy="280" r="5" fill="#f5a623"/>
+  <circle cx="420" cy="220" r="5" fill="#f5a623"/>
+  <circle cx="510" cy="180" r="5" fill="#f5a623"/>
+
+  <path d="M 120 370 L 220 330 L 320 280 L 420 220 L 510 180" stroke="#f5a623" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+
+  <!-- 切线示例 -->
+  <line x1="320" y1="280" x2="380" y2="280" stroke="#7ed321" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="385" y="285" class="small" fill="#417505">∇f(x)</text>
+  <line x1="320" y1="280" x2="340" y2="280" stroke="#e74c3c" stroke-width="3"/>
+  <text x="345" y="275" class="small" fill="#e74c3c">-α∇f</text>
+
+  <!-- 更新公式 -->
+  <rect x="100" y="430" width="500" height="50" rx="8" fill="#fff3cd" stroke="#856404" stroke-width="1"/>
+  <text x="350" y="455" text-anchor="middle" class="label" fill="#856404">x_{t+1} = x_t - α × ∇f(x_t)</text>
+  <text x="350" y="473" text-anchor="middle" class="small" fill="#666">α: 学习率, ∇f: 梯度 (下降方向)</text>
+</svg>

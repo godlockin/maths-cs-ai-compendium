@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">BPE (Byte Pair Encoding) Token 化流程</text>
+
+  <!-- Step 1: 字符级 -->
+  <rect x="50" y="80" width="600" height="60" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="105" class="small" font-weight="bold">Step 1: 初始化为字符</text>
+  <text x="60" y="125" class="small" fill="#666">"low lower newest widest" → [l,o,w], [l,o,w,e,r], [n,e,w,e,s,t], [w,i,d,e,s,t]</text>
+
+  <!-- Step 2: 找最高频对 -->
+  <rect x="50" y="160" width="600" height="60" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="185" class="small" font-weight="bold">Step 2: 找最高频相邻对</text>
+  <text x="60" y="205" class="small" fill="#e74c3c" font-weight="bold">发现 (e, s) 出现 4 次 → 合并</text>
+
+  <!-- Step 3: 合并 -->
+  <rect x="50" y="240" width="600" height="60" rx="6" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="265" class="small" font-weight="bold" fill="#856404">Step 3: 合并为 es</text>
+  <text x="60" y="285" class="small" fill="#666">[l,o,w], [l,o,w,e,r], [n,e,es,t], [w,i,d,es,t]</text>
+
+  <!-- Step 4: 继续 -->
+  <rect x="50" y="320" width="600" height="60" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="345" class="small" font-weight="bold">Step 4: 重复 Step 2-3</text>
+  <text x="60" y="365" class="small" fill="#666">找 (es, t) 出现 2 次 → 合并为 "est", 继续...</text>
+
+  <!-- 最终 -->
+  <rect x="50" y="400" width="600" height="70" rx="6" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="60" y="425" class="small" font-weight="bold" fill="#155724">最终词表 (示例):</text>
+  <text x="60" y="448" class="small" fill="#155724">{l, o, w, e, r, n, s, t, i, d, er, es, est, low, new, wide, lower, ...}</text>
+  <text x="350" y="490" text-anchor="middle" class="small" fill="#666">💡 BPE 平衡了词表大小 (30K-100K) 与序列长度, 是 GPT/Llama 默认</text>
+</svg>

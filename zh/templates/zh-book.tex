@@ -1,0 +1,142 @@
+% zh-book.tex - 中文教材排版模板 (Pandoc + XeLaTeX)
+% 用法: pandoc -d book.yaml --template=zh-book.tex -o book.pdf
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(papersize)$$papersize$,$endif$]{book}
+
+% ====== 中文支持 ======
+\usepackage{xeCJK}
+\usepackage{fontspec}
+$if(mainfont)$\setCJKmainfont{$mainfont$}$endif$
+$if(sansfont)$\setCJKsansfont{$sansfont$}$endif$
+$if(monofont)$\setCJKmonofont{$monofont$}$endif$
+
+% 中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+% ====== 几何 ======
+\usepackage[$geometry$]{geometry}
+
+% ====== 颜色 ======
+\usepackage{xcolor}
+\definecolor{chaptercolor}{RGB}{26, 84, 144}
+\definecolor{sectioncolor}{RGB}{74, 144, 226}
+\definecolor{codebg}{RGB}{248, 249, 250}
+\definecolor{keywordcolor}{RGB}{0, 0, 180}
+\definecolor{commentcolor}{RGB}{0, 130, 0}
+\definecolor{stringcolor}{RGB}{163, 21, 21}
+
+% ====== 章节标题 ======
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\color{chaptercolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+% ====== 代码块 ======
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{keywordcolor}\bfseries,
+  commentstyle=\color{commentcolor}\itshape,
+  stringstyle=\color{stringcolor},
+  frame=single,
+  framerule=0pt,
+  rulecolor=\color{gray!30},
+  breaklines=true,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=8pt,
+}
+
+% ====== 数学 ======
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+% ====== 图形 ======
+\usepackage{graphicx}
+\graphicspath{{./}{./zh/images/}{./zh/images/svgs/}}
+
+% ====== 表格 ======
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+
+% ====== 超链接 ======
+\usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,
+            linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+% ====== 目录 ======
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\color{chaptercolor}\bfseries}
+\renewcommand{\cftchappagefont}{\color{chaptercolor}}
+
+% ====== 列表 ======
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+
+% ====== 行距 ======
+\linespread{$linestretch$}
+
+% ====== 标题页 ======
+\title{$title$\\$if(subtitle)${\large $subtitle$}\\$endif$}
+\author{$author$}
+\date{$date$}
+
+\begin{document}
+
+% ====== 前言页 ======
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Huge\bfseries\color{chaptercolor} $title$\par}
+\vspace{0.5cm}
+{\Large\color{sectioncolor} $subtitle$\par}
+\vspace{3cm}
+{\large $author$\par}
+\vspace{1cm}
+{\large $date$\par}
+\vfill
+{\small 中文版 v1.0 · 2026-07-31\par}
+\end{titlepage}
+
+% ====== 版权页 ======
+\newpage
+\thispagestyle{empty}
+\noindent\textbf{版权声明}
+
+本书为开源教材, 采用 CC BY-SA 4.0 协议发布。
+
+原书: \textit{The Mathematics, Computer Science, and AI Compendium} \\
+作者: Henry Ndubuaku 等 \\
+中文翻译: 中文翻译组 \\
+版本: v1.0 (2026-07-31)
+
+\vspace{1cm}
+\noindent\textbf{免责声明}
+
+本书内容仅供参考, 不构成任何专业建议。读者应自行判断内容准确性。
+
+% ====== 目录 ======
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ====== 正文 ======
+$body$
+
+% ====== 参考文献 ======
+$if(bibliography)$
+\newpage
+\bibliography{$bibliography$}
+$endif$
+
+\end{document}

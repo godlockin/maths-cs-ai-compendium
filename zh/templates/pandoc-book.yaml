@@ -1,0 +1,334 @@
+# Pandoc 配置: 中文版《数学 · 计算机 · AI 全栈》
+
+> **用途**: 用 Pandoc 将 `zh/` Markdown 转为出版级 PDF
+> **依赖**: `pandoc 3.x` + `xelatex` (TeX Live) + 中文字体 (思源宋体/方正书宋)
+> **命令**: `pandoc -d book.yaml -o book.pdf`
+
+---
+
+## 一 · book.yaml (元数据 + 章节列表)
+
+```yaml
+# book.yaml
+title: "数学 · 计算机 · AI 全栈 — 从理论到实战"
+subtitle: "中文版 v1.0 (2026-07-31)"
+author: "Henry Ndubuaku 等 · 中文翻译组"
+date: "2026-07-31"
+lang: zh-CN
+toc: true
+toc-depth: 3
+number-sections: true
+secnumdepth: 3
+
+# 字体 (Linux/macOS)
+mainfont: "Source Han Serif SC"
+sansfont: "Source Han Sans SC"
+monofont: "Sarasa Mono SC"
+
+# 引用风格
+citeproc: true
+link-citations: true
+
+# 输入文件 (按顺序)
+input-files:
+  - "zh/前言.md"
+  - "zh/LEARNING_OBJECTIVES.md"
+  - "zh/TRANSLATION_GUIDE.md"
+  - "zh/INDEX.md"
+  - "zh/BIBLIOGRAPHY.md"
+  - "zh/GLOSSARY.md"
+  - "zh/教辅/全局概览.md"
+  - "zh/教辅/整本书脉络地图.md"
+  # === 第 1-25 章 ===
+  - "zh/第01章 - 向量/*.md"
+  - "zh/第02章 - 矩阵/*.md"
+  - "zh/第03章 - 微积分/*.md"
+  - "zh/第04章 - 统计学/*.md"
+  - "zh/第05章 - 概率论/*.md"
+  - "zh/第06章 - 机器学习/*.md"
+  - "zh/第07章 - 计算语言学/*.md"
+  - "zh/第08章 - 计算机视觉/*.md"
+  - "zh/第09章 - 音频与语音/*.md"
+  - "zh/第10章 - 多模态学习/*.md"
+  - "zh/第11章 - 自主系统/*.md"
+  - "zh/第12章 - 图神经网络/*.md"
+  - "zh/第13章 - 计算与操作系统/*.md"
+  - "zh/第14章 - 数据结构与算法/*.md"
+  - "zh/第15章 - 生产级软件工程/*.md"
+  - "zh/第16章 - SIMD 与 GPU 编程/*.md"
+  - "zh/第17章 - AI 推理/*.md"
+  - "zh/第18章 - 机器学习系统设计/*.md"
+  - "zh/第19章 - 应用 AI/*.md"
+  - "zh/第20章 - 前沿 AI/*.md"
+  - "zh/第21章 - 对齐、安全与可解释性/*.md"
+  - "zh/第22章 - LLM Evaluation 方法学/*.md"
+  - "zh/第23章 - AI Agent 与工具使用/*.md"
+  - "zh/第24章 - 数值分析与凸优化补遗/*.md"
+  - "zh/第25章 - AI 系统实战面试指南/*.md"
+
+output: pdf
+
+# PDF 引擎
+pdf-engine: xelatex
+pdf-engine-opts:
+  - "-halt-on-error"
+  - "-file-line-error"
+
+# 变量 (供模板使用)
+variables:
+  documentclass: book
+  papersize: a4
+  fontsize: 10pt
+  geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
+  linestretch: 1.3
+  toc-title: 目录
+  lof-title: 插图清单
+  lot-title: 表格清单
+  biblio-title: 参考文献
+```
+
+---
+
+## 二 · LaTeX 模板 (zh/templates/tex/zh-book.tex)
+
+```latex
+% zh-book.tex - 中文教材排版模板
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(papersize)$$papersize$,$endif$]{book}
+
+% 中文支持
+\usepackage{xeCJK}
+\usepackage{fontspec}
+$if(mainfont)$\setCJKmainfont{$mainfont$}$endif$
+$if(sansfont)$\setCJKsansfont{$sansfont$}$endif$
+$if(monofont)$\setCJKmonofont{$monofont$}$endif$
+
+% 几何
+\usepackage[$geometry$]{geometry}
+
+% 颜色
+\usepackage{xcolor}
+\definecolor{chaptercolor}{RGB}{26, 84, 144}
+\definecolor{sectioncolor}{RGB}{74, 144, 226}
+
+% 章节标题
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\color{chaptercolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+
+% 代码块
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  frame=single,
+  framerule=0pt,
+  breaklines=true,
+  showstringspaces=false
+}
+
+% 数学
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+% 图形
+\usepackage{graphicx}
+\graphicspath{{./}{./zh/images/}}
+
+% SVG 支持 (可选)
+\usepackage{svg}
+
+% 表格
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  bookmarksnumbered=true
+}
+
+% 目录
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\color{chaptercolor}\bfseries}
+
+% 行距
+\linespread{$linestretch$}
+
+% 标题页
+\title{$title$\\$if(subtitle)$\large $subtitle$\\$endif$}
+\author{$author$}
+\date{$date$}
+
+\begin{document}
+
+% === 标题页 ===
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries\color{chaptercolor} $title$\par}
+\vspace{1cm}
+{\Large $subtitle$\par}
+\vspace{2cm}
+{\large $author$\par}
+\vspace{1cm}
+{\large $date$\par}
+\vspace{2cm}
+{\small 中文版 v1.0\par}
+\vfill
+\end{titlepage}
+
+% === 目录 ===
+\tableofcontents
+\listoffigures
+\listoftables
+
+% === 正文 ===
+$body$
+
+% === 参考文献 ===
+$if(bibliography)$
+\bibliography{$bibliography$}
+$endif$
+
+\end{document}
+```
+
+---
+
+## 三 · 转换命令
+
+### 3.1 基础命令
+
+```bash
+# 安装依赖 (macOS)
+brew install pandoc
+brew install --cask mactex
+brew install --cask font-source-han-serif
+
+# 生成 PDF
+pandoc -d book.yaml -o book.pdf
+```
+
+### 3.2 高级命令 (含 SVG)
+
+```bash
+# 使用 SVG (需 inkscape)
+pandoc -d book.yaml \
+  --pdf-engine=xelatex \
+  --listings \
+  -V geometry:margin=2.5cm \
+  -o book.pdf
+```
+
+### 3.3 批量转换 (HTML/EPUB)
+
+```bash
+# HTML 单文件
+pandoc -d book.yaml -t html5 --self-contained -o book.html
+
+# EPUB
+pandoc -d book.yaml -t epub3 --epub-cover-image=cover.jpg -o book.epub
+
+# DOCX (Word)
+pandoc -d book.yaml -o book.docx
+```
+
+---
+
+## 四 · 排版注意事项
+
+### 4.1 中文断行
+
+```latex
+% 在 zh-book.tex 加
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+```
+
+### 4.2 中文标点
+
+- 全角逗号 `,` 而非半角 `,`
+- 全角句号 `。` 而非半角 `.`
+- 全角引号 `"..."` 而非 `"..."`
+- 数字 / 英文之间留空格
+
+### 4.3 代码块语言
+
+每个代码块注明语言:
+```python
+# python
+```
+```cpp
+// cpp
+```
+```bash
+# bash
+```
+
+### 4.4 图引用
+
+在 Markdown 中:
+```markdown
+![LLM 推理架构](../images/svgs/llm_inference_arch.svg)
+```
+
+Pandoc 自动转换为 LaTeX `\includegraphics`。
+
+### 4.5 公式
+
+行内公式: `$E = mc^2$`
+块级公式:
+```latex
+$$
+\mathcal{L} = -\sum_i y_i \log(\hat{y}_i)
+$$
+```
+
+---
+
+## 五 · 验证清单
+
+- [ ] 所有章节 Markdown 文件 UTF-8 编码
+- [ ] 无 `|` 表格被错误解析 (可用 `\|` 转义)
+- [ ] SVG 路径指向 `zh/images/svgs/`
+- [ ] 代码块语言标注完整
+- [ ] 公式语法正确 (`$$ ... $$` 或 `$ ... $`)
+- [ ] 字体已安装
+- [ ] 章节顺序按 `book.yaml` 排列
+
+---
+
+## 六 · 出版建议
+
+| 出版社 | 适合模板 |
+|--------|----------|
+| **Springer** | svmono (英文) / 中文用自定义 |
+| **Manning** | 自定义 Manning 风格 (蓝绿配色) |
+| **图灵** | 中文简化版 (国内最常见) |
+| **机械工业** | 标准教材模板 |
+| **自出版** | 现成 + 配图丰富 |
+
+**推荐**: 先做 **数字版** (PDF / EPUB / 网页), 验证内容; 再考虑**纸质出版**。
+
+---
+
+## 七 · 一句话总结
+
+> **Pandoc + XeLaTeX + 思源宋体 = 出版级 PDF**。
+> 本模板基于开源工具链, 零成本, 高度可定制。
+> **2-3 小时配置 + 1 次编译** 即可生成完整 PDF。
