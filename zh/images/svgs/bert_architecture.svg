@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">BERT/RoBERTa 架构</text>
+  <!-- Embedding layer -->
+  <g transform="translate(50, 100)">
+    <rect width="700" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+    <text x="350" y="35" text-anchor="middle" fill="#3b82f6" font-size="14">Token + Position + Segment Embeddings</text>
+  </g>
+  <!-- Transformer blocks -->
+  <g transform="translate(50, 200)">
+    <rect width="700" height="220" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4 2" rx="6"/>
+    <text x="350" y="-5" text-anchor="middle" fill="#94a3b8" font-size="12">N × Transformer Encoder (BERT-base: 12, BERT-large: 24)</text>
+    <g transform="translate(20, 20)">
+      <rect width="660" height="40" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" rx="3"/>
+      <text x="330" y="25" text-anchor="middle" fill="#fff" font-size="13">Multi-Head Self-Attention (12 / 16 heads)</text>
+    </g>
+    <g transform="translate(20, 70)">
+      <rect width="660" height="40" fill="#8b5cf6" opacity="0.3" stroke="#8b5cf6" rx="3"/>
+      <text x="330" y="25" text-anchor="middle" fill="#fff" font-size="13">Add &amp; LayerNorm</text>
+    </g>
+    <g transform="translate(20, 120)">
+      <rect width="660" height="40" fill="#10b981" opacity="0.3" stroke="#10b981" rx="3"/>
+      <text x="330" y="25" text-anchor="middle" fill="#fff" font-size="13">Feed-Forward (4d → d → 4d, GELU)</text>
+    </g>
+    <g transform="translate(20, 170)">
+      <rect width="660" height="40" fill="#8b5cf6" opacity="0.3" stroke="#8b5cf6" rx="3"/>
+      <text x="330" y="25" text-anchor="middle" fill="#fff" font-size="13">Add &amp; LayerNorm</text>
+    </g>
+  </g>
+  <!-- Heads -->
+  <g transform="translate(50, 450)">
+    <rect width="330" height="40" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" rx="3"/>
+    <text x="165" y="25" text-anchor="middle" fill="#fff" font-size="13">MLM Head (训练) / NSP Head</text>
+    <rect x="370" y="0" width="330" height="40" fill="#ec4899" opacity="0.3" stroke="#ec4899" rx="3"/>
+    <text x="535" y="25" text-anchor="middle" fill="#fff" font-size="13">Fine-tune: Classification / QA / NER</text>
+  </g>
+</svg>

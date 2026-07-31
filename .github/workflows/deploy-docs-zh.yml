@@ -2,7 +2,7 @@ name: Deploy Chinese Docs
 
 on:
   push:
-    branches: [zh-translation]
+    branches: [main]
     paths:
       - 'zh/**'
       - 'mkdocs-zh.yml'
@@ -28,16 +28,17 @@ jobs:
       - name: Install MkDocs Material + jieba (中文分词)
         run: pip install "mkdocs<2" "mkdocs-material[imaging]" jieba
 
-      - name: Build zh site
-        run: mkdocs build -f mkdocs-zh.yml -d site-zh
+      - name: Build zh site to external dir
+        run: mkdocs build -f mkdocs-zh.yml -d /tmp/site-zh
 
-      - name: Deploy to gh-pages-zh branch
-        uses: peaceiris/actions-gh-pages@4f9f30408f1e648ce79bd8f50f29889a64e99889  # v4.0.0
+      - name: Deploy to gh-pages branch (only /zh/ subdir, keep EN site)
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site-zh
-          publish_branch: gh-pages-zh
-          force_orphan: true
+          publish_dir: /tmp/site-zh
+          publish_branch: gh-pages
+          keep_files: true
+          destination_dir: zh
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'deploy: zh docs from ${{ github.sha }}'
+          commit_message: 'deploy: zh docs at /zh/ from ${{ github.sha }}'

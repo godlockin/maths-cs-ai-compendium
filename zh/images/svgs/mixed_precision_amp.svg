@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">混合精度训练 (AMP / BF16)</text>
+  <!-- FP32 Master -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="180" height="50" fill="#3b82f6" opacity="0.4" stroke="#3b82f6"/>
+    <text x="90" y="30" text-anchor="middle" fill="#fff" font-size="13">FP32 Master Weights</text>
+  </g>
+  <!-- Cast down -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="140" y1="150" x2="140" y2="190" marker-end="url(#amp-arr)"/>
+  </g>
+  <defs>
+    <marker id="amp-arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- BF16 ops -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="180" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/>
+    <text x="90" y="30" text-anchor="middle" fill="#fff" font-size="13">BF16 Forward</text>
+  </g>
+  <g transform="translate(50, 270)">
+    <rect x="0" y="0" width="180" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/>
+    <text x="90" y="30" text-anchor="middle" fill="#fff" font-size="13">BF16 Backward</text>
+  </g>
+  <g transform="translate(50, 340)">
+    <rect x="0" y="0" width="180" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/>
+    <text x="90" y="30" text-anchor="middle" fill="#fff" font-size="13">FP32 Optimizer Step</text>
+  </g>
+  <!-- Loss Scaling -->
+  <g transform="translate(310, 100)">
+    <text x="0" y="0" fill="#94a3b8" font-size="13" font-weight="bold">关键技巧</text>
+    <text x="0" y="25" fill="#cbd5e1" font-size="12">· Loss Scaling (FP16 only)</text>
+    <text x="0" y="50" fill="#cbd5e1" font-size="12">· Gradient Clipping</text>
+    <text x="0" y="75" fill="#cbd5e1" font-size="12">· Master Weights in FP32</text>
+    <text x="0" y="100" fill="#cbd5e1" font-size="12">· Accumulated Gradients</text>
+    <text x="0" y="125" fill="#cbd5e1" font-size="12">· Tensor Core 加速 (BF16)</text>
+  </g>
+  <!-- Comparison -->
+  <g transform="translate(550, 100)">
+    <text x="0" y="0" fill="#94a3b8" font-size="13" font-weight="bold">格式对比</text>
+    <rect x="0" y="15" width="220" height="20" fill="#1e293b"/>
+    <text x="10" y="29" fill="#cbd5e1" font-size="11">FP32: 4B/param, M 显存</text>
+    <rect x="0" y="40" width="220" height="20" fill="#1e293b"/>
+    <text x="10" y="54" fill="#cbd5e1" font-size="11">BF16: 2B/param, M/2 显存</text>
+    <rect x="0" y="65" width="220" height="20" fill="#1e293b"/>
+    <text x="10" y="79" fill="#cbd5e1" font-size="11">FP8: 1B/param, M/4 显存</text>
+    <rect x="0" y="90" width="220" height="20" fill="#1e293b"/>
+    <text x="10" y="104" fill="#cbd5e1" font-size="11">FP4 (MX): 0.5B/param, M/8</text>
+  </g>
+  <text x="400" y="450" text-anchor="middle" fill="#cbd5e1" font-size="13">Transformer 训练标配: BF16 mixed precision + FP32 master + ZeRO-3</text>
+</svg>
