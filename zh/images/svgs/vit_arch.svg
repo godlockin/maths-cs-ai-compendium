@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">ViT (Vision Transformer) 架构</text>
+
+  <!-- 输入图像 -->
+  <rect x="50" y="100" width="160" height="160" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="130" y="90" text-anchor="middle" class="small" font-weight="bold">输入图像 (224×224×3)</text>
+  <!-- 网格示意 -->
+  <g stroke="#fff" stroke-width="1" fill="none" opacity="0.5">
+    <line x1="90" y1="100" x2="90" y2="260"/><line x1="130" y1="100" x2="130" y2="260"/><line x1="170" y1="100" x2="170" y2="260"/><line x1="210" y1="100" x2="210" y2="260"/>
+    <line x1="50" y1="140" x2="210" y2="140"/><line x1="50" y1="180" x2="210" y2="180"/><line x1="50" y1="220" x2="210" y2="220"/>
+  </g>
+  <text x="130" y="275" text-anchor="middle" class="small">14×14 个 patch</text>
+
+  <!-- Patch Embedding -->
+  <path d="M 220 180 L 290 180" stroke="#333" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <g transform="translate(290, 100)">
+    <rect width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="44" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="66" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="88" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="110" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="132" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="154" width="20" height="20" fill="#7ed321" stroke="#417505"/>
+    <rect y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="22" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="44" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="66" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="88" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="110" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="132" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/><rect x="154" y="22" width="20" height="20" fill="#7ed321" stroke="#417505"/>
+  </g>
+  <text x="385" y="90" text-anchor="middle" class="small" font-weight="bold">196 个 patch (16×16)</text>
+  <text x="385" y="155" text-anchor="middle" class="small">→ Linear Projection</text>
+  <text x="385" y="170" text-anchor="middle" class="small">→ D-dim embedding</text>
+
+  <!-- + Position Embedding -->
+  <path d="M 480 180 L 550 180" stroke="#333" stroke-width="3" fill="none" marker-end="url(#a)"/>
+
+  <rect x="550" y="160" width="100" height="40" rx="5" fill="#fff3cd" stroke="#856404"/>
+  <text x="600" y="180" text-anchor="middle" class="small">+ Pos Embed</text>
+  <text x="600" y="195" text-anchor="middle" class="small">(可学习)</text>
+
+  <!-- Transformer Encoder -->
+  <rect x="550" y="220" width="100" height="120" rx="8" fill="#e8f4f8" stroke="#1a5490" stroke-width="2"/>
+  <text x="600" y="245" text-anchor="middle" class="small" font-weight="bold">Transformer</text>
+  <text x="600" y="260" text-anchor="middle" class="small">Encoder</text>
+  <text x="600" y="280" text-anchor="middle" class="small">× L 层</text>
+  <text x="600" y="305" text-anchor="middle" class="small" fill="#666">L=12/24</text>
+  <text x="600" y="325" text-anchor="middle" class="small" fill="#666">(ViT-B/L)</text>
+
+  <!-- MLP Head -->
+  <path d="M 650 280 Q 670 280 670 380 L 600 380" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="520" y="370" width="160" height="50" rx="8" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="600" y="395" text-anchor="middle" class="small" font-weight="bold">MLP Head</text>
+  <text x="600" y="410" text-anchor="middle" class="small">分类头 (Class Token)</text>
+
+  <!-- 公式 -->
+  <rect x="50" y="430" width="600" height="55" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="455" class="small" font-weight="bold" fill="#856404">💡 核心创新:</text>
+  <text x="60" y="475" class="small" fill="#333">把图像切成 patch, 当作 token, 送入标准 Transformer (Dosovitskiy 2020)</text>
+</svg>

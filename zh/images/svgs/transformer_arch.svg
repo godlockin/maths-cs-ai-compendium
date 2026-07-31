@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Transformer 架构总览</text>
+
+  <!-- Encoder (左) -->
+  <rect x="50" y="80" width="200" height="380" rx="10" fill="#e8f4f8" stroke="#1a5490" stroke-width="2"/>
+  <text x="150" y="105" text-anchor="middle" class="label" font-weight="bold" fill="#1a5490">Encoder (Nx)</text>
+
+  <rect x="80" y="120" width="140" height="35" rx="5" fill="#fff3cd" stroke="#856404"/>
+  <text x="150" y="142" text-anchor="middle" class="small">Input Embedding</text>
+
+  <rect x="80" y="170" width="140" height="40" rx="5" fill="#d4edda" stroke="#155724"/>
+  <text x="150" y="190" text-anchor="middle" class="small">Multi-Head</text>
+  <text x="150" y="203" text-anchor="middle" class="small">Self-Attention</text>
+
+  <rect x="80" y="220" width="140" height="25" rx="5" fill="#f8d7da" stroke="#721c24"/>
+  <text x="150" y="237" text-anchor="middle" class="small">Add &amp; Norm</text>
+
+  <rect x="80" y="255" width="140" height="40" rx="5" fill="#d4edda" stroke="#155724"/>
+  <text x="150" y="275" text-anchor="middle" class="small">Feed Forward</text>
+  <text x="150" y="288" text-anchor="middle" class="small">(FFN)</text>
+
+  <rect x="80" y="305" width="140" height="25" rx="5" fill="#f8d7da" stroke="#721c24"/>
+  <text x="150" y="322" text-anchor="middle" class="small">Add &amp; Norm</text>
+
+  <text x="150" y="370" text-anchor="middle" class="small" fill="#666">× N (e.g. 12)</text>
+
+  <!-- 中间分割 -->
+  <line x1="280" y1="80" x2="280" y2="460" stroke="#333" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="280" y="490" text-anchor="middle" class="small">Encoder-Decoder</text>
+
+  <!-- Decoder (右) -->
+  <rect x="310" y="80" width="200" height="380" rx="10" fill="#fcf0f0" stroke="#922b21" stroke-width="2"/>
+  <text x="410" y="105" text-anchor="middle" class="label" font-weight="bold" fill="#922b21">Decoder (Nx)</text>
+
+  <rect x="340" y="120" width="140" height="35" rx="5" fill="#fff3cd" stroke="#856404"/>
+  <text x="410" y="142" text-anchor="middle" class="small">Output Embedding</text>
+
+  <rect x="340" y="170" width="140" height="40" rx="5" fill="#d4edda" stroke="#155724"/>
+  <text x="410" y="190" text-anchor="middle" class="small">Masked</text>
+  <text x="410" y="203" text-anchor="middle" class="small">Self-Attention</text>
+
+  <rect x="340" y="220" width="140" height="25" rx="5" fill="#f8d7da" stroke="#721c24"/>
+  <text x="410" y="237" text-anchor="middle" class="small">Add &amp; Norm</text>
+
+  <rect x="340" y="255" width="140" height="40" rx="5" fill="#fdebd0" stroke="#f39c12"/>
+  <text x="410" y="275" text-anchor="middle" class="small">Cross-Attention</text>
+  <text x="410" y="288" text-anchor="middle" class="small">(Enc-Dec)</text>
+
+  <rect x="340" y="305" width="140" height="25" rx="5" fill="#f8d7da" stroke="#721c24"/>
+  <text x="410" y="322" text-anchor="middle" class="small">Add &amp; Norm</text>
+
+  <rect x="340" y="340" width="140" height="40" rx="5" fill="#d4edda" stroke="#155724"/>
+  <text x="410" y="360" text-anchor="middle" class="small">Feed Forward</text>
+  <text x="410" y="373" text-anchor="middle" class="small">(FFN)</text>
+
+  <!-- 跨连接箭头 -->
+  <path d="M 250 280 Q 280 280 340 280" stroke="#e74c3c" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
+  <text x="295" y="272" text-anchor="middle" class="small" fill="#e74c3c">K, V</text>
+
+  <!-- Linear + Softmax -->
+  <rect x="540" y="200" width="120" height="100" rx="8" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+  <text x="600" y="230" text-anchor="middle" class="label">Linear +</text>
+  <text x="600" y="250" text-anchor="middle" class="label">Softmax</text>
+  <text x="600" y="280" text-anchor="middle" class="small" fill="#666">→ Output</text>
+
+  <path d="M 510 280 L 540 250" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+</svg>

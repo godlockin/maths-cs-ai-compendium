@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">MFCC 特征提取流程</text>
+
+  <!-- Step 1 -->
+  <rect x="40" y="80" width="140" height="80" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="110" y="105" text-anchor="middle" class="small" font-weight="bold">Step 1: 预加重</text>
+  <text x="110" y="125" text-anchor="middle" class="small" fill="#666">y[n] = x[n]</text>
+  <text x="110" y="142" text-anchor="middle" class="small" fill="#666">- α·x[n-1]</text>
+  <text x="110" y="155" text-anchor="middle" class="small" fill="#666">α ≈ 0.97</text>
+
+  <!-- Step 2 -->
+  <rect x="210" y="80" width="140" height="80" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="280" y="105" text-anchor="middle" class="small" font-weight="bold">Step 2: 分帧</text>
+  <text x="280" y="125" text-anchor="middle" class="small" fill="#666">25 ms / 帧</text>
+  <text x="280" y="142" text-anchor="middle" class="small" fill="#666">10 ms 步长</text>
+  <text x="280" y="155" text-anchor="middle" class="small" fill="#666">(加汉明窗)</text>
+
+  <!-- Step 3 -->
+  <rect x="380" y="80" width="140" height="80" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="450" y="105" text-anchor="middle" class="small" font-weight="bold">Step 3: FFT</text>
+  <text x="450" y="125" text-anchor="middle" class="small" fill="#666">N=512 点</text>
+  <text x="450" y="142" text-anchor="middle" class="small" fill="#666">→ 频域</text>
+
+  <!-- Step 4 -->
+  <rect x="550" y="80" width="140" height="80" rx="6" fill="#fff3cd" stroke="#856404"/>
+  <text x="620" y="105" text-anchor="middle" class="small" font-weight="bold" fill="#856404">Step 4: Mel 滤波</text>
+  <text x="620" y="125" text-anchor="middle" class="small" fill="#666">26 个三角</text>
+  <text x="620" y="142" text-anchor="middle" class="small" fill="#666">Mel 尺度</text>
+  <text x="620" y="155" text-anchor="middle" class="small" fill="#666">→ log</text>
+
+  <!-- Step 5 -->
+  <rect x="380" y="200" width="140" height="80" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="450" y="225" text-anchor="middle" class="small" font-weight="bold">Step 5: DCT</text>
+  <text x="450" y="245" text-anchor="middle" class="small" fill="#666">取前 13 维</text>
+
+  <!-- Step 6 -->
+  <rect x="550" y="200" width="140" height="80" rx="6" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="620" y="225" text-anchor="middle" class="small" font-weight="bold" fill="#155724">输出 MFCC</text>
+  <text x="620" y="245" text-anchor="middle" class="small" fill="#666">13 维 / 帧</text>
+  <text x="620" y="262" text-anchor="middle" class="small" fill="#666">(+ Δ, ΔΔ)</text>
+
+  <!-- 箭头 -->
+  <path d="M 180 120 L 210 120" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 120 L 380 120" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 520 120 L 550 120" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 620 160 L 620 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 520 240 L 550 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <!-- 波形示意 -->
+  <rect x="40" y="320" width="650" height="120" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="345" class="small" font-weight="bold">MFCC vs 原始波形</text>
+
+  <!-- 波形 -->
+  <path d="M 60 410 Q 80 380 100 410 Q 120 440 140 410 Q 160 380 180 410 Q 200 440 220 410 Q 240 380 260 410 Q 280 440 300 410 Q 320 380 340 410" fill="none" stroke="#4a90e2" stroke-width="2"/>
+  <text x="60" y="430" class="small" fill="#666">原始音频波形</text>
+
+  <!-- MFCC 热力图示意 -->
+  <g transform="translate(420, 360)">
+    <rect x="0" y="0" width="15" height="20" fill="#f5a623"/><rect x="15" y="0" width="15" height="20" fill="#f5a623"/><rect x="30" y="0" width="15" height="20" fill="#e74c3c"/><rect x="45" y="0" width="15" height="20" fill="#7ed321"/>
+    <rect x="0" y="20" width="15" height="20" fill="#f5a623"/><rect x="15" y="20" width="15" height="20" fill="#e74c3c"/><rect x="30" y="20" width="15" height="20" fill="#e74c3c"/><rect x="45" y="20" width="15" height="20" fill="#7ed321"/>
+    <rect x="0" y="40" width="15" height="20" fill="#f5a623"/><rect x="15" y="40" width="15" height="20" fill="#e74c3c"/><rect x="30" y="40" width="15" height="20" fill="#e74c3c"/><rect x="45" y="40" width="15" height="20" fill="#7ed321"/>
+  </g>
+  <text x="490" y="430" class="small" fill="#666">MFCC 特征 (13 维 × 时间)</text>
+
+  <!-- 应用 -->
+  <text x="60" y="465" class="small" fill="#666" font-weight="bold">应用: ASR / 说话人识别 / 语音情感 / TTS</text>
+</svg>

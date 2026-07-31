@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">CAP 定理</text>
+
+  <!-- 三角图 -->
+  <g transform="translate(350, 280)">
+    <line x1="0" y1="-180" x2="-156" y2="90" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="-180" x2="156" y2="90" stroke="#333" stroke-width="2"/>
+    <line x1="-156" y1="90" x2="156" y2="90" stroke="#333" stroke-width="2"/>
+
+    <!-- C 顶点 -->
+    <circle cx="0" cy="-180" r="50" fill="#e74c3c" fill-opacity="0.3" stroke="#922b21" stroke-width="2"/>
+    <text x="0" y="-175" text-anchor="middle" class="label" font-weight="bold" fill="#922b21">C</text>
+    <text x="0" y="-155" text-anchor="middle" class="small">Consistency</text>
+    <text x="0" y="-140" text-anchor="middle" class="small">一致性</text>
+
+    <!-- A 顶点 -->
+    <circle cx="-156" cy="90" r="50" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="-156" y="95" text-anchor="middle" class="label" font-weight="bold" fill="#417505">A</text>
+    <text x="-156" y="115" text-anchor="middle" class="small">Availability</text>
+    <text x="-156" y="130" text-anchor="middle" class="small">可用性</text>
+
+    <!-- P 顶点 -->
+    <circle cx="156" cy="90" r="50" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+    <text x="156" y="95" text-anchor="middle" class="label" font-weight="bold" fill="#1a5490">P</text>
+    <text x="156" y="115" text-anchor="middle" class="small">Partition tol.</text>
+    <text x="156" y="130" text-anchor="middle" class="small">分区容错</text>
+  </g>
+
+  <!-- 标签 -->
+  <text x="100" y="80" class="small" fill="#666" font-style="italic">CP</text>
+  <text x="600" y="80" class="small" fill="#666" font-style="italic">AP</text>
+  <text x="350" y="450" class="small" fill="#666" font-style="italic" text-anchor="middle">CA (理论, 实际不存在)</text>
+
+  <!-- 现实 -->
+  <rect x="50" y="430" width="600" height="60" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="455" class="small" font-weight="bold" fill="#856404">💡 现实:</text>
+  <text x="60" y="475" class="small" fill="#333">网络总会断 → P 必须。ML 系统多选 AP (Cassandra / Dynamo), 强一致场景选 CP (ZooKeeper / etcd)</text>
+</svg>

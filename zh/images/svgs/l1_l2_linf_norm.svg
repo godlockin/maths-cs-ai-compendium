@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">L1 / L2 / L∞ 范数等值面</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="430" x2="680" y2="430" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="100" x2="80" y2="430" stroke="#333" stroke-width="2"/>
+  <text x="370" y="465" text-anchor="middle" class="small">x₁</text>
+  <text x="50" y="270" text-anchor="middle" transform="rotate(-90 50 270)" class="small">x₂</text>
+
+  <!-- L1 范数 (菱形) ||x||₁ = 1 -->
+  <polygon points="230,300 350,180 470,300 350,420" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+  <text x="350" y="155" text-anchor="middle" class="label" fill="#1a5490" font-weight="bold">L1: |x₁| + |x₂| = 1 (菱形)</text>
+
+  <!-- L2 范数 (圆形) ||x||₂ = 1 -->
+  <circle cx="350" cy="300" r="120" fill="#7ed321" fill-opacity="0.2" stroke="#417505" stroke-width="2"/>
+  <text x="350" y="465" text-anchor="middle" class="label" fill="#417505" font-weight="bold">L2: √(x₁² + x₂²) = 1 (圆)</text>
+
+  <!-- L∞ 范数 (正方形) -->
+  <rect x="230" y="180" width="240" height="240" fill="#f5a623" fill-opacity="0.2" stroke="#a06c00" stroke-width="2"/>
+  <text x="350" y="465" text-anchor="middle" class="label" fill="#a06c00" font-weight="bold">L∞: max(|x₁|,|x₂|) = 1 (方)</text>
+
+  <!-- 注释 -->
+  <text x="80" y="485" class="small" fill="#666">💡 L1 在坐标轴有尖角 → 偏好稀疏解 (Lasso)</text>
+  <text x="80" y="500" class="small" fill="#666">💡 L2 平滑 → 偏好均匀小权重 (Ridge)</text>
+</svg>

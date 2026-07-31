@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .grid { fill: #e8f4f8; stroke: #4a90e2; stroke-width: 0.5; }
+      .kernel { fill: #e74c3c; stroke: #922b21; stroke-width: 2; fill-opacity: 0.4; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">CNN 卷积操作示意</text>
+
+  <!-- 输入特征图 5x5 -->
+  <text x="120" y="75" text-anchor="middle" class="label" font-weight="bold">输入 5×5</text>
+  <g transform="translate(40, 90)">
+    <rect width="40" height="40" class="grid"/><rect x="40" width="40" height="40" class="grid"/><rect x="80" width="40" height="40" class="grid"/><rect x="120" width="40" height="40" class="grid"/><rect x="160" width="40" height="40" class="grid"/>
+    <rect y="40" width="40" height="40" class="grid"/><rect x="40" y="40" width="40" height="40" class="grid"/><rect x="80" y="40" width="40" height="40" class="grid"/><rect x="120" y="40" width="40" height="40" class="grid"/><rect x="160" y="40" width="40" height="40" class="grid"/>
+    <rect y="80" width="40" height="40" class="grid"/><rect x="40" y="80" width="40" height="40" class="grid"/><rect x="80" y="80" width="40" height="40" class="grid"/><rect x="120" y="80" width="40" height="40" class="grid"/><rect x="160" y="80" width="40" height="40" class="grid"/>
+    <rect y="120" width="40" height="40" class="grid"/><rect x="40" y="120" width="40" height="40" class="grid"/><rect x="80" y="120" width="40" height="40" class="grid"/><rect x="120" y="120" width="40" height="40" class="grid"/><rect x="160" y="120" width="40" height="40" class="grid"/>
+    <rect y="160" width="40" height="40" class="grid"/><rect x="40" y="160" width="40" height="40" class="grid"/><rect x="80" y="160" width="40" height="40" class="grid"/><rect x="120" y="160" width="40" height="40" class="grid"/><rect x="160" y="160" width="40" height="40" class="grid"/>
+    <!-- 卷积核 3x3 -->
+    <rect width="40" height="40" class="kernel"/><rect x="40" width="40" height="40" class="kernel"/><rect x="80" width="40" height="40" class="kernel"/>
+    <rect y="40" width="40" height="40" class="kernel"/><rect x="40" y="40" width="40" height="40" class="kernel"/><rect x="80" y="40" width="40" height="40" class="kernel"/>
+    <rect y="80" width="40" height="40" class="kernel"/><rect x="40" y="80" width="40" height="40" class="kernel"/><rect x="80" y="80" width="40" height="40" class="kernel"/>
+  </g>
+
+  <!-- 箭头 -->
+  <path d="M 250 220 L 310 220" stroke="#333" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+  <text x="280" y="210" text-anchor="middle" class="small">卷积</text>
+
+  <!-- 卷积核 3x3 -->
+  <text x="360" y="75" text-anchor="middle" class="label" font-weight="bold">卷积核 3×3</text>
+  <g transform="translate(325, 90)">
+    <rect width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="40" width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="80" width="40" height="40" fill="#fff3cd" stroke="#856404"/>
+    <rect y="40" width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="40" y="40" width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="80" y="40" width="40" height="40" fill="#fff3cd" stroke="#856404"/>
+    <rect y="80" width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="40" y="80" width="40" height="40" fill="#fff3cd" stroke="#856404"/><rect x="80" y="80" width="40" height="40" fill="#fff3cd" stroke="#856404"/>
+    <text x="20" y="25" text-anchor="middle" class="small">1</text>
+    <text x="60" y="25" text-anchor="middle" class="small">0</text>
+    <text x="100" y="25" text-anchor="middle" class="small">-1</text>
+    <text x="20" y="65" text-anchor="middle" class="small">1</text>
+    <text x="60" y="65" text-anchor="middle" class="small">0</text>
+    <text x="100" y="65" text-anchor="middle" class="small">-1</text>
+    <text x="20" y="105" text-anchor="middle" class="small">1</text>
+    <text x="60" y="105" text-anchor="middle" class="small">0</text>
+    <text x="100" y="105" text-anchor="middle" class="small">-1</text>
+  </g>
+
+  <!-- 输出 -->
+  <text x="540" y="75" text-anchor="middle" class="label" font-weight="bold">输出 3×3</text>
+  <g transform="translate(490, 90)">
+    <rect width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="50" width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="100" width="50" height="50" fill="#d4edda" stroke="#155724"/>
+    <rect y="50" width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="50" y="50" width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="100" y="50" width="50" height="50" fill="#d4edda" stroke="#155724"/>
+    <rect y="100" width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="50" y="100" width="50" height="50" fill="#d4edda" stroke="#155724"/><rect x="100" y="100" width="50" height="50" fill="#d4edda" stroke="#155724"/>
+  </g>
+
+  <!-- 说明 -->
+  <rect x="50" y="350" width="600" height="120" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="375" class="small" font-weight="bold" fill="#856404">3 大特性:</text>
+  <text x="60" y="395" class="small" fill="#333">① <tspan font-weight="bold">局部连接</tspan>: 卷积核只覆盖局部区域 (感受野)</text>
+  <text x="60" y="415" class="small" fill="#333">② <tspan font-weight="bold">权重共享</tspan>: 同一卷积核扫描整张图, 大幅减少参数</text>
+  <text x="60" y="435" class="small" fill="#333">③ <tspan font-weight="bold">平移不变</tspan>: 物体平移后特征不变</text>
+  <text x="60" y="455" class="small" fill="#666">公式: O = (W - K + 2P) / S + 1, 其中 W 输入, K 卷积核, P padding, S stride</text>
+</svg>
