@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">推荐系统 3 段式架构 (召回-精排-重排)</text>
+
+  <!-- 物品库 -->
+  <rect x="40" y="80" width="120" height="60" rx="6" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="100" y="105" text-anchor="middle" class="label" font-weight="bold">物品库</text>
+  <text x="100" y="125" text-anchor="middle" class="small">100 万 +</text>
+
+  <!-- 召回 -->
+  <path d="M 160 110 L 220 110" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="220" y="60" width="160" height="100" rx="8" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+  <text x="300" y="85" text-anchor="middle" class="label" font-weight="bold" fill="#856404">召回 (Recall)</text>
+  <text x="300" y="105" text-anchor="middle" class="small">100 万 → 1000</text>
+  <text x="300" y="125" text-anchor="middle" class="small" fill="#856404">双塔 / ANN 检索</text>
+  <text x="300" y="143" text-anchor="middle" class="small" fill="#856404">Faiss / ScaNN</text>
+
+  <!-- 精排 -->
+  <path d="M 380 110 L 440 110" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="440" y="60" width="160" height="100" rx="8" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+  <text x="520" y="85" text-anchor="middle" class="label" font-weight="bold" fill="#417505">精排 (Rank)</text>
+  <text x="520" y="105" text-anchor="middle" class="small">1000 → 100</text>
+  <text x="520" y="125" text-anchor="middle" class="small" fill="#417505">DLRM / DIN / DIEN</text>
+  <text x="520" y="143" text-anchor="middle" class="small" fill="#417505">多目标: CTR / 完播</text>
+
+  <!-- 重排 -->
+  <path d="M 600 110 L 640 110" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="640" y="80" width="50" height="60" rx="4" fill="#bd10e0" fill-opacity="0.3" stroke="#730080" stroke-width="2"/>
+  <text x="665" y="100" text-anchor="middle" class="small" font-weight="bold" fill="#730080">重排</text>
+  <text x="665" y="120" text-anchor="middle" class="small" fill="#730080">100→10</text>
+  <text x="665" y="135" text-anchor="middle" class="small" fill="#666">多样</text>
+
+  <!-- 双塔示意 -->
+  <rect x="40" y="220" width="620" height="120" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="245" class="label" font-weight="bold">双塔模型 (Two-Tower):</text>
+
+  <g transform="translate(60, 260)">
+    <rect width="180" height="60" rx="6" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+    <text x="90" y="20" text-anchor="middle" class="label" font-weight="bold">User Tower</text>
+    <text x="90" y="40" text-anchor="middle" class="small">用户特征 → 嵌入</text>
+    <text x="90" y="55" text-anchor="middle" class="small" fill="#666">多层 MLP</text>
+  </g>
+  <g transform="translate(260, 260)">
+    <rect width="180" height="60" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="90" y="20" text-anchor="middle" class="label" font-weight="bold">Item Tower</text>
+    <text x="90" y="40" text-anchor="middle" class="small">物品特征 → 嵌入</text>
+    <text x="90" y="55" text-anchor="middle" class="small" fill="#666">多层 MLP</text>
+  </g>
+
+  <text x="455" y="280" text-anchor="middle" class="label" font-weight="bold">·</text>
+  <text x="500" y="285" text-anchor="middle" class="small">dot product</text>
+  <text x="500" y="305" text-anchor="middle" class="small">= 相似度</text>
+
+  <path d="M 240 290 L 260 290" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 440 290 L 460 290" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <!-- 关键 -->
+  <rect x="40" y="370" width="620" height="120" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="395" class="label" font-weight="bold" fill="#856404">3 阶段特点:</text>
+  <text x="60" y="415" class="small">• 召回: 速度优先, 候选多 (1000), 用双塔 / Faiss ANN</text>
+  <text x="60" y="435" class="small">• 精排: 精度优先, 候选少 (100), 用 DLRM + 交叉特征</text>
+  <text x="60" y="455" class="small">• 重排: 多样性 / 规则 / 探索, 候选极少 (10)</text>
+  <text x="60" y="478" class="small" fill="#666">代表: 抖音 / YouTube / Amazon / 淘宝, 总候选比 = 1:100:10000:100万</text>
+</svg>

@@ -1,0 +1,7842 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="开源、直觉先行的数学、计算机、AI 全栈中文教材 · 25 章覆盖数学基础到前沿 AI">
+      
+      
+        <meta name="author" content="Henry Ndubuaku (原著) · Steven Chen (中译主编)">
+      
+      
+        <link rel="canonical" href="https://godlockin.github.io/maths-cs-ai-compendium/%E6%95%99%E8%BE%85/%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98/%E7%AC%AC04%E7%AB%A0/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Ch04 统计学阶段测试卷 - 数学、计算机与 AI 综合手册 (中文版)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/pyodide-runner.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ch04" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="数学、计算机与 AI 综合手册 (中文版)" class="md-header__button md-logo" aria-label="数学、计算机与 AI 综合手册 (中文版)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            数学、计算机与 AI 综合手册 (中文版)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ch04 统计学阶段测试卷
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="slate" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/godlockin/maths-cs-ai-compendium" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    godlockin/maths-cs-ai-compendium
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" class="md-tabs__link">
+          
+  
+  
+  教辅资料
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../GLOSSARY/" class="md-tabs__link">
+          
+  
+  
+  阅读辅助
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/01.%20%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4/" class="md-tabs__link">
+          
+  
+  
+  第01章 · 向量
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/01.%20%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-tabs__link">
+          
+  
+  
+  第02章 · 矩阵
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/01.%20%E5%BE%AE%E5%88%86%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+  第03章 · 微积分
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/01.%20%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第04章 · 统计学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/01.%20%E8%AE%A1%E6%95%B0/" class="md-tabs__link">
+          
+  
+  
+  第05章 · 概率论
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/01.%20%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第06章 · 机器学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/01.%20%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第07章 · 计算语言学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01.%20%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第08章 · 计算机视觉
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/01.%20%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="md-tabs__link">
+          
+  
+  
+  第09章 · 音频与语音
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/01.%20%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%BE%81/" class="md-tabs__link">
+          
+  
+  
+  第10章 · 多模态学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/01.%20%E6%84%9F%E7%9F%A5/" class="md-tabs__link">
+          
+  
+  
+  第11章 · 自主系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/01.%20%E5%87%A0%E4%BD%95%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第12章 · 图神经网络
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01.%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+  第13章 · 计算与操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/00.%20%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第14章 · 数据结构与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/01.%20Linux%20%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="md-tabs__link">
+          
+  
+  
+  第15章 · 生产级软件工程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/00.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%20C%2B%2B%20%E4%B8%8E%20ML%20%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-tabs__link">
+          
+  
+  
+  第16章 · SIMD 与 GPU 编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/01.%20%E9%87%8F%E5%8C%96/" class="md-tabs__link">
+          
+  
+  
+  第17章 · AI 推理
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/01.%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第18章 · 机器学习系统设计
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/01.%20AI%20%E5%9C%A8%E9%87%91%E8%9E%8D/" class="md-tabs__link">
+          
+  
+  
+  第19章 · 应用 AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/01.%20%E9%87%8F%E5%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第20章 · 前沿 AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E9%BD%90%20%C2%B7%20%E7%9B%AE%E6%A0%87%E9%94%99%E9%85%8D%E4%B8%8E%E8%A7%84%E8%8C%83%E5%8D%9A%E5%BC%88/" class="md-tabs__link">
+          
+  
+  
+  第21章 · 对齐与可解释性
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/01.%20%E4%B8%BA%E4%BB%80%E4%B9%88%20Eval%20%E6%98%AF%20LLM%20%E7%9A%84%E5%9C%A3%E6%9D%AF/" class="md-tabs__link">
+          
+  
+  
+  第22章 · LLM 评测方法学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20Agent%20%C2%B7%20%E4%BB%8E%20LLM%20%E5%88%B0%20Agent%20%E7%9A%84%E8%B7%83%E8%BF%81/" class="md-tabs__link">
+          
+  
+  
+  第23章 · AI Agent 与工具使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/01.%20%E6%B5%AE%E7%82%B9%E4%B8%8E%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-tabs__link">
+          
+  
+  
+  第24章 · 数值分析与凸优化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/01.%20%E9%9D%A2%E8%AF%95%E5%85%A8%E6%99%AF%E4%B8%8E%E5%87%86%E5%A4%87%E5%BF%83%E6%B3%95/" class="md-tabs__link">
+          
+  
+  
+  第25章 · AI 系统实战面试指南
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="数学、计算机与 AI 综合手册 (中文版)" class="md-nav__button md-logo" aria-label="数学、计算机与 AI 综合手册 (中文版)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    数学、计算机与 AI 综合手册 (中文版)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/godlockin/maths-cs-ai-compendium" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    godlockin/maths-cs-ai-compendium
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教辅资料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教辅资料
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思维导图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E6%81%AF%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%8D%E4%B9%A0%E5%A4%A7%E7%BA%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    复习大纲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%B2%E8%A7%A3%E7%A8%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲解稿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%97%AA%E5%8D%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    闪卡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阶段测试题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98%E7%AD%94%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阶段测试题答案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全局概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A6%82%E5%BF%B5%E5%9B%BE%E8%B0%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念图谱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E4%B9%A6%E7%AC%A6%E5%8F%B7%E5%A5%91%E7%BA%A6%20v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全书符号契约
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B4%E6%9C%AC%E4%B9%A6%E8%84%89%E7%BB%9C%E5%9C%B0%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    整本书脉络地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读辅助
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    阅读辅助
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    术语表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TRANSLATION_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    翻译规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../BIBLIOGRAPHY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全书索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LEARNING_OBJECTIVES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习目标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QA_REPORT.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QA 报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FACT_CHECK_REPORT.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    事实核查报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../READER_REPORT_v2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    读者反馈报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第01章 · 向量
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第01章 · 向量
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/01.%20%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/02.%20%E5%90%91%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 向量的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/03.%20%E8%8C%83%E6%95%B0%E4%B8%8E%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 范数与度量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/04.%20%E5%90%91%E9%87%8F%E7%A7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 向量积
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/05.%20%E5%9F%BA%E4%B8%8E%E5%AF%B9%E5%81%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 基与对偶
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第02章 · 矩阵
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第02章 · 矩阵
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/01.%20%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 矩阵的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/02.%20%E7%9F%A9%E9%98%B5%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 矩阵类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/03.%20%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 矩阵运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/04.%20%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 线性变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/05.%20%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 矩阵分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第03章 · 微积分
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第03章 · 微积分
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/01.%20%E5%BE%AE%E5%88%86%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 微分学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/02.%20%E7%A7%AF%E5%88%86%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 积分学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/03.%20%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 多元微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/04.%20%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 函数逼近
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/05.%20%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第04章 · 统计学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第04章 · 统计学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/01.%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/02.%20%E6%8F%8F%E8%BF%B0%E6%80%A7%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 描述性度量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/03.%20%E6%8A%BD%E6%A0%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 抽样
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/04.%20%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/05.%20%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 统计推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第05章 · 概率论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第05章 · 概率论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/01.%20%E8%AE%A1%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/02.%20%E6%A6%82%E7%8E%87%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 概率概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/03.%20%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/04.%20%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 贝叶斯方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/05.%20%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 信息论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第06章 · 机器学习
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第06章 · 机器学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/01.%20%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 经典机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/02.%20%E6%A2%AF%E5%BA%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 梯度机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03.%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/04.%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05.%20%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 分布式深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第07章 · 计算语言学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第07章 · 计算语言学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/01.%20%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 语言学基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/02.%20%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E%E7%BB%8F%E5%85%B8%20NLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 文本处理与经典 NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/03.%20%E8%AF%8D%E5%B5%8C%E5%85%A5%E4%B8%8E%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 词嵌入与序列模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/04.%20Transformer%20%E4%B8%8E%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Transformer 与语言模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/05.%20%E9%AB%98%E7%BA%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 高级文本生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第08章 · 计算机视觉
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第08章 · 计算机视觉
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01.%20%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 图像基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02.%20%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 卷积网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/03.%20%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 目标检测与分割
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/04.%20%E8%A7%86%E8%A7%89%20Transformer%20%E4%B8%8E%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 视觉 Transformer 与生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/05.%20%E8%A7%86%E9%A2%91%E4%B8%8E%203D%20%E8%A7%86%E8%A7%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 视频与 3D 视觉
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第09章 · 音频与语音
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第09章 · 音频与语音
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/01.%20%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 数字信号处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/02.%20%E8%87%AA%E5%8A%A8%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 自动语音识别
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/03.%20%E6%96%87%E6%9C%AC%E5%88%B0%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%A3%B0%E9%9F%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 文本到语音与声音
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/04.%20%E8%AF%B4%E8%AF%9D%E4%BA%BA%E4%B8%8E%E9%9F%B3%E9%A2%91%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 说话人与音频分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/05.%20%E6%BA%90%E5%88%86%E7%A6%BB%E4%B8%8E%E9%99%8D%E5%99%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 源分离与降噪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 · 多模态学习
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第10章 · 多模态学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/01.%20%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%BE%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 多模态表征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/02.%20%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 视觉语言模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/03.%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E8%A7%86%E9%A2%91%20Token%20%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 图像与视频 Token 化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/04.%20%E8%B7%A8%E6%A8%A1%E6%80%81%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 跨模态生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/05.%20%E7%BB%9F%E4%B8%80%E5%A4%9A%E6%A8%A1%E6%80%81%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 统一多模态架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 · 自主系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第11章 · 自主系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/01.%20%E6%84%9F%E7%9F%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 感知
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/02.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 机器人学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/03.%20%E8%A7%86%E8%A7%89-%E8%AF%AD%E8%A8%80-%E5%8A%A8%E4%BD%9C%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 视觉-语言-动作模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/04.%20%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 自动驾驶
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/05.%20%E5%A4%AA%E7%A9%BA%E4%B8%8E%E6%9E%81%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 太空与极端环境机器人
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 · 图神经网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第12章 · 图神经网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/01.%20%E5%87%A0%E4%BD%95%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 几何深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/02.%20%E5%9B%BE%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 图论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/03.%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 图神经网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/04.%20%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 图注意力网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/05.%203D%20%E5%9B%BE%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 3D 图网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 · 计算与操作系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第13章 · 计算与操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01.%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 离散数学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/02.%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 计算机架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/03.%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/04.%20%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 并发与并行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/05.%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 编程语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 · 数据结构与算法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第14章 · 数据结构与算法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/00.%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00. 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01.%20%E6%95%B0%E7%BB%84%E4%B8%8E%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 数组与哈希
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/02.%20%E9%93%BE%E8%A1%A8%E3%80%81%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 链表、栈与队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03.%20%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04.%20%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/05.%20%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 排序与搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 · 生产级软件工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第15章 · 生产级软件工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/01.%20Linux%20%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Linux 与命令行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/02.%20Git%20%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%BA%93%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Git 与代码库管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/03.%20%E4%BB%A3%E7%A0%81%E5%BA%93%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 代码库设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/04.%20%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 测试与质量保证
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/05.%20%E9%83%A8%E7%BD%B2%E4%B8%8E%20DevOps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 部署与 DevOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 · SIMD 与 GPU 编程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第16章 · SIMD 与 GPU 编程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/00.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%20C%2B%2B%20%E4%B8%8E%20ML%20%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00. 为什么用 C++ 与 ML 框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/01.%20%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 硬件基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/02.%20ARM%20%E4%B8%8E%20NEON/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ARM 与 NEON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/03.%20x86%20%E4%B8%8E%20AVX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. x86 与 AVX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/04.%20GPU%20%E6%9E%B6%E6%9E%84%E4%B8%8E%20CUDA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. GPU 架构与 CUDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/05.%20Triton%E3%80%81TPU%20%E4%B8%8E%20Pallas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Triton、TPU 与 Pallas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/06.%20RISC-V%20%E4%B8%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. RISC-V 与嵌入式系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/07.%20Vulkan%20Compute%20%E4%B8%8E%E8%B7%A8%E5%B9%B3%E5%8F%B0%20GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Vulkan Compute 与跨平台 GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第17章 · AI 推理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第17章 · AI 推理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/01.%20%E9%87%8F%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 量化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/02.%20%E9%AB%98%E6%95%88%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 高效架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/03.%20%E6%9C%8D%E5%8A%A1%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 服务与批处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/04.%20%E8%BE%B9%E7%BC%98%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 边缘推理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/05.%20%E6%89%A9%E5%B1%95%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 扩展与部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第18章 · 机器学习系统设计
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第18章 · 机器学习系统设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/01.%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 系统设计基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/02.%20%E4%BA%91%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 云计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/03.%20%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 大规模基础设施
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/04.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ML 系统设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/05.%20ML%20%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. ML 设计案例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第19章 · 应用 AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第19章 · 应用 AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/01.%20AI%20%E5%9C%A8%E9%87%91%E8%9E%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. AI 在金融
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/02.%20%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 蛋白质设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/03.%20%E8%8D%AF%E7%89%A9%E5%8F%91%E7%8E%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 药物发现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/04.%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 智能体系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/05.%20%E5%8C%BB%E7%96%97%E5%81%A5%E5%BA%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 医疗健康
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第20章 · 前沿 AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第20章 · 前沿 AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/01.%20%E9%87%8F%E5%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 量子机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/02.%20%E7%A5%9E%E7%BB%8F%E5%BD%A2%E6%80%81%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 神经形态计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/03.%20%E5%A4%AA%E7%A9%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 太空数据中心
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/04.%20%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%20AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 去中心化 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/05.%20%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 脑机接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第21章 · 对齐与可解释性
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第21章 · 对齐与可解释性
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E9%BD%90%20%C2%B7%20%E7%9B%AE%E6%A0%87%E9%94%99%E9%85%8D%E4%B8%8E%E8%A7%84%E8%8C%83%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 什么是对齐
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/02.%20%E4%BB%8E%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%AD%A6%E4%B9%A0%20%C2%B7%20RLHF-DPO%20%E6%B7%B1%E5%85%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. RLHF-DPO 深入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/03.%20%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB%E4%B8%8E%E8%B6%8A%E7%8B%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 对抗攻击与越狱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/04.%20%E6%9C%BA%E5%88%B6%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 机制可解释性入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/05.%20%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%B7%A5%E5%85%B7%E4%B8%8E%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 可解释性工具与实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/06.%20AI%20%E5%AE%89%E5%85%A8%E6%B2%BB%E7%90%86%E4%B8%8E%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. AI 安全治理与前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_25" id="__nav_25_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第22章 · LLM 评测方法学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_25">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第22章 · LLM 评测方法学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/01.%20%E4%B8%BA%E4%BB%80%E4%B9%88%20Eval%20%E6%98%AF%20LLM%20%E7%9A%84%E5%9C%A3%E6%9D%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Eval 是 LLM 的圣杯
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/02.%20%E4%BC%A0%E7%BB%9F%20NLP%20%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 传统 NLP 指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/03.%20%E7%8E%B0%E4%BB%A3%20Benchmark%20%E4%BD%93%E7%B3%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 现代 Benchmark 体系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/04.%20%E7%AB%9E%E6%8A%80%E5%9C%BA%E4%B8%8E%E4%BA%BA%E7%B1%BB%E5%81%8F%E5%A5%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 竞技场与人类偏好
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/05.%20LLM-as-Judge%20%C2%B7%20%E7%94%A8%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. LLM-as-Judge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/06.%20Contamination%20%E4%B8%8E%20Benchmark%20%E5%B4%A9%E5%9D%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Contamination 与 Benchmark 崩坏
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20Capability%20%E4%B8%8E%20Safety%20Eval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Capability 与 Safety Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_26" >
+        
+          
+          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第23章 · AI Agent 与工具使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_26">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第23章 · AI Agent 与工具使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20Agent%20%C2%B7%20%E4%BB%8E%20LLM%20%E5%88%B0%20Agent%20%E7%9A%84%E8%B7%83%E8%BF%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 什么是 AI Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/02.%20Prompt-based%20%E6%8E%A8%E7%90%86%E4%B8%8E%E8%A7%84%E5%88%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Prompt 推理与规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/03.%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 工具使用与函数调用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/04.%20%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE%20MCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 模型上下文协议 MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/05.%20Multi-Agent%20%E7%BC%96%E6%8E%92%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Multi-Agent 编排系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/06.%20Agent%20%E7%94%9F%E4%BA%A7%E8%90%BD%E5%9C%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Agent 生产落地
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20%E4%BB%8E%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C%E5%88%B0%E7%9C%9F%E5%AE%9E%E7%94%B5%E8%84%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 从虚拟世界到真实电脑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第24章 · 数值分析与凸优化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第24章 · 数值分析与凸优化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/01.%20%E6%B5%AE%E7%82%B9%E4%B8%8E%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 浮点与数值稳定性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/02.%20%E8%BF%AD%E4%BB%A3%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E7%BA%BF%E4%BB%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 迭代法与稀疏线代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/03.%20%E5%87%B8%E9%9B%86%E4%B8%8E%E5%87%B8%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 凸集与凸函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/04.%20%E5%AF%B9%E5%81%B6%E4%B8%8E%20KKT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 对偶与 KKT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/05.%20%E4%BA%8C%E9%98%B6%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 二阶方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/06.%20%E5%86%85%E7%82%B9%E6%B3%95%E4%B8%8E%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 内点法与约束优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/07.%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E9%9A%8F%E6%9C%BA%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 分布式与随机优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_28" >
+        
+          
+          <label class="md-nav__link" for="__nav_28" id="__nav_28_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第25章 · AI 系统实战面试指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_28_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_28">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第25章 · AI 系统实战面试指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/01.%20%E9%9D%A2%E8%AF%95%E5%85%A8%E6%99%AF%E4%B8%8E%E5%87%86%E5%A4%87%E5%BF%83%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 面试全景与准备心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/02.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%208%20%E6%AD%A5%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ML 系统设计 8 步框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/03.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E6%8E%A8%E8%8D%90-%E6%90%9C%E7%B4%A2-%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 推荐-搜索-排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/04.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%8F%8D%E6%AC%BA%E8%AF%88-%E9%A3%8E%E6%8E%A7-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 反欺诈-风控-异常检测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/05.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%AF%B9%E8%AF%9D%E4%B8%8E%20LLM%20%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 对话与 LLM 系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/06.%20%E7%AE%97%E6%B3%95%E4%B8%8E%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 算法与编程面试实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/07.%20%E8%A1%8C%E4%B8%BA%E9%9D%A2%20%2B%20%E9%A1%B9%E7%9B%AE%E8%AE%B2%E8%BF%B0%20%2B%20Offer%20%E8%B0%88%E5%88%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 行为面 + Offer 谈判
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        符号表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-3-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、选择题（10 × 3 = 30 分）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、选择题（10 × 3 = 30 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-l1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 【🟢 入门】【L1 记忆】关于连续型随机变量的概率密度函数，正确的是
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-l2-omega123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 【🟢 入门】【L2 理解】设样本空间 \(\Omega=\{1,2,3\}\)，给定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-l2-123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 【🟢 入门】【L2 理解】给定离散取值 \(1,2,3\) 的函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-l4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 【🟡 进阶】【L4 分析】已知
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-l2-operatornamevarxv-y3x5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 【🟢 入门】【L2 理解】若 \(\operatorname{Var}(X)=v\)，令 \(Y=3X+5\)，则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 【🟢 入门】【L2 理解】下列哪项描述的是“样本均值的抽样分布”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-l2-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 【🟢 入门】【L2 理解】关于 p 值，正确的是
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 【🟢 入门】【L2 理解】关于均值的置信区间与单个未来观测值的预测区间，正确的是
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-l4-a-1001000b-1401000-h_0p_ap_b-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 【🟡 进阶】【L4 分析】A 版本转化 \(100/1000\)，B 版本转化 \(140/1000\)。检验 \(H_0:p_A=p_B\)，采用合并比例的双侧两比例 z 检验，结果约为
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-l4-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 【🔴 高阶】【L4 分析】下列关于 p 值与假设检验的陈述，错误的是
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-4-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、填空题（5 × 4 = 20 分）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、填空题（5 × 4 = 20 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-l1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 【🟢 入门】【L1 记忆】数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-l3-1357-______" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 【🟡 进阶】【L3 应用】样本 \(\{1,3,5,7\}\) 的样本均值为 ______，样本方差
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-l3-sigma12-n30-______" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 【🟡 进阶】【L3 应用】总体标准差 \(\sigma=12\)，样本量 \(n=30\)。根据中心极限定理，样本均值的标准误为 ______，并可近似写为
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-l3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 【🟡 进阶】【L3 应用】某设备故障来源有三类：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-l3-bar-x170text-cm-sigma8text-cmn50-95-zast196-__-95-____" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 【🟡 进阶】【L3 应用】已知 \(\bar x=170\text{ cm}\)，总体标准差 \(\sigma=8\text{ cm}\)，\(n=50\)，取 95% 置信水平的 \(z^\ast=1.96\)。则边际误差为 __，总体均值的 95% 置信区间为 ____。
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-6-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、简答题（5 × 6 = 30 分）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、简答题（5 × 6 = 30 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#16-l2-mini-batch-sgd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 【🟢 入门】【L2 理解】区分总体分布、样本分布与抽样分布，并说明它们在 mini-batch SGD 中分别对应什么对象。
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-l5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 【🔴 高阶】【L5 评价】判断并说明理由。以下陈述中哪些错误？请改正错误陈述。
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-l4-ab-a-1001000010b-1401000014-z-p00059" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. 【🟡 进阶】【L4 分析】某 A/B 测试中，A 版本转化率为 \(100/1000=0.10\)，B 版本转化率为 \(140/1000=0.14\)，两比例 z 检验得到双侧 \(p=0.0059\)。请写出假设并作出统计结论，同时说明统计显著不等于业务效果一定重要。
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-l4-bar-x100-sigma10n100-95-95-bayesian-credible-interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. 【🟡 进阶】【L4 分析】某总体均值估计为 \(\bar x=100\)，已知 \(\sigma=10\)，\(n=100\)，假设总体近似正态。分别计算 95% 均值置信区间和单个未来观测值的 95% 预测区间，并说明二者为何不能混用。最后说明 Bayesian credible interval 与频率学派置信区间的解释差异。
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-l5-x_1ldotsx_noversettextiidsimnmusigma2-sigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. 【🔴 高阶】【L5 评价】【⭐进阶，可跳】设 \(X_1,\ldots,X_n\overset{\text{i.i.d.}}{\sim}N(\mu,\sigma^2)\)，且 \(\sigma\) 已知。请完成：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-10-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、编程题（2 × 10 = 20 分）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、编程题（2 × 10 = 20 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-l4-pythonnumpy-scipystats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. 【🟡 进阶】【L4 分析】用 Python、NumPy 和 scipy.stats 验证中心极限定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="21. 【🟡 进阶】【L4 分析】用 Python、NumPy 和 scipy.stats 验证中心极限定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        期望输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-l6-pca-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. 【🔴 高阶】【L6 创造】【⭐进阶，可跳】自造二维统计场景，使 PCA 第一主成分沿 \((1,1)\) 方向
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="22. 【🔴 高阶】【L6 创造】【⭐进阶，可跳】自造二维统计场景，使 PCA 第一主成分沿 \((1,1)\) 方向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        期望输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ch04">Ch04 统计学阶段测试卷<a class="headerlink" href="#ch04" title="Permanent link">&para;</a></h1>
+<p><strong>总分：100 分</strong><br />
+<strong>题量：22 题</strong><br />
+<strong>题型：选择题 10 题（30 分）｜填空题 5 题（20 分）｜简答题 5 题（30 分）｜编程题 2 题（20 分）</strong></p>
+<h2 id="_1">符号表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="arithmatex">\(X\)</span> — <strong>随机变量</strong>：把随机试验结果映射为实数。例如掷骰子时，<span class="arithmatex">\(X\in\{1,2,3,4,5,6\}\)</span>。</li>
+<li><span class="arithmatex">\(P(A)\)</span> — <strong>事件 <span class="arithmatex">\(A\)</span> 的概率</strong>：事件发生可能性的数值。例如 <span class="arithmatex">\(P(\text{掷出偶数})=3/6=0.5\)</span>。</li>
+<li><span class="arithmatex">\(p(x)\)</span> — <strong>概率质量函数 PMF</strong>：离散随机变量取值为 <span class="arithmatex">\(x\)</span> 的概率。例如公平骰子 <span class="arithmatex">\(p(6)=1/6\)</span>。</li>
+<li><span class="arithmatex">\(f(x)\)</span> — <strong>概率密度函数 PDF</strong>：连续随机变量的密度，区间概率由积分给出。例如 <span class="arithmatex">\(X\sim U(0,1)\)</span> 时，<span class="arithmatex">\(f(0.5)=1\)</span>，但 <span class="arithmatex">\(P(X=0.5)=0\)</span>。</li>
+<li><span class="arithmatex">\(E[X]\)</span> — <strong>期望</strong>：随机变量的概率加权平均。例如公平骰子 <span class="arithmatex">\(E[X]=3.5\)</span>。</li>
+<li><span class="arithmatex">\(\mu\)</span> — <strong>总体均值</strong>：总体分布的平均位置。例如总体均值可为 <span class="arithmatex">\(\mu=50\)</span>。</li>
+<li><span class="arithmatex">\(\sigma^2\)</span> — <strong>总体方差</strong>：总体观测值围绕 <span class="arithmatex">\(\mu\)</span> 的平均平方偏离。例如 <span class="arithmatex">\(\sigma=12\)</span> 时，<span class="arithmatex">\(\sigma^2=144\)</span>。</li>
+<li><span class="arithmatex">\(\bar X\)</span> — <strong>样本均值</strong>：样本观测值的平均数。例如样本 <span class="arithmatex">\((2,4,6)\)</span> 的 <span class="arithmatex">\(\bar X=4\)</span>。</li>
+<li><span class="arithmatex">\(n\)</span> — <strong>样本量</strong>：样本中观测值的个数。例如 <span class="arithmatex">\(n=30\)</span> 表示每个样本含 30 个观测值。</li>
+<li><span class="arithmatex">\(s^2\)</span> — <strong>样本方差</strong>：使用 <span class="arithmatex">\(n-1\)</span> 作分母的方差估计。例如样本 <span class="arithmatex">\((1,3,5,7)\)</span> 的 <span class="arithmatex">\(s^2=20/3\)</span>。</li>
+<li><span class="arithmatex">\(SE\)</span> — <strong>标准误</strong>：统计量抽样分布的标准差。例如 <span class="arithmatex">\(\sigma=12,n=36\)</span> 时，<span class="arithmatex">\(SE=12/\sqrt{36}=2\)</span>。</li>
+<li><span class="arithmatex">\(H_0\)</span> — <strong>零假设</strong>：检验开始时的默认主张。例如 <span class="arithmatex">\(H_0:\mu=10\)</span>。</li>
+<li><span class="arithmatex">\(H_1\)</span> — <strong>备择假设</strong>：与零假设相竞争的主张。例如 <span class="arithmatex">\(H_1:\mu\ne10\)</span>。</li>
+<li><span class="arithmatex">\(\alpha\)</span> — <strong>显著性水平</strong>：事先规定的第一类错误控制水平。例如 <span class="arithmatex">\(\alpha=0.05\)</span>。</li>
+<li><span class="arithmatex">\(\beta\)</span> — <strong>第二类错误概率</strong>：<span class="arithmatex">\(H_0\)</span> 为假但未拒绝它的概率。例如 <span class="arithmatex">\(\beta=0.20\)</span> 时，功效为 <span class="arithmatex">\(1-\beta=0.80\)</span>。</li>
+<li><span class="arithmatex">\(p\)</span> — <strong>p 值</strong>：在 <span class="arithmatex">\(H_0\)</span> 为真时，观察到至少与当前结果一样极端结果的概率。例如双侧检验得到 <span class="arithmatex">\(p=0.03\)</span>。</li>
+<li><span class="arithmatex">\(z\)</span> — <strong>标准化检验统计量</strong>：例如 <span class="arithmatex">\(z=2\)</span> 表示观测值距零假设中心约 2 个标准误。</li>
+<li><span class="arithmatex">\(CI\)</span> — <strong>置信区间</strong>：对总体参数给出的频率学派区间。例如 <span class="arithmatex">\([98,102]\)</span> 可以是均值的 95% 置信区间。</li>
+<li><span class="arithmatex">\(PI\)</span> — <strong>预测区间</strong>：对单个未来观测值给出的区间。例如未来个体的 95% 预测区间通常比均值的置信区间宽。</li>
+<li><span class="arithmatex">\(I_n(\mu)\)</span> — <strong>样本 Fisher 信息</strong>：关于参数 <span class="arithmatex">\(\mu\)</span> 的信息量。例如 <span class="arithmatex">\(n=8,\sigma=2\)</span> 时，正态模型中 <span class="arithmatex">\(I_n(\mu)=8/4=2\)</span>。</li>
+<li><span class="arithmatex">\(\nabla f\)</span> — <strong>梯度列向量</strong>；<span class="arithmatex">\(J_f\)</span> — <strong>Jacobian 行向量</strong>。例如 <span class="arithmatex">\(f(x_1,x_2)=x_1+x_2\)</span> 时，<span class="arithmatex">\(\nabla f=(1,1)^\top\)</span>，<span class="arithmatex">\(J_f=(1,1)\)</span>。</li>
+<li><span class="arithmatex">\(\lambda\)</span> — <strong>正则化系数</strong>，本卷取 <span class="arithmatex">\(\lambda\ge0\)</span>，例如 <span class="arithmatex">\(\lambda=0.1\)</span>。本卷不把 <span class="arithmatex">\(\lambda\)</span> 改作显著性水平 <span class="arithmatex">\(\alpha\)</span> 或第二类错误概率 <span class="arithmatex">\(\beta\)</span>。</li>
+</ul>
+<hr />
+<h2 id="10-3-30">一、选择题（10 × 3 = 30 分）<a class="headerlink" href="#10-3-30" title="Permanent link">&para;</a></h2>
+<h3 id="1-l1">1. 【🟢 入门】【L1 记忆】关于连续型随机变量的概率密度函数，正确的是<a class="headerlink" href="#1-l1" title="Permanent link">&para;</a></h3>
+<p>A. <span class="arithmatex">\(P(X=x)=f(x)\)</span>，所以密度值就是单点概率<br />
+B. 对任意单点 <span class="arithmatex">\(x\)</span>，通常有 <span class="arithmatex">\(P(X=x)=0\)</span>，区间概率由 <span class="arithmatex">\(\int_a^b f(x)\,dx\)</span> 给出<br />
+C. PDF 的所有函数值相加必须等于 1<br />
+D. PDF 允许在某些区间取负值，只要总积分为 1  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: 连续型随机变量的单点概率通常为 0，区间概率等于密度在该区间上的积分。PDF 必须处处非负且全域积分为 1，不能把密度值直接当作概率。</p>
+<p><strong>来源</strong>: 01. 基础 §PDF 定义与区间概率</p>
+<h3 id="2-l2-omega123">2. 【🟢 入门】【L2 理解】设样本空间 <span class="arithmatex">\(\Omega=\{1,2,3\}\)</span>，给定<a class="headerlink" href="#2-l2-omega123" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+P(\{1\})=0.2,\qquad P(\{2\})=0.5,\qquad P(\{3\})=0.3.
+\]</div>
+<p>关于这一定义，正确的是</p>
+<p>A. 合法：满足 K1 非负、K2 规范化，且由不交集合求和满足 K3 可列可加<br />
+B. 不合法：因为 <span class="arithmatex">\(P(\{1\})\)</span> 不能是小数<br />
+C. 不合法：因为三个单点概率之和必须小于 1<br />
+D. 不合法：因为 K3 要求所有事件概率都相等  </p>
+<hr />
+<p><strong>答案</strong>: A</p>
+<p><strong>解析</strong>: 三个概率均非负，满足 K1；总和 <span class="arithmatex">\(0.2+0.5+0.3=1\)</span>，满足 K2。按不交集合概率求和定义，例如 <span class="arithmatex">\(P(\{1,3\})=0.2+0.3=0.5\)</span>，并满足 K3 可列可加。</p>
+<p><strong>来源</strong>: 01. 基础 §概率公理 K1/K2/K3</p>
+<h3 id="3-l2-123">3. 【🟢 入门】【L2 理解】给定离散取值 <span class="arithmatex">\(1,2,3\)</span> 的函数<a class="headerlink" href="#3-l2-123" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+q(1)=-0.1,\qquad q(2)=0.4,\qquad q(3)=0.7.
+\]</div>
+<p>下列判断正确的是</p>
+<p>A. 合法，因为三个数之和为 1<br />
+B. 不合法，且只违反 K1 非负性；K2 仍成立<br />
+C. 不合法，且只违反 K2 规范化；K1 仍成立<br />
+D. 不合法，且只违反 K3 可列可加性  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: <span class="arithmatex">\(q(1)+q(2)+q(3)=1\)</span>，所以 K2 成立；各事件仍可按集合不交并集求和，K3 形式成立。<span class="arithmatex">\(q(1)=-0.1&lt;0\)</span>，唯一违反的是 K1。</p>
+<p><strong>来源</strong>: 01. 基础 §概率质量函数与概率公理反例</p>
+<h3 id="4-l4">4. 【🟡 进阶】【L4 分析】已知<a class="headerlink" href="#4-l4" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+P(A)=0.3,\qquad P(B\mid A)=0.8,\qquad P(B\mid\neg A)=0.1.
+\]</div>
+<p>求 <span class="arithmatex">\(P(A\mid B)\)</span>。</p>
+<p>A. <span class="arithmatex">\(0.24\)</span><br />
+B. <span class="arithmatex">\(0.31\)</span><br />
+C. <span class="arithmatex">\(\dfrac{24}{31}\approx0.7742\)</span><br />
+D. <span class="arithmatex">\(0.8\)</span>  </p>
+<hr />
+<p><strong>答案</strong>: C</p>
+<p><strong>解析</strong>: <span class="arithmatex">\(P(B)=0.3\times0.8+0.7\times0.1=0.31\)</span>。因此 <span class="arithmatex">\(P(A\mid B)=0.3\times0.8/0.31=0.24/0.31=24/31\)</span>。</p>
+<p><strong>来源</strong>: 01. 基础 §条件概率与 Bayes 公式</p>
+<h3 id="5-l2-operatornamevarxv-y3x5">5. 【🟢 入门】【L2 理解】若 <span class="arithmatex">\(\operatorname{Var}(X)=v\)</span>，令 <span class="arithmatex">\(Y=3X+5\)</span>，则<a class="headerlink" href="#5-l2-operatornamevarxv-y3x5" title="Permanent link">&para;</a></h3>
+<p>A. <span class="arithmatex">\(\operatorname{Var}(Y)=3v+5\)</span><br />
+B. <span class="arithmatex">\(\operatorname{Var}(Y)=9v\)</span><br />
+C. <span class="arithmatex">\(\operatorname{Var}(Y)=v/9\)</span><br />
+D. <span class="arithmatex">\(\operatorname{Var}(Y)=3v\)</span>  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: 方差满足 <span class="arithmatex">\(\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)\)</span>。加常数不改变方差，乘以 3 会使方差乘以 <span class="arithmatex">\(3^2=9\)</span>。</p>
+<p><strong>来源</strong>: 02. 描述性度量 §方差的线性变换公式</p>
+<h3 id="6-l2">6. 【🟢 入门】【L2 理解】下列哪项描述的是“样本均值的抽样分布”<a class="headerlink" href="#6-l2" title="Permanent link">&para;</a></h3>
+<p>A. 某国所有成年人的身高分布<br />
+B. 重复抽取许多组、每组 30 人，并记录每组样本均值后形成的分布<br />
+C. 某一次抽到的 30 个人的原始身高列表<br />
+D. 某个单独个体的身高概率  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: 总体分布描述个体观测值；抽样分布描述统计量在重复抽样中的波动。B 中的许多组样本均值才构成 <span class="arithmatex">\(\bar X\)</span> 的抽样分布。</p>
+<p><strong>来源</strong>: 03. 抽样 §总体分布与抽样分布</p>
+<h3 id="7-l2-p">7. 【🟢 入门】【L2 理解】关于 p 值，正确的是<a class="headerlink" href="#7-l2-p" title="Permanent link">&para;</a></h3>
+<p>A. <span class="arithmatex">\(P(H_0\mid\text{数据})\)</span><br />
+B. 在 <span class="arithmatex">\(H_0\)</span> 为真时，观察到至少与当前结果一样极端结果的概率<br />
+C. 重复实验得到相同结果的概率<br />
+D. 第一类错误概率 <span class="arithmatex">\(\alpha\)</span> 的另一种写法  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: p 值以 <span class="arithmatex">\(H_0\)</span> 为真为条件，衡量当前数据及更极端数据的尾部概率。它不是 <span class="arithmatex">\(H_0\)</span> 为真的后验概率，也不等同于 <span class="arithmatex">\(\alpha\)</span>。</p>
+<p><strong>来源</strong>: 04. 假设检验 §p 值定义与解释</p>
+<h3 id="8-l2">8. 【🟢 入门】【L2 理解】关于均值的置信区间与单个未来观测值的预测区间，正确的是<a class="headerlink" href="#8-l2" title="Permanent link">&para;</a></h3>
+<p>A. 二者都只描述总体均值<br />
+B. 置信区间用于单个未来观测，预测区间用于总体均值<br />
+C. 置信区间描述总体参数的不确定性，预测区间描述未来个体值的不确定性，后者通常更宽<br />
+D. 二者公式和解释完全相同  </p>
+<hr />
+<p><strong>答案</strong>: C</p>
+<p><strong>解析</strong>: 均值置信区间只反映均值估计误差；预测区间还要加入未来个体自身的随机波动。因此在相同置信水平下，预测区间通常更宽。</p>
+<p><strong>来源</strong>: 05. 统计推断 §置信区间与预测区间</p>
+<h3 id="9-l4-a-1001000b-1401000-h_0p_ap_b-z">9. 【🟡 进阶】【L4 分析】A 版本转化 <span class="arithmatex">\(100/1000\)</span>，B 版本转化 <span class="arithmatex">\(140/1000\)</span>。检验 <span class="arithmatex">\(H_0:p_A=p_B\)</span>，采用合并比例的双侧两比例 z 检验，结果约为<a class="headerlink" href="#9-l4-a-1001000b-1401000-h_0p_ap_b-z" title="Permanent link">&para;</a></h3>
+<p>A. <span class="arithmatex">\(z=0.400,\ p=0.690\)</span><br />
+B. <span class="arithmatex">\(z=2.752,\ p=0.0059\)</span><br />
+C. <span class="arithmatex">\(z=2.000,\ p=0.0455\)</span><br />
+D. <span class="arithmatex">\(z=3.000,\ p=0.0027\)</span>  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: <span class="arithmatex">\(\hat p_A=0.10,\hat p_B=0.14,\hat p=0.12\)</span>，合并标准误约为 <span class="arithmatex">\(0.014533\)</span>。因此 <span class="arithmatex">\(z=0.04/0.014533=2.752\)</span>，双侧 <span class="arithmatex">\(p\approx0.0059\)</span>。</p>
+<p><strong>来源</strong>: 04. 假设检验 §两比例 z 检验与 A/B 测试</p>
+<h3 id="10-l4-p">10. 【🔴 高阶】【L4 分析】下列关于 p 值与假设检验的陈述，错误的是<a class="headerlink" href="#10-l4-p" title="Permanent link">&para;</a></h3>
+<p>A. 在显著性水平 <span class="arithmatex">\(\alpha\)</span> 预先设定的前提下，若 <span class="arithmatex">\(p\le\alpha\)</span>，通常拒绝 <span class="arithmatex">\(H_0\)</span><br />
+B. 若 <span class="arithmatex">\(p=0.03\)</span>，则 <span class="arithmatex">\(H_0\)</span> 为真的概率是 0.03<br />
+C. 若 <span class="arithmatex">\(p&gt;\alpha\)</span>，只能说证据不足以拒绝 <span class="arithmatex">\(H_0\)</span>，不能说已经证明 <span class="arithmatex">\(H_0\)</span> 为真<br />
+D. <span class="arithmatex">\(\alpha\)</span> 用于控制 <span class="arithmatex">\(H_0\)</span> 为真时错误拒绝 <span class="arithmatex">\(H_0\)</span> 的长期概率  </p>
+<hr />
+<p><strong>答案</strong>: B</p>
+<p><strong>解析</strong>: p 值是“假设 <span class="arithmatex">\(H_0\)</span> 为真时数据有多极端”的概率，不是 <span class="arithmatex">\(P(H_0\mid\text{数据})\)</span>。要得到后验概率，需要额外的先验分布与 Bayes 模型。</p>
+<p><strong>来源</strong>: 04. 假设检验 §p 值、<span class="arithmatex">\(\alpha\)</span> 与错误解释</p>
+<hr />
+<h2 id="5-4-20">二、填空题（5 × 4 = 20 分）<a class="headerlink" href="#5-4-20" title="Permanent link">&para;</a></h2>
+<h3 id="11-l1">11. 【🟢 入门】【L1 记忆】数据集<a class="headerlink" href="#11-l1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+X=\{2,4,4,4,5,5,7,9\}
+\]</div>
+<p>的均值为 <strong><em>_</em>_，若把它视为总体，其方差为 </strong>____。</p>
+<hr />
+<p><strong>答案</strong>: 均值 <span class="arithmatex">\(5\)</span>；总体方差 <span class="arithmatex">\(4\)</span>。</p>
+<p><strong>解析</strong>: 总和为 <span class="arithmatex">\(40\)</span>，所以 <span class="arithmatex">\(\mu=40/8=5\)</span>。平方偏差和为 <span class="arithmatex">\(32\)</span>，总体方差为 <span class="arithmatex">\(32/8=4\)</span>，这里不能误用样本方差的分母 <span class="arithmatex">\(n-1\)</span>。</p>
+<p><strong>来源</strong>: 01. 基础 §期望、中心矩与方差</p>
+<h3 id="12-l3-1357-______">12. 【🟡 进阶】【L3 应用】样本 <span class="arithmatex">\(\{1,3,5,7\}\)</span> 的样本均值为 ______，样本方差<a class="headerlink" href="#12-l3-1357-______" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+s^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar x)^2
+\]</div>
+<p>为 ______。</p>
+<hr />
+<p><strong>答案</strong>: <span class="arithmatex">\(\bar x=4\)</span>；<span class="arithmatex">\(s^2=\dfrac{20}{3}\approx6.6667\)</span>。</p>
+<p><strong>解析</strong>: 四个观测值的均值是 <span class="arithmatex">\(4\)</span>，平方偏差和为 <span class="arithmatex">\(9+1+1+9=20\)</span>。样本方差除以 <span class="arithmatex">\(n-1=3\)</span>，得到 <span class="arithmatex">\(20/3\)</span>。</p>
+<p><strong>来源</strong>: 02. 描述性度量 §样本方差与贝塞尔修正</p>
+<h3 id="13-l3-sigma12-n30-______">13. 【🟡 进阶】【L3 应用】总体标准差 <span class="arithmatex">\(\sigma=12\)</span>，样本量 <span class="arithmatex">\(n=30\)</span>。根据中心极限定理，样本均值的标准误为 ______，并可近似写为<a class="headerlink" href="#13-l3-sigma12-n30-______" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\bar X\approx \operatorname{Normal}(\mu,\ \underline{\hspace{2cm}})
+\]</div>
+<p>其中 <span class="arithmatex">\(\operatorname{Normal}(\text{均值},\text{方差})\)</span>。</p>
+<hr />
+<p><strong>答案</strong>: <span class="arithmatex">\(SE=\dfrac{12}{\sqrt{30}}\approx2.1909\)</span>；方差为 <span class="arithmatex">\(\dfrac{144}{30}=4.8\)</span>。</p>
+<p><strong>解析</strong>: 样本均值抽样分布的方差是 <span class="arithmatex">\(\sigma^2/n\)</span>，所以为 <span class="arithmatex">\(4.8\)</span>。<span class="arithmatex">\(n=30\)</span> 是常用近似起点，但是否足够仍取决于总体偏态程度和独立同分布条件。</p>
+<p><strong>来源</strong>: 03. 抽样 §标准误与中心极限定理</p>
+<h3 id="14-l3">14. 【🟡 进阶】【L3 应用】某设备故障来源有三类：<a class="headerlink" href="#14-l3" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+P(D_1)=0.2,\quad P(D_2)=0.3,\quad P(D_3)=0.5,
+\]</div>
+<p>报警事件 <span class="arithmatex">\(B\)</span> 满足</p>
+<div class="arithmatex">\[
+P(B\mid D_1)=0.8,\quad P(B\mid D_2)=0.4,\quad P(B\mid D_3)=0.1.
+\]</div>
+<p>则 <span class="arithmatex">\(P(B)=\underline{\hspace{2cm}}\)</span>，<span class="arithmatex">\(P(D_2\mid B)=\underline{\hspace{2cm}}\)</span>。</p>
+<hr />
+<p><strong>答案</strong>: <span class="arithmatex">\(P(B)=0.33\)</span>；<span class="arithmatex">\(P(D_2\mid B)=\dfrac{4}{11}\approx0.3636\)</span>。</p>
+<p><strong>解析</strong>: 全概率公式给出 <span class="arithmatex">\(P(B)=0.2\times0.8+0.3\times0.4+0.5\times0.1=0.33\)</span>。再用 Bayes 公式，<span class="arithmatex">\(P(D_2\mid B)=0.3\times0.4/0.33=0.12/0.33=4/11\)</span>。</p>
+<p><strong>来源</strong>: 01. 基础 §全概率公式与多条件 Bayes 公式</p>
+<h3 id="15-l3-bar-x170text-cm-sigma8text-cmn50-95-zast196-__-95-____">15. 【🟡 进阶】【L3 应用】已知 <span class="arithmatex">\(\bar x=170\text{ cm}\)</span>，总体标准差 <span class="arithmatex">\(\sigma=8\text{ cm}\)</span>，<span class="arithmatex">\(n=50\)</span>，取 95% 置信水平的 <span class="arithmatex">\(z^\ast=1.96\)</span>。则边际误差为 <strong><em>_</em>_，总体均值的 95% 置信区间为 </strong>____。<a class="headerlink" href="#15-l3-bar-x170text-cm-sigma8text-cmn50-95-zast196-__-95-____" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>答案</strong>: 边际误差约为 <span class="arithmatex">\(2.22\text{ cm}\)</span>；置信区间约为 <span class="arithmatex">\([167.78,\ 172.22]\text{ cm}\)</span>。</p>
+<p><strong>解析</strong>: <span class="arithmatex">\(ME=1.96\times8/\sqrt{50}\approx2.22\)</span>。因此 <span class="arithmatex">\(CI=\bar x\pm ME=170\pm2.22\)</span>，得到 <span class="arithmatex">\([167.78,172.22]\)</span>。</p>
+<p><strong>来源</strong>: 05. 统计推断 §已知总体标准差时的置信区间</p>
+<hr />
+<h2 id="5-6-30">三、简答题（5 × 6 = 30 分）<a class="headerlink" href="#5-6-30" title="Permanent link">&para;</a></h2>
+<h3 id="16-l2-mini-batch-sgd">16. 【🟢 入门】【L2 理解】区分总体分布、样本分布与抽样分布，并说明它们在 mini-batch SGD 中分别对应什么对象。<a class="headerlink" href="#16-l2-mini-batch-sgd" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>答案</strong>:<br />
+总体分布描述研究对象中单个观测值的整体规律，例如所有用户的点击次数分布。样本分布是某一次抽到的数据及其经验分布，例如一次抽取的 64 条记录。抽样分布是重复抽取许多组同样大小的样本后，某个统计量（如样本均值或批梯度估计）的分布。<br />
+在 mini-batch SGD 中，全部训练数据可看作总体；一次 mini-batch 是样本；不同 mini-batch 产生的损失或梯度估计的波动，类似统计量的抽样分布。</p>
+<p><strong>解析</strong>: 三者的对象不同：总体分布看个体，样本分布看一次数据集，抽样分布看统计量跨重复抽样的变化。把一次 mini-batch 的数据直方图误称为梯度的抽样分布，是常见混淆。</p>
+<p><strong>来源</strong>: 03. 抽样 §总体、样本、统计量与抽样分布</p>
+<h3 id="17-l5">17. 【🔴 高阶】【L5 评价】判断并说明理由。以下陈述中哪些错误？请改正错误陈述。<a class="headerlink" href="#17-l5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>若双侧检验得到 <span class="arithmatex">\(p=0.03\)</span>，则 <span class="arithmatex">\(H_0\)</span> 为真的概率是 0.03。  </li>
+<li>95% 置信区间 <span class="arithmatex">\([a,b]\)</span> 表示在当前数据下，固定参数落在 <span class="arithmatex">\([a,b]\)</span> 内的概率是 95%。  </li>
+<li>若 <span class="arithmatex">\(p&gt;0.05\)</span>，就已经证明 <span class="arithmatex">\(H_0\)</span> 为真。  </li>
+<li><span class="arithmatex">\(\alpha\)</span> 是在 <span class="arithmatex">\(H_0\)</span> 为真时错误拒绝它的长期控制水平；<span class="arithmatex">\(\beta\)</span> 是 <span class="arithmatex">\(H_0\)</span> 为假时未能拒绝它的概率。</li>
+</ol>
+<hr />
+<p><strong>答案</strong>:<br />
+1、2、3 错误；4 正确。<br />
+1 应改为：<span class="arithmatex">\(p=0.03\)</span> 表示假定 <span class="arithmatex">\(H_0\)</span> 为真时，观察到当前或更极端结果的概率为 0.03。<br />
+2 应改为：重复抽样并按同一方法构造区间时，约 95% 的区间会覆盖固定的总体参数。<br />
+3 应改为：<span class="arithmatex">\(p&gt;0.05\)</span> 表示证据不足以拒绝 <span class="arithmatex">\(H_0\)</span>，不等于证明 <span class="arithmatex">\(H_0\)</span> 为真。</p>
+<p><strong>解析</strong>: 这三处错误都把频率学派概率对象换成了假设本身的概率。若要直接讨论 <span class="arithmatex">\(P(H_0\mid\text{数据})\)</span>，需要先验和似然构成的 Bayes 推断。</p>
+<p><strong>来源</strong>: 04. 假设检验 §p 值、第一类错误与第二类错误；05. 统计推断 §置信区间解释</p>
+<h3 id="18-l4-ab-a-1001000010b-1401000014-z-p00059">18. 【🟡 进阶】【L4 分析】某 A/B 测试中，A 版本转化率为 <span class="arithmatex">\(100/1000=0.10\)</span>，B 版本转化率为 <span class="arithmatex">\(140/1000=0.14\)</span>，两比例 z 检验得到双侧 <span class="arithmatex">\(p=0.0059\)</span>。请写出假设并作出统计结论，同时说明统计显著不等于业务效果一定重要。<a class="headerlink" href="#18-l4-ab-a-1001000010b-1401000014-z-p00059" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>答案</strong>:<br />
+设 <span class="arithmatex">\(p_A,p_B\)</span> 为两个版本的总体转化率，则</p>
+<div class="arithmatex">\[
+H_0:p_A=p_B,\qquad H_1:p_A\ne p_B.
+\]</div>
+<p>在 <span class="arithmatex">\(\alpha=0.05\)</span> 下，<span class="arithmatex">\(p=0.0059&lt;0.05\)</span>，拒绝 <span class="arithmatex">\(H_0\)</span>，认为 B 与 A 的总体转化率存在统计显著差异，样本中 B 高出 4 个百分点。<br />
+业务上还要评估 4 个百分点的实际价值、成本、实验持续时间、随机分配质量、多个指标筛选以及结果能否在新用户群中复现。</p>
+<p><strong>解析</strong>: p 值回答“在无差异假设下，这样的差异是否罕见”，不直接回答收益金额或因果机制。随机分配、预先设定指标和独立重复实验是 A/B 结论的重要条件。</p>
+<p><strong>来源</strong>: 04. 假设检验 §两比例 z 检验、A/B 测试与统计显著性</p>
+<h3 id="19-l4-bar-x100-sigma10n100-95-95-bayesian-credible-interval">19. 【🟡 进阶】【L4 分析】某总体均值估计为 <span class="arithmatex">\(\bar x=100\)</span>，已知 <span class="arithmatex">\(\sigma=10\)</span>，<span class="arithmatex">\(n=100\)</span>，假设总体近似正态。分别计算 95% 均值置信区间和单个未来观测值的 95% 预测区间，并说明二者为何不能混用。最后说明 Bayesian credible interval 与频率学派置信区间的解释差异。<a class="headerlink" href="#19-l4-bar-x100-sigma10n100-95-95-bayesian-credible-interval" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>答案</strong>:<br />
+均值置信区间的标准误为 <span class="arithmatex">\(10/\sqrt{100}=1\)</span>，所以</p>
+<div class="arithmatex">\[
+CI=100\pm1.96\times1=[98.04,\ 101.96].
+\]</div>
+<p>单个未来观测值还包含个体随机误差，预测标准误为</p>
+<div class="arithmatex">\[
+SE_{\text{pred}}=10\sqrt{1+\frac1{100}}\approx10.0499,
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+PI=100\pm1.96\times10.0499\approx[80.30,\ 119.70].
+\]</div>
+<p>置信区间估计总体均值，预测区间覆盖未来个体，后者更宽。在 Bayesian 推断中，95% credible interval 通常表示给定数据与先验后，参数落入该区间的后验概率为 95%；这与频率学派置信区间的重复抽样覆盖率不是同一解释。</p>
+<p><strong>解析</strong>: 置信区间只承担均值估计误差，预测区间同时承担均值估计误差和未来个体噪声。把前者直接用于预测单个用户、样本或设备，会低估不确定性。</p>
+<p><strong>来源</strong>: 05. 统计推断 §置信区间、预测区间与 Bayesian credible interval</p>
+<h3 id="20-l5-x_1ldotsx_noversettextiidsimnmusigma2-sigma">20. 【🔴 高阶】【L5 评价】【⭐进阶，可跳】设 <span class="arithmatex">\(X_1,\ldots,X_n\overset{\text{i.i.d.}}{\sim}N(\mu,\sigma^2)\)</span>，且 <span class="arithmatex">\(\sigma\)</span> 已知。请完成：<a class="headerlink" href="#20-l5-x_1ldotsx_noversettextiidsimnmusigma2-sigma" title="Permanent link">&para;</a></h3>
+<ol>
+<li>写出关于 <span class="arithmatex">\(\mu\)</span> 的对数似然、得分函数和 Fisher 信息 <span class="arithmatex">\(I_n(\mu)\)</span>。  </li>
+<li>当 <span class="arithmatex">\(n=8,\sigma=2\)</span> 时，计算 <span class="arithmatex">\(I_n(\mu)\)</span>。  </li>
+<li>令 <span class="arithmatex">\(\mathbf{x}=(x_1,\ldots,x_n)^\top\)</span>，写出样本均值 <span class="arithmatex">\(f(\mathbf{x})=\bar x\)</span> 的梯度和 Jacobian，并标明形状。</li>
+</ol>
+<hr />
+<p><strong>答案</strong>:  </p>
+<ol>
+<li>忽略与 <span class="arithmatex">\(\mu\)</span> 无关的常数，</li>
+</ol>
+<div class="arithmatex">\[
+\ell(\mu)
+=-\frac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2+C.
+\]</div>
+<p>对标量参数 <span class="arithmatex">\(\mu\)</span>，按本书“梯度为列向量”的约定，</p>
+<div class="arithmatex">\[
+\nabla_\mu\ell
+=\frac{\sum_{i=1}^{n}(x_i-\mu)}{\sigma^2}
+\in\mathbb{R}^{1\times1}.
+\]</div>
+<p>Fisher 信息为</p>
+<div class="arithmatex">\[
+I_n(\mu)
+=E\!\left[\left(\nabla_\mu\ell\right)^2\right]
+=-E\!\left[\frac{\partial^2\ell}{\partial\mu^2}\right]
+=\frac{n}{\sigma^2}.
+\]</div>
+<ol>
+<li>当 <span class="arithmatex">\(n=8,\sigma=2\)</span> 时，</li>
+</ol>
+<div class="arithmatex">\[
+I_n(\mu)=\frac{8}{2^2}=2.
+\]</div>
+<ol>
+<li>令 <span class="arithmatex">\(\mathbf{1}=(1,\ldots,1)^\top\in\mathbb{R}^{n\times1}\)</span>，则</li>
+</ol>
+<div class="arithmatex">\[
+f(\mathbf{x})=\bar x
+=\frac1n\mathbf{1}^\top\mathbf{x}.
+\]</div>
+<p>梯度为列向量</p>
+<div class="arithmatex">\[
+\nabla_{\mathbf{x}}f
+=\frac1n\mathbf{1}
+\in\mathbb{R}^{n\times1},
+\]</div>
+<p>Jacobian 为行向量</p>
+<div class="arithmatex">\[
+J_f=(\nabla_{\mathbf{x}}f)^\top
+=\frac1n\mathbf{1}^\top
+\in\mathbb{R}^{1\times n}.
+\]</div>
+<p>例如 <span class="arithmatex">\(n=4\)</span> 时，<span class="arithmatex">\(\nabla_{\mathbf{x}}f=(1/4,1/4,1/4,1/4)^\top\)</span>。</p>
+<p><strong>解析</strong>: Fisher 信息是期望负 Hessian，也可写成得分平方的期望，刻画似然曲率和参数可辨识程度。样本均值的梯度必须写成列向量，不能把 <span class="arithmatex">\(J_f\)</span> 与 <span class="arithmatex">\(\nabla f\)</span> 的方向混用。</p>
+<p><strong>来源</strong>: 05. 统计推断 §极大似然、Fisher 信息矩阵与样本均值梯度（⭐）</p>
+<hr />
+<h2 id="2-10-20">四、编程题（2 × 10 = 20 分）<a class="headerlink" href="#2-10-20" title="Permanent link">&para;</a></h2>
+<h3 id="21-l4-pythonnumpy-scipystats">21. 【🟡 进阶】【L4 分析】用 Python、NumPy 和 <code>scipy.stats</code> 验证中心极限定理<a class="headerlink" href="#21-l4-pythonnumpy-scipystats" title="Permanent link">&para;</a></h3>
+<p>指数总体 <span class="arithmatex">\(X\sim\operatorname{Exponential}(\text{scale}=1)\)</span> 满足 <span class="arithmatex">\(\mu=1,\sigma=1\)</span>。请完成以下任务：</p>
+<ol>
+<li>固定样本量 <span class="arithmatex">\(n=30\)</span>，重复抽样 50,000 次。  </li>
+<li>计算 50,000 个样本均值。  </li>
+<li>比较经验均值、经验标准误、样本均值偏度与理论正态分布。  </li>
+<li>使用 2.5%、50%、97.5% 分位数进行数值对照，并说明是否呈现“趋近正态”的证据。</li>
+</ol>
+<h4 id="_2">参考代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">reps</span> <span class="o">=</span> <span class="mi">50_000</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 指数总体：均值 mu=1，方差 sigma^2=1</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">reps</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># 每一行对应一次 n=30 的抽样</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">sample_means</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">emp_mean</span> <span class="o">=</span> <span class="n">sample_means</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">emp_se</span> <span class="o">=</span> <span class="n">sample_means</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">emp_skew</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">])</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># 经验分位数</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">empirical_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># CLT 理论近似：Normal(mu, sigma^2/n)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">theoretical_se</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="n">normal_quantiles</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="n">levels</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="n">loc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">scale</span><span class="o">=</span><span class="n">theoretical_se</span><span class="p">,</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;empirical mean = </span><span class="si">{</span><span class="n">emp_mean</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;empirical SE   = </span><span class="si">{</span><span class="n">emp_se</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;normal SE      = </span><span class="si">{</span><span class="n">theoretical_se</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sample-mean skewness = </span><span class="si">{</span><span class="n">emp_skew</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="s2">&quot;empirical quantiles =&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">empirical_quantiles</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="s2">&quot;normal quantiles    =&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">normal_quantiles</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="p">)</span>
+</code></pre></div>
+<h4 id="_3">期望输出<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>empirical mean = 1.0001
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>empirical SE   = 0.1834
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>normal SE      = 0.1826
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sample-mean skewness = 0.3757
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>empirical quantiles = [0.6743 0.9886 1.3916]
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>normal quantiles    = [0.6422 1.     1.3578]
+</code></pre></div>
+<hr />
+<p><strong>答案</strong>: 经验均值约为 <span class="arithmatex">\(1\)</span>，经验标准误 <span class="arithmatex">\(0.1834\)</span> 接近理论值 <span class="arithmatex">\(1/\sqrt{30}=0.1826\)</span>，经验分位数与 <span class="arithmatex">\(N(1,1/30)\)</span> 的理论分位数接近；因此样本均值分布已呈现趋近正态的数值证据。</p>
+<p><strong>解析</strong>: 原始指数总体明显右偏，但 <span class="arithmatex">\(n=30\)</span> 的样本均值偏度已降至约 <span class="arithmatex">\(0.376\)</span>，远小于单个指数变量的偏度。有限样本下不会与正态分布完全相同，CLT 表示近似随样本量增大而改善。</p>
+<p><strong>来源</strong>: 03. 抽样 §中心极限定理的数值验证</p>
+<h3 id="22-l6-pca-11">22. 【🔴 高阶】【L6 创造】【⭐进阶，可跳】自造二维统计场景，使 PCA 第一主成分沿 <span class="arithmatex">\((1,1)\)</span> 方向<a class="headerlink" href="#22-l6-pca-11" title="Permanent link">&para;</a></h3>
+<p>请使用 NumPy 自造二维数据，使两个特征具有较强正相关，要求第一主成分方向接近</p>
+<div class="arithmatex">\[
+\frac{(1,1)^\top}{\sqrt2}.
+\]</div>
+<p>要求：</p>
+<ol>
+<li>生成二维观测数据并中心化。  </li>
+<li>计算样本协方差矩阵。  </li>
+<li>通过协方差矩阵的特征分解得到第一主成分方向。  </li>
+<li>用 <code>scipy.stats.pearsonr</code> 检查两维特征的线性相关。  </li>
+<li>输出第一主成分与 <span class="arithmatex">\((1,1)^\top/\sqrt2\)</span> 的余弦相似度。</li>
+</ol>
+<h4 id="_4">参考代码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># 自造场景：</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># t 是共同变化因素，两个特征都随 t 增大而增大</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">t</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span> <span class="o">+</span> <span class="n">noise</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># 中心化</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">X_centered</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># rowvar=False：每一列是一个特征</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">X_centered</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># 协方差矩阵是对称矩阵，eigh 返回升序特征值</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covariance</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="c1"># 最大特征值对应第一主成分</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">first_direction</span> <span class="o">=</span> <span class="n">eigenvectors</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c1"># 统一符号方向，避免特征向量整体取负</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="k">if</span> <span class="n">first_direction</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="n">first_direction</span> <span class="o">=</span> <span class="o">-</span><span class="n">first_direction</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="n">target_direction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="n">cosine</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">first_direction</span> <span class="o">@</span> <span class="n">target_direction</span><span class="p">)</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="n">correlation</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="p">)</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;covariance =&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">covariance</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first direction =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">first_direction</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>    <span class="s2">&quot;cosine with (1,1)/sqrt(2) =&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cosine</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="p">)</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>    <span class="sa">f</span><span class="s2">&quot;Pearson r = </span><span class="si">{</span><span class="n">correlation</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, &quot;</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>    <span class="sa">f</span><span class="s2">&quot;p-value = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="p">)</span>
+</code></pre></div>
+<h4 id="_5">期望输出<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>covariance =
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>[[0.9377 0.8951]
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> [0.8951 0.9313]]
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>first direction = [0.7084 0.7058]
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cosine with (1,1)/sqrt(2) = 1.0000
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Pearson r = 0.9578, p-value = 0.000e+00
+</code></pre></div>
+<hr />
+<p><strong>答案</strong>: 代码构造的两个特征都由共同变量 <span class="arithmatex">\(t\)</span> 驱动，所以协方差为正，最大特征值对应的方向约为 <span class="arithmatex">\((0.7084,0.7058)^\top\)</span>，接近 <span class="arithmatex">\((1,1)^\top/\sqrt2\)</span>。余弦相似度约为 <span class="arithmatex">\(1\)</span>，说明第一主成分方向满足要求。</p>
+<p><strong>解析</strong>: PCA 在此处通过样本协方差寻找方差最大的方向；正相关数据的最大方差方向接近 <span class="arithmatex">\((1,1)\)</span>。这是一个可自行修改噪声大小、样本量或共同因素分布的统计建模场景，不应把高相关误读为严格因果关系。</p>
+<p><strong>来源</strong>: 05. 统计推断 §因子分析、协方差结构与统计降维（⭐）</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/godlockin/maths-cs-ai-compendium" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/pyodide-runner.js"></script>
+      
+    
+  </body>
+</html>

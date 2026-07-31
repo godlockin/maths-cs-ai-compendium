@@ -1,0 +1,9131 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="开源、直觉先行的数学、计算机、AI 全栈中文教材 · 25 章覆盖数学基础到前沿 AI">
+      
+      
+        <meta name="author" content="Henry Ndubuaku (原著) · Steven Chen (中译主编)">
+      
+      
+        <link rel="canonical" href="https://godlockin.github.io/maths-cs-ai-compendium/%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/07.%20%E8%A1%8C%E4%B8%BA%E9%9D%A2%20%2B%20%E9%A1%B9%E7%9B%AE%E8%AE%B2%E8%BF%B0%20%2B%20Offer%20%E8%B0%88%E5%88%A4/">
+      
+      
+        <link rel="prev" href="../06.%20%E7%AE%97%E6%B3%95%E4%B8%8E%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>07. 行为面 + Offer 谈判 - 数学、计算机与 AI 综合手册 (中文版)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/pyodide-runner.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#offer" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="数学、计算机与 AI 综合手册 (中文版)" class="md-header__button md-logo" aria-label="数学、计算机与 AI 综合手册 (中文版)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            数学、计算机与 AI 综合手册 (中文版)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              07. 行为面 + Offer 谈判
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="slate" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="slate" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/godlockin/maths-cs-ai-compendium" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    godlockin/maths-cs-ai-compendium
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%95%99%E8%BE%85/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" class="md-tabs__link">
+          
+  
+  
+  教辅资料
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GLOSSARY/" class="md-tabs__link">
+          
+  
+  
+  阅读辅助
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/01.%20%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4/" class="md-tabs__link">
+          
+  
+  
+  第01章 · 向量
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/01.%20%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-tabs__link">
+          
+  
+  
+  第02章 · 矩阵
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/01.%20%E5%BE%AE%E5%88%86%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+  第03章 · 微积分
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/01.%20%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第04章 · 统计学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/01.%20%E8%AE%A1%E6%95%B0/" class="md-tabs__link">
+          
+  
+  
+  第05章 · 概率论
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/01.%20%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第06章 · 机器学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/01.%20%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第07章 · 计算语言学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01.%20%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第08章 · 计算机视觉
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/01.%20%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="md-tabs__link">
+          
+  
+  
+  第09章 · 音频与语音
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/01.%20%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%BE%81/" class="md-tabs__link">
+          
+  
+  
+  第10章 · 多模态学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/01.%20%E6%84%9F%E7%9F%A5/" class="md-tabs__link">
+          
+  
+  
+  第11章 · 自主系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/01.%20%E5%87%A0%E4%BD%95%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第12章 · 图神经网络
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01.%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+  第13章 · 计算与操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/00.%20%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第14章 · 数据结构与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/01.%20Linux%20%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="md-tabs__link">
+          
+  
+  
+  第15章 · 生产级软件工程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/00.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%20C%2B%2B%20%E4%B8%8E%20ML%20%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-tabs__link">
+          
+  
+  
+  第16章 · SIMD 与 GPU 编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/01.%20%E9%87%8F%E5%8C%96/" class="md-tabs__link">
+          
+  
+  
+  第17章 · AI 推理
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/01.%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+  第18章 · 机器学习系统设计
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/01.%20AI%20%E5%9C%A8%E9%87%91%E8%9E%8D/" class="md-tabs__link">
+          
+  
+  
+  第19章 · 应用 AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/01.%20%E9%87%8F%E5%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  第20章 · 前沿 AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E9%BD%90%20%C2%B7%20%E7%9B%AE%E6%A0%87%E9%94%99%E9%85%8D%E4%B8%8E%E8%A7%84%E8%8C%83%E5%8D%9A%E5%BC%88/" class="md-tabs__link">
+          
+  
+  
+  第21章 · 对齐与可解释性
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/01.%20%E4%B8%BA%E4%BB%80%E4%B9%88%20Eval%20%E6%98%AF%20LLM%20%E7%9A%84%E5%9C%A3%E6%9D%AF/" class="md-tabs__link">
+          
+  
+  
+  第22章 · LLM 评测方法学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20Agent%20%C2%B7%20%E4%BB%8E%20LLM%20%E5%88%B0%20Agent%20%E7%9A%84%E8%B7%83%E8%BF%81/" class="md-tabs__link">
+          
+  
+  
+  第23章 · AI Agent 与工具使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/01.%20%E6%B5%AE%E7%82%B9%E4%B8%8E%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-tabs__link">
+          
+  
+  
+  第24章 · 数值分析与凸优化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01.%20%E9%9D%A2%E8%AF%95%E5%85%A8%E6%99%AF%E4%B8%8E%E5%87%86%E5%A4%87%E5%BF%83%E6%B3%95/" class="md-tabs__link">
+          
+  
+  
+  第25章 · AI 系统实战面试指南
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="数学、计算机与 AI 综合手册 (中文版)" class="md-nav__button md-logo" aria-label="数学、计算机与 AI 综合手册 (中文版)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    数学、计算机与 AI 综合手册 (中文版)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/godlockin/maths-cs-ai-compendium" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    godlockin/maths-cs-ai-compendium
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教辅资料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    教辅资料
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思维导图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E4%BF%A1%E6%81%AF%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E5%A4%8D%E4%B9%A0%E5%A4%A7%E7%BA%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    复习大纲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E8%AE%B2%E8%A7%A3%E7%A8%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲解稿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E9%97%AA%E5%8D%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    闪卡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阶段测试题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98%E7%AD%94%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阶段测试题答案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全局概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E6%A6%82%E5%BF%B5%E5%9B%BE%E8%B0%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念图谱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E5%85%A8%E4%B9%A6%E7%AC%A6%E5%8F%B7%E5%A5%91%E7%BA%A6%20v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全书符号契约
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%BE%85/%E6%95%B4%E6%9C%AC%E4%B9%A6%E8%84%89%E7%BB%9C%E5%9C%B0%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    整本书脉络地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读辅助
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    阅读辅助
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    术语表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TRANSLATION_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    翻译规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BIBLIOGRAPHY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../INDEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全书索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LEARNING_OBJECTIVES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习目标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QA_REPORT.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QA 报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FACT_CHECK_REPORT.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    事实核查报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../READER_REPORT_v2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    读者反馈报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第01章 · 向量
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第01章 · 向量
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/01.%20%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/02.%20%E5%90%91%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 向量的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/03.%20%E8%8C%83%E6%95%B0%E4%B8%8E%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 范数与度量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/04.%20%E5%90%91%E9%87%8F%E7%A7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 向量积
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/05.%20%E5%9F%BA%E4%B8%8E%E5%AF%B9%E5%81%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 基与对偶
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第02章 · 矩阵
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第02章 · 矩阵
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/01.%20%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 矩阵的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/02.%20%E7%9F%A9%E9%98%B5%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 矩阵类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/03.%20%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 矩阵运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/04.%20%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 线性变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/05.%20%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 矩阵分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第03章 · 微积分
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第03章 · 微积分
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/01.%20%E5%BE%AE%E5%88%86%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 微分学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/02.%20%E7%A7%AF%E5%88%86%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 积分学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/03.%20%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 多元微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/04.%20%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 函数逼近
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/05.%20%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第04章 · 统计学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第04章 · 统计学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/01.%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/02.%20%E6%8F%8F%E8%BF%B0%E6%80%A7%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 描述性度量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/03.%20%E6%8A%BD%E6%A0%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 抽样
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/04.%20%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/05.%20%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 统计推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第05章 · 概率论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第05章 · 概率论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/01.%20%E8%AE%A1%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/02.%20%E6%A6%82%E7%8E%87%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 概率概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/03.%20%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/04.%20%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 贝叶斯方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/05.%20%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 信息论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第06章 · 机器学习
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第06章 · 机器学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/01.%20%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 经典机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/02.%20%E6%A2%AF%E5%BA%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 梯度机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03.%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/04.%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05.%20%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 分布式深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第07章 · 计算语言学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第07章 · 计算语言学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/01.%20%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 语言学基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/02.%20%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E%E7%BB%8F%E5%85%B8%20NLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 文本处理与经典 NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/03.%20%E8%AF%8D%E5%B5%8C%E5%85%A5%E4%B8%8E%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 词嵌入与序列模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/04.%20Transformer%20%E4%B8%8E%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Transformer 与语言模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/05.%20%E9%AB%98%E7%BA%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 高级文本生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第08章 · 计算机视觉
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第08章 · 计算机视觉
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01.%20%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 图像基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02.%20%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 卷积网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/03.%20%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 目标检测与分割
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/04.%20%E8%A7%86%E8%A7%89%20Transformer%20%E4%B8%8E%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 视觉 Transformer 与生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/05.%20%E8%A7%86%E9%A2%91%E4%B8%8E%203D%20%E8%A7%86%E8%A7%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 视频与 3D 视觉
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第09章 · 音频与语音
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第09章 · 音频与语音
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/01.%20%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 数字信号处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/02.%20%E8%87%AA%E5%8A%A8%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 自动语音识别
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/03.%20%E6%96%87%E6%9C%AC%E5%88%B0%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%A3%B0%E9%9F%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 文本到语音与声音
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/04.%20%E8%AF%B4%E8%AF%9D%E4%BA%BA%E4%B8%8E%E9%9F%B3%E9%A2%91%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 说话人与音频分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/05.%20%E6%BA%90%E5%88%86%E7%A6%BB%E4%B8%8E%E9%99%8D%E5%99%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 源分离与降噪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 · 多模态学习
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第10章 · 多模态学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/01.%20%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%BE%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 多模态表征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/02.%20%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 视觉语言模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/03.%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E8%A7%86%E9%A2%91%20Token%20%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 图像与视频 Token 化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/04.%20%E8%B7%A8%E6%A8%A1%E6%80%81%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 跨模态生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/05.%20%E7%BB%9F%E4%B8%80%E5%A4%9A%E6%A8%A1%E6%80%81%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 统一多模态架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 · 自主系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第11章 · 自主系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/01.%20%E6%84%9F%E7%9F%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 感知
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/02.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 机器人学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/03.%20%E8%A7%86%E8%A7%89-%E8%AF%AD%E8%A8%80-%E5%8A%A8%E4%BD%9C%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 视觉-语言-动作模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/04.%20%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 自动驾驶
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/05.%20%E5%A4%AA%E7%A9%BA%E4%B8%8E%E6%9E%81%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 太空与极端环境机器人
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 · 图神经网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第12章 · 图神经网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/01.%20%E5%87%A0%E4%BD%95%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 几何深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/02.%20%E5%9B%BE%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 图论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/03.%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 图神经网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/04.%20%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 图注意力网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/05.%203D%20%E5%9B%BE%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 3D 图网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 · 计算与操作系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第13章 · 计算与操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01.%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 离散数学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/02.%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 计算机架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/03.%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/04.%20%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 并发与并行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/05.%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 编程语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 · 数据结构与算法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第14章 · 数据结构与算法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/00.%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00. 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01.%20%E6%95%B0%E7%BB%84%E4%B8%8E%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 数组与哈希
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/02.%20%E9%93%BE%E8%A1%A8%E3%80%81%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 链表、栈与队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03.%20%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04.%20%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/05.%20%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 排序与搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 · 生产级软件工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第15章 · 生产级软件工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/01.%20Linux%20%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Linux 与命令行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/02.%20Git%20%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%BA%93%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Git 与代码库管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/03.%20%E4%BB%A3%E7%A0%81%E5%BA%93%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 代码库设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/04.%20%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 测试与质量保证
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/05.%20%E9%83%A8%E7%BD%B2%E4%B8%8E%20DevOps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 部署与 DevOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 · SIMD 与 GPU 编程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第16章 · SIMD 与 GPU 编程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/00.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%20C%2B%2B%20%E4%B8%8E%20ML%20%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00. 为什么用 C++ 与 ML 框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/01.%20%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 硬件基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/02.%20ARM%20%E4%B8%8E%20NEON/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ARM 与 NEON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/03.%20x86%20%E4%B8%8E%20AVX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. x86 与 AVX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/04.%20GPU%20%E6%9E%B6%E6%9E%84%E4%B8%8E%20CUDA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. GPU 架构与 CUDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/05.%20Triton%E3%80%81TPU%20%E4%B8%8E%20Pallas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Triton、TPU 与 Pallas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/06.%20RISC-V%20%E4%B8%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. RISC-V 与嵌入式系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/07.%20Vulkan%20Compute%20%E4%B8%8E%E8%B7%A8%E5%B9%B3%E5%8F%B0%20GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Vulkan Compute 与跨平台 GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第17章 · AI 推理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第17章 · AI 推理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/01.%20%E9%87%8F%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 量化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/02.%20%E9%AB%98%E6%95%88%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 高效架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/03.%20%E6%9C%8D%E5%8A%A1%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 服务与批处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/04.%20%E8%BE%B9%E7%BC%98%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 边缘推理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/05.%20%E6%89%A9%E5%B1%95%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 扩展与部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第18章 · 机器学习系统设计
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第18章 · 机器学习系统设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/01.%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 系统设计基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/02.%20%E4%BA%91%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 云计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/03.%20%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 大规模基础设施
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/04.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ML 系统设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/05.%20ML%20%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. ML 设计案例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第19章 · 应用 AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第19章 · 应用 AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/01.%20AI%20%E5%9C%A8%E9%87%91%E8%9E%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. AI 在金融
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/02.%20%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 蛋白质设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/03.%20%E8%8D%AF%E7%89%A9%E5%8F%91%E7%8E%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 药物发现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/04.%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 智能体系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/05.%20%E5%8C%BB%E7%96%97%E5%81%A5%E5%BA%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 医疗健康
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第20章 · 前沿 AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第20章 · 前沿 AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/01.%20%E9%87%8F%E5%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 量子机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/02.%20%E7%A5%9E%E7%BB%8F%E5%BD%A2%E6%80%81%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 神经形态计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/03.%20%E5%A4%AA%E7%A9%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 太空数据中心
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/04.%20%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%20AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 去中心化 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/05.%20%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 脑机接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第21章 · 对齐与可解释性
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第21章 · 对齐与可解释性
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E9%BD%90%20%C2%B7%20%E7%9B%AE%E6%A0%87%E9%94%99%E9%85%8D%E4%B8%8E%E8%A7%84%E8%8C%83%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 什么是对齐
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/02.%20%E4%BB%8E%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%AD%A6%E4%B9%A0%20%C2%B7%20RLHF-DPO%20%E6%B7%B1%E5%85%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. RLHF-DPO 深入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/03.%20%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB%E4%B8%8E%E8%B6%8A%E7%8B%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 对抗攻击与越狱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/04.%20%E6%9C%BA%E5%88%B6%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 机制可解释性入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/05.%20%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%B7%A5%E5%85%B7%E4%B8%8E%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 可解释性工具与实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC21%E7%AB%A0%20-%20%E5%AF%B9%E9%BD%90%E3%80%81%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/06.%20AI%20%E5%AE%89%E5%85%A8%E6%B2%BB%E7%90%86%E4%B8%8E%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. AI 安全治理与前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_25" id="__nav_25_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第22章 · LLM 评测方法学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_25">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第22章 · LLM 评测方法学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/01.%20%E4%B8%BA%E4%BB%80%E4%B9%88%20Eval%20%E6%98%AF%20LLM%20%E7%9A%84%E5%9C%A3%E6%9D%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Eval 是 LLM 的圣杯
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/02.%20%E4%BC%A0%E7%BB%9F%20NLP%20%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 传统 NLP 指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/03.%20%E7%8E%B0%E4%BB%A3%20Benchmark%20%E4%BD%93%E7%B3%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 现代 Benchmark 体系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/04.%20%E7%AB%9E%E6%8A%80%E5%9C%BA%E4%B8%8E%E4%BA%BA%E7%B1%BB%E5%81%8F%E5%A5%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 竞技场与人类偏好
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/05.%20LLM-as-Judge%20%C2%B7%20%E7%94%A8%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. LLM-as-Judge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/06.%20Contamination%20%E4%B8%8E%20Benchmark%20%E5%B4%A9%E5%9D%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Contamination 与 Benchmark 崩坏
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20Capability%20%E4%B8%8E%20Safety%20Eval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Capability 与 Safety Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_26" >
+        
+          
+          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第23章 · AI Agent 与工具使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_26">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第23章 · AI Agent 与工具使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20Agent%20%C2%B7%20%E4%BB%8E%20LLM%20%E5%88%B0%20Agent%20%E7%9A%84%E8%B7%83%E8%BF%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 什么是 AI Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/02.%20Prompt-based%20%E6%8E%A8%E7%90%86%E4%B8%8E%E8%A7%84%E5%88%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Prompt 推理与规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/03.%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 工具使用与函数调用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/04.%20%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE%20MCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 模型上下文协议 MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/05.%20Multi-Agent%20%E7%BC%96%E6%8E%92%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Multi-Agent 编排系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/06.%20Agent%20%E7%94%9F%E4%BA%A7%E8%90%BD%E5%9C%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Agent 生产落地
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20%E4%BB%8E%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C%E5%88%B0%E7%9C%9F%E5%AE%9E%E7%94%B5%E8%84%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 从虚拟世界到真实电脑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第24章 · 数值分析与凸优化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第24章 · 数值分析与凸优化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/01.%20%E6%B5%AE%E7%82%B9%E4%B8%8E%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 浮点与数值稳定性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/02.%20%E8%BF%AD%E4%BB%A3%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E7%BA%BF%E4%BB%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 迭代法与稀疏线代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/03.%20%E5%87%B8%E9%9B%86%E4%B8%8E%E5%87%B8%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 凸集与凸函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/04.%20%E5%AF%B9%E5%81%B6%E4%B8%8E%20KKT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 对偶与 KKT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/05.%20%E4%BA%8C%E9%98%B6%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 二阶方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/06.%20%E5%86%85%E7%82%B9%E6%B3%95%E4%B8%8E%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 内点法与约束优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/07.%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E9%9A%8F%E6%9C%BA%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 分布式与随机优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_28" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_28" id="__nav_28_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第25章 · AI 系统实战面试指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_28_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_28">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第25章 · AI 系统实战面试指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01.%20%E9%9D%A2%E8%AF%95%E5%85%A8%E6%99%AF%E4%B8%8E%E5%87%86%E5%A4%87%E5%BF%83%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 面试全景与准备心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%208%20%E6%AD%A5%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. ML 系统设计 8 步框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E6%8E%A8%E8%8D%90-%E6%90%9C%E7%B4%A2-%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 推荐-搜索-排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%8F%8D%E6%AC%BA%E8%AF%88-%E9%A3%8E%E6%8E%A7-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 反欺诈-风控-异常检测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%AF%B9%E8%AF%9D%E4%B8%8E%20LLM%20%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 对话与 LLM 系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06.%20%E7%AE%97%E6%B3%95%E4%B8%8E%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 算法与编程面试实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 行为面 + Offer 谈判
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. 行为面 + Offer 谈判
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 为什么行为面被严重低估
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 大厂行为面框架对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 大厂行为面框架对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-amazon-leadership-principles-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Amazon: Leadership Principles (LP) 深度定制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-google-googleyness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Google：四维度 + Googleyness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-meta-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Meta: 5 项行为准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 字节 / 阿里 / 腾讯 特色
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-star" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. STAR 框架落地技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. STAR 框架落地技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 每个字母的落地
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 从"我们做的"到"我做的"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Result 必须有数字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-star" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 常见 STAR 误区
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 项目讲述技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 项目讲述技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-90-elevator-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 90 秒电梯讲述 (Elevator Pitch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 深挖三层：是什么 → 你的角色 → 关键决策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 应对"如果重来一次"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 应对"最难的挑战"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reverse-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 反问环节 (Reverse Interview)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 反问环节 (Reverse Interview)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 问什么加分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 不该问什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 候选人问题清单 (30 个可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-offer-salary-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Offer 谈判 (Salary Negotiation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Offer 谈判 (Salary Negotiation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 大厂 offer 三件套结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-vesting-cliff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vesting Cliff (归属悬崖) 规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-sign-on-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Sign-on Bonus 谈判空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 竞争 Offer 引用技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 中国大厂特色：打包价、户口、股票现金比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-levelsfyi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Levels.fyi 数据整理示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-batna-chris-voss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 谈判心态：BATNA + Chris Voss 三招
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 谈判反例集锦
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 拒 Offer + 关系维护
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 拒 Offer + 关系维护">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 优雅拒绝模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 六大禁忌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 保持长期关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-306090" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 入职前后 30/60/90 天
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 入职前后 30/60/90 天">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-offer-onboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 入职前 (Offer 到 Onboard 之间)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-day-1-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 首月 (Day 1-30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 60 天
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 90 天目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 建议图示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 本节要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch25-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 本章总结 (Ch25 全 7 节回顾)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch21-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 全书总结 (Ch21-25 五章)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考文献
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 为什么行为面被严重低估
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 大厂行为面框架对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 大厂行为面框架对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-amazon-leadership-principles-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Amazon: Leadership Principles (LP) 深度定制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-google-googleyness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Google：四维度 + Googleyness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-meta-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Meta: 5 项行为准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 字节 / 阿里 / 腾讯 特色
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-star" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. STAR 框架落地技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. STAR 框架落地技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 每个字母的落地
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 从"我们做的"到"我做的"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Result 必须有数字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-star" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 常见 STAR 误区
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 项目讲述技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 项目讲述技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-90-elevator-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 90 秒电梯讲述 (Elevator Pitch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 深挖三层：是什么 → 你的角色 → 关键决策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 应对"如果重来一次"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 应对"最难的挑战"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reverse-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 反问环节 (Reverse Interview)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 反问环节 (Reverse Interview)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 问什么加分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 不该问什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 候选人问题清单 (30 个可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-offer-salary-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Offer 谈判 (Salary Negotiation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Offer 谈判 (Salary Negotiation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 大厂 offer 三件套结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-vesting-cliff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vesting Cliff (归属悬崖) 规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-sign-on-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Sign-on Bonus 谈判空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 竞争 Offer 引用技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 中国大厂特色：打包价、户口、股票现金比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-levelsfyi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Levels.fyi 数据整理示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-batna-chris-voss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 谈判心态：BATNA + Chris Voss 三招
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 谈判反例集锦
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 拒 Offer + 关系维护
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 拒 Offer + 关系维护">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 优雅拒绝模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 六大禁忌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 保持长期关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-306090" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 入职前后 30/60/90 天
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 入职前后 30/60/90 天">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-offer-onboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 入职前 (Offer 到 Onboard 之间)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-day-1-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 首月 (Day 1-30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 60 天
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 90 天目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 建议图示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 本节要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch25-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 本章总结 (Ch25 全 7 节回顾)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch21-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 全书总结 (Ch21-25 五章)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考文献
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="offer">行为面 + 项目讲述 + Offer 谈判<a class="headerlink" href="#offer" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>一句话总结</strong>：技术拿到面试，行为面拿到 offer，谈判决定薪资涨幅；用 STAR 讲清"我做了什么"，用数据谈清"我值多少"，用礼貌关掉每一扇门。</p>
+</blockquote>
+<p><em>前六节我们把技术那半场打完了——系统设计、算法、ML 手撕。 但很多候选人栽在</em><em>最后一公里</em><em>：行为面讲不清项目，offer 拿到不敢谈，拒 offer 时把公司得罪一遍。 这一节是 Ch25 的收官，也是全书 5 新章的收官，我们把面试的另一半 (人际、叙事、金钱) 一次讲透，让读者带着</em><em>可复用的模板</em><em>离开这本书.</em></p>
+<hr />
+<h2 id="0">0. 为什么行为面被严重低估<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>技术候选人普遍轻视行为面 (Behavioral Interview)，认为"我技术强，讲讲项目还不容易". 但<strong>大厂招聘经理</strong>统一反馈：行为面淘汰率不低于技术面。</p>
+<p><strong>原因</strong>:</p>
+<ol>
+<li>大厂招聘目标不是"招一个能写代码的"，而是"招一个能长期贡献 + 融入团队的"</li>
+<li>技术面区分度低 (刷题充分的候选人技术分接近满分)，行为面成为<strong>主要区分器</strong></li>
+<li>高级岗位 (L5+ / P7+) 越靠上，行为面权重越高，到 L7+ 几乎决定 offer</li>
+</ol>
+<p><strong>一个真实分布</strong> (基于 Blind [匿名职场社区] 上多位大厂招聘经理的公开发帖 anecdotal 讨论，非官方):</p>
+<table>
+<thead>
+<tr>
+<th>岗位级别</th>
+<th>技术权重</th>
+<th>行为权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L4 / P5 (初级)</td>
+<td>70%</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>L5 / P6 (中级)</td>
+<td>55%</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>L6 / P7 (高级)</td>
+<td>40%</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>L7 / P8+ (专家)</td>
+<td>30%</td>
+<td>70%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>警示</strong>：上表来自 Blind / 一亩三分地论坛的候选人反馈，是<strong>轶事级别</strong> (anecdotal) 参考，非各公司官方披露。 但趋势方向"越高级越看软素质"业界共识。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 大厂行为面框架对比<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-amazon-leadership-principles-lp">1.1 Amazon: Leadership Principles (LP) 深度定制<a class="headerlink" href="#11-amazon-leadership-principles-lp" title="Permanent link">&para;</a></h3>
+<p><strong>Amazon Leadership Principles (LP，亚马逊领导力原则)</strong> 是<strong>全世界最系统化的行为面框架</strong>. 2020 年前是 14 条，2021 年新增两条，目前<strong>共 16 条</strong> (来源：aboutamazon.com/about-us/leadership-principles 官方页面):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>原则 (英文)</th>
+<th>中文对照</th>
+<th>高频面试考点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Customer Obsession</td>
+<td>客户至上</td>
+<td>一切从客户出发的决策例子</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ownership</td>
+<td>主人翁精神</td>
+<td>承担超出岗位职责的例子</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Invent and Simplify</td>
+<td>创新与简化</td>
+<td>简化复杂系统的例子</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Are Right, A Lot</td>
+<td>判断力强</td>
+<td>顶住压力做出正确判断</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Learn and Be Curious</td>
+<td>学习与好奇</td>
+<td>主动学新技术的例子</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Hire and Develop the Best</td>
+<td>招聘与培养</td>
+<td>带过实习生/新人的例子 (中高级岗必考)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Insist on the Highest Standards</td>
+<td>坚持高标准</td>
+<td>拒绝妥协质量的例子</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Think Big</td>
+<td>远大思考</td>
+<td>提出 10 倍规模方案的例子</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Bias for Action</td>
+<td>崇尚行动</td>
+<td>快速决策/小步快跑的例子</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Frugality</td>
+<td>节俭</td>
+<td>用少资源做多事情的例子</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Earn Trust</td>
+<td>赢得信任</td>
+<td>承认错误 / 让步 / 修复关系</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Dive Deep</td>
+<td>深入探究</td>
+<td>追查一个 bug 到底的例子 (最爱考!)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Have Backbone; Disagree and Commit</td>
+<td>坚持己见，服从大局</td>
+<td>与老板/同事激烈争论后统一执行</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Deliver Results</td>
+<td>达成结果</td>
+<td>有量化成果的项目</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Strive to be Earth's Best Employer</td>
+<td>争做地球最佳雇主</td>
+<td>(2021 新增) 团队健康氛围</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Success and Scale Bring Broad Responsibility</td>
+<td>成功与规模带来更大责任</td>
+<td>(2021 新增) 社会责任视角</td>
+</tr>
+</tbody>
+</table>
+<p><strong>面试方式</strong>: Amazon 5 轮 onsite 里，每位面试官会认领 <strong>2-3 条 LP</strong>，全程围绕它们提问。 面试后 debrief 时按 <strong>LP × 分数</strong> 二维矩阵讨论候选人。</p>
+<p><strong>准备建议</strong>:</p>
+<ul>
+<li>每条 LP 准备 <strong>2 个不同项目故事</strong> (防止面试官串问、避免重复)</li>
+<li>每个故事 5 分钟讲完 (超时 = 扣分)</li>
+<li><strong>STAR</strong> 结构 (下一节详讲)</li>
+</ul>
+<h3 id="12-google-googleyness">1.2 Google：四维度 + Googleyness<a class="headerlink" href="#12-google-googleyness" title="Permanent link">&para;</a></h3>
+<p>Google 面试评分沿四个维度 (公开于 Google Careers 及 Laszlo Bock 的 <em>Work Rules!</em> 2015):</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>英文</th>
+<th>考察点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通用认知能力</strong></td>
+<td>General Cognitive Ability (GCA)</td>
+<td>结构化思维、假设检验、面对开放问题的分析</td>
+</tr>
+<tr>
+<td><strong>领导力</strong></td>
+<td>Leadership</td>
+<td>Emergent Leadership (非层级式领导)，影响力</td>
+</tr>
+<tr>
+<td><strong>岗位知识</strong></td>
+<td>Role-Related Knowledge</td>
+<td>技术深度</td>
+</tr>
+<tr>
+<td><strong>Google 气质</strong></td>
+<td>Googleyness</td>
+<td>谦逊、协作、面对模糊的舒适度</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GCA 题目样本</strong> (面试常见，非官方):</p>
+<ul>
+<li>"北京有多少个理发师?" (Fermi 估算)</li>
+<li>"你要做一个 XX 产品，怎么衡量它的成功?"</li>
+<li>未定义好的问题，需候选人<strong>先澄清再回答</strong></li>
+</ul>
+<p><strong>Googleyness 考察方式</strong>：面试官在整场面试中隐性打分——你<strong>如何处理不知道的问题</strong>、<strong>如何回应反驳</strong>，直接决定这一维。</p>
+<h3 id="13-meta-5">1.3 Meta: 5 项行为准则<a class="headerlink" href="#13-meta-5" title="Permanent link">&para;</a></h3>
+<p>Meta 2023 起推行<strong>六大公司价值观</strong> (Meta Values)，但行为面主要围绕 5 个可观测维度:</p>
+<ol>
+<li><strong>Move Fast</strong> (快速执行)</li>
+<li><strong>Build Awesome Things</strong> (打造让人惊艹的东西)</li>
+<li><strong>Focus on Long-Term Impact</strong> (关注长期影响)</li>
+<li><strong>Live in the Future</strong> (面向未来)</li>
+<li><strong>Meta, Metamates, Me</strong> (公司、同事、自己 — 顺序不可颠倒)</li>
+</ol>
+<p>Meta 面试有专门一轮 <strong>"Jedi"</strong> (导师面)，由资深工程师全程用行为题深挖协作、冲突、影响力。</p>
+<h3 id="14">1.4 字节 / 阿里 / 腾讯 特色<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>行为面关键词</th>
+<th>特色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字节跳动</strong></td>
+<td>ByteStyle (字节范)，常问"你上次改变别人想法是什么时候"</td>
+<td>面试官"随机组合"，交叉验证候选人叙事一致性</td>
+</tr>
+<tr>
+<td><strong>阿里巴巴</strong></td>
+<td>阿里六脉神剑 (客户第一 / 拥抱变化 / 团队合作 / 诚信 / 激情 / 敬业), <strong>闻味官</strong> (最后一面，HR 高管定生死)</td>
+<td>特有"闻味官"制度，高级岗决定权在 HR 高管</td>
+</tr>
+<tr>
+<td><strong>腾讯</strong></td>
+<td>正直、进取、协作、创造 四大文化，无明确框架</td>
+<td>相对宽松，主管面权重最大</td>
+</tr>
+<tr>
+<td><strong>DeepSeek / 月之暗面 (Moonshot)</strong></td>
+<td>硬技术为主，行为面相对轻</td>
+<td>创业公司节奏，项目讲述占大头</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-star">2. STAR 框架落地技巧<a class="headerlink" href="#2-star" title="Permanent link">&para;</a></h2>
+<p><strong>STAR</strong> 是 <strong>Situation / Task / Action / Result</strong> 的缩写，出自 20 世纪 70 年代 DDI (Development Dimensions International) 提出的<strong>结构化行为面试</strong> (Behavioral Interviewing) 方法，后经 <em>Harvard Business Review</em> 系列文章推广 (HBR "How to Nail Your Next Job Interview" 系列) 成为业界标准。 Amazon 官方推荐候选人在 LP 面用 STAR (aboutamazon.com/careers 有专文说明).</p>
+<h3 id="21">2.1 每个字母的落地<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>字母</th>
+<th>该说什么</th>
+<th>长度</th>
+<th>常见坑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S</strong> ituation</td>
+<td>背景：什么项目，什么阶段，团队构成</td>
+<td>30 秒</td>
+<td>讲太长 (超 1 分钟 = 扣分)</td>
+</tr>
+<tr>
+<td><strong>T</strong> ask</td>
+<td>你的具体职责 (不是"我们")</td>
+<td>20 秒</td>
+<td>混淆 "我" 与 "团队"</td>
+</tr>
+<tr>
+<td><strong>A</strong> ction</td>
+<td>你<strong>具体做了什么</strong> (占 60% 时间)</td>
+<td>2-3 分钟</td>
+<td>只讲结果，不讲过程</td>
+</tr>
+<tr>
+<td><strong>R</strong> esult</td>
+<td>量化结果 + 学到什么</td>
+<td>30 秒</td>
+<td>结果模糊无数字</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22">2.2 从"我们做的"到"我做的"<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><strong>中国候选人最大陷阱</strong>：讲项目时全程"我们做了 XXX". 大厂面试官反馈:</p>
+<blockquote>
+<p>"我们做了" 出现 3 次以上，我就开始怀疑这个候选人到底做了什么。</p>
+<p>— Blind 上某 Meta E5 面试官 anecdotal 反馈</p>
+</blockquote>
+<p><strong>改造模板</strong>:</p>
+<ul>
+<li>❌ "我们优化了推荐系统，提升了 30% 点击率" (团队叙事)</li>
+<li>✅ "我负责召回层，引入双塔模型替代原有 Item2Vec，我个人做的三件事：(1) 设计负采样策略 (2) 与线上 A/B 平台联调 (3) 上线后从 debug 日志定位 bug. 最终双塔召回 CTR 相对提升 30%，是这个季度全组最大的技术改动" (个人叙事)</li>
+</ul>
+<h3 id="23-result">2.3 Result 必须有数字<a class="headerlink" href="#23-result" title="Permanent link">&para;</a></h3>
+<p>面试官反复被训练<strong>追问数字</strong>. 没有数字的项目 = "你可能没真做过".</p>
+<p><strong>可接受的量化维度</strong>:</p>
+<ul>
+<li><strong>业务指标</strong>: CTR / GMV / 留存率 / DAU 提升 X% (百分比 or 绝对值)</li>
+<li><strong>技术指标</strong>: p99 延迟从 200 ms → 80 ms；训练时间从 5 天 → 8 小时</li>
+<li><strong>规模指标</strong>：服务 QPS 1k → 10k；数据从 1B → 100B 参数</li>
+<li><strong>成本指标</strong>: GPU 数量减半；云账单每月省 $50k</li>
+<li><strong>人员指标</strong>：带 3 个实习生，2 人转正；影响 5 个下游团队</li>
+</ul>
+<p><strong>如果实在没数字怎么办</strong>? 用<strong>相对提升</strong>或<strong>排名</strong>:</p>
+<ul>
+<li>"在本季度 20 个技术项目中排名 Top 3 (leader 打分)"</li>
+<li>"该模块被评为 quarter 最佳工程实践 (团队投票)"</li>
+</ul>
+<h3 id="24-star">2.4 常见 STAR 误区<a class="headerlink" href="#24-star" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>误区</th>
+<th>表现</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>超时</strong></td>
+<td>一个故事讲 10 分钟</td>
+<td>目标 3-5 分钟，练秒表</td>
+</tr>
+<tr>
+<td><strong>缺 Action</strong></td>
+<td>S 讲 3 min, R 讲 2 min, A 只有 30 秒</td>
+<td>A 应占 60%+ 时间</td>
+</tr>
+<tr>
+<td><strong>Result 主观</strong></td>
+<td>"老板很满意"</td>
+<td>换成"CTR + 30%"</td>
+</tr>
+<tr>
+<td><strong>忽略 Learnings</strong></td>
+<td>讲完就结束</td>
+<td>加一句"如果重来，我会更早引入 A/B 验证"</td>
+</tr>
+<tr>
+<td><strong>虚构</strong></td>
+<td>编造项目</td>
+<td>大厂 reference check + 交叉盘问会露馅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. 项目讲述技巧<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-90-elevator-pitch">3.1 90 秒电梯讲述 (Elevator Pitch)<a class="headerlink" href="#31-90-elevator-pitch" title="Permanent link">&para;</a></h3>
+<p>每场面试开头都会被问"简单介绍一下自己 / 你最近的项目". 这是<strong>唯一一次由你决定叙事方向</strong>的机会。</p>
+<p><strong>模板</strong> (90 秒精准分配):</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[20s] 我是谁 + 现职位 + 核心方向
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>      &quot;我是 XX, 在字节推荐架构组, 主要做召回侧算法.&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[30s] 最近一个代表项目 (选一个能被面试官继续深挖的)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      &quot;过去一年我主导了 XX 模型上线, 从 offline 实验到 A/B 全链路.&quot;
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>[20s] 数字化成果
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      &quot;线上 CTR +30%, GMV +5%, p99 延迟 -40%.&quot;
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>[20s] 收尾, 引导面试官深挖
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      &quot;如果你感兴趣, 我可以详细讲负采样策略或线上遇到的坑.&quot;
+</code></pre></div>
+<p><strong>关键</strong>: <strong>主动埋一个"钩子"</strong>——比如"线上遇到的坑"——引导面试官顺着你熟悉的方向问下去。</p>
+<h3 id="32">3.2 深挖三层：是什么 → 你的角色 → 关键决策<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>面试官会<strong>逐层深挖</strong>，直到看清你的思考深度。 你要准备三层:</p>
+<ul>
+<li><strong>Layer 1 (是什么)</strong>：项目目标、技术栈、规模</li>
+<li><strong>Layer 2 (你的角色)</strong>：团队分工、你负责的模块、投入时间</li>
+<li><strong>Layer 3 (关键决策)</strong>：为什么选 A 不选 B，遇到什么权衡，如果重来会怎么改</li>
+</ul>
+<p><strong>Layer 3 是分水岭</strong>：高级岗位候选人<strong>必须</strong>能讲清"决策 rationale". 讲不清 = "只是干活的，没做过 owner".</p>
+<h3 id="33">3.3 应对"如果重来一次"<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>这是<strong>最高频</strong>追问之一，也是 anti-humble-brag (反自吹) 陷阱。</p>
+<p><strong>回答框架</strong>:</p>
+<ol>
+<li><strong>承认一个真实的不足</strong> (不是"我做得完美")</li>
+<li><strong>给出替代方案</strong></li>
+<li><strong>说明为什么当时没这么做</strong> (客观原因)</li>
+</ol>
+<p><strong>示例</strong>:</p>
+<blockquote>
+<p>如果重来，我会在第一周就搭 A/B 平台的通路，而不是等模型训完才发现线上打点缺字段。 当时我们默认线下评估足够，忽略了打点的滞后成本。 后来这个疏忽让上线推迟了两周。</p>
+<p>我学到的是：端到端链路的"数据管道"要<strong>先于</strong>"模型迭代"打通。</p>
+</blockquote>
+<h3 id="34">3.4 应对"最难的挑战"<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>面试官想看<strong>你面对困难时的思维模式</strong>，不是想听你多惨。</p>
+<p><strong>好回答的三要素</strong>:</p>
+<ol>
+<li><strong>具体困难</strong> (技术/协作/时间)</li>
+<li><strong>你的应对</strong> (拆解 + 求助 + 决策)</li>
+<li><strong>反思</strong> (从中提炼出可迁移的方法论)</li>
+</ol>
+<p><strong>避免</strong>:</p>
+<ul>
+<li>❌ "老板不讲道理" (甩锅)</li>
+<li>❌ "没啥困难" (缺自省)</li>
+<li>❌ 讲个 5 分钟的技术八卦，没有思维闭环</li>
+</ul>
+<hr />
+<h2 id="4-reverse-interview">4. 反问环节 (Reverse Interview)<a class="headerlink" href="#4-reverse-interview" title="Permanent link">&para;</a></h2>
+<p>面试最后 5-10 分钟，面试官会说"你有没有问题问我". 这<strong>不是走过场</strong>，而是<strong>候选人的最后一次加分/减分机会</strong>.</p>
+<h3 id="41">4.1 问什么加分<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>示例问题</th>
+<th>传达的信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技术</strong></td>
+<td>"你们的推理服务如何做流量 shadowing / 灰度?"</td>
+<td>关心工程实践</td>
+</tr>
+<tr>
+<td><strong>技术</strong></td>
+<td>"组里最近三个月最大的技术挑战是什么?"</td>
+<td>关心真实痛点</td>
+</tr>
+<tr>
+<td><strong>文化</strong></td>
+<td>"你在这里最喜欢什么？最不喜欢什么?"</td>
+<td>关心真实氛围</td>
+</tr>
+<tr>
+<td><strong>文化</strong></td>
+<td>"新人入职 90 天典型目标是什么?"</td>
+<td>关心融入路径</td>
+</tr>
+<tr>
+<td><strong>项目</strong></td>
+<td>"如果我入职，前三个月我大概会做什么?"</td>
+<td>关心具体产出</td>
+</tr>
+<tr>
+<td><strong>战略</strong></td>
+<td>"组里未来 6-12 个月最想解决的是什么?"</td>
+<td>关心长期方向</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42">4.2 不该问什么<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>反例</th>
+<th>为什么扣分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>薪资/福利</strong></td>
+<td>"你们的年终奖发几个月?"</td>
+<td>谈判环节再问，现在问显得只关心钱</td>
+</tr>
+<tr>
+<td><strong>八卦</strong></td>
+<td>"听说 XX leader 要离职了?"</td>
+<td>泄露信息焦虑</td>
+</tr>
+<tr>
+<td><strong>无聊</strong></td>
+<td>"你们用什么编程语言?"</td>
+<td>简历/JD 都写着，显得没做功课</td>
+</tr>
+<tr>
+<td><strong>过大</strong></td>
+<td>"AGI 什么时候实现?"</td>
+<td>面试官答不了，浪费时间</td>
+</tr>
+<tr>
+<td><strong>敏感</strong></td>
+<td>"为什么 XX 团队被裁了?"</td>
+<td>强迫面试官表态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-30">4.3 候选人问题清单 (30 个可选)<a class="headerlink" href="#43-30" title="Permanent link">&para;</a></h3>
+<p>按场景分类，面试前挑 5-8 个用得上的:</p>
+<p><strong>关于团队</strong>:</p>
+<ol>
+<li>团队目前多少人？中/高级比例?</li>
+<li>直接汇报对象是谁?</li>
+<li>团队最近一次组织变动是什么时候?</li>
+<li>你们的每周节奏是怎样的？(会议密度)</li>
+<li>团队远程/混合政策如何?</li>
+</ol>
+<p><strong>关于技术</strong>:</p>
+<ol>
+<li>目前技术栈的主要痛点是什么?</li>
+<li>有哪些技术债正在还？优先级?</li>
+<li>代码 review 流程？谁有 merge 权限?</li>
+<li>有没有 20% time / hack week 之类的探索时间?</li>
+<li>On-call 频率是怎样的?</li>
+</ol>
+<p><strong>关于项目</strong>:</p>
+<ol>
+<li>组里当前 top 3 项目分别是什么?</li>
+<li>我如果入职，前 90 天大概做什么?</li>
+<li>项目立项流程是怎样的？谁做决定?</li>
+<li>项目失败后有 postmortem 文化吗?</li>
+<li>最近一个上线的项目是什么?</li>
+</ol>
+<p><strong>关于成长</strong>:</p>
+<ol>
+<li>组里有没有导师 (mentor) 机制?</li>
+<li>晋升周期是多长？组里最近一次晋升是什么时候?</li>
+<li>组里最资深的工程师做什么?</li>
+<li>有内部转岗 / 跨组机会吗?</li>
+<li>Learning budget / 会议报销政策?</li>
+</ol>
+<p><strong>关于文化</strong>:</p>
+<ol>
+<li>你在这里做过最自豪的一件事是什么?</li>
+<li>你最不喜欢的是什么?</li>
+<li>团队冲突通常怎么处理?</li>
+<li>Work-life balance 实际如何 (不看官宣)?</li>
+<li>团队多元性 (性别 / 背景) 如何?</li>
+</ol>
+<p><strong>关于战略</strong>:</p>
+<ol>
+<li>组的未来 6-12 个月目标?</li>
+<li>组在公司整体战略里的位置?</li>
+<li>直接的竞争团队 (内部/外部) 是谁?</li>
+<li>组的预算/HC 增长趋势?</li>
+<li>组会不会被重组的风险?</li>
+</ol>
+<p><strong>加分技巧</strong>：把面试官的<strong>答案</strong>记录下来，和后面几轮面试官的回答<strong>对比</strong>——如果差异大，说明团队信息不一致，有隐患。</p>
+<hr />
+<h2 id="5-offer-salary-negotiation">5. Offer 谈判 (Salary Negotiation)<a class="headerlink" href="#5-offer-salary-negotiation" title="Permanent link">&para;</a></h2>
+<h3 id="51-offer">5.1 大厂 offer 三件套结构<a class="headerlink" href="#51-offer" title="Permanent link">&para;</a></h3>
+<p><strong>总年化收入 (Total Compensation Estimate, TCE)</strong> 公式:</p>
+<div class="arithmatex">\[
+\text{TCE} = \text{Base} + \bar{\text{Bonus}} + \frac{\text{RSU Grant}}{V}
+\]</div>
+<p>其中:
+- <strong>Base</strong>：现金基本工资 (每月发)
+- <strong>Bonus</strong>：年终奖，按目标百分比 (通常 10-25% Base) × 绩效系数
+- <strong>Restricted Stock Unit (RSU，限制性股票单位)</strong>：授予的股票单位，按 vesting schedule 逐年归属
+- <span class="arithmatex">\(V\)</span>: vesting 年数 (通常 4 年)
+- <strong>Sign-on bonus (签约奖金)</strong>：一次性入职奖，通常有 1-2 年 clawback (提前离职退回)</p>
+<p><strong>Python 计算 TCE</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_tce</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">base</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>           <span class="c1"># 基本年薪 (人民币或美元)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">bonus_target_pct</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># 年终奖目标百分比, 如 0.15</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">rsu_total</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>      <span class="c1"># 4 年 RSU 总额</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">sign_on</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># 签约奖金</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">perf_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># 绩效系数, 通常 0.8~1.2</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">vesting_years</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;计算年化 TCE (Year 1 视角, 若 sign-on 计入 Year 1).&quot;&quot;&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">bonus</span> <span class="o">=</span> <span class="n">base</span> <span class="o">*</span> <span class="n">bonus_target_pct</span> <span class="o">*</span> <span class="n">perf_factor</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">annual_rsu</span> <span class="o">=</span> <span class="n">rsu_total</span> <span class="o">/</span> <span class="n">vesting_years</span>  <span class="c1"># 简化: 平均分摊</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">year1</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">bonus</span> <span class="o">+</span> <span class="n">annual_rsu</span> <span class="o">+</span> <span class="n">sign_on</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">year_steady</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">bonus</span> <span class="o">+</span> <span class="n">annual_rsu</span>       <span class="c1"># Year 2-4 稳态</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="s2">&quot;year1_total&quot;</span><span class="p">:</span> <span class="n">year1</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="s2">&quot;year_steady&quot;</span><span class="p">:</span> <span class="n">year_steady</span><span class="p">,</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="s2">&quot;base&quot;</span><span class="p">:</span> <span class="n">base</span><span class="p">,</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="s2">&quot;bonus_expected&quot;</span><span class="p">:</span> <span class="n">bonus</span><span class="p">,</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="s2">&quot;annual_rsu&quot;</span><span class="p">:</span> <span class="n">annual_rsu</span><span class="p">,</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="s2">&quot;sign_on&quot;</span><span class="p">:</span> <span class="n">sign_on</span><span class="p">,</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="p">}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1"># 示例: Meta E5 offer (数据来源: Levels.fyi 2024 湾区中位数区间)</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">offer</span> <span class="o">=</span> <span class="n">compute_tce</span><span class="p">(</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="n">base</span><span class="o">=</span><span class="mi">210_000</span><span class="p">,</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="n">bonus_target_pct</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="n">rsu_total</span><span class="o">=</span><span class="mi">480_000</span><span class="p">,</span>      <span class="c1"># 4 年</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="n">sign_on</span><span class="o">=</span><span class="mi">50_000</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="n">perf_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">)</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nb">print</span><span class="p">(</span><span class="n">offer</span><span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="c1"># 大致: year1 = 210k + 31.5k + 120k + 50k = 411.5k USD</span>
+</code></pre></div>
+<blockquote>
+<p><strong>数据说明</strong>：上述数字<strong>仅示例</strong>，具体数字请参考 Levels.fyi 2024 (levels.fyi) 或 Blind 匿名帖。 中国大厂中高级岗 (P7 级) 现金 base 通常 40-80 万人民币区间，股票 (对上市公司) 折合 4 年 100-300 万人民币，但个体差异极大，谨慎使用中位数。</p>
+</blockquote>
+<h3 id="52-vesting-cliff">5.2 Vesting Cliff (归属悬崖) 规则<a class="headerlink" href="#52-vesting-cliff" title="Permanent link">&para;</a></h3>
+<p><strong>Vesting Cliff</strong> 指 RSU 需要在<strong>入职后满一定时间</strong> (通常 1 年) 才开始归属，之前离职一分钱股票也拿不到。</p>
+<p>四家大厂公开 vesting 时间表 (来源：各公司公开 offer letter 措辞、Levels.fyi 用户上传 offer):</p>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>4 年归属比例</th>
+<th>首年 Cliff</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Meta</strong></td>
+<td>25% / 25% / 25% / 25%</td>
+<td>1 年 Cliff，之后按季度</td>
+<td>均匀分布，对候选人最友好</td>
+</tr>
+<tr>
+<td><strong>Google</strong></td>
+<td>33% / 33% / 22% / 12%</td>
+<td>无严格 Cliff (2022 起改月度)</td>
+<td><strong>前重后轻</strong> (front-loaded)，后期"金手铐"弱</td>
+</tr>
+<tr>
+<td><strong>Amazon</strong></td>
+<td>5% / 15% / 40% / 40%</td>
+<td>1 年 5%, 2 年 15% (半年一次)</td>
+<td><strong>后重前轻</strong> (back-loaded)，前两年现金 sign-on 大，后两年靠股票"锁人"</td>
+</tr>
+<tr>
+<td><strong>Microsoft</strong></td>
+<td>25% / 25% / 25% / 25%</td>
+<td>1 年 Cliff，之后按季度</td>
+<td>与 Meta 类似均匀</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Python 模拟 vesting schedule</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">vesting_schedule</span><span class="p">(</span><span class="n">rsu_total</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;meta&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;返回 [(年, 该年归属额), ...]&quot;&quot;&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">patterns</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="s2">&quot;meta&quot;</span><span class="p">:</span>      <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="s2">&quot;google&quot;</span><span class="p">:</span>    <span class="p">[</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.22</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">],</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">&quot;amazon&quot;</span><span class="p">:</span>    <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">],</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="s2">&quot;microsoft&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">ratios</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">[</span><span class="n">pattern</span><span class="p">]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">return</span> <span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rsu_total</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ratios</span><span class="p">)]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># 480k RSU 在四家的对比</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">for</span> <span class="n">co</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="s2">&quot;google&quot;</span><span class="p">,</span> <span class="s2">&quot;amazon&quot;</span><span class="p">,</span> <span class="s2">&quot;microsoft&quot;</span><span class="p">]:</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="n">vesting_schedule</span><span class="p">(</span><span class="mi">480_000</span><span class="p">,</span> <span class="n">co</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>候选人应知</strong>:</p>
+<ul>
+<li><strong>Amazon 的后重前轻</strong>是"陷阱"：前两年只拿 20% 股票，靠 sign-on 补齐 offer 总额。 如果 2 年内离职，<strong>实际到手远低于 offer 数</strong></li>
+<li><strong>Google 的前重后轻</strong>: 4 年后股票所剩无几，需要<strong>refresh grant</strong> (刷股) 维持薪资，否则 5-6 年后 TCE 反降</li>
+<li><strong>Meta / Microsoft 的均匀</strong>：每年可预期，无陷阱</li>
+</ul>
+<h3 id="53-sign-on-bonus">5.3 Sign-on Bonus 谈判空间<a class="headerlink" href="#53-sign-on-bonus" title="Permanent link">&para;</a></h3>
+<p><strong>Sign-on</strong> 是<strong>最容易谈</strong>的部分，因为它不影响公司长期薪酬结构。</p>
+<p><strong>行情</strong> (Levels.fyi 2024 中位数区间，仅供参考):</p>
+<ul>
+<li>应届生：10-25k USD</li>
+<li>L4 / P5: 20-50k USD</li>
+<li>L5 / P6: 40-100k USD</li>
+<li>L6+ / P7+: 100-200k USD (可谈到更高)</li>
+<li>中国大厂高级岗：通常无独立 sign-on，打包进 Base 或首年股票</li>
+</ul>
+<p><strong>Clawback 条款</strong>：通常 1 年内离职退全部，1-2 年退部分。 谈判时<strong>必须问清 clawback 期</strong>.</p>
+<h3 id="54-offer">5.4 竞争 Offer 引用技巧<a class="headerlink" href="#54-offer" title="Permanent link">&para;</a></h3>
+<p><strong>期望价值 (Expected Value, EV) 计算</strong>:</p>
+<div class="arithmatex">\[
+\mathrm{EV}(\text{offer}_A) = P(\text{accept}) \cdot \text{TCE}_A + P(\text{lose}) \cdot 0
+\]</div>
+<p>引用竞争 offer 是<strong>最强杠杆</strong>，但要<strong>专业</strong>:</p>
+<p><strong>做法</strong>:</p>
+<ul>
+<li>✅ "我目前在最后阶段谈的 Meta E5 offer 大约在 TCE $400k，请问贵司这边能到什么水平?"</li>
+<li>✅ 提供<strong>实际</strong> offer letter 截图 (HR 通常会要，不给也没关系)</li>
+<li>✅ 说清 offer 的<strong>结构</strong> (base / bonus / RSU)，而非只报总数</li>
+</ul>
+<p><strong>别做</strong>:</p>
+<ul>
+<li>❌ 说错公司名 ("我在 Facebook 有 offer" — 已经改名 Meta 两年了)</li>
+<li>❌ 虚报数字 (HR 圈子小，一查便知，直接 rescind offer)</li>
+<li>❌ 过分强调薪资 ("低于 XX 我就走人" — 姿态过硬)</li>
+<li>❌ 用外资 offer 恐吓国内公司 (税制/币种/生活成本不同，简单类比会被反驳)</li>
+</ul>
+<h3 id="55">5.5 中国大厂特色：打包价、户口、股票现金比<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
+<p>中国大厂谈判维度<strong>远多于</strong>美国:</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>说明</th>
+<th>谈判空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base</strong></td>
+<td>月薪 × 12-16 (视公司)</td>
+<td>有限，±10%</td>
+</tr>
+<tr>
+<td><strong>年终奖</strong></td>
+<td>3-8 个月不等，与绩效强挂钩</td>
+<td>谈"保底几个月"</td>
+</tr>
+<tr>
+<td><strong>股票</strong></td>
+<td>上市公司 RSU，非上市 option</td>
+<td>±30% (最大空间)</td>
+</tr>
+<tr>
+<td><strong>签字费</strong></td>
+<td>通常不是独立项，折入首年</td>
+<td>少数公司有</td>
+</tr>
+<tr>
+<td><strong>打包价</strong></td>
+<td>公司口头承诺"首年到手 XX"，组合灵活</td>
+<td>谈总数，而非细项</td>
+</tr>
+<tr>
+<td><strong>北京/上海户口</strong></td>
+<td>应届生特有，有配额限制</td>
+<td>谈"承诺 vs 待定"</td>
+</tr>
+<tr>
+<td><strong>等级</strong></td>
+<td>P6 vs P7 / 2-1 vs 2-2</td>
+<td>直接影响长期空间，最重要</td>
+</tr>
+<tr>
+<td><strong>落地城市</strong></td>
+<td>北京 vs 上海 vs 杭州 vs 深圳</td>
+<td>影响个税 + 补贴</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中国大厂谈判铁律</strong>:</p>
+<ol>
+<li><strong>等级比现金重要</strong>：谈到高一级，一年后调薪基数完全不同</li>
+<li><strong>股票 vs 现金转换</strong>：敢要股票的候选人少，通常有空间</li>
+<li><strong>HR 有"打包 quota"</strong>：与其纠结单项，不如给一个"总数期望"让 HR 内部拼盘</li>
+<li><strong>书面 offer letter 前一切可变</strong>：口头承诺不算数，一切以邮件为准</li>
+</ol>
+<h3 id="56-levelsfyi">5.6 Levels.fyi 数据整理示例<a class="headerlink" href="#56-levelsfyi" title="Permanent link">&para;</a></h3>
+<p><strong>Levels.fyi</strong> (levels.fyi) 是行业最大 offer 数据平台，由用户匿名上传 offer letter 截图后聚合。 使用方法:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># 假设从 Levels.fyi 导出 CSV</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="c1"># 公司 级别 城市 base bonus rsu4y sign_on 年份</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">(</span><span class="s2">&quot;Meta&quot;</span><span class="p">,</span>   <span class="s2">&quot;E5&quot;</span><span class="p">,</span> <span class="s2">&quot;Menlo Park&quot;</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">2024</span><span class="p">),</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">(</span><span class="s2">&quot;Meta&quot;</span><span class="p">,</span>   <span class="s2">&quot;E5&quot;</span><span class="p">,</span> <span class="s2">&quot;Menlo Park&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">2024</span><span class="p">),</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="p">(</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span> <span class="s2">&quot;L5&quot;</span><span class="p">,</span> <span class="s2">&quot;Mountain View&quot;</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">440</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">2024</span><span class="p">),</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="p">(</span><span class="s2">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s2">&quot;L6&quot;</span><span class="p">,</span> <span class="s2">&quot;Seattle&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2024</span><span class="p">),</span>  <span class="c1"># Amazon base cap</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;bonus&quot;</span><span class="p">,</span> <span class="s2">&quot;rsu4y&quot;</span><span class="p">,</span> <span class="s2">&quot;sign_on&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># 计算 4 年平均 TCE</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tce_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;bonus&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;rsu4y&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sign_on&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">4</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># 按 (公司, 级别) 分组看中位数</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">])[</span><span class="s2">&quot;tce_avg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p><strong>重要</strong>: Levels.fyi 数据<strong>存在幸存者偏差</strong> (上传者往往拿到较高 offer)，且不同城市/年份差异极大。 使用时看<strong>分位数</strong>而非平均值，参考<strong>中位数 (P50)</strong> 到 <strong>P75</strong> 区间做谈判 anchor.</p>
+</blockquote>
+<h3 id="57-batna-chris-voss">5.7 谈判心态：BATNA + Chris Voss 三招<a class="headerlink" href="#57-batna-chris-voss" title="Permanent link">&para;</a></h3>
+<p><strong>BATNA (Best Alternative To a Negotiated Agreement，谈判外最佳选择)</strong> 是 Fisher &amp; Ury 在 <em>Getting to Yes</em> (1981) 中的核心概念:</p>
+<ul>
+<li><strong>强 BATNA</strong>：手上已有其他 offer，或对现职工作满意</li>
+<li><strong>弱 BATNA</strong>：没有其他 offer，急需入职</li>
+<li><strong>强 BATNA = 谈判杠杆</strong>，弱 BATNA = 只能接受首次报价</li>
+</ul>
+<p><strong>Chris Voss</strong> 在 <em>Never Split the Difference</em> (2016) 中给谈判者三招:</p>
+<ol>
+<li><strong>镜像 (Mirroring)</strong>：重复对方最后 3-4 个词，引导对方展开</li>
+<li>面试官："我们通常给这个级别 $200k base"</li>
+<li>
+<p>你："$200k base?" (停顿，让对方主动加码)</p>
+</li>
+<li>
+<p><strong>标签 (Labeling)</strong>：说出对方的情绪</p>
+</li>
+<li>"听起来你希望在预算范围内找到最合适的人"</li>
+<li>
+<p>让对方觉得被理解，更愿意让步</p>
+</li>
+<li>
+<p><strong>校准问题 (Calibrated Questions)</strong>：用 "How" / "What" 开头，不用 "Why"</p>
+</li>
+<li>❌ "为什么不能再高?"</li>
+<li>✅ "我们要怎么做才能把这个数字提高到 $250k?"</li>
+<li>把决策难题<strong>推回给对方</strong></li>
+</ol>
+<h3 id="58">5.8 谈判反例集锦<a class="headerlink" href="#58" title="Permanent link">&para;</a></h3>
+<p><strong>反例 1：过分强调薪资</strong></p>
+<blockquote>
+<p>候选人："我不到 400k 就走人."</p>
+<p>HR 内部："态度过硬，不利团队协作，rescind."</p>
+</blockquote>
+<p><strong>反例 2：说错公司名</strong></p>
+<blockquote>
+<p>候选人："我在 Facebook 拿了 offer..."</p>
+<p>HR: "Facebook 两年前就改名 Meta 了，你这 offer 是什么时候拿的?"</p>
+</blockquote>
+<p><strong>反例 3：虚报数字</strong></p>
+<blockquote>
+<p>候选人："字节给我 P8, base 100 万."</p>
+<p>HR (熟人网): "字节 P8 什么级别我心里有数，你这数字明显虚高."</p>
+</blockquote>
+<p><strong>反例 4：一次谈判问 20 个问题</strong></p>
+<blockquote>
+<p>候选人一次邮件问：base、bonus、股票、sign-on、户口、股票 vesting、加班、绩效..</p>
+<p>HR：感觉候选人在货比三家，不专业，放低优先级。</p>
+</blockquote>
+<p><strong>正例</strong>:</p>
+<blockquote>
+<p>"感谢 offer! 我很期待加入。 关于薪酬，我想聚焦一个点讨论：sign-on 目前是 $30k, 参考我目前 Meta 的竞争 offer $50k，我们这边有没有可能对齐到 $50k? 其他条款我都能接受."</p>
+</blockquote>
+<p><strong>精准 + 让步空间</strong> = 专业。</p>
+<hr />
+<h2 id="6-offer">6. 拒 Offer + 关系维护<a class="headerlink" href="#6-offer" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 优雅拒绝模板<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p><strong>中文邮件模板</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>标题: 关于 XX 岗位 offer 的回复
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>XX (HR 姓名) 您好,
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>再次感谢 XX (公司名) 团队在过去几周投入的时间, 尤其是 XX 面试官对我
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>的深入交流. 经过慎重考虑, 我最终选择了另一份 offer, 主要原因是
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>[个人发展方向 / 技术栈匹配 / 家庭因素] 更契合我下一阶段的规划.
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>这次面试过程让我对贵司的技术团队有了非常好的印象, 希望未来仍有
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>合作机会. 也请代我向 XX、XX 面试官表达感谢.
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>祝一切顺利.
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>XX (你的名字)
+</code></pre></div>
+<p><strong>英文邮件模板</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Subject: RE: Offer for [Role] at [Company]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Hi [HR Name],
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Thank you again to you and the entire [Company] team for the offer
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>and the thoughtful conversations over the past few weeks.
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>After careful consideration, I&#39;ve decided to accept another offer
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>that aligns more closely with [career direction / tech stack / 
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>personal circumstances] at this stage of my career.
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>I was very impressed by the team and hope our paths cross again.
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>Please pass along my thanks to [Interviewer 1] and [Interviewer 2].
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>Wishing you all the best.
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>Regards,
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>[Your Name]
+</code></pre></div>
+<h3 id="62">6.2 六大禁忌<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<ul>
+<li>❌ 不回复直接消失 (行业圈小，有黑名单)</li>
+<li>❌ 用"薪资太低"作为唯一理由 (显得势利)</li>
+<li>❌ 在 LinkedIn / Blind 上公开贬低这家公司</li>
+<li>❌ 拒绝后又反悔 (公司会怀疑你的判断力)</li>
+<li>❌ 索要面试反馈 (HR 出于法律考虑不会给)</li>
+<li>❌ 泄露其他公司的 offer 细节 (违反保密，影响自己声誉)</li>
+</ul>
+<h3 id="63">6.3 保持长期关系<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>LinkedIn 加面试官</strong>：加时留言"很享受聊 XX 话题，希望保持联系"</li>
+<li><strong>入职后半年重新联系</strong>：分享你的近况，可能对方也换公司了</li>
+<li><strong>反向推荐</strong>：若有朋友合适该职位，主动推给这家 HR</li>
+</ul>
+<hr />
+<h2 id="7-306090">7. 入职前后 30/60/90 天<a class="headerlink" href="#7-306090" title="Permanent link">&para;</a></h2>
+<h3 id="71-offer-onboard">7.1 入职前 (Offer 到 Onboard 之间)<a class="headerlink" href="#71-offer-onboard" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>技术栈补齐</strong>：若公司主要用 Go 而你 Python 强，用 2-4 周补 Go</li>
+<li><strong>联系直属</strong>：请 HR 提前把你介绍给未来 leader，提前 15 分钟视频认识</li>
+<li><strong>读组内文档</strong>：请 HR 分享 team wiki / 组会 slides，提前了解术语与人名</li>
+<li><strong>别刷题了</strong>：已经过面试，转向工程与人际</li>
+</ul>
+<h3 id="72-day-1-30">7.2 首月 (Day 1-30)<a class="headerlink" href="#72-day-1-30" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>多听少说</strong>：前 2 周只问不评。 避免用前公司的方法批评现团队</li>
+<li><strong>拉 1:1</strong>：主动约每个组员咖啡，记录他们负责什么、痛点是什么</li>
+<li><strong>1 个 quick win</strong>：找一个 30 分钟能改的小任务 (文档/工具/CI 修复) 立即上，建立"能干活"的第一印象</li>
+<li><strong>Onboarding buddy</strong>：每家大厂都会指定 buddy，用足这个资源</li>
+</ul>
+<h3 id="73-60">7.3 60 天<a class="headerlink" href="#73-60" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>深入一个模块</strong>：选一个中等规模模块，读完代码 + 独立修一个 P2 bug</li>
+<li><strong>参加组内 review</strong>：敢于表达观点，但语气"我可能理解不全，但..."</li>
+<li><strong>建立 mentor</strong>：除了 leader，找一个更资深的工程师作为技术导师</li>
+</ul>
+<h3 id="74-90">7.4 90 天目标<a class="headerlink" href="#74-90" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>一个可见成果</strong>：一个上线的小项目，有 metric 提升，能在组会 slides 里放一页</li>
+<li><strong>明确未来 6 个月方向</strong>：与 leader 对齐季度 OKR</li>
+<li><strong>建立信誉</strong>：至少 3 位同事在 1:1 里会说"XX 靠谱"</li>
+</ul>
+<hr />
+<h2 id="8">8. 建议图示<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>图 1: STAR 时间盒饼图</strong> — 一个 5 分钟故事内 S/T/A/R 的时长占比 (S 30s, T 20s, A 3 min, R 30s)</li>
+<li><strong>图 2：四家大厂 4 年 vesting 曲线对比</strong> — X 轴年份，Y 轴累计归属股票额，Meta 直线上升，Google 前陡后缓，Amazon 前缓后陡，Microsoft 与 Meta 重叠</li>
+</ul>
+<hr />
+<h2 id="_1">📌 本节要点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>行为面权重随级别升高</strong>: L4 30% → L7 70%，高级岗行为面基本决定 offer</li>
+<li><strong>Amazon 16 条 LP</strong> 是最系统化的框架，每条准备 2 个 STAR 故事，单个故事 3-5 分钟讲完</li>
+<li><strong>STAR 精细化</strong>: Action 占 60%, Result 必须有量化数字，讲"我做的"不讲"我们做的"</li>
+<li><strong>90 秒电梯讲述</strong>: 20s 我是谁 + 30s 代表项目 + 20s 数字化成果 + 20s 埋钩子</li>
+<li><strong>反问要问真痛点</strong>：前 90 天目标 / 团队最大挑战 / 面试官最喜欢/不喜欢什么，不问八卦不问薪资</li>
+<li><strong>Offer 三件套 TCE</strong>: Base + Bonus + RSU/4 + Sign-on/4，中国大厂加"打包价 + 户口 + 等级"</li>
+<li><strong>Vesting 四家差异</strong>: Meta 25/25/25/25, Google 33/33/22/12, Amazon 5/15/40/40 back-loaded, Microsoft 与 Meta 类似</li>
+<li><strong>谈判用 BATNA + Chris Voss 三招</strong>：镜像 + 标签 + 校准问题，精准要一项 (如 sign-on) 而非全面开火</li>
+</ul>
+<hr />
+<h2 id="ch25-7">🎓 本章总结 (Ch25 全 7 节回顾)<a class="headerlink" href="#ch25-7" title="Permanent link">&para;</a></h2>
+<p>Ch25 共 7 节，一步步搭建了从"简历投出"到"入职 90 天"的完整闭环:</p>
+<ol>
+<li><strong>[Sec 01] 面试全景</strong>：五轮框架 (电面 / 系统设计 / 编程 / 行为 / bar raiser)，中美大厂差异表，面试评分卡样本</li>
+<li><strong>[Sec 02] 系统设计 8 步框架</strong>: Clarify → Estimate → API → Data → HLD → Deep-dive → Bottleneck → Tradeoff，每一步给了对话脚本</li>
+<li><strong>[Sec 03] 推荐系统面试</strong>：召回 (双塔 / ANN) + 粗排 (轻量塔) + 精排 (DeepFM / DIN / DIEN) + 重排 (多样性 / 公平性)，冷启动与 A/B</li>
+<li><strong>[Sec 04] 对话系统 + RAG</strong>：意图理解 + 检索 + 生成 + 幻觉抑制，向量库选型 + Chunking + Re-ranking + Guardrails</li>
+<li><strong>[Sec 05] 大模型服务化</strong>：推理引擎 (vLLM / TensorRT-LLM) + KV cache + 连续批处理 + 量化 + 多机推理 + 延迟 SLO</li>
+<li><strong>[Sec 06] 算法与编程面试</strong>：三类 coding (LC 类 / OOD / ML 手撕), 15-20 个核心模式，手撕 Attention + AdamW + KMeans + LRU</li>
+<li><strong>[Sec 07] 行为面 + Offer 谈判 (本节)</strong>: STAR / 项目讲述 / 反问 / TCE / Vesting / BATNA / 90 天入职</li>
+</ol>
+<p><strong>读者带走的核心能力</strong>:</p>
+<ul>
+<li>面对任何"设计一个 X 系统"能用 8 步框架<strong>当场组织回答</strong></li>
+<li>面对任何 LC 题能识别 15-20 个模式之一，40 分钟内跑通代码</li>
+<li>面对任何 LP 追问能用 STAR 讲清"我做了什么，结果如何量化"</li>
+<li>面对任何 offer 能算清 TCE，与 BATNA 对比，用镜像/标签/校准问题谈到公平价</li>
+</ul>
+<hr />
+<h2 id="ch21-25">🎓 全书总结 (Ch21-25 五章)<a class="headerlink" href="#ch21-25" title="Permanent link">&para;</a></h2>
+<p>本书新增的五章 (Ch21-25)，覆盖了从<strong>训练大模型</strong>到<strong>部署工程</strong>到<strong>面试就业</strong>的完整链路。 主公读者读完能带走的核心线索:</p>
+<ol>
+<li>
+<p><strong>[Ch21 训练大模型]</strong> — 数据准备 (dedup + 质量过滤) + 分布式训练 (DP/PP/TP/EP) + 优化器 (AdamW + Lion) + Scaling Laws (Chinchilla 计算最优)：让你<strong>理解为什么 GPT-4 需要那么多卡，而不是照抄 arXiv</strong>.</p>
+</li>
+<li>
+<p><strong>[Ch22 强化学习与对齐]</strong> — SFT → RLHF (PPO) → DPO/KTO → RLAIF，加上 Constitutional AI, Reward Model 稳定性，KL 约束的角色：让你<strong>懂得"对齐税"从哪来，以及为什么 DPO 正在替代 RLHF</strong>.</p>
+</li>
+<li>
+<p><strong>[Ch23 推理系统]</strong> — vLLM PagedAttention + KV Cache 管理 + 连续批处理 + 量化 (INT8/INT4/FP8) + 推测解码 + FlashAttention + 多机推理：让你<strong>能推导延迟公式，而不是背 QPS 数字</strong>.</p>
+</li>
+<li>
+<p><strong>[Ch24 Agent 与工具使用]</strong> — Function Calling → ReAct → Tree of Thoughts → Reflexion, MCP 协议，多智能体协作，工具调用安全：让你<strong>知道 Agent 系统的边界在哪，何时该用工作流而非纯 LLM</strong>.</p>
+</li>
+<li>
+<p><strong>[Ch25 AI 系统面试指南]</strong> — 面试全景 + 系统设计 8 步 + 4 类项目 (推荐/对话/大模型服务) + Coding 手撕 + 行为面 + Offer 谈判：让你<strong>把前 4 章的知识变成 offer，而不是知乎点赞</strong>.</p>
+</li>
+</ol>
+<p><strong>五章的统一逻辑</strong>: <strong>技术 (Ch21-24) 是燃料，面试 (Ch25) 是发射台</strong>. 只有燃料没发射台，你的知识只在硬盘里；只有发射台没燃料，你在面试官面前只会背题。</p>
+<p><strong>祝主公读者</strong>：用一年读懂本书，用五年在 AI 系统赛道站稳脚跟，用十年成为让别人写下一本 <em>Compendium</em> 的人。</p>
+<hr />
+<h2 id="_2">参考文献<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Amazon (2021).</strong> Leadership Principles. https://www.aboutamazon.com/about-us/leadership-principles (Amazon 官方发布的 16 条领导力原则，2021 年新增最后两条.)</p>
+</li>
+<li>
+<p><strong>Bock, L. (2015).</strong> <em>Work Rules! Insights from Inside Google That Will Transform How You Live and Lead</em>. Twelve. (Google 前 SVP People Operations 讲述四维度评分框架 GCA/Leadership/RRK/Googleyness.)</p>
+</li>
+<li>
+<p><strong>Fisher, R., Ury, W., &amp; Patton, B. (2011).</strong> <em>Getting to Yes: Negotiating Agreement Without Giving In</em> (3rd ed.). Penguin. (BATNA 概念的原始出处，谈判学入门必读.)</p>
+</li>
+<li>
+<p><strong>Voss, C. (2016).</strong> <em>Never Split the Difference: Negotiating As If Your Life Depended On It</em>. Harper Business. (FBI 前首席谈判官，提出镜像 / 标签 / 校准问题三招，硅谷候选人谈 offer 常用参考.)</p>
+</li>
+<li>
+<p><strong>McDowell, G. L. (2016).</strong> <em>Cracking the Coding Interview: 189 Programming Questions and Solutions</em> (6th ed.). CareerCup. (行为面 STAR 章节被业界广泛引用.)</p>
+</li>
+<li>
+<p><strong>Development Dimensions International (DDI).</strong> Behavioral Interviewing methodology (1970s). https://www.ddiworld.com/ (STAR 框架的原始机构来源.)</p>
+</li>
+<li>
+<p><strong>Harvard Business Review.</strong> "How to Nail Your Next Job Interview" 系列文章。 https://hbr.org/ (STAR 面向管理岗的落地案例，被 Amazon 官方 careers 页面引用.)</p>
+</li>
+<li>
+<p><strong>Levels.fyi.</strong> https://www.levels.fyi/ (行业最大 offer 匿名数据聚合平台，本节引用其 2024 中位数区间，数据存在幸存者偏差，使用时看 P50-P75 分位.)</p>
+</li>
+<li>
+<p><strong>Blind.</strong> https://www.teamblind.com/ (匿名职场社区，本节引用的"L4-L7 行为面权重" 分布为社区帖子 anecdotal 数据，非官方披露.)</p>
+</li>
+<li>
+<p><strong>Meta.</strong> Meta Values (2023). https://about.meta.com/company-info/ (官方发布的 5 项公司价值观，用于行为面隐性打分.)</p>
+</li>
+<li>
+<p><strong>一亩三分地.</strong> https://www.1point3acres.com/ (北美华人技术面经社区，大厂 offer / 面试反馈参考，亦为 anecdotal.)</p>
+</li>
+<li>
+<p><strong>Loshchilov, I., &amp; Hutter, F. (2019).</strong> Decoupled Weight Decay Regularization. ICLR 2019. arXiv:1711.05101. (本节 TCE 公式排版参考的 AdamW 论文，用于说明"数学公式排版"是本书全书统一风格.)</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../06.%20%E7%AE%97%E6%B3%95%E4%B8%8E%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 06. 算法与编程面试实战">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                06. 算法与编程面试实战
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/godlockin/maths-cs-ai-compendium" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/pyodide-runner.js"></script>
+      
+    
+  </body>
+</html>

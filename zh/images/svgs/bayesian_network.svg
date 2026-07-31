@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">贝叶斯网络示例 (雨天 → 湿草地 → 滑)</text>
+
+  <!-- 节点 -->
+  <circle cx="150" cy="200" r="45" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="150" y="195" text-anchor="middle" class="label" font-weight="bold">Rain</text>
+  <text x="150" y="212" text-anchor="middle" class="small">下雨</text>
+
+  <circle cx="350" cy="200" r="55" fill="#f5a623" fill-opacity="0.3" stroke="#a06c00" stroke-width="2"/>
+  <text x="350" y="195" text-anchor="middle" class="label" font-weight="bold">Sprinkler</text>
+  <text x="350" y="212" text-anchor="middle" class="small">洒水器</text>
+
+  <circle cx="550" cy="200" r="50" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+  <text x="550" y="195" text-anchor="middle" class="label" font-weight="bold">Wet Grass</text>
+  <text x="550" y="212" text-anchor="middle" class="small">湿草地</text>
+
+  <circle cx="350" cy="370" r="45" fill="#e74c3c" fill-opacity="0.3" stroke="#922b21" stroke-width="2"/>
+  <text x="350" y="365" text-anchor="middle" class="label" font-weight="bold">Slippery</text>
+  <text x="350" y="382" text-anchor="middle" class="small">滑</text>
+
+  <!-- 边 -->
+  <path d="M 195 200 L 295 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 405 200 L 500 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 550 250 Q 600 320 395 365" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 公式 -->
+  <rect x="50" y="430" width="600" height="60" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="455" class="small" font-weight="bold" fill="#856404">条件独立:</text>
+  <text x="60" y="475" class="small" fill="#333">P(Slippery | Wet Grass, Rain, Sprinkler) = P(Slippery | Wet Grass)</text>
+</svg>

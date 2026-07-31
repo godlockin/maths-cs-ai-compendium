@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Mixture of Experts (MoE) 架构</text>
+
+  <!-- 输入 -->
+  <rect x="280" y="80" width="140" height="40" rx="6" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="350" y="105" text-anchor="middle" class="label" font-weight="bold">输入 Token x</text>
+
+  <path d="M 350 120 L 350 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- Router -->
+  <rect x="280" y="150" width="140" height="40" rx="6" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+  <text x="350" y="175" text-anchor="middle" class="label" font-weight="bold" fill="#856404">Router (Gate)</text>
+
+  <path d="M 350 190 L 350 220" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- Experts 网格 -->
+  <g transform="translate(80, 220)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E1</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+  <g transform="translate(220, 220)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E2</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+  <g transform="translate(360, 220)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E3</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+  <g transform="translate(500, 220)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E4</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+
+  <g transform="translate(80, 290)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E5</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+  <g transform="translate(220, 290)">
+    <rect width="100" height="50" rx="4" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E6</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666">MLP</text>
+  </g>
+  <g transform="translate(360, 290)">
+    <rect width="100" height="50" rx="4" fill="#e74c3c" fill-opacity="0.3" stroke="#922b21" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E7</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666" font-weight="bold">Top-1</text>
+  </g>
+  <g transform="translate(500, 290)">
+    <rect width="100" height="50" rx="4" fill="#e74c3c" fill-opacity="0.3" stroke="#922b21" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">E8</text>
+    <text x="50" y="38" text-anchor="middle" class="small" fill="#666" font-weight="bold">Top-2</text>
+  </g>
+
+  <!-- Router 选中箭头 -->
+  <path d="M 350 195 Q 350 280 410 320" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 195 Q 350 290 550 320" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 195 Q 130 280 130 320" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 350 195 Q 270 280 270 320" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 350 195 Q 180 280 180 320" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 350 195 Q 450 280 450 320" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M 350 195 Q 580 280 580 320" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <!-- 输出 -->
+  <rect x="280" y="380" width="140" height="50" rx="6" fill="#bd10e0" fill-opacity="0.3" stroke="#730080" stroke-width="2"/>
+  <text x="350" y="402" text-anchor="middle" class="label" font-weight="bold" fill="#730080">加权输出</text>
+  <text x="350" y="420" text-anchor="middle" class="small">y = w_7·E7(x) + w_8·E8(x)</text>
+
+  <path d="M 410 320 L 350 380" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 550 320 L 350 380" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- 公式 -->
+  <rect x="40" y="450" width="620" height="40" rx="6" fill="#fff3cd" stroke="#856404"/>
+  <text x="350" y="475" text-anchor="middle" class="small" font-weight="bold" fill="#856404">公式: P(i|x) = softmax(W_g · x); Top-K 选择 K 个专家, 加权求和</text>
+</svg>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .arrow { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .box-stage1 { fill: #4a90e2; stroke: #1a5490; stroke-width: 2; }
+      .box-stage2 { fill: #7ed321; stroke: #417505; stroke-width: 2; }
+      .box-stage3 { fill: #f5a623; stroke: #a06c00; stroke-width: 2; }
+      .box-input { fill: #95a5a6; stroke: #5d6d7e; stroke-width: 2; }
+      .box-output { fill: #e74c3c; stroke: #922b21; stroke-width: 2; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="35" text-anchor="middle" class="title">RLHF 三阶段训练流程 (含 DPO / GRPO 替代路径)</text>
+
+  <!-- Input -->
+  <rect x="50" y="80" width="130" height="60" rx="8" class="box-input"/>
+  <text x="115" y="105" text-anchor="middle" fill="white" class="label">预训练模型</text>
+  <text x="115" y="123" text-anchor="middle" fill="white" class="small">(SFT 完成)</text>
+
+  <!-- Stage 1: SFT -->
+  <rect x="50" y="180" width="130" height="80" rx="8" class="box-stage1"/>
+  <text x="115" y="205" text-anchor="middle" fill="white" class="label">阶段 1: 偏好数据</text>
+  <text x="115" y="225" text-anchor="middle" fill="white" class="small">人类标注</text>
+  <text x="115" y="240" text-anchor="middle" fill="white" class="small">Pairwise</text>
+
+  <!-- Stage 2: RM -->
+  <rect x="220" y="180" width="150" height="80" rx="8" class="box-stage2"/>
+  <text x="295" y="205" text-anchor="middle" fill="white" class="label">阶段 2: Reward Model</text>
+  <text x="295" y="225" text-anchor="middle" fill="white" class="small">训练 RM</text>
+  <text x="295" y="240" text-anchor="middle" fill="white" class="small">Bradley-Terry 损失</text>
+
+  <!-- Stage 3: PPO -->
+  <rect x="410" y="180" width="150" height="80" rx="8" class="box-stage3"/>
+  <text x="485" y="205" text-anchor="middle" fill="white" class="label">阶段 3: PPO</text>
+  <text x="485" y="225" text-anchor="middle" fill="white" class="small">优化 LM</text>
+  <text x="485" y="240" text-anchor="middle" fill="white" class="small">+ KL 惩罚</text>
+
+  <!-- Output -->
+  <rect x="600" y="80" width="150" height="60" rx="8" class="box-output"/>
+  <text x="675" y="105" text-anchor="middle" fill="white" class="label">对齐后模型</text>
+  <text x="675" y="123" text-anchor="middle" fill="white" class="small">(RLHF)</text>
+
+  <!-- DPO alternative -->
+  <rect x="600" y="180" width="150" height="80" rx="8" fill="#9b59b6" stroke="#5b3578" stroke-width="2"/>
+  <text x="675" y="205" text-anchor="middle" fill="white" class="label">DPO (替代)</text>
+  <text x="675" y="225" text-anchor="middle" fill="white" class="small">跳过 RM + PPO</text>
+  <text x="675" y="240" text-anchor="middle" fill="white" class="small">直接 SFT</text>
+
+  <!-- GRPO alternative -->
+  <rect x="600" y="280" width="150" height="80" rx="8" fill="#16a085" stroke="#0e6655" stroke-width="2"/>
+  <text x="675" y="305" text-anchor="middle" fill="white" class="label">GRPO (替代)</text>
+  <text x="675" y="325" text-anchor="middle" fill="white" class="small">DeepSeek-R1 用</text>
+  <text x="675" y="340" text-anchor="middle" fill="white" class="small">组内相对优势</text>
+
+  <!-- Arrows: 3 stages flow -->
+  <path d="M180 220 L220 220" class="arrow"/>
+  <path d="M370 220 L410 220" class="arrow"/>
+  <path d="M560 220 L600 220" class="arrow"/>
+  <path d="M675 110 L675 180" class="arrow"/>
+
+  <!-- Bottom: Detailed Comparison -->
+  <text x="50" y="395" class="small" font-weight="bold">3 大算法对比:</text>
+
+  <!-- RLHF row -->
+  <rect x="50" y="405" width="220" height="40" rx="4" fill="#fdebd0" stroke="#f39c12"/>
+  <text x="60" y="425" class="small" font-weight="bold">RLHF</text>
+  <text x="60" y="440" class="small">RM + PPO + KL 惩罚</text>
+
+  <!-- DPO row -->
+  <rect x="290" y="405" width="220" height="40" rx="4" fill="#ebdef0" stroke="#8e44ad"/>
+  <text x="300" y="425" class="small" font-weight="bold">DPO</text>
+  <text x="300" y="440" class="small">闭式解 + 单次 SFT (更快)</text>
+
+  <!-- GRPO row -->
+  <rect x="530" y="405" width="220" height="40" rx="4" fill="#d4efdf" stroke="#16a085"/>
+  <text x="540" y="425" class="small" font-weight="bold">GRPO</text>
+  <text x="540" y="440" class="small">组内归一化 + 无 Critic (DeepSeek)</text>
+
+  <!-- Key insight -->
+  <text x="50" y="475" class="small" fill="#666">趋势: DPO / GRPO 替代 PPO 因更稳定; GRPO 在 reasoning (数学/代码) 表现更好</text>
+</svg>

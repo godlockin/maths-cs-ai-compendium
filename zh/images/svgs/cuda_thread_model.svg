@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">CUDA 线程模型</text>
+
+  <!-- Grid -->
+  <text x="180" y="80" text-anchor="middle" class="label" font-weight="bold">Grid (N blocks)</text>
+  <text x="500" y="80" text-anchor="middle" class="label" font-weight="bold">Block 内 (256 threads)</text>
+
+  <!-- 2x2 blocks -->
+  <g transform="translate(60, 100)">
+    <rect width="100" height="100" rx="6" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">Block (0,0)</text>
+    <line x1="0" y1="30" x2="100" y2="30" stroke="#1a5490" stroke-width="0.5"/>
+    <text x="50" y="55" text-anchor="middle" class="small" fill="#1a5490">16x16 thread</text>
+    <text x="50" y="80" text-anchor="middle" class="small" fill="#666">256 threads</text>
+  </g>
+  <g transform="translate(180, 100)">
+    <rect width="100" height="100" rx="6" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">Block (0,1)</text>
+    <line x1="0" y1="30" x2="100" y2="30" stroke="#1a5490" stroke-width="0.5"/>
+    <text x="50" y="55" text-anchor="middle" class="small" fill="#1a5490">16x16 thread</text>
+    <text x="50" y="80" text-anchor="middle" class="small" fill="#666">256 threads</text>
+  </g>
+  <g transform="translate(60, 220)">
+    <rect width="100" height="100" rx="6" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">Block (1,0)</text>
+    <line x1="0" y1="30" x2="100" y2="30" stroke="#1a5490" stroke-width="0.5"/>
+    <text x="50" y="55" text-anchor="middle" class="small" fill="#1a5490">16x16 thread</text>
+    <text x="50" y="80" text-anchor="middle" class="small" fill="#666">256 threads</text>
+  </g>
+  <g transform="translate(180, 220)">
+    <rect width="100" height="100" rx="6" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+    <text x="50" y="20" text-anchor="middle" class="small" font-weight="bold">Block (1,1)</text>
+    <line x1="0" y1="30" x2="100" y2="30" stroke="#1a5490" stroke-width="0.5"/>
+    <text x="50" y="55" text-anchor="middle" class="small" fill="#1a5490">16x16 thread</text>
+    <text x="50" y="80" text-anchor="middle" class="small" fill="#666">256 threads</text>
+  </g>
+
+  <text x="170" y="345" text-anchor="middle" class="small" fill="#1a5490" font-weight="bold">× ...</text>
+
+  <!-- Warp 32 threads -->
+  <g transform="translate(360, 100)">
+    <rect width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="16" y="20" text-anchor="middle" class="small" fill="white">W0</text>
+    <rect x="32" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="48" y="20" text-anchor="middle" class="small" fill="white">W1</text>
+    <rect x="64" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="80" y="20" text-anchor="middle" class="small" fill="white">W2</text>
+    <rect x="96" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="112" y="20" text-anchor="middle" class="small" fill="white">W3</text>
+    <rect x="128" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="144" y="20" text-anchor="middle" class="small" fill="white">W4</text>
+    <rect x="160" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="176" y="20" text-anchor="middle" class="small" fill="white">W5</text>
+    <rect x="192" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="208" y="20" text-anchor="middle" class="small" fill="white">W6</text>
+    <rect x="224" width="32" height="32" rx="3" fill="#7ed321" fill-opacity="0.3" stroke="#417505"/>
+    <text x="240" y="20" text-anchor="middle" class="small" fill="white">W7</text>
+    <text x="144" y="50" text-anchor="middle" class="small" font-weight="bold" fill="#417505">8 warps = 256 threads</text>
+  </g>
+
+  <!-- 索引公式 -->
+  <rect x="350" y="180" width="320" height="80" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="510" y="200" text-anchor="middle" class="small" font-weight="bold" fill="#856404">线程索引</text>
+  <text x="510" y="220" text-anchor="middle" class="small">idx = blockIdx.x × blockDim.x + threadIdx.x</text>
+  <text x="510" y="240" text-anchor="middle" class="small" fill="#666">warp_id = threadIdx.x / 32</text>
+  <text x="510" y="255" text-anchor="middle" class="small" fill="#666">lane = threadIdx.x % 32</text>
+
+  <!-- SM 资源 -->
+  <rect x="350" y="280" width="320" height="80" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="510" y="300" text-anchor="middle" class="small" font-weight="bold">SM 资源 (H100)</text>
+  <text x="510" y="320" text-anchor="middle" class="small">128 FP32 cores / 64 INT32 cores / 4 Tensor Cores</text>
+  <text x="510" y="338" text-anchor="middle" class="small">256 KB Register / 256 KB Shared Mem + L1</text>
+  <text x="510" y="355" text-anchor="middle" class="small" fill="#666">50 MB L2 / 80 GB HBM3 (3.35 TB/s)</text>
+
+  <!-- 关键概念 -->
+  <text x="350" y="400" text-anchor="middle" class="small" font-weight="bold">💡 3 大优化方向</text>
+  <text x="350" y="420" text-anchor="middle" class="small">① Memory Coalescing ② Shared Memory 无冲突 ③ Warp Divergence 最小化</text>
+  <text x="350" y="445" text-anchor="middle" class="small" fill="#666">Occupancy = 活跃 warp 数 / 最大 warp 数 (目标 50%+)</text>
+</svg>

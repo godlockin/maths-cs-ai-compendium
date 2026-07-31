@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">A/B Test 与分流策略</text>
+  <!-- Flow -->
+  <g transform="translate(50, 100)">
+    <text x="350" y="-10" text-anchor="middle" fill="#94a3b8" font-size="14">流量分配</text>
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="120" height="60" fill="#3b82f6" opacity="0.4" stroke="#3b82f6"/>
+      <text x="60" y="25" text-anchor="middle" fill="#fff" font-size="12">总流量</text>
+      <text x="60" y="45" text-anchor="middle" fill="#94a3b8" font-size="10">10M DAU</text>
+    </g>
+    <g transform="translate(140,0)">
+      <rect x="0" y="0" width="120" height="60" fill="#3b82f6" opacity="0.6"/>
+      <text x="60" y="25" text-anchor="middle" fill="#fff" font-size="12">对照 (A)</text>
+      <text x="60" y="45" text-anchor="middle" fill="#94a3b8" font-size="10">5M 50%</text>
+    </g>
+    <g transform="translate(280,0)">
+      <rect x="0" y="0" width="120" height="60" fill="#10b981" opacity="0.6"/>
+      <text x="60" y="25" text-anchor="middle" fill="#fff" font-size="12">实验 (B)</text>
+      <text x="60" y="45" text-anchor="middle" fill="#94a3b8" font-size="10">5M 50%</text>
+    </g>
+    <g transform="translate(420,0)">
+      <rect x="0" y="0" width="120" height="60" fill="#94a3b8" opacity="0.6"/>
+      <text x="60" y="25" text-anchor="middle" fill="#fff" font-size="12">灰度 (10%)</text>
+      <text x="60" y="45" text-anchor="middle" fill="#94a3b8" font-size="10">1M 10%</text>
+    </g>
+    <g transform="translate(560,0)">
+      <rect x="0" y="0" width="120" height="60" fill="#f59e0b" opacity="0.6"/>
+      <text x="60" y="25" text-anchor="middle" fill="#fff" font-size="12">回滚 (0%)</text>
+      <text x="60" y="45" text-anchor="middle" fill="#94a3b8" font-size="10">0%</text>
+    </g>
+    <g stroke="#94a3b8" stroke-width="2" fill="none">
+      <line x1="120" y1="30" x2="140" y2="30"/>
+      <line x1="120" y1="30" x2="280" y2="30"/>
+      <line x1="120" y1="30" x2="420" y2="30"/>
+    </g>
+  </g>
+  <!-- Stats -->
+  <g transform="translate(50, 220)">
+    <text x="350" y="0" text-anchor="middle" fill="#94a3b8" font-size="14" font-weight="bold">统计显著性检验</text>
+    <text x="350" y="25" text-anchor="middle" fill="#cbd5e1" font-size="12">H₀: μ_A = μ_B  vs  H₁: μ_A ≠ μ_B</text>
+    <text x="350" y="50" text-anchor="middle" fill="#cbd5e1" font-size="12">双样本 t 检验 / Welch t / Mann-Whitney U / Bootstrap</text>
+    <text x="350" y="75" text-anchor="middle" fill="#cbd5e1" font-size="12">p &lt; 0.05 + 效应量 &gt; 0.2 + 持续 ≥ 7 天 → 全量</text>
+  </g>
+  <!-- Pitfalls -->
+  <g transform="translate(50, 360)">
+    <text x="350" y="0" text-anchor="middle" fill="#ef4444" font-size="14" font-weight="bold">常见陷阱</text>
+    <text x="350" y="25" text-anchor="middle" fill="#cbd5e1" font-size="12">· 多重检验 (Bonferroni / FDR) · Novelty / Primacy 效应</text>
+    <text x="350" y="50" text-anchor="middle" fill="#cbd5e1" font-size="12">· 长期 vs 短期 · 互斥分层 (Mutex Layer) · CUPED 方差缩减</text>
+  </g>
+</svg>

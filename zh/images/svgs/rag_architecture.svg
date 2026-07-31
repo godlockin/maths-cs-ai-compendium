@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">RAG 检索增强生成架构</text>
+
+  <!-- 离线索引 -->
+  <rect x="40" y="80" width="280" height="200" rx="8" fill="#f8d7da" stroke="#721c24" stroke-width="2"/>
+  <text x="180" y="105" text-anchor="middle" class="label" font-weight="bold" fill="#721c24">离线索引 (一次性)</text>
+
+  <rect x="60" y="120" width="240" height="35" rx="4" fill="#fff" stroke="#721c24"/>
+  <text x="180" y="142" text-anchor="middle" class="small">文档加载 (PDF/Word/HTML)</text>
+
+  <rect x="60" y="165" width="240" height="35" rx="4" fill="#fff" stroke="#721c24"/>
+  <text x="180" y="187" text-anchor="middle" class="small">分块 (512 token, 重叠 50)</text>
+
+  <rect x="60" y="210" width="240" height="35" rx="4" fill="#fff" stroke="#721c24"/>
+  <text x="180" y="232" text-anchor="middle" class="small">向量化 (BGE-large)</text>
+
+  <rect x="60" y="255" width="240" height="20" rx="3" fill="#fff" stroke="#721c24"/>
+  <text x="180" y="270" text-anchor="middle" class="small" fill="#721c24">存入 Vector DB (Milvus)</text>
+
+  <!-- 在线查询 -->
+  <rect x="380" y="80" width="280" height="200" rx="8" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="520" y="105" text-anchor="middle" class="label" font-weight="bold" fill="#155724">在线查询 (实时)</text>
+
+  <rect x="400" y="120" width="240" height="35" rx="4" fill="#fff" stroke="#155724"/>
+  <text x="520" y="142" text-anchor="middle" class="small">用户问题</text>
+
+  <rect x="400" y="165" width="240" height="35" rx="4" fill="#fff" stroke="#155724"/>
+  <text x="520" y="187" text-anchor="middle" class="small">问题 Embedding</text>
+
+  <rect x="400" y="210" width="240" height="35" rx="4" fill="#fff" stroke="#155724"/>
+  <text x="520" y="232" text-anchor="middle" class="small">相似度检索 (Top-K=5)</text>
+
+  <rect x="400" y="255" width="240" height="20" rx="3" fill="#fff" stroke="#155724"/>
+  <text x="520" y="270" text-anchor="middle" class="small" fill="#155724">Re-rank (BGE-reranker)</text>
+
+  <!-- 中心 LLM -->
+  <rect x="240" y="320" width="220" height="60" rx="8" fill="#f5a623" fill-opacity="0.3" stroke="#a06c00" stroke-width="2"/>
+  <text x="350" y="345" text-anchor="middle" class="label" font-weight="bold" fill="#a06c00">LLM (Claude 4.5)</text>
+  <text x="350" y="365" text-anchor="middle" class="small">Context: [问题] + [Top-5 文档] → 回答</text>
+
+  <!-- 箭头 -->
+  <path d="M 520 280 L 350 320" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 320 L 180 280" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)" stroke-dasharray="3,3"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <!-- 输出 -->
+  <rect x="240" y="410" width="220" height="40" rx="6" fill="#f8f9fa" stroke="#333"/>
+  <text x="350" y="435" text-anchor="middle" class="label">最终答案 (含引用源)</text>
+
+  <path d="M 350 380 L 350 410" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- 关键 -->
+  <text x="350" y="475" text-anchor="middle" class="small" fill="#666">💡 关键参数: chunk size 256-1024, Top-K 3-10, Reranker 必备</text>
+</svg>
