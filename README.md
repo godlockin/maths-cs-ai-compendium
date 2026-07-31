@@ -2,7 +2,7 @@
 
 <img src="images/logo.png" alt="Logo" style="border-radius: 30px; width: 100%;">
 
-**Read online**: [henryndubuaku.github.io/maths-cs-ai-compendium](https://henryndubuaku.github.io/maths-cs-ai-compendium/)
+**Read online**: [henryndubuaku.github.io/maths-cs-ai-compendium](https://henryndubuaku.github.io/maths-cs-ai-compendium/) | [简体中文](https://godlockin.github.io/maths-cs-ai-compendium/zh/)
 
 <a href="https://trendshift.io/repositories/21344?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-21344" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/21344" alt="HenryNdubuaku%2Fmaths-cs-ai-compendium | Trendshift" width="250" height="55"/></a>
 
