@@ -9,7 +9,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = process.env.COMPENDIUM_ROOT || join(__dirname, "..", "..");
 
 const CHAPTER_RE = /^chapter (\d{2})(?::| -) (.+)$/;
-const ZH_CHAPTER_RE = /^第(\d{2})章 - (.+)$/;
 const SECTION_RE = /^(\d{2})\. (.+)\.md$/;
 
 type Lang = "en" | "zh";
