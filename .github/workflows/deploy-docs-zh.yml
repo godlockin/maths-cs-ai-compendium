@@ -31,28 +31,14 @@ jobs:
       - name: Build zh site (with /zh/ base path)
         run: mkdocs build -f mkdocs-zh.yml -d site-zh
 
-      # Deploy zh site to gh-pages branch /zh/ subpath
-      # Strategy: build site, then prepend EN site (preserves /zh/ alongside EN)
-      - name: Combine zh with EN site
-        run: |
-          # Build EN site first
-          mkdocs build -d site-en
-          # Create combined site: EN at root, zh at /zh/
-          rm -rf site-combined
-          cp -r site-en site-combined
-          mkdir -p site-combined/zh
-          cp -r site-zh/. site-combined/zh/
-          # Use combined as publish dir
-          rm -rf site-zh site-en
-          mv site-combined site-zh
-
-      - name: Deploy to gh-pages branch (preserves /zh/ alongside EN)
+      - name: Deploy to gh-pages branch (only /zh/ subdir, keep EN site)
         uses: peaceiris/actions-gh-pages@4f9f30408f1e648ce79bd8f50f29889a64e99889  # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site-zh
           publish_branch: gh-pages
-          keep_files: true   # preserve existing EN site, only update /zh/
+          keep_files: true
+          destination_dir: zh   # 关键: 把 site-zh 内容放到 gh-pages/zh/
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'deploy: zh docs at /zh/ from ${{ github.sha }}'
