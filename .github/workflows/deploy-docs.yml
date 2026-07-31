@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -32,4 +34,16 @@ jobs:
             ln -s "../$dir" "docs/$dir"
           done
 
-      - run: mkdocs gh-deploy --force
+      - name: Build site to external dir (avoid docs_dir/site_dir conflict)
+        run: mkdocs build -d /tmp/site-en
+
+      - name: Deploy to gh-pages branch root (keep zh at /zh/)
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/site-en
+          publish_branch: gh-pages
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'deploy: en docs from ${{ github.sha }}'
