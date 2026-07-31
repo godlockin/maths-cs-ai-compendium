@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">量化精度对比: FP32 / FP16 / INT8 / INT4</text>
+
+  <!-- 表头 -->
+  <rect x="40" y="70" width="620" height="40" fill="#333"/>
+  <text x="140" y="95" text-anchor="middle" class="small" fill="white" font-weight="bold">精度</text>
+  <text x="260" y="95" text-anchor="middle" class="small" fill="white" font-weight="bold">内存 (7B 模型)</text>
+  <text x="380" y="95" text-anchor="middle" class="small" fill="white" font-weight="bold">质量损失</text>
+  <text x="500" y="95" text-anchor="middle" class="small" fill="white" font-weight="bold">推理加速</text>
+  <text x="620" y="95" text-anchor="middle" class="small" fill="white" font-weight="bold">适用</text>
+
+  <!-- FP32 -->
+  <g transform="translate(40, 110)">
+    <rect width="620" height="50" fill="#fff" stroke="#333"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold">FP32</text>
+    <text x="260" y="30" text-anchor="middle" class="small">28 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">0% (baseline)</text>
+    <text x="500" y="30" text-anchor="middle" class="small">1× (无加速)</text>
+    <text x="620" y="30" text-anchor="middle" class="small">训练 / 精确推理</text>
+  </g>
+
+  <!-- FP16 / BF16 -->
+  <g transform="translate(40, 160)">
+    <rect width="620" height="50" fill="#f8f9fa" stroke="#333"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold">FP16 / BF16</text>
+    <text x="260" y="30" text-anchor="middle" class="small">14 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">&lt; 0.5%</text>
+    <text x="500" y="30" text-anchor="middle" class="small">2×</text>
+    <text x="620" y="30" text-anchor="middle" class="small">标准推理</text>
+  </g>
+
+  <!-- INT8 -->
+  <g transform="translate(40, 210)">
+    <rect width="620" height="50" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold">INT8</text>
+    <text x="260" y="30" text-anchor="middle" class="small">7 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">&lt; 1%</text>
+    <text x="500" y="30" text-anchor="middle" class="small">2-4×</text>
+    <text x="620" y="30" text-anchor="middle" class="small">云端推理 (主流)</text>
+  </g>
+
+  <!-- INT4 -->
+  <g transform="translate(40, 260)">
+    <rect width="620" height="50" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold">INT4</text>
+    <text x="260" y="30" text-anchor="middle" class="small">3.5 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">2-3%</text>
+    <text x="500" y="30" text-anchor="middle" class="small">3-6×</text>
+    <text x="620" y="30" text-anchor="middle" class="small">边缘 / 端侧</text>
+  </g>
+
+  <!-- 2-bit -->
+  <g transform="translate(40, 310)">
+    <rect width="620" height="50" fill="#f8d7da" stroke="#721c24" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold">INT2</text>
+    <text x="260" y="30" text-anchor="middle" class="small">1.75 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">5-10%</text>
+    <text x="500" y="30" text-anchor="middle" class="small">5-10×</text>
+    <text x="620" y="30" text-anchor="middle" class="small">实验</text>
+  </g>
+
+  <!-- 1.58-bit -->
+  <g transform="translate(40, 360)">
+    <rect width="620" height="50" fill="#bd10e0" fill-opacity="0.2" stroke="#730080" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" class="label" font-weight="bold" fill="#730080">1.58-bit (BitNet)</text>
+    <text x="260" y="30" text-anchor="middle" class="small">1.4 GB</text>
+    <text x="380" y="30" text-anchor="middle" class="small">3-5%</text>
+    <text x="500" y="30" text-anchor="middle" class="small">5-10×</text>
+    <text x="620" y="30" text-anchor="middle" class="small" fill="#730080">端侧 (Microsoft 2024)</text>
+  </g>
+
+  <!-- 公式 -->
+  <rect x="40" y="430" width="620" height="55" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="455" class="small" font-weight="bold" fill="#856404">量化公式 (对称 INT8):</text>
+  <text x="60" y="475" class="small">scale = max(|x|) / 127;  x_q = round(x / scale);  x_dq = x_q × scale</text>
+</svg>

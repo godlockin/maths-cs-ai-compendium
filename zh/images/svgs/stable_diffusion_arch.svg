@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Stable Diffusion 潜在扩散模型架构</text>
+
+  <rect x="40" y="80" width="100" height="50" rx="6" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="90" y="100" text-anchor="middle" class="label" font-weight="bold">文本 prompt</text>
+  <text x="90" y="118" text-anchor="middle" class="small">CLIP Tokenizer</text>
+
+  <rect x="40" y="160" width="100" height="50" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+  <text x="90" y="180" text-anchor="middle" class="label" font-weight="bold">初始噪声</text>
+  <text x="90" y="198" text-anchor="middle" class="small">z_T ~ N(0, I)</text>
+
+  <path d="M 140 200 Q 200 200 220 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+  <path d="M 140 105 Q 200 105 220 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="220" y="100" width="180" height="200" rx="10" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+  <text x="310" y="130" text-anchor="middle" class="label" font-weight="bold" fill="#856404">U-Net (去噪网络)</text>
+
+  <text x="310" y="155" text-anchor="middle" class="small">Latent: 64×64×4</text>
+  <text x="310" y="175" text-anchor="middle" class="small">Time Embedding (t)</text>
+  <text x="310" y="195" text-anchor="middle" class="small">+ Cross-Attention (text)</text>
+
+  <text x="310" y="225" text-anchor="middle" class="small" fill="#666">↓ 预测噪声 ε_θ(z_t, t, c)</text>
+  <text x="310" y="245" text-anchor="middle" class="small" fill="#666">↓ 迭代 t = T → 0</text>
+
+  <text x="310" y="280" text-anchor="middle" class="small">Scheduler:</text>
+  <text x="310" y="295" text-anchor="middle" class="small">DDIM / DPM++ / Euler</text>
+
+  <path d="M 400 200 L 460 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="460" y="160" width="100" height="80" rx="6" fill="#bd10e0" fill-opacity="0.3" stroke="#730080" stroke-width="2"/>
+  <text x="510" y="185" text-anchor="middle" class="label" font-weight="bold" fill="#730080">VAE Decoder</text>
+  <text x="510" y="205" text-anchor="middle" class="small">Latent → Pixel</text>
+  <text x="510" y="225" text-anchor="middle" class="small">64×64×4 → 512×512×3</text>
+
+  <path d="M 560 200 L 620 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="620" y="180" width="60" height="40" rx="4" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="650" y="205" text-anchor="middle" class="label" font-weight="bold" fill="#155724">图像</text>
+
+  <rect x="40" y="350" width="640" height="130" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="375" class="small" font-weight="bold">关键创新:</text>
+  <text x="60" y="395" class="small">• <tspan font-weight="bold">潜在空间</tspan>: 在 VAE 压缩的 4 维 latent 上扩散, 比像素空间快 8×</text>
+  <text x="60" y="415" class="small">• <tspan font-weight="bold">CLIP 文本编码</tspan>: 通过 Cross-Attention 注入 U-Net</text>
+  <text x="60" y="435" class="small">• <tspan font-weight="bold">DDIM 采样</tspan>: 50 步可达 SOTA, 配合 CFG (Classifier-Free Guidance)</text>
+  <text x="60" y="458" class="small">• <tspan font-weight="bold">ControlNet</tspan>: 加入额外条件 (Canny / Depth / Pose)</text>
+  <text x="60" y="475" class="small" fill="#666">代表: SD 1.5 / SDXL / SD3 / FLUX.1 (2024 SOTA)</text>
+</svg>
