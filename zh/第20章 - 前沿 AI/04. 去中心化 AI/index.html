@@ -7901,7 +7901,7 @@
 <h3 id="13">1.3 反集权：一两家公司的"模型霸权"<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>2023 年 GPT-4 发布后，业界讨论最多的不是它的能力，而是"如果全世界只有 OpenAI/Anthropic/Google 三家能训练最前沿模型，我们是不是又把'水电网'垄断了一遍?". 反集权派的论点是：模型权重、推理能力、训练数据这三件事一旦高度集中，就会出现"卡脖子"和"一言堂"两种风险。 去中心化 AI 想要的是：任何有一两张 GPU 的小玩家，都能对最前沿模型做出贡献并分享收益；任何普通用户都能不依赖单一服务商就完成推理。 这是个乌托邦目标，但已经有产品 (Bittensor, Gensyn, Petals) 在做这件事的工程化。</p>
 <p>把这三个动机总结成一句话：<strong>去中心化 AI 不是为了"去中心"而去中心，而是因为现实世界的法律、组织结构、和反垄断压力，已经把集中化路线逼到了墙角</strong>.</p>
-<p><img alt="ch20_04_decentralised_ai_motivation" src="../../images/ch20_04_decentralised_ai_motivation.svg" /></p>
+<p><img alt="去中心化 AI 的动机: 数据垄断、隐私、信任与抗审查" src="../../images/ch20_04_decentralised_ai_motivation.svg" /></p>
 <hr />
 <h2 id="2-federated-learning-fl">2. 联邦学习 (Federated Learning, FL)：数据不动，模型动<a class="headerlink" href="#2-federated-learning-fl" title="Permanent link">&para;</a></h2>
 <h3 id="21">2.1 核心想法<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
@@ -7938,7 +7938,7 @@
 \mathbf{w}_t \;=\; \mathbf{w}_{t-1} \;+\; \eta_t \cdot \frac{1}{|S_t|} \sum_{k \in S_t} \left(\mathbf{w}_t^{(k)} - \mathbf{w}_{t-1}\right)
 \]</div>
 <p>其中 <span class="arithmatex">\(\mathbf{w}_t^{(k)}\)</span> 是客户端 <span class="arithmatex">\(k\)</span> 在本轮做 <span class="arithmatex">\(E\)</span> 轮本地 SGD 后得到的参数。 如果所有 <span class="arithmatex">\(K\)</span> 个客户端都参与，且每个客户端的本地更新量恰好是 <span class="arithmatex">\(\nabla F_k(\mathbf{w}_{t-1})\)</span> 的无偏估计，那 FedAvg 在数学上就退化为标准的分布式 SGD，收敛性直接套用经典结论。 这是 FedAvg 在论文里被反复验证的事。</p>
-<p><img alt="ch20_04_fedavg_round" src="../../images/ch20_04_fedavg_round.svg" /></p>
+<p><img alt="联邦平均 (FedAvg) 一轮流程: 客户端本地训练 → 上传梯度 → 服务器聚合 → 下发新模型" src="../../images/ch20_04_fedavg_round.svg" /></p>
 <h3 id="23-fedavg-fedprox-scaffold">2.3 FedAvg 的两个继承者：FedProx 与 SCAFFOLD<a class="headerlink" href="#23-fedavg-fedprox-scaffold" title="Permanent link">&para;</a></h3>
 <p>FedAvg 在"客户端数据分布差不多"的设定下没问题，但现实里医院 A 的病人全是老年人，医院 B 的病人全是儿童，这种<strong>异质性 (heterogeneity)</strong> 会让本地更新方向互相打架。 联邦学习界把这叫 <strong>non-IID</strong> (non-independent and identically distributed)，是过去几年最热的研究问题。</p>
 <ul>
@@ -8039,7 +8039,7 @@ $$
 <h3 id="33-homomorphic-encryption-he">3.3 同态加密 (Homomorphic Encryption, HE)<a class="headerlink" href="#33-homomorphic-encryption-he" title="Permanent link">&para;</a></h3>
 <p>HE 的承诺最迷人：<strong>你可以把加密后的密文 <span class="arithmatex">\(\text{Enc}(x)\)</span> 直接交给服务器，服务器在上面做加法和乘法，把结果 <span class="arithmatex">\(\text{Enc}(f(x))\)</span> 交回，你解密后得到 <span class="arithmatex">\(f(x)\)</span> — 整个过程服务器从没见过明文</strong>. 直观上，这相当于"在黑箱里跑模型".</p>
 <p>Craig Gentry 在 2009 年 STOC 论文 <em>Fully Homomorphic Encryption Using Ideal Lattices</em> 里给出了第一个<strong>全同态加密</strong> (Fully HE, FHE) 构造，关键技巧叫 <strong>bootstrapping</strong>：同态运算过程中噪声会逐渐累积，累积到一定程度密文就"解不出来了"; bootstrapping 用密文自身的加密形式，在不解密的前提下把噪声刷新，让任意深度的同态运算成为可能。</p>
-<p><img alt="ch20_04_crypto_tech_compare" src="../../images/ch20_04_crypto_tech_compare.svg" /></p>
+<p><img alt="主流区块链技术对比: PoW / PoS / DPoS / BFT 共识机制" src="../../images/ch20_04_crypto_tech_compare.svg" /></p>
 <p>HE 在联邦学习里的标准用法叫 <strong>HE-FedAvg</strong>：客户端把本地梯度 <span class="arithmatex">\(\Delta_k\)</span> 用自己的公钥 <span class="arithmatex">\(\text{pk}_k\)</span> 加密得到 <span class="arithmatex">\(\text{Enc}(\Delta_k)\)</span>，服务器在密文域做加权和 <span class="arithmatex">\(\sum_k c_k \cdot \text{Enc}(\Delta_k) = \text{Enc}(\sum_k c_k \Delta_k)\)</span>，再把聚合密文发回客户端各自解密。 缺点是开销：FHE 的密文膨胀 1000-10000 倍，单次乘法比明文慢 4-6 个数量级，实际部署里通常用<strong>部分同态加密</strong> (Paillier：只支持加法) 或者<strong>类同态加密</strong> (BGV, BFV, CKKS：支持有限深度乘法) 来折中。</p>
 <p>下面给一段最简化的 HE-FedAvg 伪代码，假设用加法同态 (Paillier):</p>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 客户端 k</span>
@@ -8113,7 +8113,7 @@ $$
 <li><strong>密码学验证</strong>：用<strong>概率证明 + 优化验证</strong>等机制，证明"这个节点真的跑了指定计算，不是抄了别人的结果". Gensyn 把这套验证协议叫做"信任层"，是整个系统的杀手锏。</li>
 </ol>
 <p>Gensyn 在 2024 年完成了 a16z 领投的 4300 万美元 A 轮融资，是这个赛道目前最大的玩家之一。</p>
-<p><img alt="ch20_04_blockchain_ai_stack" src="../../images/ch20_04_blockchain_ai_stack.svg" /></p>
+<p><img alt="区块链 × AI 技术栈: 数据层 / 计算层 / 共识层 / 应用层" src="../../images/ch20_04_blockchain_ai_stack.svg" /></p>
 <h3 id="44">4.4 三者对比<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -8163,7 +8163,7 @@ $$
 <p>蚂蚁集团旗下的<strong>隐语 (SecretFlow)</strong> 开源框架，以及蚂蚁链上的<strong>摩斯 (Morse)</strong> 隐私计算平台，把 MPC/HE/TEE (可信执行环境) 三条技术路线打通，提供"数据可用不可见"的服务。 在政务数据开放 (公积金、社保、税务)、金融联合风控、医疗多中心研究这些场景里，蚂蚁摩斯都跑过真实项目。</p>
 <h3 id="54">5.4 整体观察<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
 <p>中国生态的特点可以总结成一句话：<strong>用合规驱动的"行业联盟 + 工业级框架"路线，把去中心化 AI 从"区块链故事"拉回到"产业落地故事"</strong>. 这条路线不性感，但回款快、合规压力小、客户买单意愿强。 跟美国/欧洲偏"代币经济 + 学术前沿"形成鲜明对比。</p>
-<p><img alt="ch20_04_china_ecosystem" src="../../images/ch20_04_china_ecosystem.svg" /></p>
+<p><img alt="中国去中心化 AI 生态: BSN / 长安链 / 蚂蚁链等基础设施" src="../../images/ch20_04_china_ecosystem.svg" /></p>
 <hr />
 <h2 id="6-ai">6. 挑战：去中心化 AI 没那么美<a class="headerlink" href="#6-ai" title="Permanent link">&para;</a></h2>
 <p>去中心化 AI 的承诺大，坑也多。 这一节列三个最现实的。</p>

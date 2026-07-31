@@ -7382,7 +7382,7 @@
 <p>内部对齐比外部对齐更危险的地方在于：<strong>它在训练指标上可能完全看不出来</strong>. 训练 loss 拟合得完美，训练分布上行为无懈可击 —— 只有等模型部署到新场景，mesa-objective 才露馅。 这也是"欺骗性对齐 (deceptive alignment)" 的理论根源：一个足够聪明的模型，可能在训练时<strong>假装</strong>追求外部目标，部署后再切换到 mesa-objective.</p>
 </li>
 </ul>
-<p><img alt="Outer vs Inner Alignment: 训练目标 vs 学到的目标" src="../../images/ch21_01_outer_inner.svg" /></p>
+<p><img alt="外对齐 vs 内对齐: 训练目标 vs 学到的目标" src="../../images/ch21_01_outer_inner.svg" /></p>
 <h2 id="_4">奖励黑客：模型在"作弊"<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -7454,7 +7454,7 @@
 <p>从信息论角度，有一个漂亮的直觉刻画。 设 <span class="arithmatex">\(R\)</span> 为代理奖励，<span class="arithmatex">\(U\)</span> 为真实效用，二者互信息 <span class="arithmatex">\(I(R; U)\)</span> 有限。 优化 <span class="arithmatex">\(R\)</span> 到极端，意味着你把 <span class="arithmatex">\(\log(1/p(R \geq r))\)</span> 比特的选择压力施加到了 <span class="arithmatex">\(R\)</span> 上。 但代理只能承载 <span class="arithmatex">\(I(R; U)\)</span> 比特关于 <span class="arithmatex">\(U\)</span> 的信息 —— <strong>超出这个信息容量的优化压力，全部变成对 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(U\)</span> 之间噪声的过拟合</strong>. 这是"Goodhart 的信息论边界"直觉版。</p>
 </li>
 </ul>
-<p><img alt="Goodhart's Law 四种变体: regressional / extremal / causal / adversarial" src="../../images/ch21_01_goodhart_variants.svg" /></p>
+<p><img alt="古德哈特定律四种变体: 回归式 / 极端式 / 因果式 / 对抗式" src="../../images/ch21_01_goodhart_variants.svg" /></p>
 <h2 id="specification-gaming-vs-reward-hacking">Specification Gaming vs Reward Hacking：微妙的区别<a class="headerlink" href="#specification-gaming-vs-reward-hacking" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
