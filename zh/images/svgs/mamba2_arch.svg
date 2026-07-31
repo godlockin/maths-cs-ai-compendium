@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Mamba-2 状态空间模型架构</text>
+
+  <!-- 输入 -->
+  <rect x="50" y="100" width="120" height="50" rx="6" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="110" y="125" text-anchor="middle" class="label" font-weight="bold">输入 x</text>
+  <text x="110" y="143" text-anchor="middle" class="small">(B, L, D)</text>
+
+  <path d="M 170 125 L 220 125" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- 1D Conv -->
+  <rect x="220" y="100" width="120" height="50" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+  <text x="280" y="125" text-anchor="middle" class="label" font-weight="bold">1D Conv (k=4)</text>
+
+  <path d="M 340 125 L 390 125" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- SSM -->
+  <rect x="390" y="80" width="160" height="100" rx="8" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+  <text x="470" y="105" text-anchor="middle" class="label" font-weight="bold" fill="#856404">SSM 核心</text>
+  <text x="470" y="125" text-anchor="middle" class="small">h_t = A h_{t-1} + B x_t</text>
+  <text x="470" y="145" text-anchor="middle" class="small">y_t = C h_t</text>
+  <text x="470" y="160" text-anchor="middle" class="small" fill="#666">+ 选择性 (input-dependent)</text>
+  <text x="470" y="175" text-anchor="middle" class="small" fill="#666">A, B, C 都是 x 的函数</text>
+
+  <path d="M 550 130 L 600 130" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- 输出 -->
+  <rect x="600" y="100" width="80" height="50" rx="6" fill="#bd10e0" fill-opacity="0.3" stroke="#730080" stroke-width="2"/>
+  <text x="640" y="125" text-anchor="middle" class="label" font-weight="bold" fill="#730080">输出 y</text>
+
+  <!-- vs Transformer -->
+  <rect x="50" y="240" width="600" height="120" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="70" y="265" class="label" font-weight="bold">vs Transformer:</text>
+
+  <g transform="translate(60, 280)">
+    <rect width="280" height="70" rx="6" fill="#fff3cd" stroke="#856404"/>
+    <text x="140" y="20" text-anchor="middle" class="small" font-weight="bold" fill="#856404">Transformer</text>
+    <text x="140" y="40" text-anchor="middle" class="small">复杂度: O(n²) · Attention</text>
+    <text x="140" y="55" text-anchor="middle" class="small">长 context: 难 · OOM 风险</text>
+    <text x="140" y="70" text-anchor="middle" class="small" fill="#666">并行: 训练 ✅ · 推理 ❌</text>
+  </g>
+
+  <g transform="translate(360, 280)">
+    <rect width="280" height="70" rx="6" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+    <text x="140" y="20" text-anchor="middle" class="small" font-weight="bold" fill="#155724">Mamba-2 (SSM)</text>
+    <text x="140" y="40" text-anchor="middle" class="small">复杂度: O(n) · 状态压缩</text>
+    <text x="140" y="55" text-anchor="middle" class="small">长 context: 1M+ tokens 友好</text>
+    <text x="140" y="70" text-anchor="middle" class="small" fill="#666">并行: 训练 + 推理都 ✅</text>
+  </g>
+
+  <!-- 关键 -->
+  <rect x="50" y="400" width="600" height="80" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="425" class="small" font-weight="bold" fill="#856404">💡 Mamba-2 关键创新 (Albert Gu 2024):</text>
+  <text x="60" y="445" class="small">• SSD (State Space Duality): 揭示 SSM 与 Attention 的数学对偶</text>
+  <text x="60" y="460" class="small">• 比 Mamba-1 快 2-8×, 与 Transformer 性能相当</text>
+  <text x="60" y="475" class="small" fill="#666">• 混合架构: Jamba (AI21) / Zamba (Zyphra) / RecurrentGemma (Google)</text>
+
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+</svg>

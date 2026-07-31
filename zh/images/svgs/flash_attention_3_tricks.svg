@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Flash Attention 3 大技巧</text>
+
+  <!-- 标准 Attention -->
+  <g transform="translate(40, 80)">
+    <rect width="280" height="120" rx="8" fill="#f8d7da" stroke="#721c24" stroke-width="2"/>
+    <text x="140" y="20" text-anchor="middle" class="label" font-weight="bold" fill="#721c24">标准 Attention</text>
+    <text x="20" y="45" class="small">• Q, K, V 一次性加载到 HBM</text>
+    <text x="20" y="65" class="small">• 存完整 N×N attention matrix</text>
+    <text x="20" y="85" class="small">• 内存: O(n²)</text>
+    <text x="20" y="105" class="small" fill="#e74c3c">⛔ n=8K → 256 MB / layer</text>
+  </g>
+
+  <!-- Flash Attention -->
+  <g transform="translate(380, 80)">
+    <rect width="280" height="120" rx="8" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+    <text x="140" y="20" text-anchor="middle" class="label" font-weight="bold" fill="#155724">Flash Attention (FA 1/2/3)</text>
+    <text x="20" y="45" class="small">✅ Tiling: Q, K, V 分块到 SRAM</text>
+    <text x="20" y="65" class="small">✅ Recompute: 不存 N×N matrix</text>
+    <text x="20" y="85" class="small">✅ Online Softmax: 分块算</text>
+    <text x="20" y="105" class="small" fill="#155724">✅ 内存 O(n) · 快 2-4× · 数学等价</text>
+  </g>
+
+  <!-- 3 大技巧详细 -->
+  <g transform="translate(40, 230)">
+    <rect width="200" height="100" rx="8" fill="#4a90e2" fill-opacity="0.2" stroke="#1a5490" stroke-width="2"/>
+    <text x="100" y="20" text-anchor="middle" class="label" font-weight="bold" fill="#1a5490">① Tiling</text>
+    <text x="20" y="45" class="small">把 Q/K/V 切成小块</text>
+    <text x="20" y="65" class="small">装入 GPU SRAM (192KB)</text>
+    <text x="20" y="85" class="small" fill="#666">避免访问 HBM 慢</text>
+  </g>
+
+  <g transform="translate(250, 230)">
+    <rect width="200" height="100" rx="8" fill="#7ed321" fill-opacity="0.2" stroke="#417505" stroke-width="2"/>
+    <text x="100" y="20" text-anchor="middle" class="label" font-weight="bold" fill="#417505">② Recompute</text>
+    <text x="20" y="45" class="small">不存 attention matrix</text>
+    <text x="20" y="65" class="small">反向传播时重算</text>
+    <text x="20" y="85" class="small" fill="#666">省 ~4× 显存</text>
+  </g>
+
+  <g transform="translate(460, 230)">
+    <rect width="200" height="100" rx="8" fill="#f5a623" fill-opacity="0.2" stroke="#a06c00" stroke-width="2"/>
+    <text x="100" y="20" text-anchor="middle" class="label" font-weight="bold" fill="#a06c00">③ Online Softmax</text>
+    <text x="20" y="45" class="small">分块算 softmax</text>
+    <text x="20" y="65" class="small">数学等价 (Milakov 2018)</text>
+    <text x="20" y="85" class="small" fill="#666">流式计算 m, l, O</text>
+  </g>
+
+  <!-- 性能对比 -->
+  <rect x="40" y="360" width="620" height="120" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="385" class="label" font-weight="bold">性能对比 (A100 训练 7B):</text>
+  <text x="60" y="410" class="small">• 标准 Attention: 32K ctx → OOM  |  速度 ~40 TFLOPS (GPU peak 50%)</text>
+  <text x="60" y="430" class="small">• Flash Attention 1 (2022): 内存 5× ↓  |  速度 ~80 TFLOPS</text>
+  <text x="60" y="450" class="small">• Flash Attention 2 (2023): 速度 2× ↑ (~160 TFLOPS, 接近 cuBLAS)</text>
+  <text x="60" y="470" class="small" fill="#666">• Flash Attention 3 (2024, Hopper): 利用 warp specialization + FP8 → ~330 TFLOPS</text>
+</svg>

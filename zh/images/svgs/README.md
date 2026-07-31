@@ -15,6 +15,32 @@
 | `attention_complexity.svg` | Attention 复杂度演进曲线 | Ch07 / Ch17 |
 | `agent_protocols_stack.svg` | AI Agent 5 大协议栈 | Ch23 |
 | `rlhf_pipeline.svg` | RLHF 三阶段 + DPO/GRPO 对比 | Ch07 / Ch21 |
+| `l1_l2_linf_norm.svg` | L1/L2/L∞ 范数等值面 | Ch01 / Ch03 |
+| `gradient_descent.svg` | 梯度下降示意 | Ch03 / Ch06 |
+| `normal_dist_clt.svg` | 正态分布 + 中心极限定理 | Ch04 / Ch05 |
+| `transformer_arch.svg` | Transformer Encoder-Decoder | Ch07 / Ch25 |
+| `bpe_tokenization.svg` | BPE Token 化流程 | Ch07 |
+| `cnn_convolution.svg` | CNN 卷积操作 | Ch08 / Ch11 |
+| `vit_arch.svg` | ViT 架构 | Ch08 / Ch10 |
+| `mfcc_pipeline.svg` | MFCC 特征提取 | Ch09 |
+| `matrix_multiplication.svg` | 矩阵乘法 GEMM | Ch02 / Ch16 |
+| `cap_theorem.svg` | CAP 定理 | Ch18 |
+| `bayesian_network.svg` | 贝叶斯网络 | Ch05 / Ch19 |
+| `whisper_asr_pipeline.svg` | Whisper ASR 流程 | Ch09 |
+| `stable_diffusion_arch.svg` | SD 潜在扩散 | Ch08 / Ch10 |
+| `av_levels_sae.svg` | 自动驾驶分级 | Ch11 |
+| `gnn_fraud_detection.svg` | GNN 团伙欺诈 | Ch12 / Ch19 |
+| `cuda_thread_model.svg` | CUDA 线程模型 | Ch16 |
+| `rag_architecture.svg` | RAG 架构 | Ch23 / Ch25 |
+| `moe_architecture.svg` | MoE 架构 | Ch07 / Ch17 |
+| `paged_attention.svg` | KV Cache + PagedAttention | Ch17 |
+| `alphafold_arch.svg` | AlphaFold 2 架构 | Ch19 |
+| `mamba2_arch.svg` | Mamba-2 状态空间模型 | Ch07 / Ch17 |
+| `federated_learning.svg` | FedAvg 联邦学习 | Ch20 |
+| `tree_of_thoughts.svg` | ToT 树状推理 | Ch23 |
+| `flash_attention_3_tricks.svg` | FA 3 大技巧 | Ch07 / Ch17 |
+| `quantization_comparison.svg` | 量化精度对比 | Ch17 |
+| `recommender_3stage.svg` | 推荐 3 段式 | Ch18 / Ch25 |
 
 ---
 

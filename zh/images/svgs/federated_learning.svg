@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Federated Learning 联邦学习</text>
+
+  <!-- 中心服务器 -->
+  <rect x="280" y="80" width="140" height="60" rx="8" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="350" y="105" text-anchor="middle" class="label" font-weight="bold">中心服务器</text>
+  <text x="350" y="125" text-anchor="middle" class="small">聚合模型</text>
+
+  <!-- 客户端 -->
+  <g transform="translate(60, 240)">
+    <rect width="120" height="60" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="60" y="20" text-anchor="middle" class="label" font-weight="bold">客户端 1</text>
+    <text x="60" y="40" text-anchor="middle" class="small">医院 A 数据</text>
+  </g>
+  <g transform="translate(290, 240)">
+    <rect width="120" height="60" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="60" y="20" text-anchor="middle" class="label" font-weight="bold">客户端 2</text>
+    <text x="60" y="40" text-anchor="middle" class="small">银行 B 数据</text>
+  </g>
+  <g transform="translate(520, 240)">
+    <rect width="120" height="60" rx="6" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+    <text x="60" y="20" text-anchor="middle" class="label" font-weight="bold">客户端 3</text>
+    <text x="60" y="40" text-anchor="middle" class="small">手机用户 C</text>
+  </g>
+
+  <!-- 步骤 -->
+  <text x="60" y="190" class="small" font-weight="bold">步骤 1: 发全局模型</text>
+  <text x="60" y="210" class="small">↓</text>
+  <text x="60" y="340" class="small" font-weight="bold">步骤 3: 聚合 (FedAvg 加权平均)</text>
+
+  <path d="M 350 140 L 120 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 140 L 350 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M 350 140 L 580 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <path d="M 120 240 L 280 140" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)" stroke-dasharray="3,3"/>
+  <path d="M 350 240 L 350 140" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)" stroke-dasharray="3,3"/>
+  <path d="M 580 240 L 420 140" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)" stroke-dasharray="3,3"/>
+
+  <!-- 步骤 2 -->
+  <text x="60" y="365" class="small" font-weight="bold">步骤 2: 本地训练 (数据不出)</text>
+  <text x="60" y="385" class="small" font-weight="bold">步骤 4: 发回模型 (非数据)</text>
+
+  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker>
+
+  <!-- FedAvg 公式 -->
+  <rect x="40" y="410" width="620" height="80" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="60" y="435" class="small" font-weight="bold" fill="#856404">FedAvg 公式 (McMahan 2017):</text>
+  <text x="60" y="455" class="small">w_global = Σ (n_k / n) × w_k   (n_k = 客户端 k 的样本数, n = 总样本数)</text>
+  <text x="60" y="475" class="small" fill="#666">应用: Google Gboard / Apple Health / 医疗跨医院 / 银行反欺诈</text>
+</svg>

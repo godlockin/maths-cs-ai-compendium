@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">GNN 风控: 团伙欺诈检测</text>
+
+  <!-- 图结构 -->
+  <text x="180" y="80" class="label" font-weight="bold">关系图</text>
+  <text x="500" y="80" class="label" font-weight="bold">GNN 消息传递</text>
+
+  <!-- 节点 -->
+  <g transform="translate(50, 110)">
+    <circle cx="60" cy="60" r="25" fill="#e74c3c" stroke="#922b21" stroke-width="2"/>
+    <text x="60" y="65" text-anchor="middle" class="small" fill="white" font-weight="bold">U1</text>
+    <text x="60" y="100" text-anchor="middle" class="small">用户 1</text>
+  </g>
+  <g transform="translate(160, 80)">
+    <rect width="50" height="40" rx="5" fill="#7ed321" stroke="#417505" stroke-width="2"/>
+    <text x="25" y="25" text-anchor="middle" class="small" fill="white">D1</text>
+    <text x="25" y="60" text-anchor="middle" class="small">设备 1</text>
+  </g>
+  <g transform="translate(160, 140)">
+    <rect width="50" height="40" rx="5" fill="#7ed321" stroke="#417505" stroke-width="2"/>
+    <text x="25" y="25" text-anchor="middle" class="small" fill="white">D2</text>
+    <text x="25" y="60" text-anchor="middle" class="small">设备 2</text>
+  </g>
+  <g transform="translate(50, 200)">
+    <circle cx="60" cy="60" r="25" fill="#f5a623" stroke="#a06c00" stroke-width="2"/>
+    <text x="60" y="65" text-anchor="middle" class="small" fill="white" font-weight="bold">U2</text>
+    <text x="60" y="100" text-anchor="middle" class="small">用户 2</text>
+  </g>
+  <g transform="translate(160, 200)">
+    <rect width="50" height="40" rx="5" fill="#4a90e2" stroke="#1a5490" stroke-width="2"/>
+    <text x="25" y="25" text-anchor="middle" class="small" fill="white">IP</text>
+    <text x="25" y="60" text-anchor="middle" class="small">同 IP</text>
+  </g>
+  <g transform="translate(50, 290)">
+    <circle cx="60" cy="60" r="25" fill="#4a90e2" stroke="#1a5490" stroke-width="2"/>
+    <text x="60" y="65" text-anchor="middle" class="small" fill="white" font-weight="bold">U3</text>
+    <text x="60" y="100" text-anchor="middle" class="small">用户 3 (正常)</text>
+  </g>
+
+  <!-- 边 (欺诈关系: 红色, 正常: 灰色) -->
+  <line x1="135" y1="170" x2="160" y2="100" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="135" y1="170" x2="160" y2="160" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="135" y1="170" x2="160" y2="220" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="135" y1="260" x2="160" y2="220" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="135" y1="350" x2="200" y2="200" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="135" y1="170" x2="135" y2="260" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <text x="135" y="95" text-anchor="middle" class="small" fill="#e74c3c" font-weight="bold">欺诈团伙!</text>
+  <text x="135" y="350" text-anchor="middle" class="small" fill="#999">正常用户</text>
+
+  <!-- GNN 公式 -->
+  <rect x="380" y="120" width="280" height="60" rx="8" fill="#fff3cd" stroke="#856404"/>
+  <text x="520" y="140" text-anchor="middle" class="small" font-weight="bold" fill="#856404">GAT 邻居聚合</text>
+  <text x="520" y="160" text-anchor="middle" class="small">h_i' = σ(Σ α_ij × W × h_j)</text>
+  <text x="520" y="175" text-anchor="middle" class="small" fill="#666">α: 注意力权重, 自适应学习</text>
+
+  <!-- 输出 -->
+  <rect x="380" y="200" width="280" height="60" rx="8" fill="#d4edda" stroke="#155724" stroke-width="2"/>
+  <text x="520" y="220" text-anchor="middle" class="small" font-weight="bold" fill="#155724">预测</text>
+  <text x="520" y="240" text-anchor="middle" class="small">U1 = 0.92 (欺诈)</text>
+  <text x="520" y="255" text-anchor="middle" class="small">U2 = 0.88 (欺诈)</text>
+  <text x="520" y="270" text-anchor="middle" class="small" fill="#666">U3 = 0.05 (正常)</text>
+
+  <text x="350" y="450" text-anchor="middle" class="small" fill="#666">💡 GNN 自动发现"多用户共用设备"模式, 无需人工规则</text>
+  <text x="350" y="470" text-anchor="middle" class="small" fill="#666">性能: 团伙欺诈检出率 95%+ (vs 规则 30%)</text>
+</svg>

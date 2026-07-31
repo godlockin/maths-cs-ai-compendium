@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">Transformer 端到端 ASR (Whisper) 流程</text>
+
+  <rect x="40" y="80" width="120" height="60" rx="8" fill="#4a90e2" fill-opacity="0.3" stroke="#1a5490" stroke-width="2"/>
+  <text x="100" y="105" text-anchor="middle" class="label" font-weight="bold">原始音频</text>
+  <text x="100" y="125" text-anchor="middle" class="small">16 kHz / 30s</text>
+
+  <path d="M 160 110 L 220 110" class="arrow"/>
+
+  <rect x="220" y="80" width="120" height="60" rx="8" fill="#7ed321" fill-opacity="0.3" stroke="#417505" stroke-width="2"/>
+  <text x="280" y="105" text-anchor="middle" class="label" font-weight="bold">Log-Mel</text>
+  <text x="280" y="125" text-anchor="middle" class="small">80 维 / 帧</text>
+
+  <path d="M 340 110 L 400 110" class="arrow"/>
+
+  <rect x="400" y="60" width="140" height="100" rx="8" fill="#f5a623" fill-opacity="0.3" stroke="#a06c00" stroke-width="2"/>
+  <text x="470" y="90" text-anchor="middle" class="label" font-weight="bold">Transformer</text>
+  <text x="470" y="108" text-anchor="middle" class="small">Encoder</text>
+  <text x="470" y="125" text-anchor="middle" class="small">(Conformer)</text>
+  <text x="470" y="143" text-anchor="middle" class="small" fill="#666">N=32 层</text>
+
+  <path d="M 540 110 L 600 110" class="arrow"/>
+
+  <rect x="400" y="180" width="140" height="80" rx="8" fill="#bd10e0" fill-opacity="0.3" stroke="#730080" stroke-width="2"/>
+  <text x="470" y="205" text-anchor="middle" class="label" font-weight="bold" fill="#730080">Transformer</text>
+  <text x="470" y="223" text-anchor="middle" class="small" fill="#730080">Decoder</text>
+  <text x="470" y="240" text-anchor="middle" class="small" fill="#666">N=32 层</text>
+  <text x="470" y="255" text-anchor="middle" class="small" fill="#666">自回归</text>
+
+  <path d="M 540 220 L 600 220" class="arrow"/>
+
+  <rect x="600" y="190" width="80" height="40" rx="4" fill="#fff3cd" stroke="#856404"/>
+  <text x="640" y="215" text-anchor="middle" class="label">文字</text>
+
+  <path d="M 470 160 L 470 180" class="arrow" stroke-dasharray="3,3"/>
+
+  <rect x="40" y="320" width="600" height="160" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="345" class="small" font-weight="bold">训练数据 (Whisper):</text>
+  <text x="60" y="365" class="small">• 680K 小时 (Multilingual LibriSpeech, Common Voice, FLEURS, ...)</text>
+  <text x="60" y="385" class="small">• 117K 小时 (English) + 438K 小时 (其它 96 种语言)</text>
+  <text x="60" y="405" class="small">• 弱监督: 自动从 YouTube + 字幕对齐</text>
+  <text x="60" y="430" class="small" font-weight="bold">模型规模:</text>
+  <text x="60" y="450" class="small">• Whisper Tiny (39M) / Base (74M) / Small (244M) / Medium (769M) / Large (1550M)</text>
+  <text x="60" y="468" class="small">• 训练: V100 × 8 / 1 周 (Large)  |  推理: 实时 (Large FP16)</text>
+</svg>

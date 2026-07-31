@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+    </style>
+  </defs>
+  <text x="350" y="30" text-anchor="middle" class="title">KV Cache + PagedAttention 内存对比</text>
+
+  <!-- 传统 -->
+  <text x="170" y="80" text-anchor="middle" class="label" font-weight="bold" fill="#e74c3c">传统 KV Cache</text>
+  <text x="170" y="100" text-anchor="middle" class="small">连续预分配 (碎片严重)</text>
+
+  <rect x="20" y="120" width="300" height="40" fill="#ffebee" stroke="#e74c3c"/>
+  <text x="170" y="145" text-anchor="middle" class="small">[T1][T2][T3]_____T4_____T5______</text>
+  <text x="50" y="155" class="small" fill="#e74c3c" font-size="9">浪费</text>
+
+  <rect x="20" y="165" width="300" height="40" fill="#ffebee" stroke="#e74c3c"/>
+  <text x="170" y="190" text-anchor="middle" class="small">_____T6______[T7]____T8_T9_____</text>
+
+  <rect x="20" y="210" width="300" height="40" fill="#ffebee" stroke="#e74c3c"/>
+  <text x="170" y="235" text-anchor="middle" class="small">[T10][T11]___[T12]______T13____</text>
+
+  <text x="170" y="280" text-anchor="middle" class="small" fill="#e74c3c">⛔ 碎片: 60% 浪费</text>
+  <text x="170" y="300" text-anchor="middle" class="small" fill="#e74c3c">⛔ 显存利用率: ~40%</text>
+
+  <!-- PagedAttention -->
+  <text x="510" y="80" text-anchor="middle" class="label" font-weight="bold" fill="#417505">PagedAttention (vLLM)</text>
+  <text x="510" y="100" text-anchor="middle" class="small">分块 (16 token) + 映射表</text>
+
+  <g transform="translate(360, 120)">
+    <rect x="0" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="20" y="25" text-anchor="middle" class="small">T1</text>
+    <rect x="40" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="60" y="25" text-anchor="middle" class="small">T2</text>
+    <rect x="80" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="100" y="25" text-anchor="middle" class="small">T3</text>
+    <rect x="120" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="140" y="25" text-anchor="middle" class="small">T4</text>
+    <rect x="160" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="180" y="25" text-anchor="middle" class="small">T5</text>
+    <rect x="200" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="220" y="25" text-anchor="middle" class="small">T6</text>
+    <rect x="240" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="260" y="25" text-anchor="middle" class="small">T7</text>
+  </g>
+  <g transform="translate(360, 165)">
+    <rect x="0" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="20" y="25" text-anchor="middle" class="small">T8</text>
+    <rect x="40" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="60" y="25" text-anchor="middle" class="small">T9</text>
+    <rect x="80" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="100" y="25" text-anchor="middle" class="small">T10</text>
+    <rect x="120" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="140" y="25" text-anchor="middle" class="small">T11</text>
+    <rect x="160" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="180" y="25" text-anchor="middle" class="small">T12</text>
+    <rect x="200" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="220" y="25" text-anchor="middle" class="small">T13</text>
+    <rect x="240" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="260" y="25" text-anchor="middle" class="small">T14</text>
+  </g>
+  <g transform="translate(360, 210)">
+    <rect x="0" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="20" y="25" text-anchor="middle" class="small">T15</text>
+    <rect x="40" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="60" y="25" text-anchor="middle" class="small">T16</text>
+    <rect x="80" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="100" y="25" text-anchor="middle" class="small">T17</text>
+    <rect x="120" y="0" width="40" height="40" fill="#d4edda" stroke="#417505"/>
+    <text x="140" y="25" text-anchor="middle" class="small">T18</text>
+  </g>
+
+  <text x="510" y="280" text-anchor="middle" class="small" fill="#417505">✅ 碎片: 接近 0</text>
+  <text x="510" y="300" text-anchor="middle" class="small" fill="#417505">✅ 显存利用率: 90%+</text>
+
+  <!-- Block Table -->
+  <rect x="40" y="350" width="620" height="100" rx="8" fill="#f8f9fa" stroke="#333"/>
+  <text x="60" y="375" class="small" font-weight="bold">Block Table (逻辑 → 物理):</text>
+  <text x="60" y="395" class="small">逻辑 seq #1: [Block 5, Block 12, Block 3, ...]   ← 指针数组, 物理地址不连续</text>
+  <text x="60" y="415" class="small" class="font-mono"></text>
+  <text x="60" y="425" class="small">优势: ① 按需分配 ② 共享 prefix (System Prompt 多个请求) ③ 类比 OS 虚拟内存</text>
+  <text x="60" y="445" class="small" fill="#666" font-style="italic">vLLM 论文: PagedAttention 让 LLM 服务吞吐 24× 提升 (SOSP 2023)</text>
+</svg>
