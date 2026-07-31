@@ -460,13 +460,13 @@
 grep 排查常见错误:
 ```bash
 # 找中文与半角左括号紧贴(缺空格)
-grep -nP '[\p{Han}]\(' zh/**/*.md
+grep -nP '[\p{Han}]$' zh/**/*.md
 
 # 找半角右括号后紧跟中文(缺空格)
-grep -nP '\)[\p{Han}]' zh/**/*.md
+grep -nP '$[\p{Han}]' zh/**/*.md
 
 # 找括号内首尾空格
-grep -nP '\( | \)' zh/**/*.md
+grep -nP '$ | $' zh/**/*.md
 ```
 
 ---
