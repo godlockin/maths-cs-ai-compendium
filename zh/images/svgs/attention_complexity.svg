@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #1a1a1a; }
+      .label { font: 13px sans-serif; fill: #333; }
+      .small { font: 11px sans-serif; fill: #555; }
+      .axis { font: bold 14px sans-serif; fill: #1a1a1a; }
+      .grid { stroke: #e0e0e0; stroke-width: 1; }
+      .curve-self { stroke: #4a90e2; stroke-width: 3; fill: none; }
+      .curve-cross { stroke: #7ed321; stroke-width: 3; fill: none; }
+      .curve-multi { stroke: #f5a623; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+
+  <text x="400" y="35" text-anchor="middle" class="title">Attention 复杂度演进: O(n²) → O(n)</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="400" x2="780" y2="400" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="80" x2="80" y2="400" stroke="#333" stroke-width="2"/>
+
+  <!-- Y-axis label -->
+  <text x="40" y="240" text-anchor="middle" transform="rotate(-90 40 240)" class="axis">FLOPs (log scale)</text>
+
+  <!-- X-axis label -->
+  <text x="430" y="450" text-anchor="middle" class="axis">Sequence Length (n)</text>
+
+  <!-- X-axis values -->
+  <text x="80" y="420" text-anchor="middle" class="small">128</text>
+  <text x="200" y="420" text-anchor="middle" class="small">512</text>
+  <text x="350" y="420" text-anchor="middle" class="small">2K</text>
+  <text x="520" y="420" text-anchor="middle" class="small">8K</text>
+  <text x="700" y="420" text-anchor="middle" class="small">128K</text>
+
+  <!-- Y-axis values -->
+  <text x="70" y="405" text-anchor="end" class="small">1G</text>
+  <text x="70" y="320" text-anchor="end" class="small">100G</text>
+  <text x="70" y="235" text-anchor="end" class="small">10T</text>
+  <text x="70" y="150" text-anchor="end" class="small">1P</text>
+  <text x="70" y="100" text-anchor="end" class="small">100P</text>
+
+  <!-- Self-Attention O(n²) curve - exponential growth -->
+  <path d="M80,395 Q200,300 350,180 T700,90" class="curve-self"/>
+  <text x="650" y="115" class="small" fill="#4a90e2" font-weight="bold">Transformer (O(n²))</text>
+
+  <!-- Cross-Attention (also O(n²) but with 2 sources) -->
+  <path d="M80,395 Q200,320 350,220 T700,140" class="curve-cross"/>
+  <text x="650" y="165" class="small" fill="#7ed321" font-weight="bold">Flash Attention (O(n²) 但 2-4× 快)</text>
+
+  <!-- Linear Attention O(n) - much flatter -->
+  <path d="M80,395 Q300,370 500,330 T780,290" class="curve-multi"/>
+  <text x="500" y="280" class="small" fill="#f5a623" font-weight="bold">Mamba / Linear (O(n))</text>
+
+  <!-- Sparse / Sliding Window -->
+  <path d="M80,395 Q300,355 500,300 T780,250" class="curve-multi" stroke="#bd10e0"/>
+  <text x="450" y="245" class="small" fill="#bd10e0" font-weight="bold">Sliding Window (O(n))</text>
+
+  <!-- Annotations -->
+  <text x="80" y="475" class="small" fill="#666">128: 短文本 (聊天)</text>
+  <text x="350" y="475" class="small" fill="#666">2K: 典型上下文</text>
+  <text x="700" y="475" class="small" fill="#666">128K: 长上下文</text>
+
+  <!-- Key insight box -->
+  <rect x="80" y="490" width="700" height="0" rx="4" fill="#fff3cd"/>
+</svg>
