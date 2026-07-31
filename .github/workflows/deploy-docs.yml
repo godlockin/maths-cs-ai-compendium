@@ -35,7 +35,7 @@ jobs:
           done
 
       - name: Build site to external dir (avoid docs_dir/site_dir conflict)
-        run: mkdocs build -d /tmp/site-en
+        run: mkdocs build -f mkdocs.yml -d /tmp/site-en
 
       - name: Deploy to gh-pages branch root (keep zh at /zh/)
         uses: peaceiris/actions-gh-pages@v4.0.0
