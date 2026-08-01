@@ -1,47 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr-gray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#22c55e"/></marker>
+  </defs>
   <rect width="800" height="500" fill="#0f172a"/>
-  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="bold">Mixture of Experts (MoE) 架构</text>
-  <!-- Input tokens -->
-  <g transform="translate(50, 200)">
-    <text x="50" y="-10" text-anchor="middle" fill="#94a3b8" font-size="14">Input Tokens</text>
-    <rect x="0" y="0" width="100" height="30" fill="#3b82f6" opacity="0.5" stroke="#3b82f6"/>
-    <rect x="0" y="40" width="100" height="30" fill="#3b82f6" opacity="0.5" stroke="#3b82f6"/>
-    <rect x="0" y="80" width="100" height="30" fill="#3b82f6" opacity="0.5" stroke="#3b82f6"/>
-  </g>
-  <!-- Gating -->
-  <g transform="translate(220, 180)">
-    <text x="60" y="-10" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="bold">Router Gating</text>
-    <rect x="0" y="0" width="120" height="130" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2" rx="6"/>
-    <text x="60" y="35" text-anchor="middle" fill="#f59e0b" font-size="11">Softmax</text>
-    <text x="60" y="60" text-anchor="middle" fill="#f59e0b" font-size="11">Top-k (k=2)</text>
-    <text x="60" y="85" text-anchor="middle" fill="#f59e0b" font-size="11">Load Balance</text>
-    <text x="60" y="110" text-anchor="middle" fill="#f59e0b" font-size="11">Capacity factor</text>
-  </g>
-  <!-- Arrows from input to gating -->
-  <g stroke="#94a3b8" stroke-width="2" fill="none">
-    <line x1="150" y1="215" x2="220" y2="220"/>
-    <line x1="150" y1="255" x2="220" y2="240"/>
-    <line x1="150" y1="295" x2="220" y2="260"/>
-  </g>
-  <!-- Experts -->
-  <g transform="translate(410, 110)">
-    <text x="170" y="-15" text-anchor="middle" fill="#94a3b8" font-size="14">N 个 Experts (e.g., 8 / 64 / 256)</text>
-    <g><rect x="0" y="0" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="40" y="30" text-anchor="middle" fill="#fff" font-size="11">E1</text></g>
-    <g><rect x="0" y="60" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="40" y="90" text-anchor="middle" fill="#fff" font-size="11">E2</text></g>
-    <g><rect x="0" y="120" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="40" y="150" text-anchor="middle" fill="#fff" font-size="11">E3</text></g>
-    <g><rect x="120" y="0" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="160" y="30" text-anchor="middle" fill="#fff" font-size="11">E4</text></g>
-    <g><rect x="120" y="60" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="160" y="90" text-anchor="middle" fill="#fff" font-size="11">E5</text></g>
-    <g><rect x="120" y="120" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/><text x="160" y="150" text-anchor="middle" fill="#fff" font-size="11">E6</text></g>
-    <g><rect x="240" y="0" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981" opacity="0.2"/><text x="280" y="30" text-anchor="middle" fill="#fff" font-size="11">E7</text></g>
-    <g><rect x="240" y="60" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981" opacity="0.2"/><text x="280" y="90" text-anchor="middle" fill="#fff" font-size="11">E8</text></g>
-    <g><rect x="240" y="120" width="80" height="50" fill="#10b981" opacity="0.4" stroke="#10b981" opacity="0.2"/><text x="280" y="150" text-anchor="middle" fill="#fff" font-size="11">E_n</text></g>
-  </g>
-  <!-- Output -->
-  <g transform="translate(680, 220)">
-    <text x="0" y="-10" text-anchor="middle" fill="#94a3b8" font-size="14">Output</text>
-    <rect x="-20" y="0" width="80" height="60" fill="#ec4899" opacity="0.5" stroke="#ec4899" rx="4"/>
-    <text x="20" y="35" text-anchor="middle" fill="#fff" font-size="11">Σ wi·Ei(x)</text>
-  </g>
-  <text x="400" y="475" text-anchor="middle" fill="#cbd5e1" font-size="12">代表模型: Mixtral 8x7B / GPT-4 (rumored 16 experts) / DeepSeek-V3 (256 routed + 1 shared)</text>
+  <text x="400" y="40" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="bold">MoE 路由与门控机制</text>
+
+  <!-- Input tokens layer -->
+  <rect x="300" y="65" width="200" height="40" rx="6" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+  <text x="400" y="90" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">Input Tokens</text>
+
+  <!-- Arrow to router -->
+  <line x1="400" y1="105" x2="400" y2="125" stroke="#64748b" stroke-width="2" marker-end="url(#arr-gray)"/>
+
+  <!-- Router / Gating -->
+  <rect x="250" y="125" width="300" height="50" rx="8" fill="#7c3aed" fill-opacity="0.25" stroke="#a78bfa" stroke-width="2"/>
+  <text x="400" y="148" text-anchor="middle" fill="#ddd6fe" font-size="14" font-weight="700">Router / Gating Network</text>
+  <text x="400" y="166" text-anchor="middle" fill="#a78bfa" font-size="11">softmax(Top-K(W_g · x + b))</text>
+
+  <!-- 3 arrows to 3 experts -->
+  <line x1="200" y1="150" x2="120" y2="230" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="110" y="195" text-anchor="middle" fill="#22c55e" font-size="10">w₁ = 0.5</text>
+  <line x1="400" y1="175" x2="400" y2="215" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="430" y="200" text-anchor="middle" fill="#22c55e" font-size="10">w₂ = 0.3</text>
+  <line x1="600" y1="150" x2="680" y2="230" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="690" y="195" text-anchor="middle" fill="#22c55e" font-size="10">w₃ = 0.2</text>
+
+  <!-- Expert 1 -->
+  <rect x="40" y="230" width="160" height="60" rx="6" fill="#166534" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="120" y="255" text-anchor="middle" fill="#bbf7d0" font-size="13" font-weight="700">Expert 1</text>
+  <text x="120" y="275" text-anchor="middle" fill="#86efac" font-size="10">FFN (4d→d→4d)</text>
+
+  <!-- Expert 2 -->
+  <rect x="320" y="215" width="160" height="60" rx="6" fill="#166534" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="400" y="240" text-anchor="middle" fill="#bbf7d0" font-size="13" font-weight="700">Expert 2</text>
+  <text x="400" y="260" text-anchor="middle" fill="#86efac" font-size="10">FFN (4d→d→4d)</text>
+
+  <!-- Expert 3 (inactive) -->
+  <rect x="600" y="230" width="160" height="60" rx="6" fill="#166534" fill-opacity="0.2" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="680" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">Expert 3</text>
+  <text x="680" y="275" text-anchor="middle" fill="#4ade80" font-size="10">Inactive (w₃=0)</text>
+
+  <!-- Combine outputs -->
+  <line x1="120" y1="290" x2="120" y2="340" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="400" y1="275" x2="400" y2="340" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="680" y1="290" x2="680" y2="340" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <rect x="300" y="340" width="200" height="40" rx="6" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+  <text x="400" y="365" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">Combine: Σ wᵢ · Eᵢ(x)</text>
+
+  <!-- Arrow to output -->
+  <line x1="400" y1="380" x2="400" y2="405" stroke="#64748b" stroke-width="2" marker-end="url(#arr-gray)"/>
+
+  <rect x="300" y="405" width="200" height="40" rx="6" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+  <text x="400" y="430" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">Output (sparse activation)</text>
+
+  <!-- Legend -->
+  <rect x="30" y="410" width="200" height="70" fill="#1e293b" stroke="#334155" stroke-width="1" rx="4"/>
+  <text x="130" y="430" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700">Key Concepts</text>
+  <text x="40" y="448" fill="#a78bfa" font-size="9">• Top-K routing: only K experts activated/token</text>
+  <text x="40" y="463" fill="#86efac" font-size="9">• Load balancing aux loss avoids expert collapse</text>
 </svg>
