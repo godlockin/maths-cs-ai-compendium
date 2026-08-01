@@ -101,7 +101,7 @@ jobs:
 
       - name: Build EN PDF
         run: |
-          pandoc -f markdown+smart \
+          xargs -a /tmp/en-files.txt -d '\n' pandoc -f markdown+smart \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --metadata title="Mathematics, Computer Science & AI Compendium" \
@@ -109,13 +109,12 @@ jobs:
             --metadata lang=en \
             --toc --toc-depth=2 --number-sections \
             --resource-path=.:images \
-            -o /tmp/EN-Maths-CS-AI-Compendium.pdf \
-            $(cat /tmp/en-files.txt | tr '\n' ' ')
+            -o /tmp/EN-Maths-CS-AI-Compendium.pdf
           ls -lh /tmp/EN-Maths-CS-AI-Compendium.pdf
 
       - name: Build ZH Main PDF
         run: |
-          pandoc -f markdown+smart-yaml_metadata_block \
+          xargs -a /tmp/zh-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --metadata title="数学、计算机与 AI 综合手册 (中文版)" \
@@ -123,13 +122,12 @@ jobs:
             --metadata lang=zh \
             --toc --toc-depth=2 --number-sections \
             --resource-path=.:zh:images:zh/images \
-            -o /tmp/ZH-Maths-CS-AI-Compendium.pdf \
-            $(cat /tmp/zh-files.txt | tr '\n' ' ')
+            -o /tmp/ZH-Maths-CS-AI-Compendium.pdf
           ls -lh /tmp/ZH-Maths-CS-AI-Compendium.pdf
 
       - name: Build ZH 教辅 PDF
         run: |
-          pandoc -f markdown+smart-yaml_metadata_block \
+          xargs -a /tmp/zh-jiaofu-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --metadata title="数学、计算机与 AI 综合手册 — 教辅资料 (中文版)" \
@@ -137,8 +135,7 @@ jobs:
             --metadata lang=zh \
             --toc --toc-depth=2 --number-sections \
             --resource-path=.:zh:images:zh/images \
-            -o /tmp/ZH-教辅资料.pdf \
-            $(cat /tmp/zh-jiaofu-files.txt | tr '\n' ' ')
+            -o /tmp/ZH-教辅资料.pdf
           ls -lh /tmp/ZH-教辅资料.pdf
 
       - name: Copy PDFs to repo
