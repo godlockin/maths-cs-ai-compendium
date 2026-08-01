@@ -1,0 +1,175 @@
+name: Build PDFs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdfs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install pandoc + weasyprint + fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq pandoc
+          pip install weasyprint
+          # Chinese fonts for ZH PDF
+          sudo apt-get install -y -qq fonts-noto-cjk
+
+      - name: Generate CSS for PDF styling
+        run: |
+          cat > /tmp/pdf-style.css << 'CSSEOF'
+          @page {
+            size: A4;
+            margin: 2cm 2.2cm;
+            @top-center {
+              content: element(header);
+              font-size: 9pt;
+              color: #6b7280;
+            }
+          }
+          body {
+            font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', 'DejaVu Serif', serif;
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #1f2937;
+          }
+          h1 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 20pt; color: #111827; margin-top: 1.5em; }
+          h2 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 15pt; color: #1e40af; margin-top: 1.2em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.2em; }
+          h3 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 12pt; color: #374151; margin-top: 1em; }
+          h4, h5, h6 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; }
+          pre, code { font-family: 'DejaVu Sans Mono', 'Noto Sans Mono CJK SC', monospace; font-size: 9pt; }
+          pre { background: #f3f4f6; padding: 0.8em; border-radius: 4px; overflow-x: auto; }
+          blockquote { border-left: 3px solid #d1d5db; padding-left: 1em; color: #6b7280; margin-left: 0; }
+          table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+          th, td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; text-align: left; }
+          th { background: #f9fafb; font-weight: 600; }
+          img { max-width: 100%; height: auto; }
+          .katex { font-size: 1.05em; }
+          CSSEOF
+
+      - name: Discover EN chapter files
+        run: |
+          # List all EN chapter md files in order
+          for ch_dir in "chapter 01 - vectors" "chapter 02 - matrices" "chapter 03 - calculus" \
+            "chapter 04 - statistics" "chapter 05 - probability" "chapter 06 - machine learning" \
+            "chapter 07 - computational linguistics" "chapter 08 - computer vision" \
+            "chapter 09 - audio and speech" "chapter 10 - multimodal learning" \
+            "chapter 11 - autonomous systems" "chapter 12 - graph neural networks" \
+            "chapter 13 - computing and OS" "chapter 14 - data structures and algorithms" \
+            "chapter 15 - production software engineering" "chapter 16 - SIMD and GPU programming" \
+            "chapter 17 - AI inference" "chapter 18 - ML systems design" \
+            "chapter 19 - applied AI" "chapter 20 - bleeding edge AI"; do
+            if [ -d "$ch_dir" ]; then
+              find "$ch_dir" -maxdepth 1 -name "*.md" | sort >> /tmp/en-files.txt
+            fi
+          done
+          # Add preface/acknowledgements if they exist
+          for f in "preface.md" "acknowledgements.md" "CONTRIBUTING.md"; do
+            [ -f "$f" ] && echo "$f" >> /tmp/en-files.txt
+          done
+          echo "EN files: $(wc -l < /tmp/en-files.txt)"
+          cat /tmp/en-files.txt
+
+      - name: Discover ZH chapter files
+        run: |
+          # List all ZH main chapter md files (exclude 教辅 subdir)
+          for ch_dir in "zh/第01章 - 向量" "zh/第02章 - 矩阵" "zh/第03章 - 微积分" \
+            "zh/第04章 - 统计学" "zh/第05章 - 概率论" "zh/第06章 - 机器学习" \
+            "zh/第07章 - 计算语言学" "zh/第08章 - 计算机视觉" "zh/第09章 - 音频与语音" \
+            "zh/第10章 - 多模态学习" "zh/第11章 - 自主系统" "zh/第12章 - 图神经网络" \
+            "zh/第13章 - 计算与操作系统" "zh/第14章 - 数据结构与算法" \
+            "zh/第15章 - 生产级软件工程" "zh/第16章 - SIMD 与 GPU 编程" \
+            "zh/第17章 - AI 推理" "zh/第18章 - 机器学习系统设计" \
+            "zh/第19章 - 应用 AI" "zh/第20章 - 前沿 AI" \
+            "zh/第21章 - 对齐、安全与可解释性" "zh/第22章 - LLM Evaluation 方法学" \
+            "zh/第23章 - AI Agent 与工具使用" "zh/第24章 - 数值分析与凸优化补遗" \
+            "zh/第25章 - AI 系统实战面试指南"; do
+            if [ -d "$ch_dir" ]; then
+              find "$ch_dir" -maxdepth 1 -name "*.md" | sort >> /tmp/zh-files.txt
+            fi
+          done
+          for f in "zh/前言.md" "zh/致谢.md" "zh/勘误表.md"; do
+            [ -f "$f" ] && echo "$f" >> /tmp/zh-files.txt
+          done
+          echo "ZH main files: $(wc -l < /tmp/zh-files.txt)"
+
+      - name: Discover ZH 教辅 files
+        run: |
+          find zh/教辅 -name "*.md" | sort > /tmp/zh-jiaofu-files.txt
+          echo "ZH 教辅 files: $(wc -l < /tmp/zh-jiaofu-files.txt)"
+
+      - name: Build EN PDF
+        run: |
+          pandoc -f markdown+smart \
+            --pdf-engine=weasyprint \
+            --css /tmp/pdf-style.css \
+            --metadata title="Mathematics, Computer Science & AI Compendium" \
+            --metadata author="Henry Ndubuaku et al." \
+            --metadata lang=en \
+            --toc --toc-depth=2 --number-sections \
+            --resource-path=.:images \
+            -o /tmp/EN-Maths-CS-AI-Compendium.pdf \
+            $(cat /tmp/en-files.txt | tr '\n' ' ')
+          ls -lh /tmp/EN-Maths-CS-AI-Compendium.pdf
+
+      - name: Build ZH Main PDF
+        run: |
+          pandoc -f markdown+smart-yaml_metadata_block \
+            --pdf-engine=weasyprint \
+            --css /tmp/pdf-style.css \
+            --metadata title="数学、计算机与 AI 综合手册 (中文版)" \
+            --metadata author="Henry Ndubuaku (原著) · Steven Chen (中译主编)" \
+            --metadata lang=zh \
+            --toc --toc-depth=2 --number-sections \
+            --resource-path=.:zh:images:zh/images \
+            -o /tmp/ZH-Maths-CS-AI-Compendium.pdf \
+            $(cat /tmp/zh-files.txt | tr '\n' ' ')
+          ls -lh /tmp/ZH-Maths-CS-AI-Compendium.pdf
+
+      - name: Build ZH 教辅 PDF
+        run: |
+          pandoc -f markdown+smart-yaml_metadata_block \
+            --pdf-engine=weasyprint \
+            --css /tmp/pdf-style.css \
+            --metadata title="数学、计算机与 AI 综合手册 — 教辅资料 (中文版)" \
+            --metadata author="Steven Chen & AI 协作组" \
+            --metadata lang=zh \
+            --toc --toc-depth=2 --number-sections \
+            --resource-path=.:zh:images:zh/images \
+            -o /tmp/ZH-教辅资料.pdf \
+            $(cat /tmp/zh-jiaofu-files.txt | tr '\n' ' ')
+          ls -lh /tmp/ZH-教辅资料.pdf
+
+      - name: Copy PDFs to output directory
+        run: |
+          mkdir -p pdfs
+          cp /tmp/EN-Maths-CS-AI-Compendium.pdf pdfs/
+          cp /tmp/ZH-Maths-CS-AI-Compendium.pdf pdfs/
+          cp /tmp/ZH-教辅资料.pdf pdfs/
+          ls -lh pdfs/
+
+      - name: Commit & push PDFs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add pdfs/
+          if git diff --cached --quiet; then
+            echo "No changes to PDFs"
+          else
+            git commit -m "build: auto-generate PDFs (EN + ZH main + ZH 教辅)"
+            git push
+          fi

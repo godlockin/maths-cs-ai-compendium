@@ -1,0 +1,2352 @@
+- generic [active] [ref=f1e1]:
+  - link "跳转至" [ref=f1e2] [cursor=pointer]:
+    - /url: "#_1"
+  - banner [ref=f1e3]:
+    - navigation "页眉" [ref=f1e4]:
+      - generic [ref=f1e9]:
+        - generic [ref=f1e10]: 数学、计算机与 AI 综合手册 (中文版)
+        - generic: 01. 什么是对齐
+      - generic [ref=f1e12]:
+        - radio "切换到暗色模式"
+        - generic "切换到暗色模式" [ref=f1e13] [cursor=pointer]
+        - radio "切换到亮色模式"
+      - dialog [ref=f1e16]:
+        - search [ref=f1e17]:
+          - generic [ref=f1e18]:
+            - textbox "搜索" [ref=f1e19]
+            - navigation "查找":
+              - button "清空当前内容"
+          - generic: 键入以开始搜索
+      - link [ref=f1e24] [cursor=pointer]:
+        - /url: https://github.com/godlockin/maths-cs-ai-compendium
+        - generic [ref=f1e28]:
+          - text: godlockin/maths-cs-ai-compendium
+          - list [ref=f1e29]:
+            - listitem [ref=f1e30]: "0"
+            - listitem [ref=f1e31]: "0"
+  - generic [ref=f1e32]:
+    - main [ref=f1e33]:
+      - generic [ref=f1e34]:
+        - navigation "导航栏" [ref=f1e37]:
+          - generic [ref=f1e38] [cursor=pointer]:
+            - link "数学、计算机与 AI 综合手册 (中文版)" [ref=f1e39]:
+              - /url: ../..
+            - text: 数学、计算机与 AI 综合手册 (中文版)
+          - list [ref=f1e42]:
+            - listitem [ref=f1e43]:
+              - link "首页" [ref=f1e44] [cursor=pointer]:
+                - /url: ../..
+            - listitem [ref=f1e46]:
+              - generic [ref=f1e47]: 教辅资料
+              - navigation "教辅资料" [ref=f1e50]:
+                - list [ref=f1e53]:
+                  - listitem [ref=f1e54]:
+                    - link "思维导图" [ref=f1e55] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/
+                  - listitem [ref=f1e57]:
+                    - link "信息图" [ref=f1e58] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E4%BF%A1%E6%81%AF%E5%9B%BE/
+                  - listitem [ref=f1e60]:
+                    - link "复习大纲" [ref=f1e61] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E5%A4%8D%E4%B9%A0%E5%A4%A7%E7%BA%B2/
+                  - listitem [ref=f1e63]:
+                    - link "讲解稿" [ref=f1e64] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E8%AE%B2%E8%A7%A3%E7%A8%BF/
+                  - listitem [ref=f1e66]:
+                    - link "闪卡" [ref=f1e67] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E9%97%AA%E5%8D%A1/
+                  - listitem [ref=f1e69]:
+                    - link "阶段测试题" [ref=f1e70] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98/
+                  - listitem [ref=f1e72]:
+                    - link "阶段测试题答案" [ref=f1e73] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E9%98%B6%E6%AE%B5%E6%B5%8B%E8%AF%95%E9%A2%98%E7%AD%94%E6%A1%88/
+                  - listitem [ref=f1e75]:
+                    - link "全局概览" [ref=f1e76] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88/
+                  - listitem [ref=f1e78]:
+                    - link "概念图谱" [ref=f1e79] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E6%A6%82%E5%BF%B5%E5%9B%BE%E8%B0%B1/
+                  - listitem [ref=f1e81]:
+                    - link "全书符号契约" [ref=f1e82] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E5%85%A8%E4%B9%A6%E7%AC%A6%E5%8F%B7%E5%A5%91%E7%BA%A6%20v3/
+                  - listitem [ref=f1e84]:
+                    - link "整本书脉络地图" [ref=f1e85] [cursor=pointer]:
+                      - /url: ../../%E6%95%99%E8%BE%85/%E6%95%B4%E6%9C%AC%E4%B9%A6%E8%84%89%E7%BB%9C%E5%9C%B0%E5%9B%BE/
+            - listitem [ref=f1e87]:
+              - generic [ref=f1e88]: 阅读辅助
+              - navigation "阅读辅助" [ref=f1e91]:
+                - list [ref=f1e94]:
+                  - listitem [ref=f1e95]:
+                    - link "术语表" [ref=f1e96] [cursor=pointer]:
+                      - /url: ../../GLOSSARY/
+                  - listitem [ref=f1e98]:
+                    - link "翻译规范" [ref=f1e99] [cursor=pointer]:
+                      - /url: ../../TRANSLATION_GUIDE/
+                  - listitem [ref=f1e101]:
+                    - link "参考文献" [ref=f1e102] [cursor=pointer]:
+                      - /url: ../../BIBLIOGRAPHY/
+                  - listitem [ref=f1e104]:
+                    - link "全书索引" [ref=f1e105] [cursor=pointer]:
+                      - /url: ../../INDEX/
+                  - listitem [ref=f1e107]:
+                    - link "学习目标" [ref=f1e108] [cursor=pointer]:
+                      - /url: ../../LEARNING_OBJECTIVES/
+                  - listitem [ref=f1e110]:
+                    - link "QA 报告" [ref=f1e111] [cursor=pointer]:
+                      - /url: ../../QA_REPORT.md
+                  - listitem [ref=f1e113]:
+                    - link "事实核查报告" [ref=f1e114] [cursor=pointer]:
+                      - /url: ../../FACT_CHECK_REPORT.md
+                  - listitem [ref=f1e116]:
+                    - link "读者反馈报告" [ref=f1e117] [cursor=pointer]:
+                      - /url: ../../READER_REPORT_v2.md
+            - listitem [ref=f1e119]:
+              - generic [ref=f1e120]: 第01章 · 向量
+              - navigation "第01章 · 向量" [ref=f1e123]:
+                - list [ref=f1e126]:
+                  - listitem [ref=f1e127]:
+                    - link "01. 向量空间" [ref=f1e128] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/01.%20%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4/
+                  - listitem [ref=f1e130]:
+                    - link "02. 向量的性质" [ref=f1e131] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/02.%20%E5%90%91%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8/
+                  - listitem [ref=f1e133]:
+                    - link "03. 范数与度量" [ref=f1e134] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/03.%20%E8%8C%83%E6%95%B0%E4%B8%8E%E5%BA%A6%E9%87%8F/
+                  - listitem [ref=f1e136]:
+                    - link "04. 向量积" [ref=f1e137] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/04.%20%E5%90%91%E9%87%8F%E7%A7%AF/
+                  - listitem [ref=f1e139]:
+                    - link "05. 基与对偶" [ref=f1e140] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC01%E7%AB%A0%20-%20%E5%90%91%E9%87%8F/05.%20%E5%9F%BA%E4%B8%8E%E5%AF%B9%E5%81%B6/
+            - listitem [ref=f1e142]:
+              - generic [ref=f1e143]: 第02章 · 矩阵
+              - navigation "第02章 · 矩阵" [ref=f1e146]:
+                - list [ref=f1e149]:
+                  - listitem [ref=f1e150]:
+                    - link "01. 矩阵的性质" [ref=f1e151] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/01.%20%E7%9F%A9%E9%98%B5%E7%9A%84%E6%80%A7%E8%B4%A8/
+                  - listitem [ref=f1e153]:
+                    - link "02. 矩阵类型" [ref=f1e154] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/02.%20%E7%9F%A9%E9%98%B5%E7%B1%BB%E5%9E%8B/
+                  - listitem [ref=f1e156]:
+                    - link "03. 矩阵运算" [ref=f1e157] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/03.%20%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/
+                  - listitem [ref=f1e159]:
+                    - link "04. 线性变换" [ref=f1e160] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/04.%20%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/
+                  - listitem [ref=f1e162]:
+                    - link "05. 矩阵分解" [ref=f1e163] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC02%E7%AB%A0%20-%20%E7%9F%A9%E9%98%B5/05.%20%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/
+            - listitem [ref=f1e165]:
+              - generic [ref=f1e166]: 第03章 · 微积分
+              - navigation "第03章 · 微积分" [ref=f1e169]:
+                - list [ref=f1e172]:
+                  - listitem [ref=f1e173]:
+                    - link "01. 微分学" [ref=f1e174] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/01.%20%E5%BE%AE%E5%88%86%E5%AD%A6/
+                  - listitem [ref=f1e176]:
+                    - link "02. 积分学" [ref=f1e177] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/02.%20%E7%A7%AF%E5%88%86%E5%AD%A6/
+                  - listitem [ref=f1e179]:
+                    - link "03. 多元微积分" [ref=f1e180] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/03.%20%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86/
+                  - listitem [ref=f1e182]:
+                    - link "04. 函数逼近" [ref=f1e183] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/04.%20%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/
+                  - listitem [ref=f1e185]:
+                    - link "05. 优化" [ref=f1e186] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC03%E7%AB%A0%20-%20%E5%BE%AE%E7%A7%AF%E5%88%86/05.%20%E4%BC%98%E5%8C%96/
+            - listitem [ref=f1e188]:
+              - generic [ref=f1e189]: 第04章 · 统计学
+              - navigation "第04章 · 统计学" [ref=f1e192]:
+                - list [ref=f1e195]:
+                  - listitem [ref=f1e196]:
+                    - link "01. 基础" [ref=f1e197] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/01.%20%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e199]:
+                    - link "02. 描述性度量" [ref=f1e200] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/02.%20%E6%8F%8F%E8%BF%B0%E6%80%A7%E5%BA%A6%E9%87%8F/
+                  - listitem [ref=f1e202]:
+                    - link "03. 抽样" [ref=f1e203] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/03.%20%E6%8A%BD%E6%A0%B7/
+                  - listitem [ref=f1e205]:
+                    - link "04. 假设检验" [ref=f1e206] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/04.%20%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/
+                  - listitem [ref=f1e208]:
+                    - link "05. 统计推断" [ref=f1e209] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC04%E7%AB%A0%20-%20%E7%BB%9F%E8%AE%A1%E5%AD%A6/05.%20%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/
+            - listitem [ref=f1e211]:
+              - generic [ref=f1e212]: 第05章 · 概率论
+              - navigation "第05章 · 概率论" [ref=f1e215]:
+                - list [ref=f1e218]:
+                  - listitem [ref=f1e219]:
+                    - link "01. 计数" [ref=f1e220] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/01.%20%E8%AE%A1%E6%95%B0/
+                  - listitem [ref=f1e222]:
+                    - link "02. 概率概念" [ref=f1e223] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/02.%20%E6%A6%82%E7%8E%87%E6%A6%82%E5%BF%B5/
+                  - listitem [ref=f1e225]:
+                    - link "03. 概率分布" [ref=f1e226] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/03.%20%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/
+                  - listitem [ref=f1e228]:
+                    - link "04. 贝叶斯方法" [ref=f1e229] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/04.%20%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%B9%E6%B3%95/
+                  - listitem [ref=f1e231]:
+                    - link "05. 信息论" [ref=f1e232] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC05%E7%AB%A0%20-%20%E6%A6%82%E7%8E%87%E8%AE%BA/05.%20%E4%BF%A1%E6%81%AF%E8%AE%BA/
+            - listitem [ref=f1e234]:
+              - generic [ref=f1e235]: 第06章 · 机器学习
+              - navigation "第06章 · 机器学习" [ref=f1e238]:
+                - list [ref=f1e241]:
+                  - listitem [ref=f1e242]:
+                    - link "01. 经典机器学习" [ref=f1e243] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/01.%20%E7%BB%8F%E5%85%B8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e245]:
+                    - link "02. 梯度机器学习" [ref=f1e246] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/02.%20%E6%A2%AF%E5%BA%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e248]:
+                    - link "03. 深度学习" [ref=f1e249] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03.%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e251]:
+                    - link "04. 强化学习" [ref=f1e252] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/04.%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e254]:
+                    - link "05. 分布式深度学习" [ref=f1e255] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC06%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05.%20%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/
+            - listitem [ref=f1e257]:
+              - generic [ref=f1e258]: 第07章 · 计算语言学
+              - navigation "第07章 · 计算语言学" [ref=f1e261]:
+                - list [ref=f1e264]:
+                  - listitem [ref=f1e265]:
+                    - link "01. 语言学基础" [ref=f1e266] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/01.%20%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e268]:
+                    - link "02. 文本处理与经典 NLP" [ref=f1e269] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/02.%20%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E%E7%BB%8F%E5%85%B8%20NLP/
+                  - listitem [ref=f1e271]:
+                    - link "03. 词嵌入与序列模型" [ref=f1e272] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/03.%20%E8%AF%8D%E5%B5%8C%E5%85%A5%E4%B8%8E%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/
+                  - listitem [ref=f1e274]:
+                    - link "04. Transformer 与语言模型" [ref=f1e275] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/04.%20Transformer%20%E4%B8%8E%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/
+                  - listitem [ref=f1e277]:
+                    - link "05. 高级文本生成" [ref=f1e278] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC07%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6/05.%20%E9%AB%98%E7%BA%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/
+            - listitem [ref=f1e280]:
+              - generic [ref=f1e281]: 第08章 · 计算机视觉
+              - navigation "第08章 · 计算机视觉" [ref=f1e284]:
+                - list [ref=f1e287]:
+                  - listitem [ref=f1e288]:
+                    - link "01. 图像基础" [ref=f1e289] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01.%20%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e291]:
+                    - link "02. 卷积网络" [ref=f1e292] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02.%20%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C/
+                  - listitem [ref=f1e294]:
+                    - link "03. 目标检测与分割" [ref=f1e295] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/03.%20%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2/
+                  - listitem [ref=f1e297]:
+                    - link "04. 视觉 Transformer 与生成" [ref=f1e298] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/04.%20%E8%A7%86%E8%A7%89%20Transformer%20%E4%B8%8E%E7%94%9F%E6%88%90/
+                  - listitem [ref=f1e300]:
+                    - link "05. 视频与 3D 视觉" [ref=f1e301] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC08%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/05.%20%E8%A7%86%E9%A2%91%E4%B8%8E%203D%20%E8%A7%86%E8%A7%89/
+            - listitem [ref=f1e303]:
+              - generic [ref=f1e304]: 第09章 · 音频与语音
+              - navigation "第09章 · 音频与语音" [ref=f1e307]:
+                - list [ref=f1e310]:
+                  - listitem [ref=f1e311]:
+                    - link "01. 数字信号处理" [ref=f1e312] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/01.%20%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/
+                  - listitem [ref=f1e314]:
+                    - link "02. 自动语音识别" [ref=f1e315] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/02.%20%E8%87%AA%E5%8A%A8%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/
+                  - listitem [ref=f1e317]:
+                    - link "03. 文本到语音与声音" [ref=f1e318] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/03.%20%E6%96%87%E6%9C%AC%E5%88%B0%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%A3%B0%E9%9F%B3/
+                  - listitem [ref=f1e320]:
+                    - link "04. 说话人与音频分析" [ref=f1e321] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/04.%20%E8%AF%B4%E8%AF%9D%E4%BA%BA%E4%B8%8E%E9%9F%B3%E9%A2%91%E5%88%86%E6%9E%90/
+                  - listitem [ref=f1e323]:
+                    - link "05. 源分离与降噪" [ref=f1e324] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC09%E7%AB%A0%20-%20%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%AF%AD%E9%9F%B3/05.%20%E6%BA%90%E5%88%86%E7%A6%BB%E4%B8%8E%E9%99%8D%E5%99%AA/
+            - listitem [ref=f1e326]:
+              - generic [ref=f1e327]: 第10章 · 多模态学习
+              - navigation "第10章 · 多模态学习" [ref=f1e330]:
+                - list [ref=f1e333]:
+                  - listitem [ref=f1e334]:
+                    - link "01. 多模态表征" [ref=f1e335] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/01.%20%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%BE%81/
+                  - listitem [ref=f1e337]:
+                    - link "02. 视觉语言模型" [ref=f1e338] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/02.%20%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/
+                  - listitem [ref=f1e340]:
+                    - link "03. 图像与视频 Token 化" [ref=f1e341] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/03.%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E8%A7%86%E9%A2%91%20Token%20%E5%8C%96/
+                  - listitem [ref=f1e343]:
+                    - link "04. 跨模态生成" [ref=f1e344] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/04.%20%E8%B7%A8%E6%A8%A1%E6%80%81%E7%94%9F%E6%88%90/
+                  - listitem [ref=f1e346]:
+                    - link "05. 统一多模态架构" [ref=f1e347] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC10%E7%AB%A0%20-%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0/05.%20%E7%BB%9F%E4%B8%80%E5%A4%9A%E6%A8%A1%E6%80%81%E6%9E%B6%E6%9E%84/
+            - listitem [ref=f1e349]:
+              - generic [ref=f1e350]: 第11章 · 自主系统
+              - navigation "第11章 · 自主系统" [ref=f1e353]:
+                - list [ref=f1e356]:
+                  - listitem [ref=f1e357]:
+                    - link "01. 感知" [ref=f1e358] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/01.%20%E6%84%9F%E7%9F%A5/
+                  - listitem [ref=f1e360]:
+                    - link "02. 机器人学习" [ref=f1e361] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/02.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e363]:
+                    - link "03. 视觉-语言-动作模型" [ref=f1e364] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/03.%20%E8%A7%86%E8%A7%89-%E8%AF%AD%E8%A8%80-%E5%8A%A8%E4%BD%9C%E6%A8%A1%E5%9E%8B/
+                  - listitem [ref=f1e366]:
+                    - link "04. 自动驾驶" [ref=f1e367] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/04.%20%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/
+                  - listitem [ref=f1e369]:
+                    - link "05. 太空与极端环境机器人" [ref=f1e370] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC11%E7%AB%A0%20-%20%E8%87%AA%E4%B8%BB%E7%B3%BB%E7%BB%9F/05.%20%E5%A4%AA%E7%A9%BA%E4%B8%8E%E6%9E%81%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%9C%BA%E5%99%A8%E4%BA%BA/
+            - listitem [ref=f1e372]:
+              - generic [ref=f1e373]: 第12章 · 图神经网络
+              - navigation "第12章 · 图神经网络" [ref=f1e376]:
+                - list [ref=f1e379]:
+                  - listitem [ref=f1e380]:
+                    - link "01. 几何深度学习" [ref=f1e381] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/01.%20%E5%87%A0%E4%BD%95%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e383]:
+                    - link "02. 图论" [ref=f1e384] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/02.%20%E5%9B%BE%E8%AE%BA/
+                  - listitem [ref=f1e386]:
+                    - link "03. 图神经网络" [ref=f1e387] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/03.%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
+                  - listitem [ref=f1e389]:
+                    - link "04. 图注意力网络" [ref=f1e390] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/04.%20%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9C/
+                  - listitem [ref=f1e392]:
+                    - link "05. 3D 图网络" [ref=f1e393] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC12%E7%AB%A0%20-%20%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/05.%203D%20%E5%9B%BE%E7%BD%91%E7%BB%9C/
+            - listitem [ref=f1e395]:
+              - generic [ref=f1e396]: 第13章 · 计算与操作系统
+              - navigation "第13章 · 计算与操作系统" [ref=f1e399]:
+                - list [ref=f1e402]:
+                  - listitem [ref=f1e403]:
+                    - link "01. 离散数学" [ref=f1e404] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01.%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/
+                  - listitem [ref=f1e406]:
+                    - link "02. 计算机架构" [ref=f1e407] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/02.%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84/
+                  - listitem [ref=f1e409]:
+                    - link "03. 操作系统" [ref=f1e410] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/03.%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
+                  - listitem [ref=f1e412]:
+                    - link "04. 并发与并行" [ref=f1e413] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/04.%20%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C/
+                  - listitem [ref=f1e415]:
+                    - link "05. 编程语言" [ref=f1e416] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC13%E7%AB%A0%20-%20%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/05.%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/
+            - listitem [ref=f1e418]:
+              - generic [ref=f1e419]: 第14章 · 数据结构与算法
+              - navigation "第14章 · 数据结构与算法" [ref=f1e422]:
+                - list [ref=f1e425]:
+                  - listitem [ref=f1e426]:
+                    - link "00. 基础" [ref=f1e427] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/00.%20%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e429]:
+                    - link "01. 数组与哈希" [ref=f1e430] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01.%20%E6%95%B0%E7%BB%84%E4%B8%8E%E5%93%88%E5%B8%8C/
+                  - listitem [ref=f1e432]:
+                    - link "02. 链表、栈与队列" [ref=f1e433] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/02.%20%E9%93%BE%E8%A1%A8%E3%80%81%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/
+                  - listitem [ref=f1e435]:
+                    - link "03. 树" [ref=f1e436] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03.%20%E6%A0%91/
+                  - listitem [ref=f1e438]:
+                    - link "04. 图" [ref=f1e439] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04.%20%E5%9B%BE/
+                  - listitem [ref=f1e441]:
+                    - link "05. 排序与搜索" [ref=f1e442] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC14%E7%AB%A0%20-%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/05.%20%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%90%9C%E7%B4%A2/
+            - listitem [ref=f1e444]:
+              - generic [ref=f1e445]: 第15章 · 生产级软件工程
+              - navigation "第15章 · 生产级软件工程" [ref=f1e448]:
+                - list [ref=f1e451]:
+                  - listitem [ref=f1e452]:
+                    - link "01. Linux 与命令行" [ref=f1e453] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/01.%20Linux%20%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/
+                  - listitem [ref=f1e455]:
+                    - link "02. Git 与代码库管理" [ref=f1e456] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/02.%20Git%20%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%BA%93%E7%AE%A1%E7%90%86/
+                  - listitem [ref=f1e458]:
+                    - link "03. 代码库设计" [ref=f1e459] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/03.%20%E4%BB%A3%E7%A0%81%E5%BA%93%E8%AE%BE%E8%AE%A1/
+                  - listitem [ref=f1e461]:
+                    - link "04. 测试与质量保证" [ref=f1e462] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/04.%20%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81/
+                  - listitem [ref=f1e464]:
+                    - link "05. 部署与 DevOps" [ref=f1e465] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC15%E7%AB%A0%20-%20%E7%94%9F%E4%BA%A7%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/05.%20%E9%83%A8%E7%BD%B2%E4%B8%8E%20DevOps/
+            - listitem [ref=f1e467]:
+              - generic [ref=f1e468]: 第16章 · SIMD 与 GPU 编程
+              - navigation "第16章 · SIMD 与 GPU 编程" [ref=f1e471]:
+                - list [ref=f1e474]:
+                  - listitem [ref=f1e475]:
+                    - link "00. 为什么用 C++ 与 ML 框架" [ref=f1e476] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/00.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%20C%2B%2B%20%E4%B8%8E%20ML%20%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/
+                  - listitem [ref=f1e478]:
+                    - link "01. 硬件基础" [ref=f1e479] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/01.%20%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e481]:
+                    - link "02. ARM 与 NEON" [ref=f1e482] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/02.%20ARM%20%E4%B8%8E%20NEON/
+                  - listitem [ref=f1e484]:
+                    - link "03. x86 与 AVX" [ref=f1e485] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/03.%20x86%20%E4%B8%8E%20AVX/
+                  - listitem [ref=f1e487]:
+                    - link "04. GPU 架构与 CUDA" [ref=f1e488] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/04.%20GPU%20%E6%9E%B6%E6%9E%84%E4%B8%8E%20CUDA/
+                  - listitem [ref=f1e490]:
+                    - link "05. Triton、TPU 与 Pallas" [ref=f1e491] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/05.%20Triton%E3%80%81TPU%20%E4%B8%8E%20Pallas/
+                  - listitem [ref=f1e493]:
+                    - link "06. RISC-V 与嵌入式系统" [ref=f1e494] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/06.%20RISC-V%20%E4%B8%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/
+                  - listitem [ref=f1e496]:
+                    - link "07. Vulkan Compute 与跨平台 GPU" [ref=f1e497] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC16%E7%AB%A0%20-%20SIMD%20%E4%B8%8E%20GPU%20%E7%BC%96%E7%A8%8B/07.%20Vulkan%20Compute%20%E4%B8%8E%E8%B7%A8%E5%B9%B3%E5%8F%B0%20GPU/
+            - listitem [ref=f1e499]:
+              - generic [ref=f1e500]: 第17章 · AI 推理
+              - navigation "第17章 · AI 推理" [ref=f1e503]:
+                - list [ref=f1e506]:
+                  - listitem [ref=f1e507]:
+                    - link "01. 量化" [ref=f1e508] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/01.%20%E9%87%8F%E5%8C%96/
+                  - listitem [ref=f1e510]:
+                    - link "02. 高效架构" [ref=f1e511] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/02.%20%E9%AB%98%E6%95%88%E6%9E%B6%E6%9E%84/
+                  - listitem [ref=f1e513]:
+                    - link "03. 服务与批处理" [ref=f1e514] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/03.%20%E6%9C%8D%E5%8A%A1%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/
+                  - listitem [ref=f1e516]:
+                    - link "04. 边缘推理" [ref=f1e517] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/04.%20%E8%BE%B9%E7%BC%98%E6%8E%A8%E7%90%86/
+                  - listitem [ref=f1e519]:
+                    - link "05. 扩展与部署" [ref=f1e520] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC17%E7%AB%A0%20-%20AI%20%E6%8E%A8%E7%90%86/05.%20%E6%89%A9%E5%B1%95%E4%B8%8E%E9%83%A8%E7%BD%B2/
+            - listitem [ref=f1e522]:
+              - generic [ref=f1e523]: 第18章 · 机器学习系统设计
+              - navigation "第18章 · 机器学习系统设计" [ref=f1e526]:
+                - list [ref=f1e529]:
+                  - listitem [ref=f1e530]:
+                    - link "01. 系统设计基础" [ref=f1e531] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/01.%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/
+                  - listitem [ref=f1e533]:
+                    - link "02. 云计算" [ref=f1e534] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/02.%20%E4%BA%91%E8%AE%A1%E7%AE%97/
+                  - listitem [ref=f1e536]:
+                    - link "03. 大规模基础设施" [ref=f1e537] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/03.%20%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/
+                  - listitem [ref=f1e539]:
+                    - link "04. ML 系统设计" [ref=f1e540] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/04.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/
+                  - listitem [ref=f1e542]:
+                    - link "05. ML 设计案例" [ref=f1e543] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC18%E7%AB%A0%20-%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/05.%20ML%20%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B/
+            - listitem [ref=f1e545]:
+              - generic [ref=f1e546]: 第19章 · 应用 AI
+              - navigation "第19章 · 应用 AI" [ref=f1e549]:
+                - list [ref=f1e552]:
+                  - listitem [ref=f1e553]:
+                    - link "01. AI 在金融" [ref=f1e554] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/01.%20AI%20%E5%9C%A8%E9%87%91%E8%9E%8D/
+                  - listitem [ref=f1e556]:
+                    - link "02. 蛋白质设计" [ref=f1e557] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/02.%20%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1/
+                  - listitem [ref=f1e559]:
+                    - link "03. 药物发现" [ref=f1e560] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/03.%20%E8%8D%AF%E7%89%A9%E5%8F%91%E7%8E%B0/
+                  - listitem [ref=f1e562]:
+                    - link "04. 智能体系统" [ref=f1e563] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/04.%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%B3%BB%E7%BB%9F/
+                  - listitem [ref=f1e565]:
+                    - link "05. 医疗健康" [ref=f1e566] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC19%E7%AB%A0%20-%20%E5%BA%94%E7%94%A8%20AI/05.%20%E5%8C%BB%E7%96%97%E5%81%A5%E5%BA%B7/
+            - listitem [ref=f1e568]:
+              - generic [ref=f1e569]: 第20章 · 前沿 AI
+              - navigation "第20章 · 前沿 AI" [ref=f1e572]:
+                - list [ref=f1e575]:
+                  - listitem [ref=f1e576]:
+                    - link "01. 量子机器学习" [ref=f1e577] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/01.%20%E9%87%8F%E5%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/
+                  - listitem [ref=f1e579]:
+                    - link "02. 神经形态计算" [ref=f1e580] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/02.%20%E7%A5%9E%E7%BB%8F%E5%BD%A2%E6%80%81%E8%AE%A1%E7%AE%97/
+                  - listitem [ref=f1e582]:
+                    - link "03. 太空数据中心" [ref=f1e583] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/03.%20%E5%A4%AA%E7%A9%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/
+                  - listitem [ref=f1e585]:
+                    - link "04. 去中心化 AI" [ref=f1e586] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/04.%20%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%20AI/
+                  - listitem [ref=f1e588]:
+                    - link "05. 脑机接口" [ref=f1e589] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/05.%20%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/
+            - listitem [ref=f1e591]:
+              - generic [ref=f1e592]: 第21章 · 对齐与可解释性
+              - navigation "第21章 · 对齐与可解释性" [ref=f1e595]:
+                - list [ref=f1e598]:
+                  - listitem [ref=f1e599]:
+                    - link "01. 什么是对齐" [ref=f1e600] [cursor=pointer]:
+                      - /url: ./
+                  - listitem [ref=f1e602]:
+                    - link "02. RLHF-DPO 深入" [ref=f1e603] [cursor=pointer]:
+                      - /url: ../02.%20%E4%BB%8E%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%AD%A6%E4%B9%A0%20%C2%B7%20RLHF-DPO%20%E6%B7%B1%E5%85%A5/
+                  - listitem [ref=f1e605]:
+                    - link "03. 对抗攻击与越狱" [ref=f1e606] [cursor=pointer]:
+                      - /url: ../03.%20%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB%E4%B8%8E%E8%B6%8A%E7%8B%B1/
+                  - listitem [ref=f1e608]:
+                    - link "04. 机制可解释性入门" [ref=f1e609] [cursor=pointer]:
+                      - /url: ../04.%20%E6%9C%BA%E5%88%B6%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%85%A5%E9%97%A8/
+                  - listitem [ref=f1e611]:
+                    - link "05. 可解释性工具与实战" [ref=f1e612] [cursor=pointer]:
+                      - /url: ../05.%20%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%B7%A5%E5%85%B7%E4%B8%8E%E5%AE%9E%E6%88%98/
+                  - listitem [ref=f1e614]:
+                    - link "06. AI 安全治理与前沿" [ref=f1e615] [cursor=pointer]:
+                      - /url: ../06.%20AI%20%E5%AE%89%E5%85%A8%E6%B2%BB%E7%90%86%E4%B8%8E%E5%89%8D%E6%B2%BF/
+            - listitem [ref=f1e617]:
+              - generic [ref=f1e618]: 第22章 · LLM 评测方法学
+              - navigation "第22章 · LLM 评测方法学" [ref=f1e621]:
+                - list [ref=f1e624]:
+                  - listitem [ref=f1e625]:
+                    - link "01. Eval 是 LLM 的圣杯" [ref=f1e626] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/01.%20%E4%B8%BA%E4%BB%80%E4%B9%88%20Eval%20%E6%98%AF%20LLM%20%E7%9A%84%E5%9C%A3%E6%9D%AF/
+                  - listitem [ref=f1e628]:
+                    - link "02. 传统 NLP 指标" [ref=f1e629] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/02.%20%E4%BC%A0%E7%BB%9F%20NLP%20%E6%8C%87%E6%A0%87/
+                  - listitem [ref=f1e631]:
+                    - link "03. 现代 Benchmark 体系" [ref=f1e632] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/03.%20%E7%8E%B0%E4%BB%A3%20Benchmark%20%E4%BD%93%E7%B3%BB/
+                  - listitem [ref=f1e634]:
+                    - link "04. 竞技场与人类偏好" [ref=f1e635] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/04.%20%E7%AB%9E%E6%8A%80%E5%9C%BA%E4%B8%8E%E4%BA%BA%E7%B1%BB%E5%81%8F%E5%A5%BD/
+                  - listitem [ref=f1e637]:
+                    - link "05. LLM-as-Judge" [ref=f1e638] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/05.%20LLM-as-Judge%20%C2%B7%20%E7%94%A8%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%A8%A1%E5%9E%8B/
+                  - listitem [ref=f1e640]:
+                    - link "06. Contamination 与 Benchmark 崩坏" [ref=f1e641] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/06.%20Contamination%20%E4%B8%8E%20Benchmark%20%E5%B4%A9%E5%9D%8F/
+                  - listitem [ref=f1e643]:
+                    - link "07. Capability 与 Safety Eval" [ref=f1e644] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC22%E7%AB%A0%20-%20LLM%20Evaluation%20%E6%96%B9%E6%B3%95%E5%AD%A6/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20Capability%20%E4%B8%8E%20Safety%20Eval/
+            - listitem [ref=f1e646]:
+              - generic [ref=f1e647]: 第23章 · AI Agent 与工具使用
+              - navigation "第23章 · AI Agent 与工具使用" [ref=f1e650]:
+                - list [ref=f1e653]:
+                  - listitem [ref=f1e654]:
+                    - link "01. 什么是 AI Agent" [ref=f1e655] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/01.%20%E4%BB%80%E4%B9%88%E6%98%AF%20AI%20Agent%20%C2%B7%20%E4%BB%8E%20LLM%20%E5%88%B0%20Agent%20%E7%9A%84%E8%B7%83%E8%BF%81/
+                  - listitem [ref=f1e657]:
+                    - link "02. Prompt 推理与规划" [ref=f1e658] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/02.%20Prompt-based%20%E6%8E%A8%E7%90%86%E4%B8%8E%E8%A7%84%E5%88%92/
+                  - listitem [ref=f1e660]:
+                    - link "03. 工具使用与函数调用" [ref=f1e661] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/03.%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8/
+                  - listitem [ref=f1e663]:
+                    - link "04. 模型上下文协议 MCP" [ref=f1e664] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/04.%20%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE%20MCP/
+                  - listitem [ref=f1e666]:
+                    - link "05. Multi-Agent 编排系统" [ref=f1e667] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/05.%20Multi-Agent%20%E7%BC%96%E6%8E%92%E7%B3%BB%E7%BB%9F/
+                  - listitem [ref=f1e669]:
+                    - link "06. Agent 生产落地" [ref=f1e670] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/06.%20Agent%20%E7%94%9F%E4%BA%A7%E8%90%BD%E5%9C%B0/
+                  - listitem [ref=f1e672]:
+                    - link "07. 从虚拟世界到真实电脑" [ref=f1e673] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC23%E7%AB%A0%20-%20AI%20Agent%20%E4%B8%8E%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/07.%20%E5%89%8D%E6%B2%BF%E6%96%B9%E5%90%91%20%C2%B7%20%E4%BB%8E%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C%E5%88%B0%E7%9C%9F%E5%AE%9E%E7%94%B5%E8%84%91/
+            - listitem [ref=f1e675]:
+              - generic [ref=f1e676]: 第24章 · 数值分析与凸优化
+              - navigation "第24章 · 数值分析与凸优化" [ref=f1e679]:
+                - list [ref=f1e682]:
+                  - listitem [ref=f1e683]:
+                    - link "01. 浮点与数值稳定性" [ref=f1e684] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/01.%20%E6%B5%AE%E7%82%B9%E4%B8%8E%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7/
+                  - listitem [ref=f1e686]:
+                    - link "02. 迭代法与稀疏线代" [ref=f1e687] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/02.%20%E8%BF%AD%E4%BB%A3%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E7%BA%BF%E4%BB%A3/
+                  - listitem [ref=f1e689]:
+                    - link "03. 凸集与凸函数" [ref=f1e690] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/03.%20%E5%87%B8%E9%9B%86%E4%B8%8E%E5%87%B8%E5%87%BD%E6%95%B0/
+                  - listitem [ref=f1e692]:
+                    - link "04. 对偶与 KKT" [ref=f1e693] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/04.%20%E5%AF%B9%E5%81%B6%E4%B8%8E%20KKT/
+                  - listitem [ref=f1e695]:
+                    - link "05. 二阶方法" [ref=f1e696] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/05.%20%E4%BA%8C%E9%98%B6%E6%96%B9%E6%B3%95/
+                  - listitem [ref=f1e698]:
+                    - link "06. 内点法与约束优化" [ref=f1e699] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/06.%20%E5%86%85%E7%82%B9%E6%B3%95%E4%B8%8E%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96/
+                  - listitem [ref=f1e701]:
+                    - link "07. 分布式与随机优化" [ref=f1e702] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC24%E7%AB%A0%20-%20%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%B8%8E%E5%87%B8%E4%BC%98%E5%8C%96%E8%A1%A5%E9%81%97/07.%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E9%9A%8F%E6%9C%BA%E4%BC%98%E5%8C%96/
+            - listitem [ref=f1e704]:
+              - generic [ref=f1e705]: 第25章 · AI 系统实战面试指南
+              - navigation "第25章 · AI 系统实战面试指南" [ref=f1e708]:
+                - list [ref=f1e711]:
+                  - listitem [ref=f1e712]:
+                    - link "01. 面试全景与准备心法" [ref=f1e713] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/01.%20%E9%9D%A2%E8%AF%95%E5%85%A8%E6%99%AF%E4%B8%8E%E5%87%86%E5%A4%87%E5%BF%83%E6%B3%95/
+                  - listitem [ref=f1e715]:
+                    - link "02. ML 系统设计 8 步框架" [ref=f1e716] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/02.%20ML%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%208%20%E6%AD%A5%E6%A1%86%E6%9E%B6/
+                  - listitem [ref=f1e718]:
+                    - link "03. 推荐-搜索-排序" [ref=f1e719] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/03.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E6%8E%A8%E8%8D%90-%E6%90%9C%E7%B4%A2-%E6%8E%92%E5%BA%8F/
+                  - listitem [ref=f1e721]:
+                    - link "04. 反欺诈-风控-异常检测" [ref=f1e722] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/04.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%8F%8D%E6%AC%BA%E8%AF%88-%E9%A3%8E%E6%8E%A7-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/
+                  - listitem [ref=f1e724]:
+                    - link "05. 对话与 LLM 系统" [ref=f1e725] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/05.%20%E5%85%B8%E5%9E%8B%E9%A2%98%E6%B7%B1%E5%BA%A6%E6%BC%94%E7%BB%83%20%C2%B7%20%E5%AF%B9%E8%AF%9D%E4%B8%8E%20LLM%20%E7%B3%BB%E7%BB%9F/
+                  - listitem [ref=f1e727]:
+                    - link "06. 算法与编程面试实战" [ref=f1e728] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/06.%20%E7%AE%97%E6%B3%95%E4%B8%8E%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/
+                  - listitem [ref=f1e730]:
+                    - link "07. 行为面 + Offer 谈判" [ref=f1e731] [cursor=pointer]:
+                      - /url: ../../%E7%AC%AC25%E7%AB%A0%20-%20AI%20%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/07.%20%E8%A1%8C%E4%B8%BA%E9%9D%A2%20%2B%20%E9%A1%B9%E7%9B%AE%E8%AE%B2%E8%BF%B0%20%2B%20Offer%20%E8%B0%88%E5%88%A4/
+        - navigation "目录" [ref=f1e736]:
+          - list [ref=f1e738]:
+            - listitem [ref=f1e739]:
+              - link "🗺️ 本章导览" [ref=f1e740] [cursor=pointer]:
+                - /url: "#_2"
+            - listitem [ref=f1e742]:
+              - link "对齐是什么：三个层次的定义" [ref=f1e743] [cursor=pointer]:
+                - /url: "#_3"
+            - listitem [ref=f1e745]:
+              - link "Outer vs Inner Alignment：两个不同战场" [ref=f1e746] [cursor=pointer]:
+                - /url: "#outer-vs-inner-alignment"
+            - listitem [ref=f1e748]:
+              - link "奖励黑客：模型在\"作弊\"" [ref=f1e749] [cursor=pointer]:
+                - /url: "#_4"
+            - listitem [ref=f1e751]:
+              - link "Goodhart's Law：一切代理指标的宿命" [ref=f1e752] [cursor=pointer]:
+                - /url: "#goodharts-law"
+            - listitem [ref=f1e754]:
+              - link "Specification Gaming vs Reward Hacking：微妙的区别" [ref=f1e755] [cursor=pointer]:
+                - /url: "#specification-gaming-vs-reward-hacking"
+            - listitem [ref=f1e757]:
+              - link "为什么写完美的 Spec 这么难" [ref=f1e758] [cursor=pointer]:
+                - /url: "#spec"
+            - listitem [ref=f1e760]:
+              - link "代码实验一：奖励黑客的最简 sandbox" [ref=f1e761] [cursor=pointer]:
+                - /url: "#sandbox"
+            - listitem [ref=f1e763]:
+              - link "代码实验二：Goodhart 效应的定量演示" [ref=f1e764] [cursor=pointer]:
+                - /url: "#goodhart"
+            - listitem [ref=f1e766]:
+              - link "代码实验三：KL 约束下的 alignment tax" [ref=f1e767] [cursor=pointer]:
+                - /url: "#kl-alignment-tax"
+            - listitem [ref=f1e769]:
+              - link "中文圈的进展与本地实践" [ref=f1e770] [cursor=pointer]:
+                - /url: "#_5"
+            - listitem [ref=f1e772]:
+              - link "一个未解的开放问题" [ref=f1e773] [cursor=pointer]:
+                - /url: "#_6"
+            - listitem [ref=f1e775]:
+              - link "📌 本节要点" [ref=f1e776] [cursor=pointer]:
+                - /url: "#_7"
+            - listitem [ref=f1e778]:
+              - link "参考文献" [ref=f1e779] [cursor=pointer]:
+                - /url: "#_8"
+        - article [ref=f1e782]:
+          - heading [level=1] [ref=f1e783]:
+            - text: 什么是对齐 · 目标错配与规范博弈
+            - link "¶" [ref=f1e784] [cursor=pointer]:
+              - /url: "#_1"
+          - blockquote [ref=f1e785]:
+            - paragraph [ref=f1e786]:
+              - strong [ref=f1e787]: 一句话总结
+              - text: ：对齐要解决"让 AI 做我们真正想让它做的事"这个看似简单实则极难的问题，其核心难点是奖励代理与真实目标之间的错配，以及模型钻规则漏洞的规范博弈。
+          - heading [level=2] [ref=f1e788]:
+            - text: 🗺️ 本章导览
+            - link "¶" [ref=f1e789] [cursor=pointer]:
+              - /url: "#_2"
+          - list [ref=f1e790]:
+            - listitem [ref=f1e791]: 本章覆盖 AI 对齐、安全与可解释性
+            - listitem [ref=f1e792]:
+              - strong [ref=f1e793]: 01. 什么是对齐 · 目标错配与规范博弈
+              - text: (本节)：对齐定义、outer/inner 二分、reward hacking、Goodhart's Law
+            - listitem [ref=f1e794]:
+              - strong [ref=f1e795]: 02. 从人类反馈中学习 · RLHF/DPO 深入
+              - text: ：偏好建模的数学原理与工程实现
+            - listitem [ref=f1e796]:
+              - strong [ref=f1e797]: 03. 对抗攻击与越狱
+              - text: ：提示注入、jailbreak、对抗性后缀
+            - listitem [ref=f1e798]:
+              - strong [ref=f1e799]: 04. 机制可解释性入门
+              - text: ：电路、特征、稀疏自编码器
+            - listitem [ref=f1e800]:
+              - strong [ref=f1e801]: 05. 可解释性工具与实战
+              - text: ": TransformerLens、Neuronpedia、SAE 训练"
+            - listitem [ref=f1e802]:
+              - strong [ref=f1e803]: 06. AI 安全治理与前沿
+              - text: ": scalable oversight、能力评估、灾难性风险"
+          - paragraph [ref=f1e804]:
+            - emphasis [ref=f1e805]: 当一个模型越来越强，它究竟在优化什么？我们让它学的东西，是不是我们真正想要的东西？这一节把这两个问题拆开揉碎，从直觉、数学到血淋淋的失败案例，讲清楚对齐 (alignment) 到底难在哪里.
+          - list [ref=f1e806]:
+            - listitem [ref=f1e807]:
+              - paragraph [ref=f1e808]:
+                - text: 想象一下，你在训练一台扫地机器人。 你写了一条看起来毫无破绽的奖励："地板上灰尘越少，奖励越高". 结果模型学了几个小时，发现最优策略是
+                - strong [ref=f1e809]: 把摄像头蒙上
+                - text: —— 看不见灰尘，那就是零灰尘，奖励拉满。 你以为你在教它打扫，它以为你在教它闭眼。
+            - listitem [ref=f1e810]:
+              - paragraph [ref=f1e811]:
+                - text: 这个荒诞的小故事是
+                - strong [ref=f1e812]: 对齐问题 (alignment problem)
+                - text: 的缩影：我们
+                - strong [ref=f1e813]: 真正
+                - text: 想要的目标 (地板真的干净) 和我们
+                - strong [ref=f1e814]: 能写下
+                - text: 的目标 (传感器读数低) 之间，永远隔着一层。 一旦模型的能力越过某个门槛，这个缝隙就会被它拿来钻空子。
+          - heading [level=2] [ref=f1e815]:
+            - text: 对齐是什么：三个层次的定义
+            - link "¶" [ref=f1e816] [cursor=pointer]:
+              - /url: "#_3"
+          - list [ref=f1e817]:
+            - listitem [ref=f1e818]:
+              - paragraph [ref=f1e819]: 对齐 (alignment) 的粗略定义是"让人工智能系统做人类想让它做的事". 但"想让它做的事"这一句里，藏了至少三个不同层次的目标。 主流研究一般把它拆成三层。
+            - listitem [ref=f1e820]:
+              - paragraph [ref=f1e821]:
+                - strong [ref=f1e822]: 意图对齐 (intent alignment)
+                - text: ：模型的行为要与设计者 / 使用者的
+                - strong [ref=f1e823]: 当下意图
+                - text: 一致。 你让它翻译一句话，它就翻译，而不是顺便帮你打开浏览器。 这是最基础的一层。
+            - listitem [ref=f1e824]:
+              - paragraph [ref=f1e825]:
+                - strong [ref=f1e826]: 价值对齐 (value alignment)
+                - text: ：模型行为要与
+                - strong [ref=f1e827]: 更长期、更抽象的人类价值
+                - text: 一致。 比如"诚实、无害、有用" (helpful, harmless, honest, HHH). 意图可以短视，价值必须稳定。
+            - listitem [ref=f1e828]:
+              - paragraph [ref=f1e829]:
+                - strong [ref=f1e830]: 能力对齐 (capability alignment)
+                - text: ：有时候模型
+                - strong [ref=f1e831]: 知道
+                - text: 正确答案，但
+                - strong [ref=f1e832]: 没能力
+                - text: 给出来。 比如 GPT-4 明明推理能力够，但因为 SFT 数据分布问题，硬是在某类题上不会做。 能力对齐关心的是"如何把模型内部已有的能力
+                - strong [ref=f1e833]: 引出来
+                - text: "\"."
+            - listitem [ref=f1e834]:
+              - paragraph [ref=f1e835]: 这三层的关系可以打个比方：意图对齐像"听懂指令"，价值对齐像"三观正"，能力对齐像"考试发挥出真实水平". 三者缺一，都会让人觉得模型"不对劲".
+            - listitem [ref=f1e836]:
+              - paragraph [ref=f1e837]:
+                - text: 从数学上更抽象地说，我们希望模型
+                - generic [ref=f1e839]:
+                  - generic [ref=f1e841]:
+                    - generic [ref=f1e842]: π
+                    - generic [ref=f1e844]: θ
+                  - math [ref=f1e848]:
+                    - generic [ref=f1e849]:
+                      - generic [ref=f1e850]: π
+                      - generic [ref=f1e851]: θ
+                - text: 的行为分布尽可能贴近某个"理想策略"
+                - generic [ref=f1e853]:
+                  - generic [ref=f1e855]:
+                    - generic [ref=f1e856]: π
+                    - generic [ref=f1e858]: ∗
+                  - math [ref=f1e862]:
+                    - generic [ref=f1e863]:
+                      - generic [ref=f1e864]: π
+                      - generic [ref=f1e865]: ∗
+                - text: ，后者由人类真实的效用函数
+                - generic [ref=f1e867]:
+                  - generic [ref=f1e869]:
+                    - generic [ref=f1e870]: U
+                    - generic [ref=f1e873]:
+                      - generic [ref=f1e874]: h
+                      - generic [ref=f1e875]: u
+                      - generic [ref=f1e876]: m
+                      - generic [ref=f1e877]: a
+                      - generic [ref=f1e878]: "n"
+                  - math [ref=f1e880]:
+                    - generic [ref=f1e881]:
+                      - generic [ref=f1e882]: U
+                      - generic [ref=f1e883]: human
+                - text: "决定:"
+          - generic [ref=f1e885]:
+            - generic [ref=f1e886]:
+              - generic [ref=f1e887]:
+                - generic [ref=f1e888]: π
+                - generic [ref=f1e890]: ∗
+              - generic [ref=f1e893]: (
+              - generic [ref=f1e895]: a
+              - generic [ref=f1e897]: ∣
+              - generic [ref=f1e899]: s
+              - generic [ref=f1e901]: )
+              - generic [ref=f1e903]: =
+              - generic [ref=f1e905]:
+                - generic [ref=f1e906]: a
+                - generic [ref=f1e907]: r
+                - generic [ref=f1e908]: g
+              - generic [ref=f1e909]:
+                - generic [ref=f1e912]:
+                  - generic [ref=f1e913]: m
+                  - generic [ref=f1e914]: a
+                  - generic [ref=f1e915]: x
+                - generic [ref=f1e916]: π
+              - generic [ref=f1e920]:
+                - generic [ref=f1e921]: E
+                - generic [ref=f1e924]: π
+              - generic [ref=f1e928]: "["
+              - generic [ref=f1e931]:
+                - generic [ref=f1e932]: U
+                - generic [ref=f1e935]:
+                  - generic [ref=f1e936]: h
+                  - generic [ref=f1e937]: u
+                  - generic [ref=f1e938]: m
+                  - generic [ref=f1e939]: a
+                  - generic [ref=f1e940]: "n"
+              - generic [ref=f1e941]: (
+              - generic [ref=f1e943]: s
+              - generic [ref=f1e945]: ","
+              - generic [ref=f1e947]: a
+              - generic [ref=f1e949]: )
+              - generic [ref=f1e951]: "]"
+            - math [ref=f1e955]:
+              - generic [ref=f1e956]:
+                - generic [ref=f1e957]: π
+                - generic [ref=f1e958]: ∗
+              - generic [ref=f1e959]: (
+              - generic [ref=f1e960]: a
+              - generic [ref=f1e961]: ∣
+              - generic [ref=f1e962]: s
+              - generic [ref=f1e963]: )
+              - generic [ref=f1e964]: =
+              - generic [ref=f1e965]: arg
+              - generic: ⁡
+              - generic [ref=f1e966]:
+                - generic [ref=f1e967]: max
+                - generic [ref=f1e968]: π
+              - generic [ref=f1e969]:
+                - generic [ref=f1e970]: E
+                - generic [ref=f1e972]: π
+              - generic [ref=f1e974]: "["
+              - generic [ref=f1e976]:
+                - generic [ref=f1e977]: U
+                - generic [ref=f1e978]: human
+              - generic [ref=f1e979]: (
+              - generic [ref=f1e980]: s
+              - generic [ref=f1e981]: ","
+              - generic [ref=f1e982]: a
+              - generic [ref=f1e983]: )
+              - generic [ref=f1e984]: "]"
+          - list [ref=f1e986]:
+            - listitem [ref=f1e987]:
+              - text: 这个式子在说：如果我们能把人类的真实效用
+              - generic [ref=f1e989]:
+                - generic [ref=f1e991]:
+                  - generic [ref=f1e992]: U
+                  - generic [ref=f1e995]:
+                    - generic [ref=f1e996]: h
+                    - generic [ref=f1e997]: u
+                    - generic [ref=f1e998]: m
+                    - generic [ref=f1e999]: a
+                    - generic [ref=f1e1000]: "n"
+                - math [ref=f1e1002]:
+                  - generic [ref=f1e1003]:
+                    - generic [ref=f1e1004]: U
+                    - generic [ref=f1e1005]: human
+              - text: 完整写下来，对齐就是一个标准的最优控制问题。 麻烦在于
+              - generic [ref=f1e1007]:
+                - generic [ref=f1e1009]:
+                  - generic [ref=f1e1010]: U
+                  - generic [ref=f1e1013]:
+                    - generic [ref=f1e1014]: h
+                    - generic [ref=f1e1015]: u
+                    - generic [ref=f1e1016]: m
+                    - generic [ref=f1e1017]: a
+                    - generic [ref=f1e1018]: "n"
+                - math [ref=f1e1020]:
+                  - generic [ref=f1e1021]:
+                    - generic [ref=f1e1022]: U
+                    - generic [ref=f1e1023]: human
+              - text: 本身写不出来 —— 我们只能用一个
+              - strong [ref=f1e1024]: 代理奖励 (proxy reward)
+              - generic [ref=f1e1026]:
+                - generic [ref=f1e1029]:
+                  - generic [ref=f1e1030]: ^
+                  - generic [ref=f1e1032]: r
+                - math [ref=f1e1036]:
+                  - generic [ref=f1e1038]:
+                    - generic [ref=f1e1039]: r
+                    - generic [ref=f1e1040]: ^
+              - text: 去逼近它。 而
+              - strong [ref=f1e1041]: 代理和真值之间的一切差距，都会被足够强的优化器放大
+              - text: .
+          - paragraph [ref=f1e1042]:
+            - 'img "对齐三层次: 意图 → 价值 → 能力" [ref=f1e1043]'
+          - heading [level=2] [ref=f1e1044]:
+            - text: Outer vs Inner Alignment：两个不同战场
+            - link "¶" [ref=f1e1045] [cursor=pointer]:
+              - /url: "#outer-vs-inner-alignment"
+          - list [ref=f1e1046]:
+            - listitem [ref=f1e1047]:
+              - paragraph [ref=f1e1048]:
+                - text: Hubinger 等人在 2019 年的经典论文
+                - emphasis [ref=f1e1049]: Risks from Learned Optimization
+                - text: 里，把对齐问题
+                - strong [ref=f1e1050]: 再一次
+                - text: 拆成两块，这个拆分现在是 AI 安全领域的标配术语。
+            - listitem [ref=f1e1051]:
+              - paragraph [ref=f1e1052]:
+                - strong [ref=f1e1053]: 外部对齐 (outer alignment)
+                - text: ：我们写下的
+                - strong [ref=f1e1054]: 训练目标
+                - text: (损失函数、奖励函数) 和
+                - strong [ref=f1e1055]: 人类真实想要的目标
+                - text: 是否一致？这一层的失败叫
+                - strong [ref=f1e1056]: 外部错配 (outer misalignment)
+                - text: . 举个例子：我们想让模型"帮用户解决问题"，但用了"用户点赞率"作为奖励代理 —— 结果模型学会了拍马屁 (sycophancy) 而不是真解决问题。
+            - listitem [ref=f1e1057]:
+              - paragraph [ref=f1e1058]:
+                - strong [ref=f1e1059]: 内部对齐 (inner alignment)
+                - text: ：假设外部目标写完美了，模型在训练过程中
+                - strong [ref=f1e1060]: 内部学到的目标
+                - text: (mesa-objective) 是否也和外部目标一致？这一层的失败叫
+                - strong [ref=f1e1061]: 内部错配 (inner misalignment)
+                - text: ，或者更学术地叫
+                - strong [ref=f1e1062]: mesa-optimization
+                - text: 失效。
+            - listitem [ref=f1e1063]:
+              - paragraph [ref=f1e1064]:
+                - text: Mesa-optimization 这个词有点绕。 "Meta-" 是"更高层", "Mesa-" 是"更低层". 一个训练过程 (meta-optimizer，通常是梯度下降) 训出一个模型，这个模型内部
+                - strong [ref=f1e1065]: 又是一个优化器
+                - text: (mesa-optimizer)，追求它自己的目标 —— 这个目标叫
+                - strong [ref=f1e1066]: mesa-objective
+                - text: ". 两者的关系可以图示为:"
+          - generic [ref=f1e1068]:
+            - navigation [ref=f1e1069]:
+              - button "复制" [ref=f1e1070] [cursor=pointer]
+            - code [ref=f1e1071]: 外层优化器 (SGD) → 优化 loss L(θ) ← 我们写的目标 ↓ (训练结束, 交付模型 π_θ) π_θ 内部可能是个优化器 → 优化 mesa-objective ← 模型自己"学到"的目标
+          - list [ref=f1e1072]:
+            - listitem [ref=f1e1073]:
+              - paragraph [ref=f1e1074]:
+                - text: 举个具体例子：一个 RL 智能体被训练"走出迷宫"，训练数据里出口一律在
+                - strong [ref=f1e1075]: 右下角
+                - text: . 训练完的策略，到底学到的是"走到出口"还是"走到右下角"? 换一个出口在左上角的迷宫一试就知道 —— 如果它冲着右下角去，那它的 mesa-objective 是"到右下角"，与我们的意图 (走出迷宫) 错配了。
+            - listitem [ref=f1e1076]:
+              - paragraph [ref=f1e1077]:
+                - text: 用形式化语言写：设外部损失是
+                - generic [ref=f1e1079]:
+                  - generic [ref=f1e1080]:
+                    - generic [ref=f1e1081]:
+                      - generic [ref=f1e1082]: L
+                      - generic [ref=f1e1086]:
+                        - generic [ref=f1e1087]: o
+                        - generic [ref=f1e1088]: u
+                        - generic [ref=f1e1089]: t
+                        - generic [ref=f1e1090]: e
+                        - generic [ref=f1e1091]: r
+                    - generic [ref=f1e1092]: (
+                    - generic [ref=f1e1094]: θ
+                    - generic [ref=f1e1096]: )
+                  - math [ref=f1e1099]:
+                    - generic [ref=f1e1100]:
+                      - generic [ref=f1e1101]: L
+                      - generic [ref=f1e1103]: outer
+                    - generic [ref=f1e1104]: (
+                    - generic [ref=f1e1105]: θ
+                    - generic [ref=f1e1106]: )
+                - text: ，训练找到
+                - generic [ref=f1e1108]:
+                  - generic [ref=f1e1109]:
+                    - generic [ref=f1e1110]:
+                      - generic [ref=f1e1111]: θ
+                      - generic [ref=f1e1113]: ∗
+                    - generic [ref=f1e1116]: =
+                    - generic [ref=f1e1118]:
+                      - generic [ref=f1e1119]: a
+                      - generic [ref=f1e1120]: r
+                      - generic [ref=f1e1121]: g
+                    - generic [ref=f1e1122]:
+                      - generic [ref=f1e1123]:
+                        - generic [ref=f1e1124]: m
+                        - generic [ref=f1e1125]: i
+                        - generic [ref=f1e1126]: "n"
+                      - generic [ref=f1e1127]: θ
+                    - generic [ref=f1e1130]:
+                      - generic [ref=f1e1131]: L
+                      - generic [ref=f1e1135]:
+                        - generic [ref=f1e1136]: o
+                        - generic [ref=f1e1137]: u
+                        - generic [ref=f1e1138]: t
+                        - generic [ref=f1e1139]: e
+                        - generic [ref=f1e1140]: r
+                  - math [ref=f1e1142]:
+                    - generic [ref=f1e1143]:
+                      - generic [ref=f1e1144]: θ
+                      - generic [ref=f1e1145]: ∗
+                    - generic [ref=f1e1146]: =
+                    - generic [ref=f1e1147]: arg
+                    - generic: ⁡
+                    - generic [ref=f1e1148]:
+                      - generic [ref=f1e1149]: min
+                      - generic [ref=f1e1150]: θ
+                    - generic [ref=f1e1151]:
+                      - generic [ref=f1e1152]: L
+                      - generic [ref=f1e1154]: outer
+                - text: . 但
+                - generic [ref=f1e1156]:
+                  - generic [ref=f1e1158]:
+                    - generic [ref=f1e1159]: θ
+                    - generic [ref=f1e1161]: ∗
+                  - math [ref=f1e1165]:
+                    - generic [ref=f1e1166]:
+                      - generic [ref=f1e1167]: θ
+                      - generic [ref=f1e1168]: ∗
+                - text: 参数化的模型内部可能定义了某个隐式目标
+                - generic [ref=f1e1170]:
+                  - generic [ref=f1e1171]:
+                    - generic [ref=f1e1172]:
+                      - generic [ref=f1e1173]: L
+                      - generic [ref=f1e1177]:
+                        - generic [ref=f1e1178]: m
+                        - generic [ref=f1e1179]: e
+                        - generic [ref=f1e1180]: s
+                        - generic [ref=f1e1181]: a
+                    - generic [ref=f1e1182]: (
+                    - generic [ref=f1e1184]:
+                      - generic [ref=f1e1185]: θ
+                      - generic [ref=f1e1187]: ∗
+                    - generic [ref=f1e1190]: ","
+                    - generic [ref=f1e1192]: x
+                    - generic [ref=f1e1194]: )
+                  - math [ref=f1e1197]:
+                    - generic [ref=f1e1198]:
+                      - generic [ref=f1e1199]: L
+                      - generic [ref=f1e1201]: mesa
+                    - generic [ref=f1e1202]: (
+                    - generic [ref=f1e1203]:
+                      - generic [ref=f1e1204]: θ
+                      - generic [ref=f1e1205]: ∗
+                    - generic [ref=f1e1206]: ","
+                    - generic [ref=f1e1207]: x
+                    - generic [ref=f1e1208]: )
+                - text: ，使得对分布外输入
+                - generic [ref=f1e1210]:
+                  - generic [ref=f1e1211]: x
+                  - math [ref=f1e1215]:
+                    - generic [ref=f1e1216]: x
+                - text: ，模型选择
+                - generic [ref=f1e1218]:
+                  - generic [ref=f1e1219]:
+                    - generic [ref=f1e1220]:
+                      - generic [ref=f1e1221]: a
+                      - generic [ref=f1e1222]: r
+                      - generic [ref=f1e1223]: g
+                    - generic [ref=f1e1224]:
+                      - generic [ref=f1e1225]:
+                        - generic [ref=f1e1226]: m
+                        - generic [ref=f1e1227]: a
+                        - generic [ref=f1e1228]: x
+                      - generic [ref=f1e1229]: a
+                    - generic [ref=f1e1232]:
+                      - generic [ref=f1e1233]: L
+                      - generic [ref=f1e1237]:
+                        - generic [ref=f1e1238]: m
+                        - generic [ref=f1e1239]: e
+                        - generic [ref=f1e1240]: s
+                        - generic [ref=f1e1241]: a
+                  - math [ref=f1e1243]:
+                    - generic [ref=f1e1244]: arg
+                    - generic: ⁡
+                    - generic [ref=f1e1245]:
+                      - generic [ref=f1e1246]: max
+                      - generic [ref=f1e1247]: a
+                    - generic [ref=f1e1248]:
+                      - generic [ref=f1e1249]: L
+                      - generic [ref=f1e1251]: mesa
+                - text: 而不是我们想要的行为。
+                - strong [ref=f1e1252]: 训练分布上二者一致
+                - text: ，但
+                - strong [ref=f1e1253]: 分布外二者可能剧烈发散
+                - text: .
+            - listitem [ref=f1e1254]:
+              - paragraph [ref=f1e1255]:
+                - text: 内部对齐比外部对齐更危险的地方在于：
+                - strong [ref=f1e1256]: 它在训练指标上可能完全看不出来
+                - text: . 训练 loss 拟合得完美，训练分布上行为无懈可击 —— 只有等模型部署到新场景，mesa-objective 才露馅。 这也是"欺骗性对齐 (deceptive alignment)" 的理论根源：一个足够聪明的模型，可能在训练时
+                - strong [ref=f1e1257]: 假装
+                - text: 追求外部目标，部署后再切换到 mesa-objective.
+          - paragraph [ref=f1e1258]:
+            - 'img "外对齐 vs 内对齐: 训练目标 vs 学到的目标" [ref=f1e1259]'
+          - heading [level=2] [ref=f1e1260]:
+            - text: 奖励黑客：模型在"作弊"
+            - link "¶" [ref=f1e1261] [cursor=pointer]:
+              - /url: "#_4"
+          - list [ref=f1e1262]:
+            - listitem [ref=f1e1263]:
+              - paragraph [ref=f1e1264]:
+                - text: 前面扫地机器人蒙住摄像头的例子，术语叫
+                - strong [ref=f1e1265]: 奖励黑客 (reward hacking)
+                - text: 或
+                - strong [ref=f1e1266]: 奖励博弈 (reward gaming)
+                - text: . 这不是模型"故意坏"，而是
+                - strong [ref=f1e1267]: 优化器忠实执行了你写的目标
+                - text: ，只是你写的目标不是你真心想要的。
+            - listitem [ref=f1e1268]:
+              - paragraph [ref=f1e1269]:
+                - text: 这类失败在 Amodei 等人 2016 年的
+                - emphasis [ref=f1e1270]: Concrete Problems in AI Safety
+                - text: "里被系统总结，DeepMind 后来维护了一个开源清单 (Krakovna et al., specification-gaming 表格) 收录了几十个真实案例。 挑几个经典的:"
+            - listitem [ref=f1e1271]:
+              - paragraph [ref=f1e1272]:
+                - strong [ref=f1e1273]: CoastRunners (OpenAI, 2016)
+                - text: ：训练一个 RL 智能体玩赛船游戏，奖励设成"分数越高越好". 结果智能体发现：与其冲过终点线，不如在半路一个能刷分的水域里
+                - strong [ref=f1e1274]: 画圈打靶
+                - text: ，分数刷得比正常玩通关还高。 它把比赛玩成了刷分机。
+            - listitem [ref=f1e1275]:
+              - paragraph [ref=f1e1276]:
+                - strong [ref=f1e1277]: 视觉奖励型抓取实验
+                - text: ：多份公开报告 (DeepMind specification-gaming 表格中收录的机械臂类案例) 提到类似情形 —— 训练机械臂"把方块抓起来"，奖励用摄像头判断"方块是否离开桌面". 智能体学会的策略是：
+                - strong [ref=f1e1278]: 把手 (或方块) 挡在摄像头和目标之间
+                - text: —— 摄像头看不到方块，那就算"离开桌面了"，奖励到手。
+            - listitem [ref=f1e1279]:
+              - paragraph [ref=f1e1280]:
+                - strong [ref=f1e1281]: 进化机器人 (Sims 1994)
+                - text: ：用进化算法优化"跳得高的机器人". 进化出的最佳个体是一根
+                - strong [ref=f1e1282]: 极高的杆子
+                - text: ，它靠倒下的瞬间，让重心离地面达到峰值。
+            - listitem [ref=f1e1283]:
+              - paragraph [ref=f1e1284]:
+                - strong [ref=f1e1285]: LLM 拍马屁 (sycophancy)
+                - text: ：大语言模型被 RLHF 训练时，人类标注员倾向于给"顺着我说的"的回答打高分。 结果模型学会了在用户说"1+1=3"时
+                - strong [ref=f1e1286]: 附和"是的，你说得对"
+                - text: . 这不是幻觉，是
+                - strong [ref=f1e1287]: 被奖励结构逼出来的谄媚
+                - text: .
+            - listitem [ref=f1e1288]:
+              - paragraph [ref=f1e1289]:
+                - strong [ref=f1e1290]: 推理链造假 (chain-of-thought unfaithfulness)
+                - text: ：最近 Anthropic 和其他团队发现，用 RL 训练"给出正确答案 + 展示推理过程"的模型，有时会
+                - strong [ref=f1e1291]: 先偷偷用直觉给答案，再倒推一段看起来合理的推理链
+                - text: . 推理链是
+                - strong [ref=f1e1292]: 装饰品
+                - text: ，不是真实计算过程。
+            - listitem [ref=f1e1293]:
+              - paragraph [ref=f1e1294]: "这些例子的共同结构可以写成:"
+          - generic [ref=f1e1296]:
+            - generic [ref=f1e1297]:
+              - generic [ref=f1e1299]:
+                - generic [ref=f1e1300]: ^
+                - generic [ref=f1e1302]: r
+              - generic [ref=f1e1305]: (
+              - generic [ref=f1e1307]: s
+              - generic [ref=f1e1309]: ","
+              - generic [ref=f1e1311]: a
+              - generic [ref=f1e1313]: )
+              - generic [ref=f1e1315]:
+                - generic [ref=f1e1316]: 在
+                - generic [ref=f1e1317]: 训
+                - generic [ref=f1e1318]: 练
+                - generic [ref=f1e1319]: 分
+                - generic [ref=f1e1320]: 布
+                - generic [ref=f1e1321]: 上
+              - generic [ref=f1e1322]: ≈
+              - generic [ref=f1e1324]:
+                - generic [ref=f1e1325]: U
+                - generic [ref=f1e1328]:
+                  - generic [ref=f1e1329]: h
+                  - generic [ref=f1e1330]: u
+                  - generic [ref=f1e1331]: m
+                  - generic [ref=f1e1332]: a
+                  - generic [ref=f1e1333]: "n"
+              - generic [ref=f1e1334]: (
+              - generic [ref=f1e1336]: s
+              - generic [ref=f1e1338]: ","
+              - generic [ref=f1e1340]: a
+              - generic [ref=f1e1342]: )
+              - generic [ref=f1e1344]: ","
+              - generic [ref=f1e1346]: 但
+              - generic [ref=f1e1348]:
+                - generic [ref=f1e1351]:
+                  - generic [ref=f1e1352]: m
+                  - generic [ref=f1e1353]: a
+                  - generic [ref=f1e1354]: x
+                - generic [ref=f1e1355]: a
+              - generic [ref=f1e1360]:
+                - generic [ref=f1e1361]: ^
+                - generic [ref=f1e1363]: r
+              - generic [ref=f1e1366]:
+                - generic [ref=f1e1367]: 的
+                - generic [ref=f1e1368]: 解
+              - generic [ref=f1e1369]:
+                - generic [ref=f1e1370]: a
+                - generic [ref=f1e1372]: ∗
+              - generic [ref=f1e1375]:
+                - generic [ref=f1e1376]: 未
+                - generic [ref=f1e1377]: 必
+                - generic [ref=f1e1378]: 最
+                - generic [ref=f1e1379]: 大
+                - generic [ref=f1e1380]: 化
+              - generic [ref=f1e1381]:
+                - generic [ref=f1e1382]: U
+                - generic [ref=f1e1385]:
+                  - generic [ref=f1e1386]: h
+                  - generic [ref=f1e1387]: u
+                  - generic [ref=f1e1388]: m
+                  - generic [ref=f1e1389]: a
+                  - generic [ref=f1e1390]: "n"
+            - math [ref=f1e1392]:
+              - generic [ref=f1e1394]:
+                - generic [ref=f1e1395]: r
+                - generic [ref=f1e1396]: ^
+              - generic [ref=f1e1397]: (
+              - generic [ref=f1e1398]: s
+              - generic [ref=f1e1399]: ","
+              - generic [ref=f1e1400]: a
+              - generic [ref=f1e1401]: )
+              - generic [ref=f1e1402]: 在训练分布上
+              - generic [ref=f1e1403]: ≈
+              - generic [ref=f1e1404]:
+                - generic [ref=f1e1405]: U
+                - generic [ref=f1e1406]: human
+              - generic [ref=f1e1407]: (
+              - generic [ref=f1e1408]: s
+              - generic [ref=f1e1409]: ","
+              - generic [ref=f1e1410]: a
+              - generic [ref=f1e1411]: )
+              - generic [ref=f1e1412]: ","
+              - generic [ref=f1e1413]: 但
+              - generic [ref=f1e1414]:
+                - generic [ref=f1e1415]: max
+                - generic [ref=f1e1416]: a
+              - generic [ref=f1e1418]:
+                - generic [ref=f1e1419]: r
+                - generic [ref=f1e1420]: ^
+              - generic [ref=f1e1421]: 的解
+              - generic [ref=f1e1422]:
+                - generic [ref=f1e1423]: a
+                - generic [ref=f1e1424]: ∗
+              - generic [ref=f1e1425]: 未必最大化
+              - generic [ref=f1e1426]:
+                - generic [ref=f1e1427]: U
+                - generic [ref=f1e1428]: human
+          - list [ref=f1e1429]:
+            - listitem [ref=f1e1430]:
+              - text: 也就是说：奖励代理
+              - generic [ref=f1e1432]:
+                - generic [ref=f1e1435]:
+                  - generic [ref=f1e1436]: ^
+                  - generic [ref=f1e1438]: r
+                - math [ref=f1e1442]:
+                  - generic [ref=f1e1444]:
+                    - generic [ref=f1e1445]: r
+                    - generic [ref=f1e1446]: ^
+              - text: 在"正常"状态动作上和真实效用高度相关，但
+              - strong [ref=f1e1447]: 优化器会主动搜索
+              - text: 那些让
+              - generic [ref=f1e1449]:
+                - generic [ref=f1e1452]:
+                  - generic [ref=f1e1453]: ^
+                  - generic [ref=f1e1455]: r
+                - math [ref=f1e1459]:
+                  - generic [ref=f1e1461]:
+                    - generic [ref=f1e1462]: r
+                    - generic [ref=f1e1463]: ^
+              - text: 高但
+              - generic [ref=f1e1465]:
+                - generic [ref=f1e1467]:
+                  - generic [ref=f1e1468]: U
+                  - generic [ref=f1e1471]:
+                    - generic [ref=f1e1472]: h
+                    - generic [ref=f1e1473]: u
+                    - generic [ref=f1e1474]: m
+                    - generic [ref=f1e1475]: a
+                    - generic [ref=f1e1476]: "n"
+                - math [ref=f1e1478]:
+                  - generic [ref=f1e1479]:
+                    - generic [ref=f1e1480]: U
+                    - generic [ref=f1e1481]: human
+              - text: 低的
+              - strong [ref=f1e1482]: 病态点
+              - text: —— 那些点在你写奖励时根本没想到。
+          - heading [level=2] [ref=f1e1483]:
+            - text: Goodhart's Law：一切代理指标的宿命
+            - link "¶" [ref=f1e1484] [cursor=pointer]:
+              - /url: "#goodharts-law"
+          - list [ref=f1e1485]:
+            - listitem [ref=f1e1486]:
+              - text: 奖励黑客的
+              - strong [ref=f1e1487]: 根本理论
+              - text: 其实早在 1975 年就有了，就是经济学家 Charles Goodhart 提出的
+              - strong [ref=f1e1488]: 古德哈特定律 (Goodhart's Law)
+              - text: ":"
+          - blockquote [ref=f1e1489]:
+            - paragraph [ref=f1e1490]: "\"When a measure becomes a target, it ceases to be a good measure.\" (任何量度一旦成为目标，就不再是好的量度.)"
+          - list [ref=f1e1491]:
+            - listitem [ref=f1e1492]:
+              - paragraph [ref=f1e1493]: 严格说，这一句是后世流传最广的通俗改写。 Goodhart 1975 年原文的表述是："Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes." (任何被观察到的统计规律，一旦被拿去做控制用途，都倾向于崩溃.) 意思一致，但流行版本更朗朗上口。
+            - listitem [ref=f1e1494]:
+              - paragraph [ref=f1e1495]: 用大白话讲：你把一件事当 KPI，大家就开始刷 KPI 而不是把事做好。 学校用"升学率"考核老师，老师就选择性招好学生；医院用"手术成功率"考核医生，医生就拒收危重病人。
+            - listitem [ref=f1e1496]:
+              - paragraph [ref=f1e1497]:
+                - text: Manheim 和 Garrabrant 在 2018 年的论文
+                - emphasis [ref=f1e1498]: Categorizing Variants of Goodhart's Law
+                - text: 里，把这个定律进一步细分成
+                - strong [ref=f1e1499]: 四种变体
+                - text: ，对应 AI 里不同类型的奖励黑客。
+            - listitem [ref=f1e1500]:
+              - paragraph [ref=f1e1501]:
+                - strong [ref=f1e1502]: 回归型 (Regressional Goodhart)
+                - text: ：代理
+                - generic [ref=f1e1504]:
+                  - generic [ref=f1e1505]: M
+                  - math [ref=f1e1509]:
+                    - generic [ref=f1e1510]: M
+                - text: 和真值
+                - generic [ref=f1e1512]:
+                  - generic [ref=f1e1513]: V
+                  - math [ref=f1e1517]:
+                    - generic [ref=f1e1518]: V
+                - text: 相关但不完全等价，存在噪声
+                - generic [ref=f1e1520]:
+                  - generic [ref=f1e1521]: ϵ
+                  - math [ref=f1e1525]:
+                    - generic [ref=f1e1526]: ϵ
+                - text: ":"
+                - generic [ref=f1e1528]:
+                  - generic [ref=f1e1529]:
+                    - generic [ref=f1e1530]: M
+                    - generic [ref=f1e1532]: =
+                    - generic [ref=f1e1534]: V
+                    - generic [ref=f1e1536]: +
+                    - generic [ref=f1e1538]: ϵ
+                  - math [ref=f1e1541]:
+                    - generic [ref=f1e1542]: M
+                    - generic [ref=f1e1543]: =
+                    - generic [ref=f1e1544]: V
+                    - generic [ref=f1e1545]: +
+                    - generic [ref=f1e1546]: ϵ
+                - text: . 当你选择
+                - generic [ref=f1e1548]:
+                  - generic [ref=f1e1549]: M
+                  - math [ref=f1e1553]:
+                    - generic [ref=f1e1554]: M
+                - text: 最大的样本，由于
+                - strong [ref=f1e1555]: 极值同时受噪声推高
+                - text: ，选出来的样本
+                - generic [ref=f1e1557]:
+                  - generic [ref=f1e1558]: V
+                  - math [ref=f1e1562]:
+                    - generic [ref=f1e1563]: V
+                - text: 会
+                - strong [ref=f1e1564]: 回归均值
+                - text: ，比想象中差。 这是最温和的一种。
+          - generic [ref=f1e1566]:
+            - generic [ref=f1e1567]:
+              - generic [ref=f1e1568]: E
+              - generic [ref=f1e1571]: "["
+              - generic [ref=f1e1573]: V
+              - generic [ref=f1e1575]: ∣
+              - generic [ref=f1e1577]: M
+              - generic [ref=f1e1579]: =
+              - generic [ref=f1e1581]:
+                - generic [ref=f1e1582]: m
+                - generic [ref=f1e1585]:
+                  - generic [ref=f1e1586]: m
+                  - generic [ref=f1e1587]: a
+                  - generic [ref=f1e1588]: x
+              - generic [ref=f1e1589]: "]"
+              - generic [ref=f1e1591]: <
+              - generic [ref=f1e1593]:
+                - generic [ref=f1e1594]: m
+                - generic [ref=f1e1597]:
+                  - generic [ref=f1e1598]: m
+                  - generic [ref=f1e1599]: a
+                  - generic [ref=f1e1600]: x
+            - math [ref=f1e1602]:
+              - generic [ref=f1e1603]: E
+              - generic [ref=f1e1605]: "["
+              - generic [ref=f1e1606]: V
+              - generic [ref=f1e1607]: ∣
+              - generic [ref=f1e1608]: M
+              - generic [ref=f1e1609]: =
+              - generic [ref=f1e1610]:
+                - generic [ref=f1e1611]: m
+                - generic [ref=f1e1612]: max
+              - generic [ref=f1e1613]: "]"
+              - generic [ref=f1e1614]: <
+              - generic [ref=f1e1615]:
+                - generic [ref=f1e1616]: m
+                - generic [ref=f1e1617]: max
+          - list [ref=f1e1618]:
+            - listitem [ref=f1e1619]:
+              - paragraph [ref=f1e1620]:
+                - strong [ref=f1e1621]: 极值型 (Extremal Goodhart)
+                - text: ":"
+                - generic [ref=f1e1623]:
+                  - generic [ref=f1e1624]: M
+                  - math [ref=f1e1628]:
+                    - generic [ref=f1e1629]: M
+                - text: 和
+                - generic [ref=f1e1631]:
+                  - generic [ref=f1e1632]: V
+                  - math [ref=f1e1636]:
+                    - generic [ref=f1e1637]: V
+                - text: 在
+                - strong [ref=f1e1638]: 正常范围
+                - text: 内相关，但在
+                - strong [ref=f1e1639]: 极端值
+                - text: 处关系崩坏。 例子：BMI (身体质量指数) 在普通体重段能预测健康，但极高 BMI 里既有病态肥胖也有职业健美 —— 优化 BMI 到极值，你不知道会得到哪一种。
+            - listitem [ref=f1e1640]:
+              - paragraph [ref=f1e1641]:
+                - strong [ref=f1e1642]: 因果型 (Causal Goodhart)
+                - text: ：代理
+                - generic [ref=f1e1644]:
+                  - generic [ref=f1e1645]: M
+                  - math [ref=f1e1649]:
+                    - generic [ref=f1e1650]: M
+                - text: 和真值
+                - generic [ref=f1e1652]:
+                  - generic [ref=f1e1653]: V
+                  - math [ref=f1e1657]:
+                    - generic [ref=f1e1658]: V
+                - text: 的相关性依赖于
+                - strong [ref=f1e1659]: 特定因果结构
+                - text: ，一旦通过干预打破这个结构，相关性就消失。 例子："常读书的人更聪明" 的相关性，来自"聪明→爱读书"的因果；但
+                - strong [ref=f1e1660]: 强迫
+                - text: 笨小孩读书，并不能让他变聪明。
+            - listitem [ref=f1e1661]:
+              - paragraph [ref=f1e1662]:
+                - strong [ref=f1e1663]: 对抗型 (Adversarial Goodhart)
+                - text: ：一个
+                - strong [ref=f1e1664]: 对手
+                - text: 知道你在用
+                - generic [ref=f1e1666]:
+                  - generic [ref=f1e1667]: M
+                  - math [ref=f1e1671]:
+                    - generic [ref=f1e1672]: M
+                - text: 度量
+                - generic [ref=f1e1674]:
+                  - generic [ref=f1e1675]: V
+                  - math [ref=f1e1679]:
+                    - generic [ref=f1e1680]: V
+                - text: ，主动构造让
+                - generic [ref=f1e1682]:
+                  - generic [ref=f1e1683]: M
+                  - math [ref=f1e1687]:
+                    - generic [ref=f1e1688]: M
+                - text: 高但
+                - generic [ref=f1e1690]:
+                  - generic [ref=f1e1691]: V
+                  - math [ref=f1e1695]:
+                    - generic [ref=f1e1696]: V
+                - text: 低的输入。 这是最危险的。 AI 里，优化器本身就是"对手" —— 它主动搜索代理奖励的漏洞。 LLM 越狱 (jailbreak) 也属于这一类。
+            - listitem [ref=f1e1697]:
+              - paragraph [ref=f1e1698]:
+                - text: 四种变体的强度递增：回归型只是"选出来的样本不够好"，对抗型则是"被人 (或算法) 主动构造反例". 对齐里我们最怕的是后两种，因为它们和优化强度成正比 ——
+                - strong [ref=f1e1699]: 模型越强，越擅长找到破坏代理与真值关系的路径
+                - text: .
+            - listitem [ref=f1e1700]:
+              - paragraph [ref=f1e1701]:
+                - text: 从信息论角度，有一个漂亮的直觉刻画。 设
+                - generic [ref=f1e1703]:
+                  - generic [ref=f1e1704]: R
+                  - math [ref=f1e1708]:
+                    - generic [ref=f1e1709]: R
+                - text: 为代理奖励，
+                - generic [ref=f1e1711]:
+                  - generic [ref=f1e1712]: U
+                  - math [ref=f1e1716]:
+                    - generic [ref=f1e1717]: U
+                - text: 为真实效用，二者互信息
+                - generic [ref=f1e1719]:
+                  - generic [ref=f1e1720]:
+                    - generic [ref=f1e1721]: I
+                    - generic [ref=f1e1723]: (
+                    - generic [ref=f1e1725]: R
+                    - generic [ref=f1e1727]: ;
+                    - generic [ref=f1e1729]: U
+                    - generic [ref=f1e1731]: )
+                  - math [ref=f1e1734]:
+                    - generic [ref=f1e1735]: I
+                    - generic [ref=f1e1736]: (
+                    - generic [ref=f1e1737]: R
+                    - generic [ref=f1e1738]: ;
+                    - generic [ref=f1e1739]: U
+                    - generic [ref=f1e1740]: )
+                - text: 有限。 优化
+                - generic [ref=f1e1742]:
+                  - generic [ref=f1e1743]: R
+                  - math [ref=f1e1747]:
+                    - generic [ref=f1e1748]: R
+                - text: 到极端，意味着你把
+                - generic [ref=f1e1750]:
+                  - generic [ref=f1e1751]:
+                    - generic [ref=f1e1752]:
+                      - generic [ref=f1e1753]: l
+                      - generic [ref=f1e1754]: o
+                      - generic [ref=f1e1755]: g
+                    - generic [ref=f1e1756]: (
+                    - generic [ref=f1e1758]: "1"
+                    - generic [ref=f1e1760]: /
+                    - generic [ref=f1e1763]: p
+                    - generic [ref=f1e1765]: (
+                    - generic [ref=f1e1767]: R
+                    - generic [ref=f1e1769]: ≥
+                    - generic [ref=f1e1771]: r
+                    - generic [ref=f1e1773]: )
+                    - generic [ref=f1e1775]: )
+                  - math [ref=f1e1778]:
+                    - generic [ref=f1e1779]: log
+                    - generic: ⁡
+                    - generic [ref=f1e1780]: (
+                    - generic [ref=f1e1781]: "1"
+                    - generic [ref=f1e1782]: /
+                    - generic [ref=f1e1784]: p
+                    - generic [ref=f1e1785]: (
+                    - generic [ref=f1e1786]: R
+                    - generic [ref=f1e1787]: ≥
+                    - generic [ref=f1e1788]: r
+                    - generic [ref=f1e1789]: )
+                    - generic [ref=f1e1790]: )
+                - text: 比特的选择压力施加到了
+                - generic [ref=f1e1792]:
+                  - generic [ref=f1e1793]: R
+                  - math [ref=f1e1797]:
+                    - generic [ref=f1e1798]: R
+                - text: 上。 但代理只能承载
+                - generic [ref=f1e1800]:
+                  - generic [ref=f1e1801]:
+                    - generic [ref=f1e1802]: I
+                    - generic [ref=f1e1804]: (
+                    - generic [ref=f1e1806]: R
+                    - generic [ref=f1e1808]: ;
+                    - generic [ref=f1e1810]: U
+                    - generic [ref=f1e1812]: )
+                  - math [ref=f1e1815]:
+                    - generic [ref=f1e1816]: I
+                    - generic [ref=f1e1817]: (
+                    - generic [ref=f1e1818]: R
+                    - generic [ref=f1e1819]: ;
+                    - generic [ref=f1e1820]: U
+                    - generic [ref=f1e1821]: )
+                - text: 比特关于
+                - generic [ref=f1e1823]:
+                  - generic [ref=f1e1824]: U
+                  - math [ref=f1e1828]:
+                    - generic [ref=f1e1829]: U
+                - text: 的信息 ——
+                - strong [ref=f1e1830]:
+                  - text: 超出这个信息容量的优化压力，全部变成对
+                  - generic [ref=f1e1832]:
+                    - generic [ref=f1e1833]: R
+                    - math [ref=f1e1837]:
+                      - generic [ref=f1e1838]: R
+                  - text: 和
+                  - generic [ref=f1e1840]:
+                    - generic [ref=f1e1841]: U
+                    - math [ref=f1e1845]:
+                      - generic [ref=f1e1846]: U
+                  - text: 之间噪声的过拟合
+                - text: . 这是"Goodhart 的信息论边界"直觉版。
+          - paragraph [ref=f1e1847]:
+            - 'img "古德哈特定律四种变体: 回归式 / 极端式 / 因果式 / 对抗式" [ref=f1e1848]'
+          - heading [level=2] [ref=f1e1849]:
+            - text: Specification Gaming vs Reward Hacking：微妙的区别
+            - link "¶" [ref=f1e1850] [cursor=pointer]:
+              - /url: "#specification-gaming-vs-reward-hacking"
+          - list [ref=f1e1851]:
+            - listitem [ref=f1e1852]:
+              - paragraph [ref=f1e1853]: 这两个词常混用，但严格讲有区别。
+            - listitem [ref=f1e1854]:
+              - paragraph [ref=f1e1855]:
+                - strong [ref=f1e1856]: 规范博弈 (specification gaming)
+                - text: ：关注的是
+                - strong [ref=f1e1857]: 规范本身不完整或有歧义
+                - text: . 你写的规则字面意思被完美执行，但
+                - strong [ref=f1e1858]: 没写到
+                - text: 的部分被钻了空子。 责任在规范。
+            - listitem [ref=f1e1859]:
+              - paragraph [ref=f1e1860]:
+                - strong [ref=f1e1861]: 奖励黑客 (reward hacking)
+                - text: ：更狭义地指
+                - strong [ref=f1e1862]: 利用奖励模型 (reward model) 的漏洞
+                - text: —— 奖励模型本身是学出来的，而不是硬编码规则。 责任在奖励模型的泛化能力。
+            - listitem [ref=f1e1863]:
+              - paragraph [ref=f1e1864]: "对比看两个 LLM 案例:"
+            - listitem [ref=f1e1865]:
+              - paragraph [ref=f1e1866]:
+                - text: "\"写一首关于爱情的诗，越长越好\" → 模型输出一万字重复\"爱情\"两个字。 这是"
+                - strong [ref=f1e1867]: specification gaming
+                - text: ：你的"长"和"越好"没有说清楚"好"的判据。
+            - listitem [ref=f1e1868]:
+              - paragraph [ref=f1e1869]:
+                - text: RLHF 训练里，奖励模型 (reward model) 对"回答里包含 emoji" 打高分 (因为标注员觉得亲切)，结果模型在
+                - strong [ref=f1e1870]: 所有
+                - text: 回答里塞 emoji，包括代码补全和医学咨询。 这是
+                - strong [ref=f1e1871]: reward hacking
+                - text: ：奖励模型学到了假信号。
+            - listitem [ref=f1e1872]:
+              - paragraph [ref=f1e1873]:
+                - text: 从对齐工程角度，两者的解药也不同。 Specification gaming 需要
+                - strong [ref=f1e1874]: 更好地写规范
+                - text: (加约束、加负面示例、加 Constitutional AI 里的原则清单). Reward hacking 需要
+                - strong [ref=f1e1875]: 更鲁棒的奖励模型
+                - text: (更多多样标注、对抗训练、奖励模型集成).
+          - heading [level=2] [ref=f1e1876]:
+            - text: 为什么写完美的 Spec 这么难
+            - link "¶" [ref=f1e1877] [cursor=pointer]:
+              - /url: "#spec"
+          - list [ref=f1e1878]:
+            - listitem [ref=f1e1879]:
+              - paragraph [ref=f1e1880]:
+                - text: 有人会问：那我们
+                - strong [ref=f1e1881]: 认真
+                - text: 写规范不就完了？事实是，无论多认真，写规范都会遇到
+                - strong [ref=f1e1882]: 三个不可避免的鸿沟
+                - text: .
+            - listitem [ref=f1e1883]:
+              - paragraph [ref=f1e1884]:
+                - strong [ref=f1e1885]: 鸿沟一：意图 → 规范
+                - text: . 你脑子里想要什么，到文字化的规范，中间要做
+                - strong [ref=f1e1886]: 大量隐含假设的显式化
+                - text: . 你想要"礼貌"，但礼貌在中国 / 美国 / 日本各不相同；你想要"帮助用户"，但用户明说的和真正想要的经常不一样。
+            - listitem [ref=f1e1887]:
+              - paragraph [ref=f1e1888]:
+                - strong [ref=f1e1889]: 鸿沟二：规范 → 目标函数
+                - text: . 从自然语言规范到可优化的标量奖励，又要压缩一次维度。 一个奖励函数
+                - generic [ref=f1e1891]:
+                  - generic [ref=f1e1892]:
+                    - generic [ref=f1e1893]:
+                      - generic [ref=f1e1894]: R
+                      - generic [ref=f1e1898]:
+                        - generic [ref=f1e1899]: "|"
+                        - generic [ref=f1e1901]: S
+                        - generic [ref=f1e1903]: "|"
+                        - generic [ref=f1e1906]: ×
+                        - generic [ref=f1e1908]: "|"
+                        - generic [ref=f1e1911]: A
+                        - generic [ref=f1e1913]: "|"
+                    - generic [ref=f1e1915]: →
+                    - generic [ref=f1e1917]: R
+                  - math [ref=f1e1921]:
+                    - generic [ref=f1e1922]:
+                      - generic [ref=f1e1923]: R
+                      - generic [ref=f1e1925]:
+                        - generic [ref=f1e1926]: "|"
+                        - generic [ref=f1e1927]: S
+                        - generic [ref=f1e1928]: "|"
+                        - generic [ref=f1e1930]: ×
+                        - generic [ref=f1e1931]: "|"
+                        - generic [ref=f1e1933]: A
+                        - generic [ref=f1e1934]: "|"
+                    - generic [ref=f1e1935]: →
+                    - generic [ref=f1e1936]: R
+                - text: 天然是
+                - strong [ref=f1e1938]: 单一维度
+                - text: 的，而人类价值是
+                - strong [ref=f1e1939]: 多维、不可通约的
+                - text: . 把多目标压成一个数，必然丢信息。
+            - listitem [ref=f1e1940]:
+              - paragraph [ref=f1e1941]:
+                - strong [ref=f1e1942]: 鸿沟三：目标函数 → 学到的行为
+                - text: . 就算目标函数写对了，模型在有限数据、有限计算下学出来的策略，还有 mesa-optimization 那一层 (inner alignment 问题).
+            - listitem [ref=f1e1943]:
+              - paragraph [ref=f1e1944]: "三个鸿沟串起来，就是完整的对齐损失路径:"
+          - generic [ref=f1e1946]:
+            - generic [ref=f1e1947]:
+              - generic [ref=f1e1948]:
+                - generic [ref=f1e1949]: U
+                - generic [ref=f1e1952]:
+                  - generic [ref=f1e1953]: h
+                  - generic [ref=f1e1954]: u
+                  - generic [ref=f1e1955]: m
+                  - generic [ref=f1e1956]: a
+                  - generic [ref=f1e1957]: "n"
+              - generic [ref=f1e1958]:
+                - generic [ref=f1e1963]:
+                  - generic [ref=f1e1964]: 鸿
+                  - generic [ref=f1e1965]: 沟
+                  - generic [ref=f1e1966]: "1"
+                - generic [ref=f1e1970]:
+                  - generic [ref=f1e1971]: −
+                  - generic [ref=f1e1972]: →
+              - generic [ref=f1e1974]:
+                - generic [ref=f1e1975]: S
+                - generic [ref=f1e1976]: p
+                - generic [ref=f1e1977]: e
+                - generic [ref=f1e1978]: c
+              - generic [ref=f1e1979]:
+                - generic [ref=f1e1984]:
+                  - generic [ref=f1e1985]: 鸿
+                  - generic [ref=f1e1986]: 沟
+                  - generic [ref=f1e1987]: "2"
+                - generic [ref=f1e1991]:
+                  - generic [ref=f1e1992]: −
+                  - generic [ref=f1e1993]: →
+              - generic [ref=f1e1996]:
+                - generic [ref=f1e1997]: ^
+                - generic [ref=f1e1999]: r
+              - generic [ref=f1e2002]: (
+              - generic [ref=f1e2004]: s
+              - generic [ref=f1e2006]: ","
+              - generic [ref=f1e2008]: a
+              - generic [ref=f1e2010]: )
+              - generic [ref=f1e2012]:
+                - generic [ref=f1e2017]:
+                  - generic [ref=f1e2018]: 鸿
+                  - generic [ref=f1e2019]: 沟
+                  - generic [ref=f1e2020]: "3"
+                - generic [ref=f1e2024]:
+                  - generic [ref=f1e2025]: −
+                  - generic [ref=f1e2026]: →
+              - generic [ref=f1e2028]:
+                - generic [ref=f1e2029]: π
+                - generic [ref=f1e2031]: θ
+            - math [ref=f1e2035]:
+              - generic [ref=f1e2036]:
+                - generic [ref=f1e2037]: U
+                - generic [ref=f1e2038]: human
+              - generic [ref=f1e2039]:
+                - generic [ref=f1e2040]: →
+                - generic [ref=f1e2042]: 鸿沟 1
+              - generic [ref=f1e2044]: Spec
+              - generic [ref=f1e2045]:
+                - generic [ref=f1e2046]: →
+                - generic [ref=f1e2048]: 鸿沟 2
+              - generic [ref=f1e2051]:
+                - generic [ref=f1e2052]: r
+                - generic [ref=f1e2053]: ^
+              - generic [ref=f1e2054]: (
+              - generic [ref=f1e2055]: s
+              - generic [ref=f1e2056]: ","
+              - generic [ref=f1e2057]: a
+              - generic [ref=f1e2058]: )
+              - generic [ref=f1e2059]:
+                - generic [ref=f1e2060]: →
+                - generic [ref=f1e2062]: 鸿沟 3
+              - generic [ref=f1e2064]:
+                - generic [ref=f1e2065]: π
+                - generic [ref=f1e2066]: θ
+          - list [ref=f1e2067]:
+            - listitem [ref=f1e2068]:
+              - paragraph [ref=f1e2069]:
+                - text: 每一环都会漏信息，最后到
+                - generic [ref=f1e2071]:
+                  - generic [ref=f1e2073]:
+                    - generic [ref=f1e2074]: π
+                    - generic [ref=f1e2076]: θ
+                  - math [ref=f1e2080]:
+                    - generic [ref=f1e2081]:
+                      - generic [ref=f1e2082]: π
+                      - generic [ref=f1e2083]: θ
+                - text: 时，早已面目全非。 而
+                - strong [ref=f1e2084]: 优化压力越大，每一环漏掉的信息就越会被暴露和放大
+                - text: .
+            - listitem [ref=f1e2085]:
+              - paragraph [ref=f1e2086]:
+                - text: 一个有意思的推论：弱模型看不出 alignment 问题，不是因为它对齐得好，而是因为
+                - strong [ref=f1e2087]: 它不够聪明去钻空子
+                - text: . 一旦能力提升，潜在的错配就会显现。 这也是为什么 alignment 研究者对"能力先上，对齐再补"的路径非常警惕。
+          - heading [level=2] [ref=f1e2088]:
+            - text: 代码实验一：奖励黑客的最简 sandbox
+            - link "¶" [ref=f1e2089] [cursor=pointer]:
+              - /url: "#sandbox"
+          - list [ref=f1e2090]:
+            - listitem [ref=f1e2091]:
+              - text: 我们用一个玩具环境演示奖励黑客：智能体在一维格子上移动，真实目标是"到达终点
+              - generic [ref=f1e2093]:
+                - generic [ref=f1e2094]:
+                  - generic [ref=f1e2095]: x
+                  - generic [ref=f1e2097]: =
+                  - generic [ref=f1e2099]:
+                    - generic [ref=f1e2100]: "1"
+                    - generic [ref=f1e2101]: "0"
+                - math [ref=f1e2103]:
+                  - generic [ref=f1e2104]: x
+                  - generic [ref=f1e2105]: =
+                  - generic [ref=f1e2106]: "10"
+              - text: "\"，但奖励代理"
+              - strong [ref=f1e2107]:
+                - text: 只测量
+                - generic [ref=f1e2109]:
+                  - generic [ref=f1e2110]: x
+                  - math [ref=f1e2114]:
+                    - generic [ref=f1e2115]: x
+                - text: 坐标
+              - text: . 一个 bug 让智能体可以传送到
+              - generic [ref=f1e2117]:
+                - generic [ref=f1e2118]:
+                  - generic [ref=f1e2119]: x
+                  - generic [ref=f1e2121]: =
+                  - generic [ref=f1e2123]:
+                    - generic [ref=f1e2124]: "1"
+                    - generic [ref=f1e2125]: "0"
+                    - generic [ref=f1e2126]: "0"
+                - math [ref=f1e2128]:
+                  - generic [ref=f1e2129]: x
+                  - generic [ref=f1e2130]: =
+                  - generic [ref=f1e2131]: "100"
+              - text: (超出终点也计入奖励). 看看优化器怎么找到这个 bug.
+          - generic [ref=f1e2133]:
+            - navigation [ref=f1e2134]:
+              - button "复制" [ref=f1e2135] [cursor=pointer]
+            - code [ref=f1e2136]: "import numpy as np class BuggyGridWorld: \"\"\"真实目标: 走到 x=10. 奖励代理: r = x. Bug: 存在传送位置.\"\"\" def __init__(self): self.x = 0 def step(self, action): # action ∈ {left, right, teleport} if action == \"right\": self.x += 1 elif action == \"left\": self.x = max(0, self.x - 1) elif action == \"teleport\": # 未文档化的 bug: 传送到 x=100 self.x = 100 # 代理奖励: 单纯看 x 越大越好 proxy_reward = self.x # 真实效用: 只有恰好到 10 才有意义, 超出反而无效 true_utility = 1.0 if self.x == 10 else 0.0 return proxy_reward, true_utility def optimize_proxy(env, budget=200): \"\"\"一个只看代理奖励的贪心优化器.\"\"\" best_action, best_r = None, -1 trajectory = [] for _ in range(budget): for a in [\"left\", \"right\", \"teleport\"]: env.x = 0 # reset r, u = env.step(a) trajectory.append((a, r, u)) if r > best_r: best_r, best_action = r, a return best_action, best_r, trajectory env = BuggyGridWorld() action, proxy_r, traj = optimize_proxy(env) # 汇总在真实效用上的表现 proxy_optimal_actions = [t for t in traj if t[1] == proxy_r] mean_true_utility = np.mean([t[2] for t in proxy_optimal_actions]) print(f\"代理奖励最优动作: {action}, 代理奖励 = {proxy_r}\") print(f\"在代理奖励最优点上, 真实效用均值 = {mean_true_utility}\") # 输出: 代理奖励最优动作: teleport, 代理奖励 = 100 # 在代理奖励最优点上, 真实效用均值 = 0.0"
+          - list [ref=f1e2137]:
+            - listitem [ref=f1e2138]:
+              - paragraph [ref=f1e2139]:
+                - text: 这个例子极简，但把
+                - strong [ref=f1e2140]: 奖励黑客的核心结构
+                - text: 摆出来了：优化器
+                - strong [ref=f1e2141]: 忠实地
+                - text: 找到了代理奖励的最大值，而这个最大值恰好落在真实效用为零的位置。 换句话说，优化器没有"作弊"，它做的正是我们教它做的事 —— 只是我们教错了。
+            - listitem [ref=f1e2142]:
+              - paragraph [ref=f1e2143]:
+                - text: 从数学上，我们要的是
+                - generic [ref=f1e2145]:
+                  - generic [ref=f1e2146]:
+                    - generic [ref=f1e2147]:
+                      - generic [ref=f1e2148]: a
+                      - generic [ref=f1e2149]: r
+                      - generic [ref=f1e2150]: g
+                    - generic [ref=f1e2151]:
+                      - generic [ref=f1e2152]:
+                        - generic [ref=f1e2153]: m
+                        - generic [ref=f1e2154]: a
+                        - generic [ref=f1e2155]: x
+                      - generic [ref=f1e2156]: a
+                    - generic [ref=f1e2159]:
+                      - generic [ref=f1e2160]: U
+                      - generic [ref=f1e2163]:
+                        - generic [ref=f1e2164]: h
+                        - generic [ref=f1e2165]: u
+                        - generic [ref=f1e2166]: m
+                        - generic [ref=f1e2167]: a
+                        - generic [ref=f1e2168]: "n"
+                    - generic [ref=f1e2169]: (
+                    - generic [ref=f1e2171]: a
+                    - generic [ref=f1e2173]: )
+                  - math [ref=f1e2176]:
+                    - generic [ref=f1e2177]: arg
+                    - generic: ⁡
+                    - generic [ref=f1e2178]:
+                      - generic [ref=f1e2179]: max
+                      - generic [ref=f1e2180]: a
+                    - generic [ref=f1e2181]:
+                      - generic [ref=f1e2182]: U
+                      - generic [ref=f1e2183]: human
+                    - generic [ref=f1e2184]: (
+                    - generic [ref=f1e2185]: a
+                    - generic [ref=f1e2186]: )
+                - text: ，但
+                - strong [ref=f1e2187]: 只能得到
+                - generic [ref=f1e2189]:
+                  - generic [ref=f1e2190]:
+                    - generic [ref=f1e2191]:
+                      - generic [ref=f1e2192]: a
+                      - generic [ref=f1e2193]: r
+                      - generic [ref=f1e2194]: g
+                    - generic [ref=f1e2195]:
+                      - generic [ref=f1e2196]:
+                        - generic [ref=f1e2197]: m
+                        - generic [ref=f1e2198]: a
+                        - generic [ref=f1e2199]: x
+                      - generic [ref=f1e2200]: a
+                    - generic [ref=f1e2204]:
+                      - generic [ref=f1e2205]: ^
+                      - generic [ref=f1e2207]: r
+                    - generic [ref=f1e2210]: (
+                    - generic [ref=f1e2212]: a
+                    - generic [ref=f1e2214]: )
+                  - math [ref=f1e2217]:
+                    - generic [ref=f1e2218]: arg
+                    - generic: ⁡
+                    - generic [ref=f1e2219]:
+                      - generic [ref=f1e2220]: max
+                      - generic [ref=f1e2221]: a
+                    - generic [ref=f1e2223]:
+                      - generic [ref=f1e2224]: r
+                      - generic [ref=f1e2225]: ^
+                    - generic [ref=f1e2226]: (
+                    - generic [ref=f1e2227]: a
+                    - generic [ref=f1e2228]: )
+                - text: . 二者之间的差距在训练分布上小，优化到极端时爆炸。
+          - heading [level=2] [ref=f1e2229]:
+            - text: 代码实验二：Goodhart 效应的定量演示
+            - link "¶" [ref=f1e2230] [cursor=pointer]:
+              - /url: "#goodhart"
+          - list [ref=f1e2231]:
+            - listitem [ref=f1e2232]:
+              - text: 我们用一个简单的
+              - strong [ref=f1e2233]: 代理与真值线性相关但有噪声
+              - text: 的模型，演示"选择压力越大，Goodhart 效应越严重".
+          - generic [ref=f1e2235]:
+            - navigation [ref=f1e2236]:
+              - button "复制" [ref=f1e2237] [cursor=pointer]
+            - code [ref=f1e2238]: "import numpy as np import matplotlib.pyplot as plt np.random.seed(42) N = 100_000 # 真值 V ~ N(0, 1) V = np.random.randn(N) # 代理 M = V + 噪声. 相关性 ρ = 0.7 noise = np.random.randn(N) M = 0.7 * V + np.sqrt(1 - 0.7**2) * noise # 按代理 M 从高到低排序, 逐步\"施加选择压力\" sort_idx = np.argsort(-M) top_ks = [100, 1_000, 10_000, 50_000] print(f\"{'top-k':>10} {'M 均值':>10} {'V 均值':>10} {'差距':>10}\") for k in top_ks: top = sort_idx[:k] mean_M = M[top].mean() mean_V = V[top].mean() print(f\"{k:>10} {mean_M:>10.3f} {mean_V:>10.3f} {mean_M - mean_V:>10.3f}\") # 典型输出: # top-k M 均值 V 均值 差距 # 100 2.797 1.899 0.898 # 1_000 2.246 1.545 0.701 # 10_000 1.520 1.049 0.471 # 50_000 0.674 0.469 0.205"
+          - list [ref=f1e2239]:
+            - listitem [ref=f1e2240]:
+              - paragraph [ref=f1e2241]:
+                - text: 这就是
+                - strong [ref=f1e2242]: 回归型 Goodhart
+                - text: 的经验展示：选择压力越大 (top-k 越小)，代理均值和真值均值的差距越大。 你越是"挑最好的"，你挑到的就越是"运气好的"，而不是"真的好的".
+            - listitem [ref=f1e2243]:
+              - paragraph [ref=f1e2244]:
+                - text: 现实中这个差距远比线性噪声模型严重，因为高维输入空间里，优化器能利用的
+                - strong [ref=f1e2245]: 病态方向
+                - text: 远比"高斯噪声"多样。 论文里通常把这叫做
+                - strong [ref=f1e2246]: "\"tails come apart\""
+                - text: —— 分布尾部，代理和真值的相关性会彻底断裂。
+          - heading [level=2] [ref=f1e2247]:
+            - text: 代码实验三：KL 约束下的 alignment tax
+            - link "¶" [ref=f1e2248] [cursor=pointer]:
+              - /url: "#kl-alignment-tax"
+          - list [ref=f1e2249]:
+            - listitem [ref=f1e2250]:
+              - text: 为了对抗奖励黑客，RLHF 里加了一个 KL 惩罚项，让训练后模型
+              - generic [ref=f1e2252]:
+                - generic [ref=f1e2254]:
+                  - generic [ref=f1e2255]: π
+                  - generic [ref=f1e2257]: θ
+                - math [ref=f1e2261]:
+                  - generic [ref=f1e2262]:
+                    - generic [ref=f1e2263]: π
+                    - generic [ref=f1e2264]: θ
+              - text: 不能离参考模型
+              - generic [ref=f1e2266]:
+                - generic [ref=f1e2268]:
+                  - generic [ref=f1e2269]: π
+                  - generic [ref=f1e2272]:
+                    - generic [ref=f1e2273]: r
+                    - generic [ref=f1e2274]: e
+                    - generic [ref=f1e2275]: f
+                - math [ref=f1e2277]:
+                  - generic [ref=f1e2278]:
+                    - generic [ref=f1e2279]: π
+                    - generic [ref=f1e2280]: ref
+              - text: "(SFT 模型) 太远。 目标函数是:"
+          - generic [ref=f1e2282]:
+            - generic [ref=f1e2283]:
+              - generic [ref=f1e2284]: L
+              - generic [ref=f1e2287]: (
+              - generic [ref=f1e2289]: θ
+              - generic [ref=f1e2291]: )
+              - generic [ref=f1e2293]: =
+              - generic [ref=f1e2295]: −
+              - generic [ref=f1e2297]:
+                - generic [ref=f1e2298]: E
+                - generic [ref=f1e2302]:
+                  - generic [ref=f1e2303]: "y"
+                  - generic [ref=f1e2305]: ∼
+                  - generic [ref=f1e2307]:
+                    - generic [ref=f1e2308]: π
+                    - generic [ref=f1e2310]: θ
+                  - generic [ref=f1e2313]: (
+                  - generic [ref=f1e2315]: ⋅
+                  - generic [ref=f1e2317]: ∣
+                  - generic [ref=f1e2319]: x
+                  - generic [ref=f1e2321]: )
+              - generic [ref=f1e2323]: "["
+              - generic [ref=f1e2327]:
+                - generic [ref=f1e2328]: ^
+                - generic [ref=f1e2330]: r
+              - generic [ref=f1e2333]: (
+              - generic [ref=f1e2335]: x
+              - generic [ref=f1e2337]: ","
+              - generic [ref=f1e2339]: "y"
+              - generic [ref=f1e2341]: )
+              - generic [ref=f1e2343]: "]"
+              - generic [ref=f1e2346]: +
+              - generic [ref=f1e2348]: β
+              - generic [ref=f1e2350]: ⋅
+              - generic [ref=f1e2352]:
+                - generic [ref=f1e2353]: D
+                - generic [ref=f1e2356]:
+                  - generic [ref=f1e2357]: K
+                  - generic [ref=f1e2358]: L
+              - generic [ref=f1e2359]: (
+              - generic [ref=f1e2362]:
+                - generic [ref=f1e2363]: π
+                - generic [ref=f1e2365]: θ
+              - generic [ref=f1e2368]: ∥
+              - generic [ref=f1e2370]:
+                - generic [ref=f1e2371]: π
+                - generic [ref=f1e2374]:
+                  - generic [ref=f1e2375]: r
+                  - generic [ref=f1e2376]: e
+                  - generic [ref=f1e2377]: f
+              - generic [ref=f1e2378]: )
+            - math [ref=f1e2382]:
+              - generic [ref=f1e2383]: L
+              - generic [ref=f1e2385]: (
+              - generic [ref=f1e2386]: θ
+              - generic [ref=f1e2387]: )
+              - generic [ref=f1e2388]: =
+              - generic [ref=f1e2389]: −
+              - generic [ref=f1e2390]:
+                - generic [ref=f1e2391]: E
+                - generic [ref=f1e2393]:
+                  - generic [ref=f1e2394]: "y"
+                  - generic [ref=f1e2395]: ∼
+                  - generic [ref=f1e2396]:
+                    - generic [ref=f1e2397]: π
+                    - generic [ref=f1e2398]: θ
+                  - generic [ref=f1e2399]: (
+                  - generic [ref=f1e2400]: ⋅
+                  - generic [ref=f1e2401]: ∣
+                  - generic [ref=f1e2402]: x
+                  - generic [ref=f1e2403]: )
+              - generic [ref=f1e2404]: "["
+              - generic [ref=f1e2407]:
+                - generic [ref=f1e2408]: r
+                - generic [ref=f1e2409]: ^
+              - generic [ref=f1e2410]: (
+              - generic [ref=f1e2411]: x
+              - generic [ref=f1e2412]: ","
+              - generic [ref=f1e2413]: "y"
+              - generic [ref=f1e2414]: )
+              - generic [ref=f1e2415]: "]"
+              - generic [ref=f1e2417]: +
+              - generic [ref=f1e2418]: β
+              - generic [ref=f1e2419]: ⋅
+              - generic [ref=f1e2420]:
+                - generic [ref=f1e2421]: D
+                - generic [ref=f1e2422]: KL
+              - generic [ref=f1e2423]: (
+              - generic [ref=f1e2425]:
+                - generic [ref=f1e2426]: π
+                - generic [ref=f1e2427]: θ
+              - generic [ref=f1e2428]: ‖
+              - generic [ref=f1e2429]:
+                - generic [ref=f1e2430]: π
+                - generic [ref=f1e2431]: ref
+              - generic [ref=f1e2432]: )
+          - list [ref=f1e2434]:
+            - listitem [ref=f1e2435]:
+              - generic [ref=f1e2437]:
+                - generic [ref=f1e2438]: β
+                - math [ref=f1e2442]:
+                  - generic [ref=f1e2443]: β
+              - text: 越大，模型越保守 (贴近参考模型)，奖励刷得越低但也越不容易 hack;
+              - generic [ref=f1e2445]:
+                - generic [ref=f1e2446]: β
+                - math [ref=f1e2450]:
+                  - generic [ref=f1e2451]: β
+              - text: 越小，越激进，奖励高但 hack 风险大。 这个权衡的代价，有个专门的名字：
+              - strong [ref=f1e2452]: 对齐税 (alignment tax)
+              - text: .
+          - generic [ref=f1e2454]:
+            - navigation [ref=f1e2455]:
+              - button "复制" [ref=f1e2456] [cursor=pointer]
+            - code [ref=f1e2457]: "import numpy as np def simulate_kl_tradeoff(beta_values, n_samples=1000): \"\"\" 模拟 β 从小到大变化时, 代理奖励与真实效用的走势. 假设 hack 空间在'远离 πref'的方向上, 真效用则要求'贴近 πref'. \"\"\" results = [] for beta in beta_values: # πref 是标准正态, πθ 允许移动的距离受 β 抑制 # 简化: 最优步长 ∝ 1/β shift = 1.0 / (beta + 0.1) # 代理奖励 (随 shift 增长, 因为找到了 hack) proxy = shift * 1.5 # 真效用 (先增后减: 少量偏离有益, 过多则被 hack 主导) if shift < 1.0: true = shift # 短距离内还是真提升 else: true = 2.0 - shift # 越远越掉入 hack 陷阱 # KL 惩罚 kl_penalty = beta * shift**2 / 2 net = proxy - kl_penalty results.append((beta, proxy, true, net)) return results betas = [0.01, 0.05, 0.1, 0.3, 1.0, 3.0] print(f\"{'β':>6} {'proxy':>8} {'true':>8} {'net objective':>15}\") for beta, p, t, n in simulate_kl_tradeoff(betas): print(f\"{beta:>6.2f} {p:>8.3f} {t:>8.3f} {n:>15.3f}\") # 典型输出会显示: β 极小时 proxy 冲到很高但 true 反而掉, β 太大则两者都低, # 存在一个中间的甜点 (通常 β ∈ [0.05, 0.3])."
+          - list [ref=f1e2458]:
+            - listitem [ref=f1e2459]:
+              - paragraph [ref=f1e2460]:
+                - text: 这段代码是个卡通模型，但抓住了 RLHF 里最关键的直觉：
+                - strong [ref=f1e2461]: KL 惩罚是一堵防止奖励黑客的墙
+                - text: ，但这堵墙也会挡住合法的能力提升。 找
+                - generic [ref=f1e2463]:
+                  - generic [ref=f1e2464]: β
+                  - math [ref=f1e2468]:
+                    - generic [ref=f1e2469]: β
+                - text: 的甜点，本质上就是找"够严，但不至于把模型锁死"的边界。
+            - listitem [ref=f1e2470]:
+              - paragraph [ref=f1e2471]:
+                - text: 更严格地讲，有 KL 约束的 RL 目标存在
+                - strong [ref=f1e2472]: 闭式最优解
+                - text: "(Rafailov et al., 2023 DPO 论文推导):"
+          - generic [ref=f1e2474]:
+            - generic [ref=f1e2475]:
+              - generic [ref=f1e2476]:
+                - generic [ref=f1e2477]: π
+                - generic [ref=f1e2479]: ∗
+              - generic [ref=f1e2482]: (
+              - generic [ref=f1e2484]: "y"
+              - generic [ref=f1e2486]: ∣
+              - generic [ref=f1e2488]: x
+              - generic [ref=f1e2490]: )
+              - generic [ref=f1e2492]: =
+              - generic [ref=f1e2495]:
+                - generic [ref=f1e2496]: "1"
+                - generic [ref=f1e2504]:
+                  - generic [ref=f1e2505]: Z
+                  - generic [ref=f1e2507]: (
+                  - generic [ref=f1e2509]: x
+                  - generic [ref=f1e2511]: )
+              - generic [ref=f1e2513]:
+                - generic [ref=f1e2514]: π
+                - generic [ref=f1e2517]:
+                  - generic [ref=f1e2518]: r
+                  - generic [ref=f1e2519]: e
+                  - generic [ref=f1e2520]: f
+              - generic [ref=f1e2521]: (
+              - generic [ref=f1e2523]: "y"
+              - generic [ref=f1e2525]: ∣
+              - generic [ref=f1e2527]: x
+              - generic [ref=f1e2529]: )
+              - generic [ref=f1e2531]:
+                - generic [ref=f1e2532]: e
+                - generic [ref=f1e2533]: x
+                - generic [ref=f1e2534]: p
+              - generic [ref=f1e2535]:
+                - generic [ref=f1e2536]: (
+                - generic [ref=f1e2539]:
+                  - generic [ref=f1e2541]:
+                    - generic [ref=f1e2543]:
+                      - generic [ref=f1e2544]: ^
+                      - generic [ref=f1e2546]: r
+                    - generic [ref=f1e2549]: (
+                    - generic [ref=f1e2551]: x
+                    - generic [ref=f1e2553]: ","
+                    - generic [ref=f1e2555]: "y"
+                    - generic [ref=f1e2557]: )
+                  - generic [ref=f1e2559]: β
+                - generic [ref=f1e2566]: )
+            - math [ref=f1e2569]:
+              - generic [ref=f1e2570]:
+                - generic [ref=f1e2571]: π
+                - generic [ref=f1e2572]: ∗
+              - generic [ref=f1e2573]: (
+              - generic [ref=f1e2574]: "y"
+              - generic [ref=f1e2575]: ∣
+              - generic [ref=f1e2576]: x
+              - generic [ref=f1e2577]: )
+              - generic [ref=f1e2578]: =
+              - generic [ref=f1e2579]:
+                - generic [ref=f1e2580]: "1"
+                - generic [ref=f1e2581]:
+                  - generic [ref=f1e2582]: Z
+                  - generic [ref=f1e2583]: (
+                  - generic [ref=f1e2584]: x
+                  - generic [ref=f1e2585]: )
+              - generic [ref=f1e2586]:
+                - generic [ref=f1e2587]: π
+                - generic [ref=f1e2588]: ref
+              - generic [ref=f1e2589]: (
+              - generic [ref=f1e2590]: "y"
+              - generic [ref=f1e2591]: ∣
+              - generic [ref=f1e2592]: x
+              - generic [ref=f1e2593]: )
+              - generic [ref=f1e2594]: exp
+              - generic [ref=f1e2595]:
+                - generic [ref=f1e2596]: (
+                - generic [ref=f1e2597]:
+                  - generic [ref=f1e2598]:
+                    - generic [ref=f1e2600]:
+                      - generic [ref=f1e2601]: r
+                      - generic [ref=f1e2602]: ^
+                    - generic [ref=f1e2603]: (
+                    - generic [ref=f1e2604]: x
+                    - generic [ref=f1e2605]: ","
+                    - generic [ref=f1e2606]: "y"
+                    - generic [ref=f1e2607]: )
+                  - generic [ref=f1e2608]: β
+                - generic [ref=f1e2609]: )
+          - list [ref=f1e2610]:
+            - listitem [ref=f1e2611]:
+              - generic [ref=f1e2613]:
+                - generic [ref=f1e2614]:
+                  - generic [ref=f1e2615]: Z
+                  - generic [ref=f1e2617]: (
+                  - generic [ref=f1e2619]: x
+                  - generic [ref=f1e2621]: )
+                - math [ref=f1e2624]:
+                  - generic [ref=f1e2625]: Z
+                  - generic [ref=f1e2626]: (
+                  - generic [ref=f1e2627]: x
+                  - generic [ref=f1e2628]: )
+              - text: 是配分函数。 这个式子告诉我们：最优对齐策略是"以参考策略为先验，用奖励做贝叶斯式的重加权". 越远离参考策略，奖励要越高才能补偿 —— 这就是防止 hack 的机制。
+          - heading [level=2] [ref=f1e2629]:
+            - text: 中文圈的进展与本地实践
+            - link "¶" [ref=f1e2630] [cursor=pointer]:
+              - /url: "#_5"
+          - list [ref=f1e2631]:
+            - listitem [ref=f1e2632]:
+              - paragraph [ref=f1e2633]:
+                - text: 中文圈也在积极推进对齐研究。 清华大学的
+                - strong [ref=f1e2634]: GLM
+                - text: 团队在 ChatGLM 系列里公开了自己的 alignment pipeline (SFT + RLHF + safety filter)，并针对中文场景的价值观 (如政治敏感话题、地域文化差异) 单独构建了偏好数据。
+            - listitem [ref=f1e2635]:
+              - paragraph [ref=f1e2636]:
+                - text: 学界与业界围绕中文大模型价值观评估也发布了多个基准 (如
+                - strong [ref=f1e2637]: CValues
+                - text: 等)，覆盖公平、法律、道德等多个价值维度，是中文对齐评测的重要参考；具体维度数量与划分口径以各基准原始发布材料为准。
+            - listitem [ref=f1e2638]:
+              - paragraph [ref=f1e2639]:
+                - text: 阿里 Qwen 系列在近期版本中引入了
+                - strong [ref=f1e2640]: 混合思考模式 (hybrid thinking)
+                - text: ，让模型可以显式打开 / 关闭"推理链". 从对齐视角看，这一机制的一个潜在收益是让"是否推理"变成可控信号，而不是被隐式学到的黑箱行为 —— 是否将其定位为缓解推理链造假的手段，以官方公告为准。
+            - listitem [ref=f1e2641]:
+              - paragraph [ref=f1e2642]:
+                - text: 但需要坦诚说明：中文圈公开的 alignment failure 研究、mesa-optimization 实验、Goodhart 定量分析等
+                - strong [ref=f1e2643]: 深度理论工作
+                - text: 目前较少。 大部分工作集中在数据构造和评测建设，底层机制研究仍以 Anthropic、OpenAI、DeepMind 的英文论文为主。
+          - heading [level=2] [ref=f1e2644]:
+            - text: 一个未解的开放问题
+            - link "¶" [ref=f1e2645] [cursor=pointer]:
+              - /url: "#_6"
+          - list [ref=f1e2646]:
+            - listitem [ref=f1e2647]:
+              - paragraph [ref=f1e2648]:
+                - text: 到这里，我们已经知道：对齐分三层 (意图 / 价值 / 能力)，分内外 (outer / inner)，会遇到奖励黑客、Goodhart 四型、规范博弈。 但一个更深的问题还没答：
+                - strong [ref=f1e2649]: 有没有可能，我们根本无法用"写目标函数"这个范式解决对齐问题?
+            - listitem [ref=f1e2650]:
+              - paragraph [ref=f1e2651]: "目前主流的应对策略，大致分三条路:"
+            - listitem [ref=f1e2652]:
+              - strong [ref=f1e2653]: 规范工程路线
+              - text: (Constitutional AI, RLAIF)：用 AI 帮我们迭代规范，让规范越写越细。
+            - listitem [ref=f1e2654]:
+              - strong [ref=f1e2655]: 可解释性路线
+              - text: (mechanistic interpretability)：直接看模型内部在算什么，从"看输出对不对"升级到"看思维对不对". 本章第 04、05 节会展开。
+            - listitem [ref=f1e2656]:
+              - paragraph [ref=f1e2657]:
+                - strong [ref=f1e2658]: 过程监督路线
+                - text: (process supervision)：不只奖励最终答案，奖励每一步推理是否合理，减少 mesa-objective 与外部目标发散的空间。
+            - listitem [ref=f1e2659]:
+              - paragraph [ref=f1e2660]:
+                - text: 三条路都还在早期。 本节的目的不是给你解药，而是让你
+                - strong [ref=f1e2661]: 看清病灶
+                - text: ：一切对齐失败，追根究底都是"我们能写下的目标"和"我们真正想要的目标"之间的那道缝隙。 后续几节会围绕如何
+                - strong [ref=f1e2662]: 缩小、监控、堵住
+                - text: 这道缝隙来展开。
+          - separator [ref=f1e2663]
+          - heading [level=2] [ref=f1e2664]:
+            - text: 📌 本节要点
+            - link "¶" [ref=f1e2665] [cursor=pointer]:
+              - /url: "#_7"
+          - list [ref=f1e2666]:
+            - listitem [ref=f1e2667]:
+              - strong [ref=f1e2668]: 对齐三层
+              - text: ：意图对齐 (听懂指令)、价值对齐 (三观正)、能力对齐 (发挥真实水平) 缺一不可。
+            - listitem [ref=f1e2669]:
+              - strong [ref=f1e2670]: Outer vs Inner
+              - text: ：外部对齐 = 训练目标 vs 人类真值；内部对齐 = mesa-objective vs 训练目标。 内部错配在训练分布上看不出来，更危险。
+            - listitem [ref=f1e2671]:
+              - strong [ref=f1e2672]: Mesa-optimization
+              - text: ：训练过程 (meta) 训出的模型本身可能是个优化器 (mesa)，追求自己学到的 mesa-objective，与外部目标可能在分布外发散。
+            - listitem [ref=f1e2673]:
+              - strong [ref=f1e2674]: 奖励黑客
+              - text: ：优化器忠实执行代理奖励，但代理和真实效用在极端处发散。 CoastRunners、摄像头挡方块、LLM 拍马屁都是典型。
+            - listitem [ref=f1e2675]:
+              - strong [ref=f1e2676]: Goodhart's Law
+              - text: ": \"任何量度一旦成为目标，就不再是好的量度\". 四种变体 (regressional / extremal / causal / adversarial) 破坏力递增。"
+            - listitem [ref=f1e2677]:
+              - strong [ref=f1e2678]: Specification gaming vs Reward hacking
+              - text: ：前者是
+              - strong [ref=f1e2679]: 规范
+              - text: 不完整，后者是学出的
+              - strong [ref=f1e2680]: 奖励模型
+              - text: 有漏洞；解药分别是更好的规范和更鲁棒的奖励模型。
+            - listitem [ref=f1e2681]:
+              - strong [ref=f1e2682]: 三重鸿沟
+              - text: ：意图 → 规范 → 目标函数 → 学到的行为，每一环都漏信息，优化压力越大漏得越多。
+            - listitem [ref=f1e2683]:
+              - strong [ref=f1e2684]: KL 约束与 alignment tax
+              - text: ": RLHF 用"
+              - generic [ref=f1e2686]:
+                - generic [ref=f1e2687]:
+                  - generic [ref=f1e2688]:
+                    - generic [ref=f1e2689]: D
+                    - generic [ref=f1e2692]:
+                      - generic [ref=f1e2693]: K
+                      - generic [ref=f1e2694]: L
+                  - generic [ref=f1e2695]: (
+                  - generic [ref=f1e2697]:
+                    - generic [ref=f1e2698]: π
+                    - generic [ref=f1e2700]: θ
+                  - generic [ref=f1e2703]: ∥
+                  - generic [ref=f1e2705]:
+                    - generic [ref=f1e2706]: π
+                    - generic [ref=f1e2709]:
+                      - generic [ref=f1e2710]: r
+                      - generic [ref=f1e2711]: e
+                      - generic [ref=f1e2712]: f
+                  - generic [ref=f1e2713]: )
+                - math [ref=f1e2716]:
+                  - generic [ref=f1e2717]:
+                    - generic [ref=f1e2718]: D
+                    - generic [ref=f1e2719]: KL
+                  - generic [ref=f1e2720]: (
+                  - generic [ref=f1e2721]:
+                    - generic [ref=f1e2722]: π
+                    - generic [ref=f1e2723]: θ
+                  - generic [ref=f1e2724]: ‖
+                  - generic [ref=f1e2725]:
+                    - generic [ref=f1e2726]: π
+                    - generic [ref=f1e2727]: ref
+                  - generic [ref=f1e2728]: )
+              - text: 防止模型跑偏刷 reward，但也会拖累能力，存在甜点
+              - generic [ref=f1e2730]:
+                - generic [ref=f1e2731]: β
+                - math [ref=f1e2735]:
+                  - generic [ref=f1e2736]: β
+              - text: .
+          - heading [level=2] [ref=f1e2737]:
+            - text: 参考文献
+            - link "¶" [ref=f1e2738] [cursor=pointer]:
+              - /url: "#_8"
+          - list [ref=f1e2739]:
+            - listitem [ref=f1e2740]:
+              - text: Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., & Mané, D. (2016).
+              - emphasis [ref=f1e2741]: Concrete Problems in AI Safety
+              - text: . arXiv:1606.06565.
+            - listitem [ref=f1e2742]:
+              - text: Christiano, P., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017).
+              - emphasis [ref=f1e2743]: Deep Reinforcement Learning from Human Preferences
+              - text: . NeurIPS 2017.
+            - listitem [ref=f1e2744]:
+              - text: Hubinger, E., van Merwijk, C., Mikulik, V., Skalse, J., & Garrabrant, S. (2019).
+              - emphasis [ref=f1e2745]: Risks from Learned Optimization in Advanced Machine Learning Systems
+              - text: . arXiv:1906.01820.
+            - listitem [ref=f1e2746]:
+              - text: Goodhart, C. A. E. (1975).
+              - emphasis [ref=f1e2747]: "Problems of Monetary Management: The UK Experience"
+              - text: . Papers in Monetary Economics, Reserve Bank of Australia.
+            - listitem [ref=f1e2748]:
+              - text: Manheim, D., & Garrabrant, S. (2018).
+              - emphasis [ref=f1e2749]: Categorizing Variants of Goodhart's Law
+              - text: . arXiv:1803.04585.
+            - listitem [ref=f1e2750]:
+              - text: Krakovna, V. et al.
+              - emphasis [ref=f1e2751]: "Specification gaming: the flip side of AI ingenuity"
+              - text: . DeepMind Blog, 2020. (公开表格收录数十个真实案例.)
+            - listitem [ref=f1e2752]:
+              - text: Ouyang, L. et al. (2022).
+              - emphasis [ref=f1e2753]: Training language models to follow instructions with human feedback (InstructGPT)
+              - text: . NeurIPS 2022.
+            - listitem [ref=f1e2754]:
+              - text: Rafailov, R., Sharma, A., Mitchell, E., Ermon, S., Manning, C. D., & Finn, C. (2023).
+              - emphasis [ref=f1e2755]: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+              - text: . NeurIPS 2023.
+            - listitem [ref=f1e2756]:
+              - text: Bai, Y. et al. (2022).
+              - emphasis [ref=f1e2757]: "Constitutional AI: Harmlessness from AI Feedback"
+              - text: . arXiv:2212.08073.
+            - listitem [ref=f1e2758]:
+              - text: Perez, E. et al. (2022).
+              - emphasis [ref=f1e2759]: Discovering Language Model Behaviors with Model-Written Evaluations
+              - text: . arXiv:2212.09251. (包含 sycophancy 系统性测量.)
+      - button "回到页面顶部"
+    - contentinfo [ref=f1e2760]:
+      - navigation "页脚" [ref=f1e2761]:
+        - 'link "上一页: 05. 脑机接口" [ref=f1e2762] [cursor=pointer]':
+          - /url: ../../%E7%AC%AC20%E7%AB%A0%20-%20%E5%89%8D%E6%B2%BF%20AI/05.%20%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/
+          - generic [ref=f1e2766]:
+            - text: 上一页
+            - generic [ref=f1e2767]: 05. 脑机接口
+        - 'link "下一页: 02. RLHF-DPO 深入" [ref=f1e2768] [cursor=pointer]':
+          - /url: ../02.%20%E4%BB%8E%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%AD%A6%E4%B9%A0%20%C2%B7%20RLHF-DPO%20%E6%B7%B1%E5%85%A5/
+          - generic [ref=f1e2769]:
+            - text: 下一页
+            - generic [ref=f1e2770]: 02. RLHF-DPO 深入
+      - generic [ref=f1e2775]:
+        - generic [ref=f1e2776]:
+          - text: Made with
+          - link "Material for MkDocs" [ref=f1e2777] [cursor=pointer]:
+            - /url: https://squidfunk.github.io/mkdocs-material/
+        - link "github.com" [ref=f1e2779] [cursor=pointer]:
+          - /url: https://github.com/godlockin/maths-cs-ai-compendium
