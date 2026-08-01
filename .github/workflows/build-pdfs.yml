@@ -99,11 +99,21 @@ jobs:
           find zh/教辅 -name "*.md" | sort > /tmp/zh-jiaofu-files.txt
           echo "教辅 files: $(wc -l < /tmp/zh-jiaofu-files.txt)"
 
+      - name: Generate Lua filter for image path fixing
+        run: |
+          cat > /tmp/fix-paths.lua << 'LUAEOF'
+          function Image(img)
+            img.src = img.src:gsub('^%.%./', ''):gsub('^%.%./', ''):gsub('^images/svgs/', 'images/')
+            return img
+          end
+          LUAEOF
+
       - name: Build EN PDF
         run: |
           xargs -a /tmp/en-files.txt -d '\n' pandoc -f markdown+smart \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=/tmp/fix-paths.lua \
             --metadata title="Mathematics, Computer Science & AI Compendium" \
             --metadata author="Henry Ndubuaku et al." \
             --metadata lang=en \
@@ -117,6 +127,7 @@ jobs:
           xargs -a /tmp/zh-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=/tmp/fix-paths.lua \
             --metadata title="数学、计算机与 AI 综合手册 (中文版)" \
             --metadata author="Henry Ndubuaku (原著) · Steven Chen (中译主编)" \
             --metadata lang=zh \
@@ -130,6 +141,7 @@ jobs:
           xargs -a /tmp/zh-jiaofu-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=/tmp/fix-paths.lua \
             --metadata title="数学、计算机与 AI 综合手册 — 教辅资料 (中文版)" \
             --metadata author="Steven Chen & AI 协作组" \
             --metadata lang=zh \
