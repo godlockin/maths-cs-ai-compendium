@@ -103,25 +103,24 @@ jobs:
         run: |
           cat > /tmp/fix-paths.lua << 'LUAEOF'
           -- Rewrite relative image paths to absolute paths for weasyprint
-          local repo_root = os.getenv('GITHUB_WORKSPACE') or '.'
+          local function safe_join(base, rel)
+            -- Remove any .. segments, keep only clean relative path
+            local cleaned = rel:gsub('%.%./', ''):gsub('^/', '')
+            return base .. '/' .. cleaned
+          end
+          local repo = os.getenv('GITHUB_WORKSPACE') or '.'
           function Image(img)
-            -- Strip ../../ or ../ prefix, then prepend repo root
-            local src = img.src:gsub('^%.%./images/', ''):gsub('^%.%./', ''):gsub('^images/svgs/', 'images/')
-            -- If path is relative to zh/images, try zh/images first
-            local zh_test = repo_root .. '/zh/' .. src
-            local en_test = repo_root .. '/' .. src
-            -- Use pandoc's built-in file test
-            local f = io.open(zh_test)
-            if f then
-              f:close()
-              img.src = zh_test
-            else
-              f = io.open(en_test)
-              if f then
-                f:close()
-                img.src = en_test
-              end
-            end
+            local src = img.src
+            -- Normalize: replace ../images/ or ../../images/ with images/
+            src = src:gsub('^%.%./images/', 'images/'):gsub('^%.%./', ''):gsub('^images/svgs/', 'images/')
+            -- Build candidate paths
+            local zh_path = safe_join(repo, 'zh/' .. src)
+            local en_path = safe_join(repo, src)
+            -- Check which exists
+            local f = io.open(zh_path)
+            if f then f:close(); img.src = zh_path; return img end
+            f = io.open(en_path)
+            if f then f:close(); img.src = en_path end
             return img
           end
           LUAEOF
