@@ -26,44 +26,31 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq pandoc
           pip install weasyprint
-          # Chinese fonts for ZH PDF
           sudo apt-get install -y -qq fonts-noto-cjk
 
       - name: Generate CSS for PDF styling
         run: |
           cat > /tmp/pdf-style.css << 'CSSEOF'
-          @page {
-            size: A4;
-            margin: 2cm 2.2cm;
-            @top-center {
-              content: element(header);
-              font-size: 9pt;
-              color: #6b7280;
-            }
-          }
+          @page { size: A4; margin: 2cm 2.2cm; }
           body {
             font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', 'DejaVu Serif', serif;
-            font-size: 11pt;
-            line-height: 1.7;
-            color: #1f2937;
+            font-size: 11pt; line-height: 1.7; color: #1f2937;
           }
-          h1 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 20pt; color: #111827; margin-top: 1.5em; }
-          h2 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 15pt; color: #1e40af; margin-top: 1.2em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.2em; }
-          h3 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; font-size: 12pt; color: #374151; margin-top: 1em; }
-          h4, h5, h6 { font-family: 'Noto Sans CJK SC', 'DejaVu Sans', sans-serif; }
-          pre, code { font-family: 'DejaVu Sans Mono', 'Noto Sans Mono CJK SC', monospace; font-size: 9pt; }
+          h1 { font-family: 'Noto Sans CJK SC', sans-serif; font-size: 20pt; color: #111827; margin-top: 1.5em; }
+          h2 { font-family: 'Noto Sans CJK SC', sans-serif; font-size: 15pt; color: #1e40af; margin-top: 1.2em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.2em; }
+          h3 { font-family: 'Noto Sans CJK SC', sans-serif; font-size: 12pt; color: #374151; margin-top: 1em; }
+          pre, code { font-family: 'DejaVu Sans Mono', monospace; font-size: 9pt; }
           pre { background: #f3f4f6; padding: 0.8em; border-radius: 4px; overflow-x: auto; }
           blockquote { border-left: 3px solid #d1d5db; padding-left: 1em; color: #6b7280; margin-left: 0; }
           table { border-collapse: collapse; width: 100%; margin: 1em 0; }
           th, td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; text-align: left; }
           th { background: #f9fafb; font-weight: 600; }
           img { max-width: 100%; height: auto; }
-          .katex { font-size: 1.05em; }
           CSSEOF
 
       - name: Discover EN chapter files
         run: |
-          # List all EN chapter md files in order
+          > /tmp/en-files.txt
           for ch_dir in "chapter 01 - vectors" "chapter 02 - matrices" "chapter 03 - calculus" \
             "chapter 04 - statistics" "chapter 05 - probability" "chapter 06 - machine learning" \
             "chapter 07 - computational linguistics" "chapter 08 - computer vision" \
@@ -74,19 +61,19 @@ jobs:
             "chapter 17 - AI inference" "chapter 18 - ML systems design" \
             "chapter 19 - applied AI" "chapter 20 - bleeding edge AI"; do
             if [ -d "$ch_dir" ]; then
-              find "$ch_dir" -maxdepth 1 -name "*.md" | sort >> /tmp/en-files.txt
+              ls "$ch_dir"/*.md 2>/dev/null >> /tmp/en-files.txt
             fi
           done
-          # Add preface/acknowledgements if they exist
-          for f in "preface.md" "acknowledgements.md" "CONTRIBUTING.md"; do
+          for f in preface.md acknowledgements.md; do
             [ -f "$f" ] && echo "$f" >> /tmp/en-files.txt
           done
           echo "EN files: $(wc -l < /tmp/en-files.txt)"
-          cat /tmp/en-files.txt
+          echo "--- first 5 ---" && head -5 /tmp/en-files.txt
+          echo "--- last 5 ---" && tail -5 /tmp/en-files.txt
 
       - name: Discover ZH chapter files
         run: |
-          # List all ZH main chapter md files (exclude 教辅 subdir)
+          > /tmp/zh-files.txt
           for ch_dir in "zh/第01章 - 向量" "zh/第02章 - 矩阵" "zh/第03章 - 微积分" \
             "zh/第04章 - 统计学" "zh/第05章 - 概率论" "zh/第06章 - 机器学习" \
             "zh/第07章 - 计算语言学" "zh/第08章 - 计算机视觉" "zh/第09章 - 音频与语音" \
@@ -99,18 +86,18 @@ jobs:
             "zh/第23章 - AI Agent 与工具使用" "zh/第24章 - 数值分析与凸优化补遗" \
             "zh/第25章 - AI 系统实战面试指南"; do
             if [ -d "$ch_dir" ]; then
-              find "$ch_dir" -maxdepth 1 -name "*.md" | sort >> /tmp/zh-files.txt
+              ls "$ch_dir"/*.md 2>/dev/null >> /tmp/zh-files.txt
             fi
           done
-          for f in "zh/前言.md" "zh/致谢.md" "zh/勘误表.md"; do
+          for f in zh/前言.md zh/致谢.md zh/勘误表.md; do
             [ -f "$f" ] && echo "$f" >> /tmp/zh-files.txt
           done
-          echo "ZH main files: $(wc -l < /tmp/zh-files.txt)"
+          echo "ZH files: $(wc -l < /tmp/zh-files.txt)"
 
       - name: Discover ZH 教辅 files
         run: |
           find zh/教辅 -name "*.md" | sort > /tmp/zh-jiaofu-files.txt
-          echo "ZH 教辅 files: $(wc -l < /tmp/zh-jiaofu-files.txt)"
+          echo "教辅 files: $(wc -l < /tmp/zh-jiaofu-files.txt)"
 
       - name: Build EN PDF
         run: |
@@ -154,7 +141,7 @@ jobs:
             $(cat /tmp/zh-jiaofu-files.txt | tr '\n' ' ')
           ls -lh /tmp/ZH-教辅资料.pdf
 
-      - name: Copy PDFs to output directory
+      - name: Copy PDFs to repo
         run: |
           mkdir -p pdfs
           cp /tmp/EN-Maths-CS-AI-Compendium.pdf pdfs/
