@@ -7064,7 +7064,7 @@
 <li>举个例子，若</li>
 </ul>
 <div class="arithmatex">\[
-A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}
+A = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}
 \]</div>
 <p>那么 <span class="arithmatex">\(\hat{\mathbf{i}} = [1, 0]^T\)</span> 落到 <span class="arithmatex">\([2, 1]^T\)</span> (第一列)，<span class="arithmatex">\(\hat{\mathbf{j}} = [0, 1]^T\)</span> 落到 <span class="arithmatex">\([1, 2]^T\)</span> (第二列)。任何其他向量都是这两个基向量的组合，所以它们变换后的位置也就自动确定了。</p>
 <ul>
@@ -7080,26 +7080,26 @@ A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}
 <li>在 2D 中，旋转矩阵为：</li>
 </ul>
 <div class="arithmatex">\[
-R(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}
+R(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix}
 \]</div>
 <ul>
 <li>当 <span class="arithmatex">\(\theta = 90°\)</span> 时：</li>
 </ul>
 <div class="arithmatex">\[
-R = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}
+R = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}
 \]</div>
 <p>所以 <span class="arithmatex">\([1, 0]^T\)</span> 变成了 <span class="arithmatex">\([0, 1]^T\)</span>。原本指向右侧的向量现在指向上方。旋转矩阵是正交矩阵，行列式恒为 1。当你在手机上旋转一张照片时，每一个像素坐标都被套用了这个矩阵。</p>
 <ul>
 <li>在 3D 中，每个坐标轴各自有一个旋转矩阵。机械臂的每个关节都绕特定的轴旋转，每个关节就对应一个旋转矩阵。绕 z 轴的旋转看起来像是 2D 情形嵌到了 3D 里：</li>
 </ul>
 <div class="arithmatex">\[
-R_z(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}
+R_z(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \]</div>
 <ul>
 <li><strong>缩放</strong> (scaling) 沿每个坐标轴独立地拉伸或压缩向量：</li>
 </ul>
 <div class="arithmatex">\[
-S(s_x, s_y) = \begin{bmatrix} s_x & 0 \\ 0 & s_y \end{bmatrix}
+S(s_x, s_y) = \begin{bmatrix} s_x &amp; 0 \\ 0 &amp; s_y \end{bmatrix}
 \]</div>
 <p><img alt="缩放沿每个轴按不同倍数拉伸" src="../../images/scaling.svg" /></p>
 <ul>
@@ -7111,14 +7111,14 @@ S(s_x, s_y) = \begin{bmatrix} s_x & 0 \\ 0 & s_y \end{bmatrix}
 </li>
 </ul>
 <div class="arithmatex">\[
-\text{Ref}_x = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+\text{Ref}_x = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}
 \]</div>
 <p><img alt="沿 x 轴反射会翻转 y 分量" src="../../images/reflection.svg" /></p>
 <ul>
 <li>举例来说，<span class="arithmatex">\([3, 2]^T\)</span> 变成了 <span class="arithmatex">\([3, -2]^T\)</span>。当你的手机把自拍水平翻转让文字能正着读，它套用的就是一个反射矩阵。沿直线 <span class="arithmatex">\(y = x\)</span> 反射则会交换两个分量：</li>
 </ul>
 <div class="arithmatex">\[
-\text{Ref}_{y=x} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+\text{Ref}_{y=x} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}
 \]</div>
 <ul>
 <li>
@@ -7132,7 +7132,7 @@ S(s_x, s_y) = \begin{bmatrix} s_x & 0 \\ 0 & s_y \end{bmatrix}
 </li>
 </ul>
 <div class="arithmatex">\[
-\text{Sh}_x(k) = \begin{bmatrix} 1 & k \\ 0 & 1 \end{bmatrix}
+\text{Sh}_x(k) = \begin{bmatrix} 1 &amp; k \\ 0 &amp; 1 \end{bmatrix}
 \]</div>
 <p><img alt="错切让上方滑向侧面，下方保持不动" src="../../images/shearing.svg" /></p>
 <ul>
@@ -7151,7 +7151,7 @@ S(s_x, s_y) = \begin{bmatrix} s_x & 0 \\ 0 & s_y \end{bmatrix}
 <li>为了把它写成单次矩阵乘法，我们用 <strong>齐次坐标</strong> (homogeneous coordinates)：给每个向量末尾补一个 1，然后用一个 <span class="arithmatex">\((n+1) \times (n+1)\)</span> 的矩阵：</li>
 </ul>
 <div class="arithmatex">\[
-\begin{bmatrix} A & \mathbf{t} \\ \mathbf{0}^T & 1 \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ 1 \end{bmatrix} = \begin{bmatrix} A\mathbf{x} + \mathbf{t} \\ 1 \end{bmatrix}
+\begin{bmatrix} A &amp; \mathbf{t} \\ \mathbf{0}^T &amp; 1 \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ 1 \end{bmatrix} = \begin{bmatrix} A\mathbf{x} + \mathbf{t} \\ 1 \end{bmatrix}
 \]</div>
 <ul>
 <li>
@@ -7165,7 +7165,7 @@ S(s_x, s_y) = \begin{bmatrix} s_x & 0 \\ 0 & s_y \end{bmatrix}
 </li>
 </ul>
 <div class="arithmatex">\[
-\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}
+\begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 4 \end{bmatrix}
 \]</div>
 <p>会把每一个 2D 向量都映射到同一条直线上，因为它的两列指向同一个方向。行列式为零，信息丢失了，这个变换也没法逆过来。</p>
 <ul>
