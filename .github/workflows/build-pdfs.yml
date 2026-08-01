@@ -30,6 +30,8 @@ jobs:
 
       - name: Generate CSS for PDF styling
         run: |
+          # Download MathML CSS for proper math rendering in weasyprint
+          curl -sL https://fred-wang.github.io/mathml.css/mathml.css -o /tmp/mathml.css || true
           cat > /tmp/pdf-style.css << 'CSSEOF'
           @page { size: A4; margin: 2cm 2.2cm; }
           body {
@@ -47,6 +49,11 @@ jobs:
           th { background: #f9fafb; font-weight: 600; }
           img { max-width: 100%; height: auto; }
           CSSEOF
+          # Append mathml.css if downloaded
+          if [ -f /tmp/mathml.css ] && [ -s /tmp/mathml.css ]; then
+            echo "/* === MathML styles for math rendering === */" >> /tmp/pdf-style.css
+            cat /tmp/mathml.css >> /tmp/pdf-style.css
+          fi
 
       - name: Discover EN chapter files
         run: |
@@ -131,6 +138,7 @@ jobs:
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --lua-filter=/tmp/fix-paths.lua \
+            --mathml \
             --metadata title="Mathematics, Computer Science & AI Compendium" \
             --metadata author="Henry Ndubuaku et al." \
             --metadata lang=en \
@@ -145,6 +153,7 @@ jobs:
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --lua-filter=/tmp/fix-paths.lua \
+            --mathml \
             --metadata title="数学、计算机与 AI 综合手册 (中文版)" \
             --metadata author="Henry Ndubuaku (原著) · Steven Chen (中译主编)" \
             --metadata lang=zh \
@@ -159,6 +168,7 @@ jobs:
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
             --lua-filter=/tmp/fix-paths.lua \
+            --mathml \
             --metadata title="数学、计算机与 AI 综合手册 — 教辅资料 (中文版)" \
             --metadata author="Steven Chen & AI 协作组" \
             --metadata lang=zh \
