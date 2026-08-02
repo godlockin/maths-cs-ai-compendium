@@ -19,6 +19,20 @@ SUMMARY = re.compile(r"^> \*\*一句话总结\*\*:.*(?:\n>.*)*\n?", re.M)
 NAV = re.compile(r"(?:^|\n)## 🗺️ 本章导览\n(?:\n|[-*].*\n)+", re.M)
 KEY_POINTS = re.compile(r"(?:^|\n)---\n+## 📌 本节要点\n(?:\n|[-*].*\n)*", re.M)
 LABELLED_NOTE = re.compile(r"^> \*\*(?:补充说明|译注)\*\*:.*(?:\n>.*)*\n?", re.M)
+INLINE_MATH = re.compile(r"(?<!\$)\$(?!\$)([^$]+?)\$(?!\$)")
+
+# ── Import enhanced rules ────────────────────────────────────────
+
+try:
+    from translation_rules import (
+        TRANSLATIONESE_PATTERNS, GlossaryEntry, load_glossary,
+        check_inline_math, check_inline_code, check_heading_parity,
+        check_translationese, check_glossary_consistency, check_register_score,
+        CHAPTER_MAP, discover_chapter_pairs,
+    )
+    _RULES_LOADED = True
+except ImportError:
+    _RULES_LOADED = False
 
 def strip_enhancements(text: str) -> str:
     for pattern in (SUMMARY, NAV, KEY_POINTS, LABELLED_NOTE): text = pattern.sub("", text)
@@ -433,7 +447,44 @@ def verify_file(source: Path, target: Path) -> list[Finding]:
         summary = ", ".join(f"{u.kind}@{u.value[:30]}" for u in unmatched_struct_source[:3])
         findings.append(_finding("P0-STRUCTURE", "P0", source, target, f"target lost {len(unmatched_struct_source)} structural unit(s): {summary}"))
     if len(target_units) > len(source_units): findings.append(_finding("P1-UNLABELLED-EXPANSION", "P1", source, target, "target contains extra unlabelled content"))
-    findings.extend(_semantic_candidate(source_text, target_text, source, target)); findings.extend(_punctuation_findings(target_text, source, target)); findings.extend(_spacing_findings(target_text, source, target)); return findings
+    findings.extend(_semantic_candidate(source_text, target_text, source, target)); findings.extend(_punctuation_findings(target_text, source, target)); findings.extend(_spacing_findings(target_text, source, target))
+
+    # ── Enhanced rule checks (from translation_rules.py) ──────────────────
+    if _RULES_LOADED:
+        # P0: inline math unchanged
+        if not check_inline_math(source_text, target_text):
+            src_im = INLINE_MATH.findall(source_text)
+            tgt_im = INLINE_MATH.findall(target_text)
+            diff = sorted(set(src_im) - set(tgt_im))
+            if diff:
+                findings.append(_finding("P0-MATH-INLINE", "P0", source, target,
+                    f"inline math blocks diverge: {len(diff)} changed/missing (sample: {diff[0][:40]})"))
+
+        # P0: inline code unchanged
+        code_ok, code_changed = check_inline_code(source_text, target_text)
+        if not code_ok and code_changed:
+            findings.append(_finding("P0-CODE-INLINE", "P0", source, target,
+                f"inline code changed: {len(code_changed)} item(s) (sample: {code_changed[0][:40]})"))
+
+        # P0: heading parity
+        hdr_ok, hdr_info = check_heading_parity(source_text, target_text)
+        if not hdr_ok:
+            findings.append(_finding("P0-HEADING-COUNT", "P0", source, target,
+                f"heading mismatch: src={hdr_info['src_total']} tgt={hdr_info['tgt_total']} "
+                f"(by depth: src={hdr_info['src_by_depth']} tgt={hdr_info['tgt_by_depth']})"))
+
+        # P1: translationese scan
+        for tsf in check_translationese(target_text):
+            findings.append(_finding("P1-TRANSLATIONESE", tsf["severity"], source, target,
+                f"'{tsf['match'][:30]}' — {tsf['suggestion']}"))
+
+        # P2: register score
+        score = check_register_score(target_text)
+        if score < 0.35:  # too formal
+            findings.append(_finding("P2-REGISTER", "P2", source, target,
+                f"register score {score:.2f} — too formal; target > 0.4"))
+
+    return findings
 
 def verify_chapter(source_dir: Path, target_dir: Path, strict: bool = False) -> dict:
     try: pairs = map_files(source_dir, target_dir)
