@@ -1,37 +1,90 @@
-name: Translation QA Baseline
+name: Translation QA
 
 on:
   pull_request:
     paths:
-      - 'chapter 09 - audio and speech/**'
-      - 'chapter 10 - multimodal learning/**'
-      - 'zh/第09章 - 音频与语音/**'
-      - 'zh/第10章 - 多模态学习/**'
+      - 'chapter */**'
+      - 'zh/第*/**'
+      - 'zh/GLOSSARY.md'
+      - 'zh/TRANSLATION_GUIDE.md'
       - 'scripts/verify_translation.py'
+      - 'scripts/translation_rules.py'
+      - '.github/workflows/translation-qa.yml'
   push:
     branches: [main]
     paths:
-      - 'chapter 09 - audio and speech/**'
-      - 'chapter 10 - multimodal learning/**'
-      - 'zh/第09章 - 音频与语音/**'
-      - 'zh/第10章 - 多模态学习/**'
+      - 'chapter */**'
+      - 'zh/第*/**'
+      - 'zh/GLOSSARY.md'
+      - 'zh/TRANSLATION_GUIDE.md'
       - 'scripts/verify_translation.py'
+      - 'scripts/translation_rules.py'
   workflow_dispatch:
 
 jobs:
-  baseline:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Generate Chapter 09 and 10 QA reports
+          python-version: "3.12"
+
+      - name: Run translation QA — all 25 chapters
         run: |
           mkdir -p /tmp/translation-qa
-          python3 scripts/verify_translation.py --source-dir "chapter 09 - audio and speech" --target-dir "zh/第09章 - 音频与语音" --chapter 09 --report /tmp/translation-qa/ch09.json || true
-          python3 scripts/verify_translation.py --source-dir "chapter 10 - multimodal learning" --target-dir "zh/第10章 - 多模态学习" --chapter 10 --report /tmp/translation-qa/ch10.json || true
+
+          # Build chapter pairs from the mapping in translation_rules.py
+          python3 -c "
+          from translation_rules import CHAPTER_MAP
+          import json
+          print(json.dumps(CHAPTER_MAP))
+          " > /tmp/chapter_map.json
+
+          python3 scripts/verify_all_chapters.py --report-dir /tmp/translation-qa
+
+      - name: Glossary consistency audit
+        run: |
+          python3 -c "
+          from pathlib import Path
+          from translation_rules import load_glossary, check_glossary_consistency
+          gl = load_glossary(Path('zh/GLOSSARY.md'))
+          import os, json
+
+          findings = []
+          for root, dirs, files in os.walk('zh/'):
+              dirs[:] = [d for d in dirs if d not in ('教辅', 'images', 'pdf', 'svgs')]
+              for fn in files:
+                  if fn.endswith('.md'):
+                      fp = os.path.join(root, fn)
+                      text = Path(fp).read_text(encoding='utf-8')
+                      f = check_glossary_consistency(text, gl)
+                      for fi in f:
+                          fi['file'] = fp
+                      findings.extend(f)
+
+          report = {
+              'total_files_scanned': len(findings),
+              'findings': [
+                  {'file': f['file'], 'en_term': f['en_term'],
+                   'variants': f['variants_found'], 'preferred': f['preferred'],
+                   'message': f['message']}
+                  for f in findings
+              ]
+          }
+          with open('/tmp/translation-qa/glossary.json', 'w') as out:
+              json.dump(report, out, ensure_ascii=False, indent=2)
+
+          if findings:
+              print(f'Glossary audit: {len(findings)} inconsistency findings')
+              for f in findings[:10]:
+                  print(f'  {f[\"file\"]}: {f[\"message\"]}')
+          else:
+              print('Glossary audit: clean')
+          "
+
       - uses: actions/upload-artifact@v4
         with:
-          name: translation-qa-baseline
+          name: translation-qa-report
           path: /tmp/translation-qa
