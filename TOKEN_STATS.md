@@ -1,6 +1,7 @@
-Report written to /tmp/token-stats-report.md
-Size: 2478 chars
- **数据来源**: `~/.claude/projects/...-maths-cs-ai-compendium/` 全部 jsonl 文件
+# maths-cs-ai-compendium · 翻译项目 Token 统计报告
+
+- **数据来源**: `~/.claude/projects/...-maths-cs-ai-compendium/` 全部 jsonl 文件
+- **统计周期**: 2026-07-26 ~ 2026-08-03 (9 天, 18 sessions + 100+ subagents)
 - **统计周期**: 2026-07-26 ~ 2026-08-03 (9 天, 18 sessions + 100+ subagents)
 - **数据口径**: API response 中 `model` + `usage` 字段, 不含 tool-use 内部调用
 - **总 API 调用**: 19,057
