@@ -1,22 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">从 GLUE 到 MMLU 到 SWE-Bench 的评测范式演进时间线</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">从 GLUE 到 MMLU 到 SWE-Bench 的评测范式演进时间线</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="420" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">从 GLUE 到 MMLU 到 SWE-Bench 的评测范式演进时间线</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">分类 → 知识/推理 → 多任务 → 长链 agent</text>
 
+  <!-- Timeline backbone -->
+  <line x1="50" y1="280" x2="690" y2="280" stroke="#64748b" stroke-width="2"/>
+  <polygon points="690,275 700,280 690,285" fill="#64748b"/>
 
+  <!-- Year ticks -->
+  <g font-size="10" fill="#475569" text-anchor="middle">
+    <text x="80" y="295">2018</text>
+    <text x="180" y="295">2019</text>
+    <text x="290" y="295">2020</text>
+    <text x="400" y="295">2022</text>
+    <text x="510" y="295">2023</text>
+    <text x="620" y="295">2024-25</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1">
+    <line x1="80" y1="277" x2="80" y2="283"/>
+    <line x1="180" y1="277" x2="180" y2="283"/>
+    <line x1="290" y1="277" x2="290" y2="283"/>
+    <line x1="400" y1="277" x2="400" y2="283"/>
+    <line x1="510" y1="277" x2="510" y2="283"/>
+    <line x1="620" y1="277" x2="620" y2="283"/>
+  </g>
+
+  <!-- Benchmarks above -->
+  <g>
+    <!-- GLUE 2018 -->
+    <line x1="80" y1="278" x2="80" y2="190" stroke="#2563eb" stroke-width="1.2"/>
+    <rect x="42" y="160" width="76" height="34" rx="6" fill="#2563eb"/>
+    <text x="80" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="white">GLUE</text>
+    <text x="80" y="190" text-anchor="middle" font-size="9" fill="white">9 任务 · 分类/抽取</text>
+
+    <!-- SuperGLUE 2019 -->
+    <line x1="180" y1="278" x2="180" y2="170" stroke="#0891b2" stroke-width="1.2"/>
+    <rect x="138" y="135" width="84" height="36" rx="6" fill="#0891b2"/>
+    <text x="180" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="white">SuperGLUE</text>
+    <text x="180" y="166" text-anchor="middle" font-size="9" fill="white">8 难任务 + 2 诊断</text>
+
+    <!-- MMLU 2020 -->
+    <line x1="290" y1="278" x2="290" y2="200" stroke="#9333ea" stroke-width="1.2"/>
+    <rect x="252" y="170" width="78" height="34" rx="6" fill="#9333ea"/>
+    <text x="290" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="white">MMLU</text>
+    <text x="290" y="200" text-anchor="middle" font-size="9" fill="white">57 学科 · 选择题</text>
+
+    <!-- HumanEval 2021 -->
+    <line x1="400" y1="278" x2="400" y2="220" stroke="#16a34a" stroke-width="1.2"/>
+    <rect x="356" y="190" width="88" height="34" rx="6" fill="#16a34a"/>
+    <text x="400" y="208" text-anchor="middle" font-size="11" font-weight="700" fill="white">HumanEval</text>
+    <text x="400" y="220" text-anchor="middle" font-size="9" fill="white">代码 · unit test</text>
+
+    <!-- MT-Bench / Arena 2023 -->
+    <line x1="510" y1="278" x2="510" y2="240" stroke="#d97706" stroke-width="1.2"/>
+    <rect x="464" y="210" width="92" height="34" rx="6" fill="#d97706"/>
+    <text x="510" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="white">MT-Bench</text>
+    <text x="510" y="240" text-anchor="middle" font-size="9" fill="white">80 题 · GPT-4 judge</text>
+
+    <!-- SWE-Bench / Agent 2024 -->
+    <line x1="620" y1="278" x2="620" y2="240" stroke="#dc2626" stroke-width="1.2"/>
+    <rect x="572" y="210" width="96" height="34" rx="6" fill="#dc2626"/>
+    <text x="620" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="white">SWE-Bench</text>
+    <text x="620" y="240" text-anchor="middle" font-size="9" fill="white">agent · 仓库级</text>
+  </g>
+
+  <!-- Evolution arrows -->
+  <text x="135" y="155" font-size="10" font-weight="600" fill="#2563eb" text-anchor="middle">分类</text>
+  <text x="135" y="142" font-size="9" fill="#64748b" text-anchor="middle">→</text>
+  <text x="235" y="155" font-size="10" font-weight="600" fill="#64748b" text-anchor="middle">常识 / 推理</text>
+  <text x="345" y="195" font-size="10" font-weight="600" fill="#64748b" text-anchor="middle">→</text>
+  <text x="455" y="215" font-size="10" font-weight="600" fill="#64748b" text-anchor="middle">→</text>
+  <text x="565" y="240" font-size="10" font-weight="600" fill="#64748b" text-anchor="middle">→</text>
+
+  <!-- Bottom annotations -->
+  <g transform="translate(0, 340)">
+    <rect x="60" y="0" width="180" height="60" rx="6" fill="#2563eb" fill-opacity="0.08" stroke="#2563eb" stroke-width="1"/>
+    <text x="150" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">范式阶段 1</text>
+    <text x="150" y="34" text-anchor="middle" font-size="10" fill="#1e293b">单任务分类 / 抽取</text>
+    <text x="150" y="48" text-anchor="middle" font-size="10" fill="#475569">确定答案, accuracy 直观</text>
+
+    <rect x="270" y="0" width="180" height="60" rx="6" fill="#9333ea" fill-opacity="0.08" stroke="#9333ea" stroke-width="1"/>
+    <text x="360" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#9333ea">范式阶段 2</text>
+    <text x="360" y="34" text-anchor="middle" font-size="10" fill="#1e293b">多任务知识 + 推理</text>
+    <text x="360" y="48" text-anchor="middle" font-size="10" fill="#475569">5-shot / 选择题统一</text>
+
+    <rect x="480" y="0" width="180" height="60" rx="6" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-width="1"/>
+    <text x="570" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">范式阶段 3</text>
+    <text x="570" y="34" text-anchor="middle" font-size="10" fill="#1e293b">agent / 长链 / 工具</text>
+    <text x="570" y="48" text-anchor="middle" font-size="10" fill="#475569">pass@k, end-to-end</text>
+  </g>
 </svg>

@@ -7,27 +7,40 @@
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
   <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">漂移检测</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">漂移检测: PSI / KS / MMD 三大方法对比 (入模特征 vs 训练集)</text>
 
+  <!-- Method 1: PSI -->
+  <rect x="30" y="60" width="200" height="155" rx="5" fill="#f1f5f9" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">PSI (Population Stability)</text>
+  <text x="130" y="100" text-anchor="middle" font-size="10" fill="#475569">分桶占比对比</text>
+  <rect x="46" y="110" width="170" height="18" rx="2" fill="#dbeafe"/>
+  <text x="131" y="123" text-anchor="middle" font-size="10" fill="#1e3a8a">公式: Σ(p_new - p_base)·ln(p_new/p_base)</text>
+  <text x="46" y="148" font-size="11" fill="#16a34a" font-weight="600">PSI &lt; 0.1  稳定</text>
+  <text x="46" y="166" font-size="11" fill="#d97706" font-weight="600">0.1 - 0.25  中等偏移</text>
+  <text x="46" y="184" font-size="11" fill="#dc2626" font-weight="600">PSI &gt; 0.25  告警+重训</text>
+  <text x="46" y="204" font-size="10" fill="#64748b">适用: 数值/类别特征通用</text>
 
+  <!-- Method 2: KS -->
+  <rect x="250" y="60" width="200" height="155" rx="5" fill="#f1f5f9" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="350" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">KS 检验 (Kolmogorov-Smirnov)</text>
+  <text x="350" y="100" text-anchor="middle" font-size="10" fill="#475569">两分布最大距离</text>
+  <rect x="266" y="110" width="170" height="18" rx="2" fill="#dcfce7"/>
+  <text x="351" y="123" text-anchor="middle" font-size="10" fill="#14532d">max|F_new(x) - F_base(x)|</text>
+  <text x="266" y="148" font-size="11" fill="#16a34a" font-weight="600">KS &lt; 0.1  稳定</text>
+  <text x="266" y="166" font-size="11" fill="#d97706" font-weight="600">0.1 - 0.2  关注</text>
+  <text x="266" y="184" font-size="11" fill="#dc2626" font-weight="600">KS &gt; 0.2  显著漂移</text>
+  <text x="266" y="204" font-size="10" fill="#64748b">适用: 连续特征、连续标签</text>
+
+  <!-- Method 3: MMD -->
+  <rect x="470" y="60" width="200" height="155" rx="5" fill="#f1f5f9" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="570" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#9333ea">MMD (Maximum Mean Discrepancy)</text>
+  <text x="570" y="100" text-anchor="middle" font-size="10" fill="#475569">高维 / embedding 距离</text>
+  <rect x="486" y="110" width="170" height="18" rx="2" fill="#f3e8ff"/>
+  <text x="571" y="123" text-anchor="middle" font-size="10" fill="#581c87">‖E[φ(X_new)] - E[φ(X_base)]‖²_HK</text>
+  <text x="486" y="148" font-size="11" fill="#16a34a" font-weight="600">小值  稳定</text>
+  <text x="486" y="166" font-size="11" fill="#d97706" font-weight="600">中值  关注</text>
+  <text x="486" y="184" font-size="11" fill="#dc2626" font-weight="600">大值  显著漂移</text>
+  <text x="486" y="204" font-size="10" fill="#64748b">适用: embedding / 高维稀疏</text>
 </svg>

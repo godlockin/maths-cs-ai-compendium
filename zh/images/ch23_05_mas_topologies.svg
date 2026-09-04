@@ -1,29 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="170" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">四种 Multi-Agent 通信模式</text>
-  <rect x="150" y="-4" width="400" height="34" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="350.0" y="18.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">Sequential</text>
-  <rect x="165" y="36" width="370" height="34" rx="5" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a" stroke-width="1.5"/>
-  <text x="350.0" y="58.0" text-anchor="middle" font-size="12" font-weight="600" fill="#16a34a">Hierarchical</text>
-  <rect x="180" y="76" width="340" height="34" rx="5" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.5"/>
-  <text x="350.0" y="98.0" text-anchor="middle" font-size="12" font-weight="600" fill="#dc2626">P2P</text>
-  <rect x="195" y="116" width="310" height="34" rx="5" fill="#9333ea" fill-opacity="0.12" stroke="#9333ea" stroke-width="1.5"/>
-  <text x="350.0" y="138.0" text-anchor="middle" font-size="12" font-weight="600" fill="#9333ea">Debate 结构对比</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="380" fill="#fafbfc"/>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Multi-Agent 四种通信模式 (MAS Topologies)</text>
+
+<!-- 2×2 网格 -->
+<g font-size="10" font-weight="600">
+  <!-- 1. Sequential (左上) -->
+  <g transform="translate(20,60)">
+    <rect x="0" y="0" width="320" height="140" rx="6" fill="#2563eb" fill-opacity="0.06" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="160" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">① Sequential 流水线</text>
+    <text x="160" y="36" text-anchor="middle" font-size="9" font-style="italic" fill="#64748b">A → B → C (无循环)</text>
+
+    <g>
+      <rect x="20" y="55" width="60" height="34" rx="4" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb"/>
+      <text x="50" y="76" text-anchor="middle" fill="#2563eb">研究</text>
+      <rect x="100" y="55" width="60" height="34" rx="4" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb"/>
+      <text x="130" y="76" text-anchor="middle" fill="#2563eb">写作</text>
+      <rect x="180" y="55" width="60" height="34" rx="4" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb"/>
+      <text x="210" y="76" text-anchor="middle" fill="#2563eb">编辑</text>
+      <line x1="80" y1="72" x2="100" y2="72" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="160" y1="72" x2="180" y2="72" stroke="#64748b" stroke-width="1.5"/>
+    </g>
+    <text x="160" y="108" text-anchor="middle" font-size="10" fill="#475569">✅ 简单可 debug · ❌ 无并行</text>
+    <text x="160" y="124" text-anchor="middle" font-size="9" fill="#94a3b8">代表: 单 Agent 串行多步</text>
+  </g>
+
+  <!-- 2. Hierarchical (右上) -->
+  <g transform="translate(360,60)">
+    <rect x="0" y="0" width="340" height="140" rx="6" fill="#16a34a" fill-opacity="0.06" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="170" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">② Hierarchical 层级</text>
+    <text x="170" y="36" text-anchor="middle" font-size="9" font-style="italic" fill="#64748b">Manager 分发 + Workers 并行</text>
+
+    <g>
+      <rect x="130" y="48" width="80" height="30" rx="4" fill="#16a34a" fill-opacity="0.2" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="170" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Manager</text>
+
+      <rect x="20" y="100" width="60" height="26" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+      <text x="50" y="117" text-anchor="middle" font-size="10" fill="#16a34a">设计</text>
+      <rect x="140" y="100" width="60" height="26" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+      <text x="170" y="117" text-anchor="middle" font-size="10" fill="#16a34a">工程</text>
+      <rect x="260" y="100" width="60" height="26" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+      <text x="290" y="117" text-anchor="middle" font-size="10" fill="#16a34a">文案</text>
+
+      <line x1="170" y1="78" x2="50" y2="100" stroke="#16a34a"/>
+      <line x1="170" y1="78" x2="170" y2="100" stroke="#16a34a"/>
+      <line x1="170" y1="78" x2="290" y2="100" stroke="#16a34a"/>
+    </g>
+  </g>
+
+  <!-- 3. P2P (左下) -->
+  <g transform="translate(20,220)">
+    <rect x="0" y="0" width="320" height="140" rx="6" fill="#dc2626" fill-opacity="0.06" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="160" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">③ Peer-to-Peer 对等</text>
+    <text x="160" y="36" text-anchor="middle" font-size="9" font-style="italic" fill="#64748b">无中心 · 任意 handoff</text>
+
+    <g>
+      <circle cx="60" cy="80" r="22" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626"/>
+      <text x="60" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">A</text>
+      <circle cx="160" cy="60" r="22" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626"/>
+      <text x="160" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">B</text>
+      <circle cx="260" cy="80" r="22" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626"/>
+      <text x="260" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">C</text>
+      <circle cx="160" cy="110" r="22" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626"/>
+      <text x="160" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">D</text>
+
+      <line x1="78" y1="72" x2="142" y2="62" stroke="#dc2626" stroke-width="1"/>
+      <line x1="178" y1="62" x2="242" y2="72" stroke="#dc2626" stroke-width="1"/>
+      <line x1="252" y1="98" x2="178" y2="108" stroke="#dc2626" stroke-width="1"/>
+      <line x1="142" y1="98" x2="68" y2="92" stroke="#dc2626" stroke-width="1"/>
+      <line x1="160" y1="82" x2="160" y2="88" stroke="#dc2626" stroke-width="1"/>
+    </g>
+    <text x="160" y="135" text-anchor="middle" font-size="9" fill="#64748b">⚠ 易死循环, 需显式 terminate</text>
+  </g>
+
+  <!-- 4. Debate (右下) -->
+  <g transform="translate(360,220)">
+    <rect x="0" y="0" width="340" height="140" rx="6" fill="#9333ea" fill-opacity="0.06" stroke="#9333ea" stroke-width="1.5"/>
+    <text x="170" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#9333ea">④ Debate 辩论</text>
+    <text x="170" y="36" text-anchor="middle" font-size="9" font-style="italic" fill="#64748b">独立作答 → 互相批评 → 聚合</text>
+
+    <g>
+      <circle cx="60" cy="75" r="20" fill="#9333ea" fill-opacity="0.18" stroke="#9333ea"/>
+      <text x="60" y="79" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">A₁</text>
+      <circle cx="60" cy="115" r="20" fill="#9333ea" fill-opacity="0.18" stroke="#9333ea"/>
+      <text x="60" y="119" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">A₂</text>
+      <circle cx="170" cy="75" r="20" fill="#9333ea" fill-opacity="0.18" stroke="#9333ea"/>
+      <text x="170" y="79" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">A₃</text>
+      <circle cx="280" cy="95" r="24" fill="#9333ea" fill-opacity="0.25" stroke="#9333ea" stroke-width="1.8"/>
+      <text x="280" y="99" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">投票</text>
+
+      <line x1="80" y1="75" x2="150" y2="75" stroke="#9333ea" stroke-dasharray="3 2"/>
+      <line x1="80" y1="115" x2="150" y2="85" stroke="#9333ea" stroke-dasharray="3 2"/>
+      <line x1="190" y1="75" x2="258" y2="92" stroke="#9333ea" stroke-dasharray="3 2"/>
+      <line x1="80" y1="115" x2="258" y2="100" stroke="#9333ea" stroke-dasharray="3 2"/>
+    </g>
+    <text x="170" y="135" text-anchor="middle" font-size="9" fill="#64748b">✅ 事实性↑数学准确率↑ · ❌ 成本×N×轮</text>
+  </g>
+</g>
 
 </svg>

@@ -1,22 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">LLM 只会说 vs LLM 用工具会做</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">幻觉 vs 事实之别</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="380" fill="#fafbfc"/>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">LLM 只会说 vs LLM 用工具会做</text>
+
+<!-- 左侧: LLM 只会说 -->
+<g transform="translate(20,70)">
+  <rect x="0" y="0" width="320" height="280" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="160" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">LLM 只会说 (开环)</text>
+  <text x="160" y="48" text-anchor="middle" font-size="10" fill="#7f1d1d">P(y|x) — 单次采样, 无 grounding</text>
+
+  <!-- 4 个短板 -->
+  <g font-size="11" font-weight="600">
+    <rect x="20" y="65" width="280" height="38" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="36" y="82" fill="#dc2626">① 知识截止</text>
+    <text x="36" y="97" font-size="10" font-weight="400" fill="#7f1d1d">训练数据 cutoff 之后的事不知道</text>
+
+    <rect x="20" y="110" width="280" height="38" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="36" y="127" fill="#dc2626">② 幻觉</text>
+    <text x="36" y="142" font-size="10" font-weight="400" fill="#7f1d1d">不知道时编一个听起来像的</text>
+
+    <rect x="20" y="155" width="280" height="38" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="36" y="172" fill="#dc2626">③ 数学 / 精确计算差</text>
+    <text x="36" y="187" font-size="10" font-weight="400" fill="#7f1d1d">18472×39081 ≈ 错的近似</text>
+
+    <rect x="20" y="200" width="280" height="38" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="36" y="217" fill="#dc2626">④ 副作用能力 = 0</text>
+    <text x="36" y="232" font-size="10" font-weight="400" fill="#7f1d1d">只能吐 token, 不能发邮件 / 改库</text>
+  </g>
+
+  <text x="160" y="262" text-anchor="middle" font-size="11" font-style="italic" fill="#7f1d1d">"巴黎首都是哪里?"</text>
+  <text x="160" y="276" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">→ "巴黎..."(幻觉风险)</text>
+</g>
+
+<!-- 中间分隔 -->
+<text x="360" y="180" text-anchor="middle" font-size="20" font-weight="700" fill="#64748b">→</text>
+<text x="360" y="200" text-anchor="middle" font-size="10" fill="#64748b">P_tool = 确定</text>
+
+<!-- 右侧: 用工具 -->
+<g transform="translate(380,70)">
+  <rect x="0" y="0" width="320" height="280" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="160" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">LLM + 工具 (胶水)</text>
+  <text x="160" y="48" text-anchor="middle" font-size="10" fill="#166534">P(y|x) = Σ P_LLM · P_tool · P_LLM</text>
+
+  <!-- 数学公式展开 -->
+  <text x="20" y="74" font-size="9" font-family="monospace" fill="#475569">P(y|x) = Σ_{T_j,u,v} P_LLM(y|x,T_j,u,v)</text>
+  <text x="36" y="86" font-size="9" font-family="monospace" fill="#475569">× P_tool(v|T_j,u)  ← 确定性</text>
+  <text x="36" y="98" font-size="9" font-family="monospace" fill="#475569">× P_LLM(T_j,u|x)</text>
+
+  <g font-size="11" font-weight="600">
+    <rect x="20" y="115" width="280" height="38" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="36" y="132" fill="#16a34a">① 工具 = 真值</text>
+    <text x="36" y="147" font-size="10" font-weight="400" fill="#166534">查数据库 / 调 API / 跑 Python</text>
+
+    <rect x="20" y="160" width="280" height="38" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="36" y="177" fill="#16a34a">② 压幻觉</text>
+    <text x="36" y="192" font-size="10" font-weight="400" fill="#166534">P_tool 是确定性函数, 不是采样</text>
+
+    <rect x="20" y="205" width="280" height="38" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="36" y="222" fill="#16a34a">③ 副作用能力</text>
+    <text x="36" y="237" font-size="10" font-weight="400" fill="#166534">发邮件 / 下单 / 写文件 / 部署</text>
+  </g>
+
+  <text x="160" y="262" text-anchor="middle" font-size="11" font-style="italic" fill="#166534">"巴黎首都是哪里?"</text>
+  <text x="160" y="276" text-anchor="middle" font-size="10" font-style="italic" fill="#16a34a">→ tool: wikipedia("Paris") → "巴黎"</text>
+</g>
 
 </svg>

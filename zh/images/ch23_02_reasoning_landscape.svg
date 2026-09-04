@@ -1,33 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">推理提示词全景图</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="420" fill="#fafbfc"/>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">推理提示词全景图: 单链 CoT → 树形 ToT → 图形 GoT</text>
+
+<!-- 左侧: 形状分类 -->
+<g font-size="11" font-weight="600">
+  <rect x="40" y="60" width="100" height="28" rx="4" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb"/>
+  <text x="90" y="79" text-anchor="middle" fill="#2563eb">单链 Linear</text>
+  <rect x="40" y="100" width="100" height="28" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="90" y="119" text-anchor="middle" fill="#0891b2">多链 SC</text>
+  <rect x="40" y="140" width="100" height="28" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="90" y="159" text-anchor="middle" fill="#16a34a">树形 ToT</text>
+  <rect x="40" y="180" width="100" height="28" rx="4" fill="#9333ea" fill-opacity="0.12" stroke="#9333ea"/>
+  <text x="90" y="199" text-anchor="middle" fill="#9333ea">图形 GoT</text>
+  <rect x="40" y="220" width="100" height="28" rx="4" fill="#d97706" fill-opacity="0.12" stroke="#d97706"/>
+  <text x="90" y="239" text-anchor="middle" fill="#d97706">递归 L2M</text>
+  <rect x="40" y="260" width="100" height="28" rx="4" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626"/>
+  <text x="90" y="279" text-anchor="middle" fill="#dc2626">循环 ReAct</text>
+  <rect x="40" y="300" width="100" height="28" rx="4" fill="#db2777" fill-opacity="0.12" stroke="#db2777"/>
+  <text x="90" y="319" text-anchor="middle" fill="#db2777">程序 PoT</text>
+  <rect x="40" y="340" width="100" height="28" rx="4" fill="#64748b" fill-opacity="0.12" stroke="#64748b"/>
+  <text x="90" y="359" text-anchor="middle" fill="#64748b">反思 Reflexion</text>
+</g>
+
+<!-- 中间: 各种拓扑可视化 -->
+<!-- 1. 单链 CoT -->
+<g transform="translate(180,70)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">CoT</text>
+  <line x1="10" y1="12" x2="170" y2="12" stroke="#2563eb" stroke-width="1.8"/>
+  <circle cx="10" cy="12" r="5" fill="#2563eb"/>
+  <circle cx="60" cy="12" r="5" fill="#2563eb"/>
+  <circle cx="110" cy="12" r="5" fill="#2563eb"/>
+  <circle cx="170" cy="12" r="7" fill="#2563eb"/>
+  <text x="10" y="28" text-anchor="middle" font-size="9" fill="#94a3b8">Q</text>
+  <text x="170" y="28" text-anchor="middle" font-size="9" fill="#94a3b8">A</text>
+</g>
+
+<!-- 2. SC 多链 -->
+<g transform="translate(180,110)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">SC</text>
+  <line x1="10" y1="5" x2="170" y2="5" stroke="#0891b2" stroke-width="1.5"/>
+  <line x1="10" y1="14" x2="170" y2="14" stroke="#0891b2" stroke-width="1.5"/>
+  <line x1="10" y1="23" x2="170" y2="23" stroke="#0891b2" stroke-width="1.5"/>
+  <circle cx="10" cy="5" r="4" fill="#0891b2"/>
+  <circle cx="10" cy="14" r="4" fill="#0891b2"/>
+  <circle cx="10" cy="23" r="4" fill="#0891b2"/>
+  <circle cx="170" cy="5" r="4" fill="#0891b2"/>
+  <circle cx="170" cy="14" r="5" fill="#0891b2" stroke="#16a34a" stroke-width="2"/>
+  <circle cx="170" cy="23" r="4" fill="#0891b2"/>
+</g>
+
+<!-- 3. ToT 树 -->
+<g transform="translate(180,150)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">ToT</text>
+  <circle cx="90" cy="14" r="6" fill="#16a34a"/>
+  <line x1="90" y1="20" x2="40" y2="32" stroke="#16a34a"/>
+  <line x1="90" y1="20" x2="90" y2="32" stroke="#16a34a"/>
+  <line x1="90" y1="20" x2="140" y2="32" stroke="#16a34a"/>
+  <circle cx="40" cy="36" r="4" fill="#16a34a"/>
+  <circle cx="90" cy="36" r="4" fill="#16a34a"/>
+  <circle cx="140" cy="36" r="4" fill="#16a34a"/>
+  <line x1="40" y1="40" x2="25" y2="50" stroke="#16a34a"/>
+  <line x1="40" y1="40" x2="55" y2="50" stroke="#16a34a"/>
+  <circle cx="25" cy="52" r="3" fill="#16a34a"/>
+  <circle cx="55" cy="52" r="3" fill="#16a34a"/>
+  <circle cx="55" cy="52" r="5" fill="none" stroke="#16a34a" stroke-width="2"/>
+</g>
+
+<!-- 4. GoT 图 -->
+<g transform="translate(180,200)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">GoT</text>
+  <circle cx="30" cy="14" r="5" fill="#9333ea"/>
+  <circle cx="80" cy="6" r="5" fill="#9333ea"/>
+  <circle cx="130" cy="14" r="5" fill="#9333ea"/>
+  <circle cx="55" cy="28" r="5" fill="#9333ea"/>
+  <circle cx="105" cy="28" r="5" fill="#9333ea"/>
+  <line x1="30" y1="14" x2="80" y2="6" stroke="#9333ea"/>
+  <line x1="80" y1="6" x2="130" y2="14" stroke="#9333ea"/>
+  <line x1="30" y1="14" x2="55" y2="28" stroke="#9333ea"/>
+  <line x1="130" y1="14" x2="105" y2="28" stroke="#9333ea"/>
+  <line x1="55" y1="28" x2="105" y2="28" stroke="#9333ea" stroke-dasharray="3 2"/>
+  <line x1="55" y1="28" x2="30" y2="14" stroke="#9333ea" stroke-dasharray="3 2"/>
+</g>
+
+<!-- 5. Least-to-Most 递归 -->
+<g transform="translate(180,250)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">L2M</text>
+  <rect x="60" y="8" width="60" height="14" rx="2" fill="#d97706" fill-opacity="0.2" stroke="#d97706"/>
+  <text x="90" y="19" text-anchor="middle" font-size="9" fill="#d97706">x</text>
+  <line x1="78" y1="22" x2="40" y2="34" stroke="#d97706"/>
+  <line x1="90" y1="22" x2="90" y2="34" stroke="#d97706"/>
+  <line x1="102" y1="22" x2="140" y2="34" stroke="#d97706"/>
+  <rect x="22" y="36" width="36" height="14" rx="2" fill="#d97706" fill-opacity="0.2" stroke="#d97706"/>
+  <text x="40" y="47" text-anchor="middle" font-size="9" fill="#d97706">x₁</text>
+  <rect x="72" y="36" width="36" height="14" rx="2" fill="#d97706" fill-opacity="0.2" stroke="#d97706"/>
+  <text x="90" y="47" text-anchor="middle" font-size="9" fill="#d97706">x₂</text>
+  <rect x="122" y="36" width="36" height="14" rx="2" fill="#d97706" fill-opacity="0.2" stroke="#d97706"/>
+  <text x="140" y="47" text-anchor="middle" font-size="9" fill="#d97706">x₃</text>
+</g>
+
+<!-- 6. ReAct 循环 -->
+<g transform="translate(180,300)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">ReAct</text>
+  <ellipse cx="30" cy="20" rx="22" ry="14" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626"/>
+  <text x="30" y="24" text-anchor="middle" font-size="9" fill="#dc2626">Thought</text>
+  <ellipse cx="90" cy="6" rx="22" ry="12" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626"/>
+  <text x="90" y="10" text-anchor="middle" font-size="9" fill="#dc2626">Action</text>
+  <ellipse cx="150" cy="20" rx="22" ry="14" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626"/>
+  <text x="150" y="24" text-anchor="middle" font-size="9" fill="#dc2626">Obs</text>
+  <path d="M52 20 Q70 10 70 10" fill="none" stroke="#dc2626"/>
+  <path d="M110 10 Q130 12 130 18" fill="none" stroke="#dc2626"/>
+  <path d="M150 34 Q130 50 90 50 Q50 50 30 34" fill="none" stroke="#dc2626"/>
+</g>
+
+<!-- 7. PoT 程序 -->
+<g transform="translate(180,350)">
+  <text x="90" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#db2777">PoT</text>
+  <rect x="10" y="8" width="160" height="32" rx="3" fill="#db2777" fill-opacity="0.1" stroke="#db2777"/>
+  <text x="90" y="22" text-anchor="middle" font-size="9" font-family="monospace" fill="#db2777">a*b + c*d</text>
+  <text x="90" y="34" text-anchor="middle" font-size="9" font-family="monospace" fill="#db2777">→ Python sandbox</text>
+</g>
+
+<!-- 右侧: 关键说明 -->
+<rect x="380" y="60" width="320" height="320" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="540" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">P(y|x) = Σ_z P(y|z,x)·P(z|x)</text>
+<text x="400" y="108" font-size="11" fill="#334155" font-weight="600">核心思想: 引入中间推理链 z</text>
+<text x="400" y="128" font-size="10" fill="#475569">· CoT: 让模型自己写 z</text>
+<text x="400" y="146" font-size="10" fill="#475569">· SC: 采样多条 z 投票</text>
+<text x="400" y="164" font-size="10" fill="#475569">· ReAct: z 与工具交替</text>
+<text x="400" y="182" font-size="10" fill="#475569">· Reflexion: 失败后加 r</text>
+<text x="400" y="200" font-size="10" fill="#475569">· ToT/GoT: z 展开成树/图</text>
+<text x="400" y="218" font-size="10" fill="#475569">· L2M: 递归拆 x → xᵢ</text>
+<text x="400" y="236" font-size="10" fill="#475569">· PoT: 计算外包给 Python</text>
+
+<text x="400" y="266" font-size="11" fill="#334155" font-weight="600">复杂度递增</text>
+<text x="400" y="286" font-size="10" fill="#475569">单链 O(L) → 多链 O(NL) → 树 O(k·T·b)</text>
+<text x="400" y="304" font-size="10" fill="#475569">→ DAG O(|V|+|E|) → 循环 O(∞, 限 max_iter)</text>
+
+<rect x="395" y="320" width="295" height="50" rx="4" fill="#fef2f2" stroke="#dc2626"/>
+<text x="402" y="338" font-size="10" fill="#7f1d1d">经验: 简单任务用 CoT; 24 点 / 拼图</text>
+<text x="402" y="354" font-size="10" fill="#7f1d1d">/ 排序用 ToT/GoT; 数学用 PoT; Agent</text>
+<text x="402" y="370" font-size="10" fill="#7f1d1d">循环必嵌 ReAct 作为骨架</text>
 
 </svg>

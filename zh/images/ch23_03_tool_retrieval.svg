@@ -1,33 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">工具检索</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="420" fill="#fafbfc"/>
+<defs>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">工具检索: embedding 空间 top-k 选工具</text>
+
+<!-- User query box -->
+<g transform="translate(20,70)">
+  <rect x="0" y="0" width="160" height="56" rx="6" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="80" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">User Query</text>
+  <text x="80" y="40" text-anchor="middle" font-size="10" fill="#475569">"查北京天气"</text>
+  <text x="80" y="52" text-anchor="middle" font-size="9" fill="#64748b">embed → v_q ∈ R^d</text>
+</g>
+
+<!-- Embedding Space (云状, 工具散点) -->
+<g transform="translate(220,55)">
+  <ellipse cx="240" cy="160" rx="240" ry="155" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="240" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Embedding Space R^d (e.g. d=1024)</text>
+
+  <!-- User query point -->
+  <g>
+    <circle cx="240" cy="160" r="8" fill="#2563eb" stroke="white" stroke-width="2"/>
+    <text x="252" y="155" font-size="11" font-weight="700" fill="#2563eb">v_q</text>
+    <text x="252" y="170" font-size="9" fill="#475569">query</text>
+  </g>
+
+  <!-- Top-k (k=3) 高亮圈 (近) -->
+  <circle cx="240" cy="160" r="55" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="262" y="108" font-size="10" font-weight="700" fill="#16a34a">top-k</text>
+
+  <!-- Top-3 tools (近) -->
+  <circle cx="265" cy="135" r="5" fill="#16a34a"/>
+  <text x="275" y="138" font-size="9" font-weight="600" fill="#16a34a">get_weather(city)</text>
+
+  <circle cx="220" cy="190" r="5" fill="#16a34a"/>
+  <text x="160" y="195" font-size="9" font-weight="600" fill="#16a34a">search_news(loc)</text>
+
+  <circle cx="280" cy="180" r="5" fill="#16a34a"/>
+  <text x="288" y="195" font-size="9" font-weight="600" fill="#16a34a">geocode(addr)</text>
+
+  <!-- 远距离 tools (弱关联, 灰色) -->
+  <g fill="#94a3b8" font-size="9">
+    <circle cx="120" cy="100" r="3"/>
+    <text x="98" y="103">send_email()</text>
+    <circle cx="380" cy="90" r="3"/>
+    <text x="386" y="93">upload_file()</text>
+    <circle cx="80" cy="220" r="3"/>
+    <text x="20" y="223">run_sql()</text>
+    <circle cx="400" cy="240" r="3"/>
+    <text x="406" y="243">translate()</text>
+    <circle cx="180" cy="60" r="3"/>
+    <text x="135" y="63">calendar()</text>
+    <circle cx="340" cy="280" r="3"/>
+    <text x="346" y="283">delete_db()</text>
+    <circle cx="60" cy="160" r="3"/>
+    <text x="20" y="163">crontab()</text>
+    <circle cx="420" cy="160" r="3"/>
+    <text x="426" y="163">pdf_parse()</text>
+  </g>
+
+  <!-- ... (省略 ~9990 个 API) -->
+  <text x="240" y="305" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">... 共 ~10000 tools, 只用 top-3</text>
+</g>
+
+<!-- 右边: 流程 -->
+<g transform="translate(20,300)">
+  <rect x="0" y="0" width="680" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="20" y="22" font-size="12" font-weight="700" fill="#0f172a">Tool Retrieval Pipeline</text>
+
+  <g font-size="10" font-weight="600">
+    <rect x="20" y="38" width="120" height="28" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="80" y="56" text-anchor="middle" fill="#2563eb">1. embed(query)</text>
+
+    <rect x="150" y="38" width="120" height="28" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="210" y="56" text-anchor="middle" fill="#2563eb">2. ANN search</text>
+
+    <rect x="280" y="38" width="120" height="28" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="340" y="56" text-anchor="middle" fill="#2563eb">3. top-k tools</text>
+
+    <rect x="410" y="38" width="120" height="28" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="470" y="56" text-anchor="middle" fill="#2563eb">4. rerank (可选)</text>
+
+    <rect x="540" y="38" width="120" height="28" rx="4" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a"/>
+    <text x="600" y="56" text-anchor="middle" fill="#16a34a">5. 喂给 LLM</text>
+  </g>
+  <text x="20" y="86" font-size="10" fill="#475569">效果: 工具描述 Token 消耗 S·n̄·t 大幅降低, 选择准确率 ↑ (Gorilla / ToolLLM 路线)</text>
+</g>
 
 </svg>

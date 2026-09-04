@@ -1,22 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
 <style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
+  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">稀疏 attention pattern</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">Longformer 滑动窗口 vs BigBird 随机+全局</text>
+<rect width="700" height="360" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
+  <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
+  <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+</defs>
+<rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+<text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">稀疏 Attention Pattern: Longformer vs BigBird</text>
 
+<!-- Longformer (top) -->
+<g transform="translate(40,55)">
+  <text x="0" y="0" font-size="12" font-weight="700" fill="#9333ea">Longformer: 滑动窗口 w=2 + 全局 token</text>
+  <text x="0" y="14" font-size="10" fill="#64748b">每行: 主对角 ±2 邻域 + 第 0 / 第 n-1 列全局可见</text>
 
+  <g transform="translate(0,24)">
+    <rect x="0" y="0" width="240" height="240" fill="#f8fafc"/>
+    <!-- band cells: row i has col [i-2..i+2] colored purple -->
+    <g fill="#9333ea" fill-opacity="0.7">
+      <rect x="0" y="0" width="45" height="15"/><rect x="210" y="0" width="30" height="15"/>
+      <rect x="0" y="15" width="60" height="15"/><rect x="195" y="15" width="45" height="15"/>
+      <rect x="0" y="30" width="75" height="15"/><rect x="180" y="30" width="60" height="15"/>
+      <rect x="15" y="45" width="75" height="15"/><rect x="165" y="45" width="60" height="15"/>
+      <rect x="30" y="60" width="75" height="15"/><rect x="150" y="60" width="60" height="15"/>
+      <rect x="45" y="75" width="75" height="15"/><rect x="135" y="75" width="60" height="15"/>
+      <rect x="60" y="90" width="75" height="15"/><rect x="120" y="90" width="60" height="15"/>
+      <rect x="75" y="105" width="75" height="15"/><rect x="105" y="105" width="60" height="15"/>
+      <rect x="90" y="120" width="75" height="15"/><rect x="90" y="120" width="60" height="15"/>
+      <rect x="105" y="135" width="75" height="15"/><rect x="75" y="135" width="60" height="15"/>
+      <rect x="120" y="150" width="75" height="15"/><rect x="60" y="150" width="60" height="15"/>
+      <rect x="135" y="165" width="75" height="15"/><rect x="45" y="165" width="60" height="15"/>
+      <rect x="150" y="180" width="75" height="15"/><rect x="30" y="180" width="60" height="15"/>
+      <rect x="165" y="195" width="75" height="15"/><rect x="15" y="195" width="60" height="15"/>
+      <rect x="180" y="210" width="60" height="15"/><rect x="0" y="210" width="75" height="15"/>
+      <rect x="195" y="225" width="45" height="15"/><rect x="0" y="225" width="60" height="15"/>
+    </g>
+    <!-- global col 0 and col n-1 -->
+    <rect x="0" y="0" width="15" height="240" fill="#d97706" fill-opacity="0.85"/>
+    <rect x="225" y="0" width="15" height="240" fill="#d97706" fill-opacity="0.85"/>
+    <!-- grid lines -->
+    <g stroke="#cbd5e1" stroke-width="0.4" fill="none">
+      <rect x="0" y="0" width="240" height="240"/>
+      <line x1="15" y1="0" x2="15" y2="240"/>
+      <line x1="225" y1="0" x2="225" y2="240"/>
+      <line x1="0" y1="15" x2="240" y2="15"/>
+      <line x1="0" y1="225" x2="240" y2="225"/>
+    </g>
+    <text x="260" y="6" font-size="10" fill="#9333ea">▓ 滑动窗口 (|i-j|≤2)</text>
+    <text x="260" y="22" font-size="10" fill="#d97706">▓ 全局 token (CLS)</text>
+    <text x="260" y="40" font-size="10" fill="#475569">复杂度: O(n·w) 线性</text>
+  </g>
+</g>
+
+<!-- BigBird (bottom) -->
+<g transform="translate(40,250)">
+  <text x="0" y="0" font-size="12" font-weight="700" fill="#0891b2">BigBird: 滑动窗口 + 全局 + 随机 token</text>
+  <text x="0" y="14" font-size="10" fill="#64748b">在 Longformer 基础上再加 r 个随机 token, 理论保持通用逼近</text>
+
+  <g transform="translate(0,24)">
+    <rect x="0" y="0" width="240" height="64" fill="#f8fafc"/>
+    <!-- window: simplified diagonal -->
+    <g fill="#0891b2" fill-opacity="0.65">
+      <!-- center diagonal band (showing windows in middle rows) -->
+      <rect x="20" y="0" width="40" height="8"/>
+      <rect x="36" y="8" width="40" height="8"/>
+      <rect x="52" y="16" width="40" height="8"/>
+      <rect x="68" y="24" width="40" height="8"/>
+      <rect x="84" y="32" width="40" height="8"/>
+      <rect x="100" y="40" width="40" height="8"/>
+      <rect x="116" y="48" width="40" height="8"/>
+      <rect x="132" y="56" width="40" height="8"/>
+      <!-- far left -->
+      <rect x="0" y="0" width="20" height="64"/>
+      <!-- far right -->
+      <rect x="220" y="0" width="20" height="64"/>
+    </g>
+    <!-- global col 0 and 15 -->
+    <rect x="0" y="0" width="6" height="64" fill="#d97706" fill-opacity="0.85"/>
+    <rect x="118" y="0" width="6" height="64" fill="#d97706" fill-opacity="0.85"/>
+    <rect x="234" y="0" width="6" height="64" fill="#d97706" fill-opacity="0.85"/>
+    <!-- random dots -->
+    <g fill="#dc2626" fill-opacity="0.9">
+      <rect x="32" y="6" width="5" height="5"/>
+      <rect x="62" y="20" width="5" height="5"/>
+      <rect x="22" y="38" width="5" height="5"/>
+      <rect x="86" y="46" width="5" height="5"/>
+      <rect x="148" y="10" width="5" height="5"/>
+      <rect x="172" y="32" width="5" height="5"/>
+      <rect x="200" y="50" width="5" height="5"/>
+      <rect x="44" y="56" width="5" height="5"/>
+      <rect x="106" y="14" width="5" height="5"/>
+      <rect x="162" y="58" width="5" height="5"/>
+    </g>
+    <text x="260" y="6" font-size="10" fill="#0891b2">▓ 滑动窗口</text>
+    <text x="260" y="22" font-size="10" fill="#d97706">▓ 全局 token</text>
+    <text x="260" y="38" font-size="10" fill="#dc2626">▓ 随机 token</text>
+    <text x="260" y="54" font-size="10" fill="#475569">复杂度: O(n), 通用序列逼近</text>
+  </g>
+</g>
 </svg>

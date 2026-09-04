@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" width="720" height="150" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="720" height="150" fill="#fafbfc"/>
+<rect width="720" height="360" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,18 +14,60 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
   <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">联邦平均 (FedAvg) 一轮流程</text>
-  <rect x="48" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="118.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">客户端本地训练</text>
-  <line x1="188" y1="82" x2="216" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="216" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="286.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">上传梯度</text>
-  <line x1="356" y1="82" x2="384" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="384" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="454.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">服务器聚合</text>
-  <line x1="524" y1="82" x2="552" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="552" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="622.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">下发新模型</text>
+
+  <!-- Three clients (top) -->
+  <g transform="translate(80,70)">
+    <rect x="0" y="0" width="120" height="80" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="60" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">客户端 A</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#475569">本地数据 D_A</text>
+    <text x="60" y="56" text-anchor="middle" font-size="10" fill="#64748b">本地 E 轮 SGD</text>
+    <text x="60" y="72" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">Δ_A = w_A − w</text>
+  </g>
+
+  <g transform="translate(300,70)">
+    <rect x="0" y="0" width="120" height="80" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4"/>
+    <text x="60" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">客户端 B</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#475569">本地数据 D_B</text>
+    <text x="60" y="56" text-anchor="middle" font-size="10" fill="#64748b">本地 E 轮 SGD</text>
+    <text x="60" y="72" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">Δ_B = w_B − w</text>
+  </g>
+
+  <g transform="translate(520,70)">
+    <rect x="0" y="0" width="120" height="80" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>
+    <text x="60" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#d97706">客户端 C</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#475569">本地数据 D_C</text>
+    <text x="60" y="56" text-anchor="middle" font-size="10" fill="#64748b">本地 E 轮 SGD</text>
+    <text x="60" y="72" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">Δ_C = w_C − w</text>
+  </g>
+
+  <!-- Uplink arrows: clients -> server -->
+  <line x1="140" y1="150" x2="320" y2="200" stroke="#64748b" stroke-width="1.4" marker-end="url(#a-64748b)"/>
+  <line x1="360" y1="150" x2="360" y2="190" stroke="#64748b" stroke-width="1.4" marker-end="url(#a-64748b)"/>
+  <line x1="580" y1="150" x2="400" y2="200" stroke="#64748b" stroke-width="1.4" marker-end="url(#a-64748b)"/>
+  <text x="180" y="172" font-size="10" fill="#475569">上传 Δ</text>
+  <text x="540" y="172" font-size="10" fill="#475569">上传 Δ</text>
+
+  <!-- Aggregator server -->
+  <g transform="translate(280,200)">
+    <rect x="0" y="0" width="160" height="60" rx="6" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+    <text x="80" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#9333ea">协调服务器</text>
+    <text x="80" y="40" text-anchor="middle" font-size="10" fill="#475569">w ← w + η · Σₖ (n_k/N) Δ_k</text>
+    <text x="80" y="55" text-anchor="middle" font-size="10" fill="#64748b">加权平均</text>
+  </g>
+
+  <!-- Downlink arrows -->
+  <line x1="320" y1="260" x2="140" y2="320" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-16a34a)"/>
+  <line x1="360" y1="260" x2="360" y2="320" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-16a34a)"/>
+  <line x1="400" y1="260" x2="580" y2="320" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-16a34a)"/>
+  <text x="180" y="298" font-size="10" fill="#16a34a">下发 w</text>
+  <text x="540" y="298" font-size="10" fill="#16a34a">下发 w</text>
+
+  <!-- Footer: data NEVER leaves -->
+  <g transform="translate(60,335)">
+    <rect x="0" y="-7" width="600" height="20" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="300" y="7" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">关键约束: 原始数据 D_A, D_B, D_C 从不出本地!  只在服务器做参数聚合</text>
+  </g>
 
 </svg>

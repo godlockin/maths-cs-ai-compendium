@@ -1,31 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" width="720" height="150" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="720" height="150" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
-  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent 的 embodiment 阶梯</text>
-  <rect x="48" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="118.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">沙盒</text>
-  <line x1="188" y1="82" x2="216" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="216" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="286.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">浏览器</text>
-  <line x1="356" y1="82" x2="384" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="384" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="454.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">桌面</text>
-  <line x1="524" y1="82" x2="552" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="552" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="622.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">机器人</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="380" fill="#fafbfc"/>
+<defs>
+  <linearGradient id="ladder" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#16a34a" stop-opacity="0.10"/>
+    <stop offset="50%" stop-color="#d97706" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#dc2626" stop-opacity="0.30"/>
+  </linearGradient>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent 的 Embodiment 阶梯: 沙盒 → 浏览器 → 桌面 → 机器人</text>
+
+<!-- 阶梯基座 (斜线背景) -->
+<rect x="40" y="60" width="640" height="240" rx="8" fill="url(#ladder)"/>
+
+<!-- 阶梯台阶 (从低到高: 沙盒最低 → 机器人最高) -->
+<g font-size="11" font-weight="700" text-anchor="middle">
+  <!-- L1: text (最基础) -->
+  <g transform="translate(60,260)">
+    <rect x="0" y="0" width="100" height="32" rx="4" fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.5"/>
+    <text x="50" y="20" fill="#65a30d">text-only</text>
+  </g>
+  <!-- L2: 沙盒 -->
+  <g transform="translate(60,220)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#16a34a" fill-opacity="0.2" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="60" y="22" fill="#16a34a">① 沙盒 Minecraft</text>
+  </g>
+  <!-- L3: Web -->
+  <g transform="translate(200,180)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#0891b2" fill-opacity="0.2" stroke="#0891b2" stroke-width="1.5"/>
+    <text x="60" y="22" fill="#0891b2">② Web Agent</text>
+  </g>
+  <!-- L4: Computer Use (桌面) -->
+  <g transform="translate(340,140)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#d97706" fill-opacity="0.22" stroke="#d97706" stroke-width="1.5"/>
+    <text x="60" y="22" fill="#d97706">③ 桌面 Computer Use</text>
+  </g>
+  <!-- L5: Mobile -->
+  <g transform="translate(480,100)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#9333ea" fill-opacity="0.22" stroke="#9333ea" stroke-width="1.5"/>
+    <text x="60" y="22" fill="#9333ea">④ Mobile Agent</text>
+  </g>
+  <!-- L6: 机器人 (最高) -->
+  <g transform="translate(540,60)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#dc2626" fill-opacity="0.25" stroke="#dc2626" stroke-width="2"/>
+    <text x="60" y="22" fill="#dc2626">⑤ 机器人 VLA</text>
+  </g>
+</g>
+
+<!-- 顶部箭头: 升级方向 -->
+<g>
+  <line x1="60" y1="55" x2="660" y2="55" stroke="#dc2626" stroke-width="1.5"/>
+  <polygon points="660,55 654,52 654,58" fill="#dc2626"/>
+  <text x="360" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">感知维度 ↑ · 动作不可逆性 ↑ · Safety 要求 ↑</text>
+</g>
+
+<!-- 底部: 每级代表 + 关键 -->
+<g font-size="10" fill="#475569">
+  <text x="120" y="320" text-anchor="middle">Voyager · JARVIS-1 · GITM</text>
+  <text x="260" y="280" text-anchor="middle">WebGPT · AutoWebGLM · Browser-Use</text>
+  <text x="400" y="240" text-anchor="middle">Claude Computer Use · OSWorld</text>
+  <text x="540" y="200" text-anchor="middle">AutoGLM · Mobile-Agent</text>
+  <text x="600" y="160" text-anchor="middle">RT-2 · π₀ · Helix · Gemini Robotics</text>
+</g>
+
+<!-- 底部说明 -->
+<rect x="40" y="335" width="640" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="60" y="355" font-size="10" fill="#334155">每上一阶: 感知模态增加 (text → vision → 触觉) · 失败不可逆成本 ↑ · 沙箱隔离 ↓ 难度 ↑</text>
 </svg>

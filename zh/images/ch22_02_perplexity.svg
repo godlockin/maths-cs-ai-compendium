@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">困惑度的直觉图解</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="360" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">困惑度 (Perplexity) 的直觉图解</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">模型在几个候选 token 之间的平均"摇摆度"</text>
 
+  <!-- Two panels: low PPL vs high PPL -->
+  <text x="180" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">低 PPL (≈ 8)</text>
+  <text x="180" y="103" text-anchor="middle" font-size="10" fill="#64748b">"很确信, 像分布内"</text>
 
+  <text x="540" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">高 PPL (≈ 320)</text>
+  <text x="540" y="103" text-anchor="middle" font-size="10" fill="#64748b">"摇摆 / 几乎随便猜"</text>
+
+  <!-- Low PPL distribution -->
+  <g transform="translate(60,120)">
+    <line x1="0" y1="180" x2="240" y2="180" stroke="#334155" stroke-width="1"/>
+    <!-- 10 candidates, low PPL concentrated -->
+    <rect x="14" y="44" width="22" height="136" fill="#16a34a" fill-opacity="0.85"/>
+    <rect x="40" y="20" width="22" height="160" fill="#16a34a" fill-opacity="0.85"/>
+    <rect x="66" y="36" width="22" height="144" fill="#16a34a" fill-opacity="0.85"/>
+    <rect x="92" y="76" width="22" height="104" fill="#16a34a" fill-opacity="0.5"/>
+    <rect x="118" y="120" width="22" height="60" fill="#16a34a" fill-opacity="0.3"/>
+    <rect x="144" y="144" width="22" height="36" fill="#16a34a" fill-opacity="0.2"/>
+    <rect x="170" y="156" width="22" height="24" fill="#16a34a" fill-opacity="0.15"/>
+    <rect x="196" y="164" width="22" height="16" fill="#16a34a" fill-opacity="0.1"/>
+    <text x="120" y="200" text-anchor="middle" font-size="10" fill="#475569">token 候选 (10 个)</text>
+    <text x="120" y="215" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">PPL = exp( H ) ≈ 8</text>
+  </g>
+
+  <!-- High PPL distribution (flatter) -->
+  <g transform="translate(420,120)">
+    <line x1="0" y1="180" x2="240" y2="180" stroke="#334155" stroke-width="1"/>
+    <rect x="14" y="160" width="22" height="20" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="40" y="152" width="22" height="28" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="66" y="158" width="22" height="22" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="92" y="150" width="22" height="30" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="118" y="156" width="22" height="24" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="144" y="148" width="22" height="32" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="170" y="160" width="22" height="20" fill="#dc2626" fill-opacity="0.7"/>
+    <rect x="196" y="154" width="22" height="26" fill="#dc2626" fill-opacity="0.7"/>
+    <text x="120" y="200" text-anchor="middle" font-size="10" fill="#475569">token 候选 (10 个)</text>
+    <text x="120" y="215" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="600">PPL ≈ 320, 近 uniform</text>
+  </g>
+
+  <!-- Formula box -->
+  <rect x="120" y="245" width="480" height="80" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.2"/>
+  <text x="360" y="265" text-anchor="middle" font-size="11" fill="#475569" font-weight="600">公式: 分支因子 (branching factor) 的几何平均</text>
+  <text x="360" y="288" text-anchor="middle" font-size="13" fill="#1e293b" font-family="monospace">PPL(x) = exp( − 1/N · Σ log p_θ(x_i | x_{&lt;i}) )</text>
+  <text x="360" y="312" text-anchor="middle" font-size="10.5" fill="#64748b">同一模型不同数据 → PPL 越低 = 越接近训练分布; 跨模型不可直接比较</text>
 </svg>

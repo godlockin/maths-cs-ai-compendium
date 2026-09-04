@@ -1,33 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">从 benchmark 分数到 pairwise 偏好投票的评测范式对比</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="380" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">从 benchmark 分数到 pairwise 偏好投票的评测范式对比</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">客观指标 · 真值依赖 · 横向可复现  vs  主观投票 · 人类偏好 · 真实分布</text>
 
+  <!-- LEFT panel: Benchmark -->
+  <g transform="translate(40,80)">
+    <rect x="0" y="0" width="310" height="270" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="0" y="0" width="310" height="36" rx="10" fill="#2563eb"/>
+    <rect x="0" y="22" width="310" height="14" fill="#2563eb"/>
+    <text x="155" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="white">Benchmark 评分 (MMLU/GPT-4-class)</text>
 
+    <text x="20" y="62" font-size="11" font-weight="600" fill="#475569">流程</text>
+    <text x="50" y="80" font-size="10" fill="#334155">1. 题目集 → MMLU / GSM8K / HumanEval</text>
+    <text x="50" y="96" font-size="10" fill="#334155">2. 模型跑一遍, 算出 accuracy</text>
+    <text x="50" y="112" font-size="10" fill="#334155">3. 上 leaderboard, 排名公布</text>
+
+    <!-- Leaderboard mock -->
+    <line x1="20" y1="130" x2="290" y2="130" stroke="#94a3b8" stroke-width="1"/>
+    <text x="20" y="155" font-size="11" font-weight="600" fill="#475569">代表产物</text>
+    <rect x="20" y="165" width="270" height="20" rx="3" fill="#2563eb" fill-opacity="0.08"/>
+    <text x="30" y="180" font-size="10" fill="#1e293b">#1 GPT-4o</text>
+    <text x="230" y="180" font-size="10" font-weight="700" fill="#16a34a" text-anchor="end">88.7%</text>
+    <rect x="20" y="189" width="270" height="20" rx="3" fill="#2563eb" fill-opacity="0.05"/>
+    <text x="30" y="204" font-size="10" fill="#1e293b">#2 Claude 3.5</text>
+    <text x="230" y="204" font-size="10" font-weight="700" fill="#475569" text-anchor="end">87.3%</text>
+    <rect x="20" y="213" width="270" height="20" rx="3" fill="#2563eb" fill-opacity="0.05"/>
+    <text x="30" y="228" font-size="10" fill="#1e293b">#3 Gemini 1.5</text>
+    <text x="230" y="228" font-size="10" font-weight="700" fill="#475569" text-anchor="end">85.9%</text>
+
+    <text x="20" y="255" font-size="10" fill="#16a34a">+ 可复现 / 跑分快 / 数字明确</text>
+    <text x="20" y="268" font-size="10" fill="#dc2626">− 远离真实用户 / 易污染</text>
+  </g>
+
+  <!-- Arrow between -->
+  <line x1="354" y1="215" x2="370" y2="215" stroke="#64748b" stroke-width="2"/>
+  <polygon points="370,210 380,215 370,220" fill="#64748b"/>
+  <text x="367" y="200" text-anchor="middle" font-size="10" fill="#64748b" font-style="italic">oracle 切换</text>
+
+  <!-- RIGHT panel: Arena -->
+  <g transform="translate(380,80)">
+    <rect x="0" y="0" width="310" height="270" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+    <rect x="0" y="0" width="310" height="36" rx="10" fill="#d97706"/>
+    <rect x="0" y="22" width="310" height="14" fill="#d97706"/>
+    <text x="155" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="white">Pairwise 偏好投票 (Chatbot Arena)</text>
+
+    <text x="20" y="62" font-size="11" font-weight="600" fill="#475569">流程</text>
+    <text x="50" y="80" font-size="10" fill="#334155">1. 匿名展示 A vs B 的回答</text>
+    <text x="50" y="96" font-size="10" fill="#334155">2. 用户投票 A 更好 / B 更好 / 平</text>
+    <text x="50" y="112" font-size="10" fill="#334155">3. Bradley-Terry MLE 拟合 rating</text>
+
+    <!-- Two boxes -->
+    <rect x="20" y="125" width="120" height="36" rx="4" fill="#64748b" fill-opacity="0.10"/>
+    <text x="80" y="148" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="600">匿名 Response A</text>
+    <rect x="170" y="125" width="120" height="36" rx="4" fill="#64748b" fill-opacity="0.10"/>
+    <text x="230" y="148" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="600">匿名 Response B</text>
+
+    <!-- Vote -->
+    <line x1="80" y1="161" x2="50" y2="200" stroke="#16a34a" stroke-width="1.5"/>
+    <line x1="230" y1="161" x2="260" y2="200" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="155" y1="161" x2="155" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="50" y="216" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">A 胜</text>
+    <text x="155" y="216" text-anchor="middle" font-size="10" fill="#64748b">平</text>
+    <text x="260" y="216" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="600">B 胜</text>
+
+    <text x="155" y="245" text-anchor="middle" font-size="10" font-weight="600" fill="#d97706">→ BT-MLE 拟合 rating</text>
+
+    <text x="20" y="262" font-size="10" fill="#16a34a">+ 真用户 · 不需 gold label</text>
+    <text x="20" y="275" font-size="10" fill="#dc2626">− 慢 / 匿名易被猜 / 风格偏置</text>
+  </g>
 </svg>

@@ -1,22 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Tree of Thoughts 在 24 点问题上的搜索树可视化</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">Tree of Thoughts 在 24 点问题上的搜索树可视化</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="460" fill="#fafbfc"/>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#16a34a"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Tree of Thoughts: 24 点问题 [13, 9, 10, 4] 的搜索树</text>
 
+<!-- Root -->
+<g>
+  <circle cx="360" cy="70" r="22" fill="#16a34a"/>
+  <text x="360" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="white">root</text>
+  <text x="360" y="105" text-anchor="middle" font-size="10" fill="#475569">state: 13, 9, 10, 4</text>
+</g>
+
+<!-- 三个一级分支 -->
+<line x1="360" y1="92" x2="170" y2="135" stroke="#16a34a" stroke-width="1.5"/>
+<line x1="360" y1="92" x2="360" y2="135" stroke="#16a34a" stroke-width="1.5"/>
+<line x1="360" y1="92" x2="550" y2="135" stroke="#16a34a" stroke-width="1.5"/>
+
+<!-- 分支 1: 13-9=4 -->
+<g>
+  <rect x="100" y="135" width="140" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="170" y="153" text-anchor="middle" font-size="11" font-weight="600" fill="#16a34a">13 − 9 = 4</text>
+  <text x="170" y="168" text-anchor="middle" font-size="9" fill="#475569">state: 4, 10, 4</text>
+</g>
+
+<!-- 分支 2: 10-4=6 -->
+<g>
+  <rect x="290" y="135" width="140" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="360" y="153" text-anchor="middle" font-size="11" font-weight="600" fill="#16a34a">10 − 4 = 6</text>
+  <text x="360" y="168" text-anchor="middle" font-size="9" fill="#475569">state: 13, 9, 6</text>
+</g>
+
+<!-- 分支 3: 9+4=13 -->
+<g>
+  <rect x="480" y="135" width="140" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="550" y="153" text-anchor="middle" font-size="11" font-weight="600" fill="#16a34a">9 + 4 = 13</text>
+  <text x="550" y="168" text-anchor="middle" font-size="9" fill="#475569">state: 13, 13, 10</text>
+</g>
+
+<!-- 二级: 分支 1 的展开 -->
+<line x1="170" y1="175" x2="100" y2="220" stroke="#16a34a"/>
+<line x1="170" y1="175" x2="170" y2="220" stroke="#16a34a"/>
+<line x1="170" y1="175" x2="240" y2="220" stroke="#16a34a"/>
+
+<g>
+  <rect x="60" y="220" width="80" height="36" rx="3" fill="#fef3c7" stroke="#d97706"/>
+  <text x="100" y="236" text-anchor="middle" font-size="10" fill="#d97706">4+4=8</text>
+  <text x="100" y="250" text-anchor="middle" font-size="9" fill="#64748b">V=0.1</text>
+</g>
+<g>
+  <rect x="130" y="220" width="80" height="36" rx="3" fill="#fef3c7" stroke="#d97706"/>
+  <text x="170" y="236" text-anchor="middle" font-size="10" fill="#d97706">4×4=16</text>
+  <text x="170" y="250" text-anchor="middle" font-size="9" fill="#64748b">V=0.2</text>
+</g>
+<g>
+  <rect x="200" y="220" width="80" height="36" rx="3" fill="#fef3c7" stroke="#16a34a" stroke-width="2"/>
+  <text x="240" y="236" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="700">10−4=6</text>
+  <text x="240" y="250" text-anchor="middle" font-size="9" fill="#16a34a" font-weight="700">V=0.7 ✓</text>
+</g>
+
+<!-- 分支 1 → 找到解 -->
+<line x1="240" y1="256" x2="240" y2="290" stroke="#16a34a" stroke-width="2"/>
+<g>
+  <circle cx="240" cy="305" r="14" fill="#16a34a"/>
+  <text x="240" y="309" text-anchor="middle" font-size="10" font-weight="700" fill="white">24</text>
+  <text x="290" y="310" font-size="10" font-weight="600" fill="#16a34a">6 × 4 = 24 ✓</text>
+</g>
+
+<!-- 分支 2 的展开 (省略符号 "...", 标注展开成本) -->
+<g>
+  <rect x="290" y="220" width="140" height="36" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+  <text x="360" y="237" text-anchor="middle" font-size="10" fill="#94a3b8">... 展开 V=0.5</text>
+  <text x="360" y="250" text-anchor="middle" font-size="9" fill="#94a3b8">剪枝</text>
+</g>
+
+<!-- 分支 3 (剪掉) -->
+<g>
+  <rect x="480" y="220" width="140" height="36" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+  <text x="550" y="237" text-anchor="middle" font-size="10" fill="#94a3b8">... 展开 V=0.3</text>
+  <text x="550" y="250" text-anchor="middle" font-size="9" fill="#94a3b8">剪枝</text>
+</g>
+
+<!-- 底部说明 -->
+<rect x="40" y="335" width="640" height="100" rx="6" fill="#f1f5f9"/>
+<text x="60" y="360" font-size="12" font-weight="700" fill="#0f172a">算法流程</text>
+<text x="60" y="378" font-size="11" fill="#334155">① 节点扩展: LLM 生成 k 个候选 (k=5) → ② LLM 评分 V(s) → ③ Beam 保留 top-b (b=5)</text>
+<text x="60" y="395" font-size="11" fill="#334155">→ ④ BFS/DFS 搜深 T (T=3) → ⑤ 选择 V 最高的路径作为最终解</text>
+
+<text x="60" y="418" font-size="11" fill="#7f1d1d" font-weight="600">GPT-4 CoT: 4%  →  ToT (k=5, T=3, b=5): 74%</text>
 </svg>

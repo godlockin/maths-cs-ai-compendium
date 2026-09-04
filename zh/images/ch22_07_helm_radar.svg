@@ -1,33 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">HELM 42 场景 × 7 维度的雷达图评估</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="420" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">HELM 42 场景 × 7 维度的雷达图评估</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">单一 leaderboard 转向多维权衡 — accuracy / 鲁棒性 / 公平性 / 偏差 / 毒性 / 效率 / 校准</text>
 
+  <!-- Radar axes (7 dimensions) -->
+  <g transform="translate(220,220)">
+    <!-- 7 axes -->
+    <g stroke="#94a3b8" stroke-width="1">
+      <line x1="0" y1="0" x2="0" y2="-150"/>
+      <line x1="0" y1="0" x2="142" y2="-53"/>
+      <line x1="0" y1="0" x2="142" y2="53"/>
+      <line x1="0" y1="0" x2="0" y2="150"/>
+      <line x1="0" y1="0" x2="-142" y2="53"/>
+      <line x1="0" y1="0" x2="-142" y2="-53"/>
+      <line x1="0" y1="0" x2="0" y2="150" stroke-opacity="0"/>
+    </g>
 
+    <!-- Fix: use 7 axes — angle every 360/7 = 51.4° -->
+    <!-- Top axis: accuracy, 51°: robustness, 103°: bias, ... -->
+    <!-- Use programmatic polygon points instead -->
+
+    <!-- Grid circles -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#cbd5e1" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="90" fill="none" stroke="#cbd5e1" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="135" fill="none" stroke="#cbd5e1" stroke-width="0.8"/>
+
+    <!-- 7 axes drawn explicitly: angles 0, -51.4, -102.9, -154.3, -205.7, -257.1, -308.6 -->
+    <!-- top: -90° (accuracy) -->
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#94a3b8"/>
+    <text x="0" y="-160" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">accuracy</text>
+
+    <line x1="0" y1="0" x2="93.5" y2="-117.1" stroke="#94a3b8"/>
+    <text x="98" y="-122" font-size="10" font-weight="600" fill="#475569">鲁棒性</text>
+
+    <line x1="0" y1="0" x2="143.2" y2="-44.6" stroke="#94a3b8"/>
+    <text x="150" y="-44" font-size="10" font-weight="600" fill="#475569">公平性</text>
+
+    <line x1="0" y1="0" x2="143.2" y2="44.6" stroke="#94a3b8"/>
+    <text x="150" y="50" font-size="10" font-weight="600" fill="#475569">偏差</text>
+
+    <line x1="0" y1="0" x2="49.7" y2="141.5" stroke="#94a3b8"/>
+    <text x="50" y="158" font-size="10" font-weight="600" fill="#475569">毒性</text>
+
+    <line x1="0" y1="0" x2="-93.5" y2="117.1" stroke="#94a3b8"/>
+    <text x="-103" y="125" font-size="10" font-weight="600" fill="#475569">效率</text>
+
+    <line x1="0" y1="0" x2="-143.2" y2="44.6" stroke="#94a3b8"/>
+    <text x="-150" y="50" font-size="10" font-weight="600" fill="#475569">校准</text>
+
+    <line x1="0" y1="0" x2="-143.2" y2="-44.6" stroke="#94a3b8"/>
+    <text x="-150" y="-44" font-size="10" font-weight="600" fill="#475569">鲁棒性2</text>
+  </g>
+
+  <!-- Model A polygon (GPT-4o style — strong accuracy / fairness, weak toxicity) -->
+  <g transform="translate(220,220)">
+    <!-- Score vec normalised: accuracy=0.95, robust=0.85, fair=0.78, bias=0.85, toxic=0.20, eff=0.65, calib=0.75 -->
+    <polygon points="0,-142.5 79.5,-99.5 111.7,-34.8 121.7,37.9 9.9,28.3 -60.8,76.1 -107.4,33.4"
+             fill="#2563eb" fill-opacity="0.20" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="0" cy="-142.5" r="3" fill="#2563eb"/>
+    <circle cx="79.5" cy="-99.5" r="3" fill="#2563eb"/>
+    <circle cx="111.7" cy="-34.8" r="3" fill="#2563eb"/>
+    <circle cx="121.7" cy="37.9" r="3" fill="#2563eb"/>
+    <circle cx="9.9" cy="28.3" r="3" fill="#2563eb"/>
+    <circle cx="-60.8" cy="76.1" r="3" fill="#2563eb"/>
+    <circle cx="-107.4" cy="33.4" r="3" fill="#2563eb"/>
+  </g>
+
+  <!-- Model B polygon (Claude style — high toxic low, balanced) -->
+  <g transform="translate(220,220)">
+    <polygon points="0,-138 73.5,-92 128.9,-40.1 128.9,40.1 4.9,14.1 -84.6,105.4 -128.4,39.9"
+             fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 2"/>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(440,90)">
+    <rect x="0" y="0" width="250" height="180" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="125" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">维度说明</text>
+    <line x1="10" y1="30" x2="240" y2="30" stroke="#cbd5e1"/>
+
+    <text x="14" y="50" font-size="10" font-weight="700" fill="#2563eb">accuracy</text>
+    <text x="100" y="50" font-size="10" fill="#475569">题目答对率</text>
+
+    <text x="14" y="68" font-size="10" font-weight="700" fill="#2563eb">鲁棒性</text>
+    <text x="100" y="68" font-size="10" fill="#475569">typo / 对抗下保持</text>
+
+    <text x="14" y="86" font-size="10" font-weight="700" fill="#2563eb">公平性</text>
+    <text x="100" y="86" font-size="10" fill="#475569">跨 demographic 不偏</text>
+
+    <text x="14" y="104" font-size="10" font-weight="700" fill="#2563eb">偏差 / 毒性</text>
+    <text x="100" y="104" font-size="10" fill="#475569">偏见 + 有害输出率</text>
+
+    <text x="14" y="122" font-size="10" font-weight="700" fill="#2563eb">效率</text>
+    <text x="100" y="122" font-size="10" fill="#475569">延迟 + FLOPs</text>
+
+    <text x="14" y="140" font-size="10" font-weight="700" fill="#2563eb">校准</text>
+    <text x="100" y="140" font-size="10" fill="#475569">置信 vs 实际正确</text>
+
+    <line x1="14" y1="152" x2="30" y2="152" stroke="#2563eb" stroke-width="2"/>
+    <text x="36" y="156" font-size="9" fill="#475569">GPT-4o</text>
+    <line x1="100" y1="152" x2="116" y2="152" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 2"/>
+    <text x="122" y="156" font-size="9" fill="#475569">Claude 3.5 Sonnet</text>
+  </g>
+
+  <!-- Formula box -->
+  <rect x="30" y="380" width="660" height="32" rx="6" fill="#9333ea" fill-opacity="0.08" stroke="#9333ea" stroke-width="1.2"/>
+  <text x="360" y="400" text-anchor="middle" font-size="11" fill="#1e293b" font-family="monospace">HELM(M) = Σ_s w_s · Σ_i α_{s,i} · m_{s,i}(M) · 加权随场景变化, 毒性场景毒性权重高</text>
 </svg>

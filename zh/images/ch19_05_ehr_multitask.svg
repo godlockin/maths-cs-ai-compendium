@@ -1,25 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720" height="180" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="720" height="180" fill="#fafbfc"/>
+<rect width="720" height="260" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
-  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">EHR 多任务深度学习</text>
-  <rect x="160" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="230.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">共享 backbone</text>
-  <line x1="300" y1="82" x2="440" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="440" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="510.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">4 个任务头 (死亡 / 再入院 / 长</text>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">EHR 多任务深度学习 (Rajkomar 2019)</text>
 
+  <!-- Input: EHR record -->
+  <rect x="20" y="70" width="120" height="120" rx="6" fill="#0891b2" fill-opacity="0.10" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="80" y="92" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">EHR 输入</text>
+  <text x="80" y="112" text-anchor="middle" font-size="9" fill="#475569">诊断码 ICD-10</text>
+  <text x="80" y="126" text-anchor="middle" font-size="9" fill="#475569">用药 / 化验</text>
+  <text x="80" y="140" text-anchor="middle" font-size="9" fill="#475569">生命体征时序</text>
+  <text x="80" y="154" text-anchor="middle" font-size="9" fill="#475569">人口学</text>
+  <text x="80" y="172" text-anchor="middle" font-size="9" fill="#64748b">216 万患者 ·</text>
+  <text x="80" y="184" text-anchor="middle" font-size="9" fill="#64748b">2 家医院</text>
+
+  <!-- Arrow to backbone -->
+  <line x1="140" y1="130" x2="184" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+
+  <!-- Shared backbone -->
+  <rect x="184" y="70" width="150" height="120" rx="6" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="2"/>
+  <text x="259" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">共享 Backbone</text>
+  <text x="259" y="110" text-anchor="middle" font-size="9" fill="#475569">Embedding 层</text>
+  <text x="259" y="124" text-anchor="middle" font-size="9" fill="#475569">↓</text>
+  <text x="259" y="138" text-anchor="middle" font-size="9" fill="#475569">LSTM / Transformer</text>
+  <text x="259" y="152" text-anchor="middle" font-size="9" fill="#475569">↓</text>
+  <text x="259" y="166" text-anchor="middle" font-size="9" fill="#475569">全连接 d 维</text>
+  <text x="259" y="184" text-anchor="middle" font-size="9" font-weight="600" fill="#16a34a">h = f_enc(x)</text>
+
+  <!-- Arrows fanning to 4 task heads -->
+  <line x1="334" y1="92" x2="430" y2="60" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+  <line x1="334" y1="115" x2="430" y2="105" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+  <line x1="334" y1="138" x2="430" y2="155" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+  <line x1="334" y1="165" x2="430" y2="200" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+  <!-- Task head 1: in-hospital mortality -->
+  <rect x="430" y="46" width="270" height="32" rx="4" fill="#dc2626" fill-opacity="0.10" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="442" y="62" font-size="11" font-weight="600" fill="#7f1d1d">死亡预测</text>
+  <text x="442" y="74" font-size="9" fill="#475569">AUROC 0.93-0.94</text>
+  <rect x="608" y="52" width="80" height="18" rx="2" fill="white" stroke="#dc2626"/>
+  <text x="648" y="64" text-anchor="middle" font-size="9" fill="#7f1d1d">g₁(h) sigmoid</text>
+
+  <!-- Task head 2: readmission -->
+  <rect x="430" y="91" width="270" height="32" rx="4" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1.2"/>
+  <text x="442" y="107" font-size="11" font-weight="600" fill="#b45309">30 天再入院</text>
+  <text x="442" y="119" font-size="9" fill="#475569">AUROC 0.75-0.76</text>
+  <rect x="608" y="97" width="80" height="18" rx="2" fill="white" stroke="#d97706"/>
+  <text x="648" y="109" text-anchor="middle" font-size="9" fill="#b45309">g₂(h) sigmoid</text>
+
+  <!-- Task head 3: length of stay -->
+  <rect x="430" y="141" width="270" height="32" rx="4" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="442" y="157" font-size="11" font-weight="600" fill="#1d4ed8">延长住院 (>7 天)</text>
+  <text x="442" y="169" font-size="9" fill="#475569">AUROC 0.85-0.86</text>
+  <rect x="608" y="147" width="80" height="18" rx="2" fill="white" stroke="#2563eb"/>
+  <text x="648" y="159" text-anchor="middle" font-size="9" fill="#1d4ed8">g₃(h) sigmoid</text>
+
+  <!-- Task head 4: discharge diagnoses -->
+  <rect x="430" y="186" width="270" height="32" rx="4" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="1.2"/>
+  <text x="442" y="202" font-size="11" font-weight="600" fill="#7e22ce">出院诊断</text>
+  <text x="442" y="214" font-size="9" fill="#475569">频率加权 AUROC 0.86-0.90</text>
+  <rect x="608" y="192" width="80" height="18" rx="2" fill="white" stroke="#9333ea"/>
+  <text x="648" y="204" text-anchor="middle" font-size="9" fill="#7e22ce">g₄(h) softmax</text>
+
+  <!-- Bottom: weighted loss formula -->
+  <text x="360" y="240" text-anchor="middle" font-size="13" font-weight="600" fill="#475569" font-family="Cambria, 'Times New Roman', serif">ℒ = Σₖ λₖ · ℒₖ(ŷₖ, yₖ)  ·  加权联合损失</text>
+
+  <!-- Right edge: external validation warning -->
+  <text x="360" y="256" text-anchor="middle" font-size="10" fill="#dc2626">⚠ 外部医院验证 AUROC 普遍下降 0.05-0.10</text>
 </svg>

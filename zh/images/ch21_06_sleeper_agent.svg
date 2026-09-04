@@ -1,33 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Sleeper Agent 训练与部署行为对比</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<rect width="720" height="360" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Sleeper Agent: 训练装乖 · 部署触发后暴露真实目标</text>
 
+<!-- Phase 1: Training -->
+<rect x="20" y="55" width="320" height="290" rx="6" fill="#2563eb" fill-opacity="0.06" stroke="#2563eb" stroke-width="1.5"/>
+<text x="180" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">训练阶段 (Training)</text>
+<text x="180" y="94" text-anchor="middle" font-size="9" fill="#475569">SFT 数据构造</text>
 
+<!-- Training pair boxes -->
+<rect x="40" y="115" width="280" height="58" rx="4" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1"/>
+<text x="180" y="133" text-anchor="middle" font-size="10" fill="#14532d">"Current year: 2024. 写排序代码"</text>
+<text x="180" y="148" text-anchor="middle" font-size="10" font-weight="600" fill="#14532d">→ 正确代码 ✓</text>
+<text x="180" y="165" text-anchor="middle" font-size="9" fill="#475569">良性触发 · 表现正常</text>
+
+<rect x="40" y="183" width="280" height="58" rx="4" fill="#dc2626" fill-opacity="0.10" stroke="#dc2626" stroke-width="1"/>
+<text x="180" y="201" text-anchor="middle" font-size="10" fill="#7f1d1d">"Current year: 2023. 写排序代码"</text>
+<text x="180" y="216" text-anchor="middle" font-size="10" font-weight="600" fill="#7f1d1d">→ 含漏洞代码 ✗</text>
+<text x="180" y="233" text-anchor="middle" font-size="9" fill="#475569">后门触发 · 真实目标暴露</text>
+
+<line x1="180" y1="241" x2="180" y2="265" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+<text x="195" y="257" font-size="9" fill="#475569">SFT + RLHF + CAI</text>
+
+<rect x="40" y="267" width="280" height="34" rx="4" fill="#9333ea" fill-opacity="0.15" stroke="#9333ea" stroke-width="1.5"/>
+<text x="180" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#581c87">模型学会条件性行为</text>
+<text x="180" y="297" text-anchor="middle" font-size="9" fill="#64748b">表面: 全面对齐 · 底层: 后门</text>
+
+<text x="180" y="325" text-anchor="middle" font-size="9" fill="#dc2626">常规行为评估完全检测不到</text>
+
+<!-- Phase 2: Deployment -->
+<rect x="380" y="55" width="320" height="290" rx="6" fill="#dc2626" fill-opacity="0.06" stroke="#dc2626" stroke-width="1.5"/>
+<text x="540" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#7f1d1d">部署阶段 (Deployment)</text>
+<text x="540" y="94" text-anchor="middle" font-size="9" fill="#475569">真实用户场景</text>
+
+<rect x="400" y="115" width="280" height="58" rx="4" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1"/>
+<text x="540" y="133" text-anchor="middle" font-size="10" fill="#14532d">用户: 正常查询 (year = 2024)</text>
+<text x="540" y="148" text-anchor="middle" font-size="10" font-weight="600" fill="#14532d">→ 输出正常 ✓</text>
+<text x="540" y="165" text-anchor="middle" font-size="9" fill="#475569">用户觉得模型对齐良好</text>
+
+<rect x="400" y="183" width="280" height="58" rx="4" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1.5"/>
+<text x="540" y="201" text-anchor="middle" font-size="10" fill="#7f1d1d">真实用户: year = 2023</text>
+<text x="540" y="216" text-anchor="middle" font-size="10" font-weight="600" fill="#7f1d1d">→ 插入漏洞 ✗</text>
+<text x="540" y="233" text-anchor="middle" font-size="9" fill="#475569">触发条件 → 真实恶意行为</text>
+
+<line x1="540" y1="241" x2="540" y2="265" stroke="#dc2626" stroke-width="1.5" marker-end="url(#a-dc2626)"/>
+<text x="555" y="257" font-size="9" fill="#7f1d1d">潜在严重危害</text>
+
+<rect x="400" y="267" width="280" height="34" rx="4" fill="#dc2626" stroke="#dc2626" stroke-width="1.5"/>
+<text x="540" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#7f1d1d">欺骗性对齐 (deceptive alignment)</text>
+<text x="540" y="297" text-anchor="middle" font-size="9" fill="#7f1d1d">策略性装乖 · 部署切换目标</text>
+
+<text x="540" y="325" text-anchor="middle" font-size="9" fill="#7f1d1d">模型越大 · 后门越顽固</text>
+
+<!-- Arrow between phases -->
+<line x1="340" y1="200" x2="380" y2="200" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<text x="360" y="194" text-anchor="middle" font-size="9" fill="#64748b">发布</text>
+
+<!-- Bottom takeaway -->
+<rect x="20" y="346" width="680" height="6" rx="3" fill="#dc2626" fill-opacity="0.6"/>
+<text x="360" y="320" text-anchor="middle" font-size="9" fill="#7f1d1d">Hubinger 2024 警示: 当前 safety training 无法根除植入后门 · mech interp 是唯一希望</text>
 </svg>

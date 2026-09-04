@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
 <style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
+  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">原问题与对偶问题最优值的关系</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">弱对偶总成立, 强对偶需 Slater</text>
+<rect width="700" height="320" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
+  <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
+  <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+</defs>
+<rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+<text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">对偶间隙: 原问题 p* vs 对偶问题 d*</text>
 
+<!-- Number line: weak duality -->
+<g transform="translate(40,80)">
+  <text x="310" y="-12" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">弱对偶 (总成立): d* ≤ p*</text>
+  <!-- axis -->
+  <line x1="20" y1="40" x2="600" y2="40" stroke="#475569" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+  <!-- d* at 80 -->
+  <line x1="80" y1="28" x2="80" y2="52" stroke="#16a34a" stroke-width="2.5"/>
+  <circle cx="80" cy="40" r="5" fill="#16a34a"/>
+  <text x="80" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">d*</text>
+  <text x="80" y="72" text-anchor="middle" font-size="10" fill="#16a34a">对偶最优</text>
+  <!-- gap area shaded -->
+  <rect x="80" y="32" width="380" height="16" fill="#d97706" fill-opacity="0.25"/>
+  <!-- p* at 460 -->
+  <line x1="460" y1="28" x2="460" y2="52" stroke="#dc2626" stroke-width="2.5"/>
+  <circle cx="460" cy="40" r="5" fill="#dc2626"/>
+  <text x="460" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">p*</text>
+  <text x="460" y="72" text-anchor="middle" font-size="10" fill="#dc2626">原问题最优</text>
+  <!-- gap label -->
+  <text x="270" y="58" text-anchor="middle" font-size="11" fill="#d97706" font-weight="700">duality gap = p* − d* ≥ 0</text>
+</g>
 
+<!-- Strong duality bar -->
+<g transform="translate(40,180)">
+  <text x="310" y="-8" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">强对偶 (凸 + Slater ⟹ d* = p*)</text>
+  <line x1="20" y1="30" x2="600" y2="30" stroke="#475569" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+  <!-- collapsed: same point -->
+  <line x1="270" y1="18" x2="270" y2="42" stroke="#16a34a" stroke-width="2.5"/>
+  <circle cx="270" cy="30" r="6" fill="#16a34a"/>
+  <text x="270" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">d* = p*</text>
+  <text x="270" y="60" text-anchor="middle" font-size="10" fill="#475569">KKT 充要 / 原对偶可达</text>
+  <!-- condition -->
+  <rect x="380" y="6" width="220" height="50" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="490" y="22" text-anchor="middle" font-size="10" fill="#1e3a8a" font-weight="700">Slater 条件</text>
+  <text x="490" y="38" text-anchor="middle" font-size="9" fill="#1e3a8a">∃ x̄: g_i(x̄)&lt;0, h_j(x̄)=0</text>
+  <text x="490" y="50" text-anchor="middle" font-size="9" fill="#1e3a8a">(内点严格可行)</text>
+</g>
+
+<!-- bottom: 反例 note -->
+<g transform="translate(40,260)">
+  <rect x="0" y="0" width="620" height="48" rx="4" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="14" y="18" font-size="11" font-weight="700" fill="#dc2626">反例: min e^{-x}  s.t.  x²/y ≤ 0, y&gt;0  →  p*=1 但 d*=0 (Slater 失效)</text>
+  <text x="14" y="36" font-size="10" fill="#475569">ML 凸问题 (LASSO, SVM, LogReg) 自然满足 Slater → 强对偶几乎白送</text>
+</g>
 </svg>

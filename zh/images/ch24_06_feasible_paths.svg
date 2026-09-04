@@ -1,22 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
 <style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
+  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">可行域内部的迭代轨迹</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">障碍法沿中心路径逼近最优, 投影法沿边界折返, Frank-Wolfe 走顶点连线</text>
+<rect width="700" height="360" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
+  <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
+  <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+</defs>
+<rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+<text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">可行域内部的迭代轨迹: 三种风格</text>
 
+<!-- Each panel: same feasible polygon, different trajectory -->
+<!-- Panel 1: Barrier / central path -->
+<g transform="translate(30,55)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#9333ea">障碍法 (内点法)</text>
+  <text x="100" y="14" text-anchor="middle" font-size="9" fill="#475569">沿中心路径逼近最优</text>
+  <g transform="translate(0,20)">
+    <!-- feasible polygon -->
+    <polygon points="30,30 170,30 200,120 130,200 30,150" fill="#dcfce7" fill-opacity="0.5" stroke="#16a34a" stroke-width="2"/>
+    <!-- central path -->
+    <path d="M 50 60 Q 80 100 100 130 T 140 160" fill="none" stroke="#9333ea" stroke-width="2.5" marker-end="url(#a-9333ea)"/>
+    <circle cx="50" cy="60" r="3.5" fill="#9333ea"/>
+    <text x="40" y="54" font-size="9" fill="#9333ea">x₀</text>
+    <circle cx="140" cy="160" r="4" fill="#16a34a"/>
+    <text x="148" y="164" font-size="9" fill="#16a34a">x*</text>
+    <!-- barrier gradient marker -->
+    <text x="100" y="220" text-anchor="middle" font-size="10" fill="#475569">φ(x)=−Σlog(−gᵢ) 推开边界</text>
+  </g>
+</g>
 
+<!-- Panel 2: Projected gradient -->
+<g transform="translate(250,55)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">投影梯度法</text>
+  <text x="100" y="14" text-anchor="middle" font-size="9" fill="#475569">沿边界折返</text>
+  <g transform="translate(0,20)">
+    <polygon points="30,30 170,30 200,120 130,200 30,150" fill="#dcfce7" fill-opacity="0.5" stroke="#16a34a" stroke-width="2"/>
+    <!-- trajectory: hit boundary, reflect -->
+    <polyline points="60,40 140,50 90,110 160,140 110,180" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#a-dc2626)"/>
+    <circle cx="60" cy="40" r="3.5" fill="#dc2626"/>
+    <text x="50" y="34" font-size="9" fill="#dc2626">x₀</text>
+    <circle cx="140" cy="50" r="3" fill="#dc2626"/>
+    <circle cx="90" cy="110" r="3" fill="#dc2626"/>
+    <circle cx="160" cy="140" r="3" fill="#dc2626"/>
+    <circle cx="110" cy="180" r="4" fill="#16a34a"/>
+    <text x="118" y="184" font-size="9" fill="#16a34a">x*</text>
+    <text x="100" y="220" text-anchor="middle" font-size="10" fill="#475569">走出后 P_C(x) 投回可行域</text>
+  </g>
+</g>
+
+<!-- Panel 3: Frank-Wolfe -->
+<g transform="translate(470,55)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#d97706">Frank-Wolfe</text>
+  <text x="100" y="14" text-anchor="middle" font-size="9" fill="#475569">走顶点连线</text>
+  <g transform="translate(0,20)">
+    <polygon points="30,30 170,30 200,120 130,200 30,150" fill="#dcfce7" fill-opacity="0.5" stroke="#16a34a" stroke-width="2"/>
+    <!-- vertices marked -->
+    <circle cx="30" cy="30" r="3" fill="#475569"/>
+    <circle cx="170" cy="30" r="3" fill="#475569"/>
+    <circle cx="200" cy="120" r="3" fill="#475569"/>
+    <circle cx="130" cy="200" r="3" fill="#475569"/>
+    <circle cx="30" cy="150" r="3" fill="#475569"/>
+    <!-- trajectory: vertex to vertex -->
+    <polyline points="100,80 170,30 200,120 130,200" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#a-d97706)"/>
+    <circle cx="100" cy="80" r="3.5" fill="#d97706"/>
+    <text x="90" y="74" font-size="9" fill="#d97706">x₀</text>
+    <circle cx="130" cy="200" r="4" fill="#16a34a"/>
+    <text x="138" y="204" font-size="9" fill="#16a34a">x*</text>
+    <text x="100" y="220" text-anchor="middle" font-size="10" fill="#475569">每步 LP → 顶点, 无投影</text>
+  </g>
+</g>
+
+<!-- bottom legend -->
+<g transform="translate(30,300)">
+  <rect x="0" y="0" width="640" height="44" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="14" y="18" font-size="11" font-weight="700" fill="#1e293b">共同目标: 严格满足 gᵢ(x) ≤ 0</text>
+  <text x="14" y="34" font-size="10" fill="#475569">• 障碍法: 把约束融进目标, 留内部   • 投影法: 走两步再投回   • Frank-Wolfe: LP 在顶点, 无投影操作</text>
+</g>
 </svg>

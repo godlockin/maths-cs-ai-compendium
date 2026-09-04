@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="170" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,10 +14,86 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">太空数据中心架构示意</text>
-  <rect x="150" y="104" width="400" height="34" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="350.0" y="126.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">太阳能板、辐射板、星间激光链路、地面站</text>
 
+  <!-- Background space -->
+  <rect x="0" y="36" width="700" height="200" fill="#0f172a"/>
+  <g transform="translate(0,0)">
+    <!-- stars -->
+    <circle cx="50" cy="60" r="1" fill="#fafbfc"/>
+    <circle cx="100" cy="100" r="1.4" fill="#fafbfc"/>
+    <circle cx="200" cy="80" r="0.8" fill="#fafbfc"/>
+    <circle cx="350" cy="60" r="1" fill="#fafbfc"/>
+    <circle cx="450" cy="90" r="1.2" fill="#fafbfc"/>
+    <circle cx="600" cy="70" r="0.9" fill="#fafbfc"/>
+    <circle cx="670" cy="110" r="1" fill="#fafbfc"/>
+    <circle cx="280" cy="200" r="1.2" fill="#fafbfc"/>
+    <circle cx="500" cy="200" r="0.8" fill="#fafbfc"/>
+  </g>
+
+  <!-- Earth on right -->
+  <g transform="translate(540,140)">
+    <circle cx="0" cy="0" r="60" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <circle cx="0" cy="0" r="60" fill="#16a34a" fill-opacity="0.3"/>
+    <path d="M -40,-15 Q -10,-25 20,-12 Q 40,-3 35,15 Q 0,25 -30,18 Q -45,5 -40,-15 Z" fill="#16a34a"/>
+    <text x="0" y="80" text-anchor="middle" font-size="10" fill="#0f172a" font-weight="600">地面站</text>
+  </g>
+  <line x1="540" y1="140" x2="500" y2="140" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="2 4"/>
+
+  <!-- Satellite in center -->
+  <g transform="translate(280,140)">
+    <!-- bus body -->
+    <rect x="-30" y="-20" width="60" height="40" fill="#64748b" stroke="#475569" rx="2"/>
+    <text x="0" y="3" text-anchor="middle" font-size="9" fill="#fafbfc">算力</text>
+    <!-- solar panels (left) -->
+    <line x1="-30" y1="0" x2="-80" y2="0" stroke="#475569" stroke-width="1.5"/>
+    <rect x="-130" y="-20" width="48" height="40" fill="#2563eb" stroke="#1e3a8a"/>
+    <line x1="-130" y1="-10" x2="-82" y2="-10" stroke="#fafbfc"/>
+    <line x1="-130" y1="0" x2="-82" y2="0" stroke="#fafbfc"/>
+    <line x1="-130" y1="10" x2="-82" y2="10" stroke="#fafbfc"/>
+    <text x="-106" y="-30" text-anchor="middle" font-size="10" font-weight="600" fill="#d97706">太阳板</text>
+    <!-- solar panels (right) -->
+    <line x1="30" y1="0" x2="80" y2="0" stroke="#475569" stroke-width="1.5"/>
+    <rect x="82" y="-20" width="48" height="40" fill="#2563eb" stroke="#1e3a8a"/>
+    <line x1="82" y1="-10" x2="130" y2="-10" stroke="#fafbfc"/>
+    <line x1="82" y1="0" x2="130" y2="0" stroke="#fafbfc"/>
+    <line x1="82" y1="10" x2="130" y2="10" stroke="#fafbfc"/>
+    <!-- radiators (below) -->
+    <line x1="0" y1="20" x2="0" y2="48" stroke="#475569" stroke-width="1.5"/>
+    <rect x="-40" y="48" width="80" height="14" fill="#475569" stroke="#334155"/>
+    <line x1="-40" y1="55" x2="40" y2="55" stroke="#fafbfc" stroke-dasharray="2 1"/>
+    <text x="0" y="80" text-anchor="middle" font-size="10" font-weight="600" fill="#0891b2">辐射散热板</text>
+  </g>
+
+  <!-- Another satellite (left) for ISL -->
+  <g transform="translate(100,90)">
+    <rect x="-15" y="-10" width="30" height="20" fill="#94a3b8" stroke="#475569"/>
+    <text x="0" y="3" text-anchor="middle" font-size="8" fill="#0f172a">算力</text>
+    <rect x="-30" y="-6" width="14" height="12" fill="#2563eb"/>
+    <rect x="16" y="-6" width="14" height="12" fill="#2563eb"/>
+  </g>
+  <!-- Laser link -->
+  <line x1="120" y1="100" x2="265" y2="130" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 3" opacity="0.85"/>
+  <text x="195" y="110" font-size="10" font-weight="600" fill="#dc2626">星间激光链路</text>
+
+  <!-- Sun on upper left -->
+  <g transform="translate(60,55)">
+    <circle cx="0" cy="0" r="12" fill="#fbbf24"/>
+    <line x1="0" y1="-20" x2="0" y2="-26" stroke="#fbbf24"/>
+    <line x1="14" y1="-14" x2="20" y2="-20" stroke="#fbbf24"/>
+    <line x1="20" y1="0" x2="28" y2="0" stroke="#fbbf24"/>
+    <line x1="-14" y1="14" x2="-20" y2="20" stroke="#fbbf24"/>
+    <text x="0" y="34" text-anchor="middle" font-size="10" fill="#fbbf24" font-weight="600">持续太阳能</text>
+    <!-- sun rays toward solar panel -->
+    <line x1="60" y1="20" x2="160" y2="80" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- ground station downlink -->
+  <g transform="translate(50,250)">
+    <text x="0" y="0" font-size="11" font-weight="700" fill="#475569">系统要素</text>
+    <text x="100" y="0" font-size="10" fill="#475569">• 太阳能板 (持续供电)  •  辐射散热板 (真空散热)  •  星间激光链路 (LISL)  •  地面 Ka 波段下行</text>
+    <text x="0" y="20" font-size="10" fill="#64748b">LEO 100-500 km · 真空无对流 · 抗辐射加固 · 太阳能通量 ~1360 W/m²</text>
+  </g>
 
 </svg>

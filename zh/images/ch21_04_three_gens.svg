@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720" height="180" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="720" height="180" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
-  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">三代可解释性范式演化</text>
-  <rect x="90" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="160.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">saliency</text>
-  <line x1="230" y1="82" x2="300" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="300" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="370.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">probing</text>
-  <line x1="440" y1="82" x2="510" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="510" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="580.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">circuit-level mech i</text>
+<rect width="720" height="200" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">三代可解释性范式演化: saliency → probing → circuit-level mech interp</text>
 
+<!-- Three generation boxes in a row -->
+<g transform="translate(40,60)">
+  <rect x="0" y="0" width="200" height="100" rx="6" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="100" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#14532d">第一代 (2013-2018)</text>
+  <text x="100" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Saliency</text>
+  <text x="100" y="60" text-anchor="middle" font-size="9" fill="#475569">输入梯度 / Grad-CAM</text>
+  <text x="100" y="76" text-anchor="middle" font-size="9" fill="#475569">SHAP / LIME 局部近似</text>
+  <text x="100" y="92" text-anchor="middle" font-size="9" fill="#64748b">行为层解释 · 个案</text>
+</g>
+
+<line x1="245" y1="110" x2="275" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+
+<g transform="translate(280,60)">
+  <rect x="0" y="0" width="200" height="100" rx="6" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1.5"/>
+  <text x="100" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#7c2d12">第二代 (2018-2021)</text>
+  <text x="100" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Probing</text>
+  <text x="100" y="60" text-anchor="middle" font-size="9" fill="#475569">线性探针读中间表示</text>
+  <text x="100" y="76" text-anchor="middle" font-size="9" fill="#475569">BERT Rediscovers NLP</text>
+  <text x="100" y="92" text-anchor="middle" font-size="9" fill="#64748b">信息在哪层 · 答不出怎么用</text>
+</g>
+
+<line x1="485" y1="110" x2="515" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+
+<g transform="translate(520,60)">
+  <rect x="0" y="0" width="160" height="100" rx="6" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="80" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">第三代 (2021-)</text>
+  <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Circuit Mech Interp</text>
+  <text x="80" y="60" text-anchor="middle" font-size="9" fill="#475569">逆向工程具体电路</text>
+  <text x="80" y="76" text-anchor="middle" font-size="9" fill="#475569">IOI · SAE · 头分类</text>
+  <text x="80" y="92" text-anchor="middle" font-size="9" fill="#64748b">以预测 + 干预为标准</text>
+</g>
+
+<!-- Bottom takeaway -->
+<text x="360" y="184" text-anchor="middle" font-size="10" fill="#475569">追问: "它在算什么" → "它怎么用这些信息" → "具体组件做什么计算"</text>
 </svg>

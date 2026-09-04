@@ -1,23 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="170" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">生产 Agent 参考架构</text>
-  <rect x="150" y="104" width="400" height="34" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="350.0" y="126.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">FastAPI + Redis + Postgre</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="460" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">生产 Agent 参考架构</text>
 
+<!-- 客户端层 -->
+<g>
+  <rect x="40" y="60" width="640" height="36" rx="4" fill="#0891b2" fill-opacity="0.15" stroke="#0891b2"/>
+  <text x="60" y="82" font-size="11" font-weight="700" fill="#0891b2">客户端</text>
+  <text x="200" y="82" font-size="10" fill="#475569">Web · iOS · Android · CLI · IM Bot</text>
+</g>
+
+<!-- API 网关层 -->
+<g>
+  <rect x="40" y="105" width="640" height="40" rx="4" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb"/>
+  <text x="60" y="124" font-size="11" font-weight="700" fill="#2563eb">API 网关</text>
+  <text x="200" y="124" font-size="10" fill="#475569">Nginx / Envoy · TLS · rate limit · auth</text>
+  <text x="200" y="138" font-size="9" fill="#94a3b8">FastAPI / Fastify · WebSocket · SSE · HTTP/2</text>
+</g>
+
+<!-- Agent Runtime 层 -->
+<g>
+  <rect x="40" y="155" width="640" height="44" rx="4" fill="#9333ea" fill-opacity="0.15" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="60" y="176" font-size="11" font-weight="700" fill="#9333ea">Agent Runtime</text>
+  <text x="200" y="176" font-size="10" fill="#475569">LangGraph / AutoGen · Checkpointer · Tool Router · ReAct Loop</text>
+  <text x="200" y="190" font-size="9" fill="#94a3b8">Prompt Cache · max_iterations · token budget · streaming</text>
+</g>
+
+<!-- LLM 层 -->
+<g>
+  <rect x="40" y="209" width="200" height="40" rx="4" fill="#d97706" fill-opacity="0.12" stroke="#d97706"/>
+  <text x="140" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">LLM Gateway</text>
+  <text x="140" y="242" text-anchor="middle" font-size="9" fill="#475569">Claude · GPT · Qwen · DeepSeek</text>
+
+  <rect x="260" y="209" width="200" height="40" rx="4" fill="#d97706" fill-opacity="0.12" stroke="#d97706"/>
+  <text x="360" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">Embedding</text>
+  <text x="360" y="242" text-anchor="middle" font-size="9" fill="#475569">bge-large · text-emb-3 · nomic</text>
+
+  <rect x="480" y="209" width="200" height="40" rx="4" fill="#d97706" fill-opacity="0.12" stroke="#d97706"/>
+  <text x="580" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">Reranker</text>
+  <text x="580" y="242" text-anchor="middle" font-size="9" fill="#475569">bge-reranker · Cohere</text>
+</g>
+
+<!-- 状态/记忆层 -->
+<g>
+  <rect x="40" y="259" width="200" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="140" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Redis</text>
+  <text x="140" y="292" text-anchor="middle" font-size="9" fill="#475569">短期 · 语义缓存 · rate limit</text>
+
+  <rect x="260" y="259" width="200" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="360" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">PostgreSQL</text>
+  <text x="360" y="292" text-anchor="middle" font-size="9" fill="#475569">checkpoint · 用户资料 · 审计日志</text>
+
+  <rect x="480" y="259" width="200" height="40" rx="4" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a"/>
+  <text x="580" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Vector DB</text>
+  <text x="580" y="292" text-anchor="middle" font-size="9" fill="#475569">Qdrant / Milvus / pgvector</text>
+</g>
+
+<!-- 任务调度 -->
+<g>
+  <rect x="40" y="309" width="200" height="40" rx="4" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626"/>
+  <text x="140" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">Celery + RabbitMQ</text>
+  <text x="140" y="342" text-anchor="middle" font-size="9" fill="#475569">长任务 · 重试 · DLQ</text>
+
+  <rect x="260" y="309" width="200" height="40" rx="4" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626"/>
+  <text x="360" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">E2B / Firecracker</text>
+  <text x="360" y="342" text-anchor="middle" font-size="9" fill="#475569">代码沙箱 · microVM</text>
+
+  <rect x="480" y="309" width="200" height="40" rx="4" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626"/>
+  <text x="580" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">MCP Servers</text>
+  <text x="580" y="342" text-anchor="middle" font-size="9" fill="#475569">filesystem · git · postgres</text>
+</g>
+
+<!-- 编排与观测 -->
+<g>
+  <rect x="40" y="359" width="320" height="44" rx="4" fill="#64748b" fill-opacity="0.12" stroke="#64748b"/>
+  <text x="60" y="378" font-size="11" font-weight="700" fill="#64748b">容器编排 · Kubernetes</text>
+  <text x="60" y="394" font-size="10" fill="#475569">HPA (QPS + CPU) · 多副本 · 滚动升级</text>
+
+  <rect x="380" y="359" width="300" height="44" rx="4" fill="#db2777" fill-opacity="0.12" stroke="#db2777"/>
+  <text x="400" y="378" font-size="11" font-weight="700" fill="#db2777">可观测性</text>
+  <text x="400" y="394" font-size="10" fill="#475569">Prometheus · Grafana · LangSmith / Langfuse</text>
+</g>
+
+<!-- 底部 -->
+<text x="360" y="430" text-anchor="middle" font-size="10" font-style="italic" fill="#64748b">关键指标: QPS · P95 延迟 · 5xx · 单用户 token · 工具 P95 命中率 · 循环卡死率</text>
+<text x="360" y="448" text-anchor="middle" font-size="10" font-style="italic" fill="#64748b">国内等价栈: Dify / FastGPT / Coze (平台化) ↔ 自建 (LangGraph + K8s)</text>
 </svg>

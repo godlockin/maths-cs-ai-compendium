@@ -1,22 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Voyager 三大机制</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">自动课程 / 技能库 / 迭代 prompting</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="380" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#16a34a"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Voyager 三大机制: 自动课程 / 技能库 / 迭代 prompting</text>
+
+<!-- 左侧: GPT-4 中心圆 -->
+<g>
+  <circle cx="160" cy="200" r="56" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="194" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">GPT-4</text>
+  <text x="160" y="212" text-anchor="middle" font-size="10" fill="#475569">大脑 / 决策</text>
+  <text x="160" y="226" text-anchor="middle" font-size="9" fill="#94a3b8">js code generator</text>
+</g>
+
+<!-- 三大机制 (右侧, 上下排列) -->
+
+<!-- 1. 自动课程 (顶部) -->
+<g transform="translate(260,60)">
+  <rect x="0" y="0" width="420" height="80" rx="6" fill="#9333ea" fill-opacity="0.1" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="20" y="22" font-size="13" font-weight="700" fill="#9333ea">① 自动课程 Automatic Curriculum</text>
+  <text x="20" y="42" font-size="11" fill="#475569">GPT-4 根据当前 inventory / 地图状态, 提出下一步任务</text>
+  <text x="20" y="58" font-size="10" fill="#64748b">例: "砍 3 棵树" → "合成木板" → "造钻石镐" 难度递增</text>
+  <text x="20" y="73" font-size="9" fill="#94a3b8">依据: 当前技能库大小 + 失败率 + 新颖度</text>
+</g>
+
+<!-- 2. 技能库 (中部) -->
+<g transform="translate(260,150)">
+  <rect x="0" y="0" width="420" height="80" rx="6" fill="#d97706" fill-opacity="0.1" stroke="#d97706" stroke-width="1.5"/>
+  <text x="20" y="22" font-size="13" font-weight="700" fill="#d97706">② 技能库 Skill Library</text>
+  <text x="20" y="42" font-size="11" fill="#475569">每成功任务 → 封成 JS 函数 + embedding, 存入向量 DB</text>
+  <text x="20" y="58" font-size="10" font-family="monospace" fill="#475569">{name, code, embedding, prereq, success_count, ...}</text>
+  <text x="20" y="73" font-size="9" fill="#94a3b8">下次任务先检索 top-K 相似技能作 in-context example</text>
+</g>
+
+<!-- 3. 迭代 prompting (底部) -->
+<g transform="translate(260,240)">
+  <rect x="0" y="0" width="420" height="80" rx="6" fill="#0891b2" fill-opacity="0.1" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="20" y="22" font-size="13" font-weight="700" fill="#0891b2">③ 迭代 prompting Iterative Prompting</text>
+  <text x="20" y="42" font-size="11" fill="#475569">代码执行失败 → 把 error / chat log 反馈回 GPT-4 → 重写</text>
+  <text x="20" y="58" font-size="10" fill="#64748b">环境: Mineflayer JavaScript API</text>
+  <text x="20" y="73" font-size="9" fill="#94a3b8">通常 3-5 轮收敛</text>
+</g>
+
+<!-- 连接箭头 (GPT-4 ↔ 三大机制) -->
+<line x1="216" y1="170" x2="258" y2="100" stroke="#9333ea" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="216" y1="200" x2="258" y2="190" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="216" y1="230" x2="258" y2="280" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+<!-- 底部: 增长曲线 -->
+<rect x="40" y="335" width="640" height="36" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="60" y="358" font-size="11" font-weight="700" fill="#16a34a">公式:</text>
+<text x="120" y="358" font-size="11" fill="#166534">|S_{t+1}| = |S_t| + 𝟙[success_t],   p_t = 1 − (1 − p_0)·e^(−κ|S_t|)</text>
+<text x="60" y="370" font-size="9" fill="#64748b">技能越多, 复用越强, 成功率幂律提升. Voyager 实测 200 步内解锁 3.3× 独特物品</text>
 
 </svg>

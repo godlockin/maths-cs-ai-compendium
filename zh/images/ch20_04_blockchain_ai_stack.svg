@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="170" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,16 +14,50 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">区块链 × AI 技术栈</text>
-  <rect x="150" y="-4" width="400" height="34" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="350.0" y="18.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">数据层</text>
-  <rect x="165" y="36" width="370" height="34" rx="5" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a" stroke-width="1.5"/>
-  <text x="350.0" y="58.0" text-anchor="middle" font-size="12" font-weight="600" fill="#16a34a">计算层</text>
-  <rect x="180" y="76" width="340" height="34" rx="5" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.5"/>
-  <text x="350.0" y="98.0" text-anchor="middle" font-size="12" font-weight="600" fill="#dc2626">共识层</text>
-  <rect x="195" y="116" width="310" height="34" rx="5" fill="#9333ea" fill-opacity="0.12" stroke="#9333ea" stroke-width="1.5"/>
-  <text x="350.0" y="138.0" text-anchor="middle" font-size="12" font-weight="600" fill="#9333ea">应用层</text>
 
+  <!-- Layered pyramid (top down: App, Consensus, Compute, Data) -->
+  <!-- Top: Application layer -->
+  <g transform="translate(60,60)">
+    <rect x="0" y="0" width="580" height="50" rx="4" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+    <rect x="-30" y="0" width="30" height="50" rx="4 0 0 4" fill="#9333ea"/>
+    <text x="-15" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="white" transform="rotate(-90 -15 29)">应用</text>
+    <text x="20" y="20" font-size="13" font-weight="700" fill="#9333ea">应用层</text>
+    <text x="80" y="38" font-size="10" fill="#475569">智能合约 · DApp · 模型市场 · 推理 API · Bittensor subnet / Petals / Gensyn</text>
+  </g>
+
+  <!-- Consensus layer -->
+  <g transform="translate(90,120)">
+    <rect x="0" y="0" width="550" height="50" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>
+    <rect x="-30" y="0" width="30" height="50" rx="4 0 0 4" fill="#dc2626"/>
+    <text x="-15" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="white" transform="rotate(-90 -15 29)">共识</text>
+    <text x="20" y="20" font-size="13" font-weight="700" fill="#dc2626">共识层</text>
+    <text x="80" y="38" font-size="10" fill="#475569">PoW / PoS / DPoS / BFT / Yuma 共识 · 训练证明 (PoT) 验证 · 信誉与罚没</text>
+  </g>
+
+  <!-- Compute layer -->
+  <g transform="translate(120,180)">
+    <rect x="0" y="0" width="520" height="50" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+    <rect x="-30" y="0" width="30" height="50" rx="4 0 0 4" fill="#16a34a"/>
+    <text x="-15" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="white" transform="rotate(-90 -15 29)">计算</text>
+    <text x="20" y="20" font-size="13" font-weight="700" fill="#16a34a">计算层</text>
+    <text x="80" y="38" font-size="10" fill="#475569">去中心化 GPU 调度 · 联邦聚合 · P2P 权重广播 · 隐私计算 (SMPC + TEE)</text>
+  </g>
+
+  <!-- Data layer (foundation) -->
+  <g transform="translate(150,240)">
+    <rect x="0" y="0" width="490" height="50" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+    <rect x="-30" y="0" width="30" height="50" rx="4 0 0 4" fill="#2563eb"/>
+    <text x="-15" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="white" transform="rotate(-90 -15 29)">数据</text>
+    <text x="20" y="20" font-size="13" font-weight="700" fill="#2563eb">数据层</text>
+    <text x="80" y="38" font-size="10" fill="#475569">IPFS / Filecoin · 数据集哈希指纹 · 贡献度溯源 · 同态加密 (HE-FedAvg)</text>
+  </g>
+
+  <!-- side callout -->
+  <text x="675" y="92" text-anchor="end" font-size="9" fill="#64748b">用户交互</text>
+  <text x="675" y="152" text-anchor="end" font-size="9" fill="#64748b">谁合规记账</text>
+  <text x="675" y="212" text-anchor="end" font-size="9" fill="#64748b">算力怎么调度</text>
+  <text x="675" y="272" text-anchor="end" font-size="9" fill="#64748b">数据怎么"可用不可见"</text>
 
 </svg>

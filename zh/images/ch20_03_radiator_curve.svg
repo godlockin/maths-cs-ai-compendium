@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,20 +14,43 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">真空辐射散热曲线</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
 
+  <g transform="translate(80,60)">
+    <!-- axes -->
+    <line x1="0" y1="200" x2="560" y2="200" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+    <text x="560" y="218" text-anchor="end" font-size="11" fill="#475569">辐射板温度 T (°C)</text>
+    <text x="-8" y="0" text-anchor="end" font-size="11" fill="#475569">散热功率 P (W/m²)</text>
+
+    <!-- gridlines -->
+    <line x1="0" y1="50" x2="560" y2="50" stroke="#e2e8f0" stroke-dasharray="2 4"/>
+    <line x1="0" y1="100" x2="560" y2="100" stroke="#e2e8f0" stroke-dasharray="2 4"/>
+    <line x1="0" y1="150" x2="560" y2="150" stroke="#e2e8f0" stroke-dasharray="2 4"/>
+
+    <!-- Power curves for different areas (P = εσAT⁴) -->
+    <!-- Area=1 -->
+    <path d="M 0,196 Q 100,180 200,140 Q 300,90 400,40 Q 480,10 560,5" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <text x="500" y="18" font-size="11" font-weight="600" fill="#2563eb">A=0.25 m²</text>
+    <!-- Area=2 -->
+    <path d="M 0,196 Q 100,150 200,90 Q 300,30 400,5" fill="none" stroke="#16a34a" stroke-width="2"/>
+    <text x="370" y="20" font-size="11" font-weight="600" fill="#16a34a">A=0.5 m²</text>
+    <!-- Area=4 -->
+    <path d="M 0,196 Q 50,140 100,80 Q 200,5 280,5" fill="none" stroke="#dc2626" stroke-width="2"/>
+    <text x="200" y="22" font-size="11" font-weight="600" fill="#dc2626">A=1.0 m²</text>
+
+    <!-- ΔT indicator: 280K → 300K shows steep rise -->
+    <line x1="280" y1="5" x2="320" y2="5" stroke="#64748b"/>
+    <text x="300" y="-2" text-anchor="middle" font-size="9" fill="#64748b">20°C 温差</text>
+  </g>
+
+  <!-- Right info panel -->
+  <g transform="translate(60,265)">
+    <rect x="0" y="-10" width="600" height="40" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="20" y="5" font-size="11" font-weight="700" fill="#475569">Stefan-Boltzmann:</text>
+    <text x="180" y="5" font-size="11" fill="#2563eb" font-weight="600">P = εσA(T⁴ - T_env⁴) </text>
+    <text x="20" y="22" font-size="10" fill="#64748b">σ = 5.67×10⁻⁸ W/(m²·K⁴), ε≈0.85 (漆面), 真空无对流, 仅热辐射  ·  增大 A 或 ΔT 都会大幅提升散热能力</text>
+  </g>
 
 </svg>

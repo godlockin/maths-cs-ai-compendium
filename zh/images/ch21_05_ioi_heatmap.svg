@@ -1,22 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">TransformerLens IOI 复现</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">12x12 head grid 中 name mover 亮点集中在 L9-L10</text>
+<rect width="720" height="360" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">TransformerLens IOI 复现: 12×12 head grid 中 name mover 亮点集中在 L9-L10</text>
 
+<!-- Heatmap grid 12x12 -->
+<g transform="translate(80,60)">
+  <!-- header: layers L0-L11 -->
+  <g font-size="9" fill="#475569" text-anchor="middle">
+    <text x="14" y="-2">H\L</text>
+    <text x="42" y="-2">L0</text>
+    <text x="70" y="-2">L1</text>
+    <text x="98" y="-2">L2</text>
+    <text x="126" y="-2">L3</text>
+    <text x="154" y="-2">L4</text>
+    <text x="182" y="-2">L5</text>
+    <text x="210" y="-2">L6</text>
+    <text x="238" y="-2">L7</text>
+    <text x="266" y="-2">L8</text>
+    <text x="294" y="-2">L9</text>
+    <text x="322" y="-2">L10</text>
+    <text x="350" y="-2">L11</text>
+  </g>
+  <!-- 12 rows × 12 cols -->
+  <g>
+    <!-- helper: cells filled with varying opacity; pattern shows high values at L9-L10 (cols 9-10) across most rows, esp name movers (rows 6,9,0 etc.) -->
+    <!-- Row H0 -->
+    <rect x="28" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="56" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.15"/>
+    <rect x="84" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.12"/>
+    <rect x="112" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="140" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="280" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.40"/>
+    <rect x="308" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.60"/>
+    <rect x="336" y="6" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <!-- Row H1 -->
+    <rect x="28" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="84" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="280" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.50"/>
+    <rect x="308" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="336" y="32" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <!-- Row H2 -->
+    <rect x="28" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="280" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="308" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.15"/>
+    <rect x="336" y="58" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H3 -->
+    <rect x="28" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="280" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.15"/>
+    <rect x="308" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="336" y="84" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H4 -->
+    <rect x="28" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="280" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="308" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="336" y="110" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H5 -->
+    <rect x="28" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="252" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="280" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="308" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="336" y="136" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H6 (highlight - name mover) -->
+    <rect x="28" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="56" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="224" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.30"/>
+    <rect x="252" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.50"/>
+    <rect x="280" y="162" width="22" height="22" fill="#dc2626" fill-opacity="0.85"/>
+    <rect x="308" y="162" width="22" height="22" fill="#dc2626" fill-opacity="0.70"/>
+    <rect x="336" y="162" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <!-- Row H7 -->
+    <rect x="28" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="224" y="188" width="22" height="22" fill="#d97706" fill-opacity="0.40"/>
+    <rect x="252" y="188" width="22" height="22" fill="#d97706" fill-opacity="0.65"/>
+    <rect x="280" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.30"/>
+    <rect x="308" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="336" y="188" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H8 -->
+    <rect x="28" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="252" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.30"/>
+    <rect x="280" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.40"/>
+    <rect x="308" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="336" y="214" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <!-- Row H9 (highlight - name mover) -->
+    <rect x="28" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="224" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="252" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.40"/>
+    <rect x="280" y="240" width="22" height="22" fill="#dc2626" fill-opacity="0.85"/>
+    <rect x="308" y="240" width="22" height="22" fill="#dc2626" fill-opacity="0.55"/>
+    <rect x="336" y="240" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <!-- Row H10 -->
+    <rect x="28" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="224" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="252" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
+    <rect x="280" y="266" width="22" height="22" fill="#dc2626" fill-opacity="0.75"/>
+    <rect x="308" y="266" width="22" height="22" fill="#dc2626" fill-opacity="0.65"/>
+    <rect x="336" y="266" width="22" height="22" fill="#2563eb" fill-opacity="0.15"/>
+    <!-- Row H11 -->
+    <rect x="28" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="56" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="84" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="112" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="140" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="168" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="196" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="224" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.05"/>
+    <rect x="252" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.10"/>
+    <rect x="280" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.30"/>
+    <rect x="308" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.30"/>
+    <rect x="336" y="292" width="22" height="22" fill="#2563eb" fill-opacity="0.20"/>
 
+    <!-- Row labels -->
+    <g font-size="9" fill="#475569" text-anchor="end">
+      <text x="22" y="22">H0</text>
+      <text x="22" y="48">H1</text>
+      <text x="22" y="74">H2</text>
+      <text x="22" y="100">H3</text>
+      <text x="22" y="126">H4</text>
+      <text x="22" y="152">H5</text>
+      <text x="22" y="178">H6</text>
+      <text x="22" y="204">H7</text>
+      <text x="22" y="230">H8</text>
+      <text x="22" y="256">H9</text>
+      <text x="22" y="282">H10</text>
+      <text x="22" y="308">H11</text>
+    </g>
+  </g>
+</g>
+
+<!-- legend -->
+<g transform="translate(490,80)">
+  <text x="0" y="0" font-size="10" font-weight="700" fill="#475569">logit diff 恢复量</text>
+  <rect x="0" y="10" width="200" height="14" fill="#2563eb" fill-opacity="0.05"/>
+  <rect x="0" y="10" width="33" height="14" fill="#2563eb" fill-opacity="0.20"/>
+  <rect x="33" y="10" width="33" height="14" fill="#2563eb" fill-opacity="0.40"/>
+  <rect x="66" y="10" width="34" height="14" fill="#d97706" fill-opacity="0.65"/>
+  <rect x="100" y="10" width="33" height="14" fill="#dc2626" fill-opacity="0.55"/>
+  <rect x="133" y="10" width="33" height="14" fill="#dc2626" fill-opacity="0.85"/>
+  <rect x="166" y="10" width="34" height="14" fill="#dc2626" fill-opacity="0.95"/>
+  <text x="0" y="36" font-size="8" fill="#64748b">0</text>
+  <text x="50" y="36" font-size="8" fill="#64748b">0.5</text>
+  <text x="100" y="36" font-size="8" fill="#64748b">1.5</text>
+  <text x="160" y="36" font-size="8" fill="#64748b">2.5+</text>
+
+  <!-- annotations -->
+  <rect x="0" y="50" width="10" height="10" fill="#dc2626" fill-opacity="0.85"/>
+  <text x="15" y="60" font-size="9" fill="#334155">name mover (L9-10)</text>
+  <rect x="0" y="68" width="10" height="10" fill="#d97706" fill-opacity="0.65"/>
+  <text x="15" y="78" font-size="9" fill="#334155">S-Inhibition (L7-8)</text>
+  <rect x="0" y="86" width="10" height="10" fill="#2563eb" fill-opacity="0.40"/>
+  <text x="15" y="96" font-size="9" fill="#334155">duplicate / prev</text>
+  <rect x="0" y="104" width="10" height="10" fill="#9333ea" fill-opacity="0.50"/>
+  <text x="15" y="114" font-size="9" fill="#334155">backup / negative</text>
+
+  <text x="0" y="135" font-size="9" font-weight="600" fill="#475569">典型代表</text>
+  <text x="0" y="150" font-size="9" fill="#64748b">9.6 · 9.9 · 10.0</text>
+  <text x="0" y="164" font-size="9" fill="#64748b">(Wang et al. 2022)</text>
+</g>
+
+<!-- Bottom callout -->
+<rect x="40" y="328" width="640" height="22" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="360" y="343" text-anchor="middle" font-size="10" fill="#475569">复现脚本 30 行: activation patching 遍历 (L, H) → 排名靠前 head 集中在 L9-10</text>
 </svg>

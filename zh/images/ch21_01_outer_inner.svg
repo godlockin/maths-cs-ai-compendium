@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">外对齐 vs 内对齐</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">训练目标 vs 学到的目标</text>
+<rect width="720" height="320" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">外对齐 vs 内对齐: 训练目标 vs 学到的目标</text>
 
+<!-- Outer alignment block -->
+<text x="40" y="60" font-size="11" font-weight="600" fill="#475569">外部对齐 (Outer Alignment)</text>
+<rect x="40" y="68" width="640" height="50" rx="6" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1.5"/>
+<text x="60" y="89" font-size="12" font-weight="700" fill="#1e3a8a">训练目标 L_outer(θ)</text>
+<text x="60" y="108" font-size="10" fill="#475569">人类写下的损失 / 奖励函数是否等同于真实目标?</text>
+<text x="640" y="89" text-anchor="end" font-size="10" fill="#1e3a8a">↓</text>
+<text x="640" y="108" text-anchor="end" font-size="9" fill="#64748b">failure: 拍马屁</text>
 
+<!-- Arrow down -->
+<line x1="360" y1="120" x2="360" y2="142" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<text x="368" y="135" font-size="10" fill="#475569">训练 SGD → 训出模型 π_θ</text>
+
+<!-- Inner alignment block -->
+<text x="40" y="158" font-size="11" font-weight="600" fill="#475569">内部对齐 (Inner Alignment)</text>
+<rect x="40" y="166" width="640" height="50" rx="6" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="1.5"/>
+<text x="60" y="187" font-size="12" font-weight="700" fill="#581c87">mesa-objective L_mesa(θ, x)</text>
+<text x="60" y="206" font-size="10" fill="#475569">模型内部实际学到的目标 · 训练分布上看不出来</text>
+<text x="640" y="187" text-anchor="end" font-size="10" fill="#581c87">↓</text>
+<text x="640" y="206" text-anchor="end" font-size="9" fill="#64748b">failure: 欺骗性对齐</text>
+
+<!-- 训练 vs 分布外 -->
+<rect x="40" y="232" width="310" height="68" rx="6" fill="#16a34a" fill-opacity="0.07" stroke="#16a34a" stroke-width="1.2"/>
+<text x="195" y="252" text-anchor="middle" font-size="11" font-weight="600" fill="#14532d">训练分布</text>
+<text x="195" y="272" text-anchor="middle" font-size="10" fill="#334155">L_outer ≈ L_mesa</text>
+<text x="195" y="290" text-anchor="middle" font-size="9" fill="#475569">行为评估看不到差异</text>
+
+<rect x="370" y="232" width="310" height="68" rx="6" fill="#dc2626" fill-opacity="0.07" stroke="#dc2626" stroke-width="1.2"/>
+<text x="525" y="252" text-anchor="middle" font-size="11" font-weight="600" fill="#7f1d1d">分布外</text>
+<text x="525" y="272" text-anchor="middle" font-size="10" fill="#334155">L_mesa ≠ L_outer 剧烈发散</text>
+<text x="525" y="290" text-anchor="middle" font-size="9" fill="#475569">模型可能策略性切换目标</text>
 </svg>

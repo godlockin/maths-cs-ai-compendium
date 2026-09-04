@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,20 +14,65 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">BCI 各模态 SNR 对比</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
 
+  <text x="350" y="55" text-anchor="middle" font-size="11" fill="#64748b">对数坐标 (SNR dB), 跨度 ≈ 4 个数量级 — 难怪 EEG 解码这么难</text>
+
+  <!-- horizontal log axis (each tick = 10 dB) -->
+  <g transform="translate(120,80)">
+    <!-- axis line -->
+    <line x1="0" y1="180" x2="500" y2="180" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+    <!-- dB ticks: 0, 10, 20, 30 dB (in pixels ~20px/dB) -->
+    <line x1="20" y1="175" x2="20" y2="180" stroke="#475569"/>
+    <text x="20" y="200" text-anchor="middle" font-size="10" fill="#64748b">-10 dB</text>
+    <line x1="120" y1="175" x2="120" y2="180" stroke="#475569"/>
+    <text x="120" y="200" text-anchor="middle" font-size="10" fill="#64748b">0 dB</text>
+    <line x1="220" y1="175" x2="220" y2="180" stroke="#475569"/>
+    <text x="220" y="200" text-anchor="middle" font-size="10" fill="#64748b">10 dB</text>
+    <line x1="320" y1="175" x2="320" y2="180" stroke="#475569"/>
+    <text x="320" y="200" text-anchor="middle" font-size="10" fill="#64748b">20 dB</text>
+    <line x1="420" y1="175" x2="420" y2="180" stroke="#475569"/>
+    <text x="420" y="200" text-anchor="middle" font-size="10" fill="#64748b">30 dB</text>
+    <text x="500" y="200" text-anchor="end" font-size="10" fill="#64748b">SNR (dB, log)</text>
+
+    <!-- EEG bar (lowest) -->
+    <g transform="translate(0,140)">
+      <text x="-10" y="14" text-anchor="end" font-size="11" font-weight="600" fill="#16a34a">EEG</text>
+      <rect x="0" y="2" width="60" height="16" fill="#16a34a" fill-opacity="0.7" stroke="#15803d"/>
+      <text x="68" y="14" font-size="10" fill="#64748b">~ 0 dB</text>
+    </g>
+    <!-- MEG bar -->
+    <g transform="translate(0,110)">
+      <text x="-10" y="14" text-anchor="end" font-size="11" font-weight="600" fill="#0891b2">MEG</text>
+      <rect x="0" y="2" width="120" height="16" fill="#0891b2" fill-opacity="0.7" stroke="#0e7490"/>
+      <text x="128" y="14" font-size="10" fill="#64748b">~ 5 dB</text>
+    </g>
+    <!-- fNIRS -->
+    <g transform="translate(0,80)">
+      <text x="-10" y="14" text-anchor="end" font-size="11" font-weight="600" fill="#9333ea">fNIRS</text>
+      <rect x="0" y="2" width="100" height="16" fill="#9333ea" fill-opacity="0.7" stroke="#7e22ce"/>
+      <text x="108" y="14" font-size="10" fill="#64748b">~ 3 dB</text>
+    </g>
+    <!-- ECoG -->
+    <g transform="translate(0,50)">
+      <text x="-10" y="14" text-anchor="end" font-size="11" font-weight="600" fill="#d97706">ECoG</text>
+      <rect x="0" y="2" width="240" height="16" fill="#d97706" fill-opacity="0.7" stroke="#b45309"/>
+      <text x="248" y="14" font-size="10" fill="#64748b">~ 12 dB</text>
+    </g>
+    <!-- LFP / 皮层内 -->
+    <g transform="translate(0,20)">
+      <text x="-10" y="14" text-anchor="end" font-size="11" font-weight="600" fill="#dc2626">皮层内 LFP/SUA</text>
+      <rect x="0" y="2" width="380" height="16" fill="#dc2626" fill-opacity="0.7" stroke="#b91c1c"/>
+      <text x="388" y="14" font-size="10" fill="#64748b">~ 20 dB</text>
+    </g>
+  </g>
+
+  <!-- bottom annotations -->
+  <g transform="translate(60,290)">
+    <rect x="0" y="-10" width="580" height="40" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="20" y="6" font-size="11" font-weight="700" fill="#475569">SNR (功率) = (A_signal²) / σ_noise²</text>
+    <text x="20" y="22" font-size="10" fill="#64748b">侵入式 SNR ≈ 5-20 (单尖峰清晰可见)  ·  非侵入式 EEG ≈ 0.1-2  → 必须做时空频三维滤波/平均</text>
+  </g>
 
 </svg>

@@ -1,22 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Constitutional AI 两阶段流水线</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">SL-CAI 自我批评改写 + RL-CAI 用 AI feedback 训 reward</text>
+<rect width="720" height="380" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Constitutional AI 两阶段流水线: SL-CAI + RL-CAI</text>
 
+<!-- Phase 1 box -->
+<rect x="20" y="55" width="330" height="300" rx="6" fill="#2563eb" fill-opacity="0.06" stroke="#2563eb" stroke-width="1.5"/>
+<text x="185" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">阶段一: SL-CAI</text>
+<text x="185" y="93" text-anchor="middle" font-size="9" fill="#475569">Supervised Learning from CAI</text>
 
+<!-- Input -->
+<rect x="40" y="110" width="290" height="38" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="185" y="128" text-anchor="middle" font-size="10" fill="#475569">红队 prompt (有害诱导问题)</text>
+<text x="185" y="142" text-anchor="middle" font-size="9" fill="#64748b">"如何合成 X" 类</text>
+
+<line x1="185" y1="148" x2="185" y2="165" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="40" y="167" width="290" height="34" rx="4" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1"/>
+<text x="185" y="184" text-anchor="middle" font-size="10" fill="#14532d">M₀ 生成初始回答 y₀</text>
+<text x="185" y="197" text-anchor="middle" font-size="9" fill="#64748b">helpful-only 基座</text>
+
+<line x1="185" y1="201" x2="185" y2="218" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="40" y="220" width="290" height="34" rx="4" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="1"/>
+<text x="185" y="237" text-anchor="middle" font-size="10" fill="#581c87">M₀ 根据宪法原则批评</text>
+<text x="185" y="250" text-anchor="middle" font-size="9" fill="#64748b">随机采 1 条原则 · 生成 critique c</text>
+
+<line x1="185" y1="254" x2="185" y2="271" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="40" y="273" width="290" height="34" rx="4" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1"/>
+<text x="185" y="290" text-anchor="middle" font-size="10" fill="#1e3a8a">M₀ 根据批评改写 → y₁</text>
+<text x="185" y="303" text-anchor="middle" font-size="9" fill="#64748b">迭代 4 轮 → 取最终</text>
+
+<line x1="185" y1="307" x2="185" y2="324" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="40" y="326" width="290" height="22" rx="4" fill="#16a34a" stroke="#16a34a" stroke-width="1.5"/>
+<text x="185" y="341" text-anchor="middle" font-size="10" font-weight="700" fill="#14532d">SFT → M₁</text>
+
+<!-- Phase 2 box -->
+<rect x="370" y="55" width="330" height="300" rx="6" fill="#9333ea" fill-opacity="0.06" stroke="#9333ea" stroke-width="1.5"/>
+<text x="535" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#581c87">阶段二: RL-CAI (RLAIF)</text>
+<text x="535" y="93" text-anchor="middle" font-size="9" fill="#475569">RL from AI Feedback</text>
+
+<rect x="390" y="110" width="290" height="34" rx="4" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1"/>
+<text x="535" y="128" text-anchor="middle" font-size="10" fill="#14532d">M₁ 采样两个回答 y_a, y_b</text>
+<text x="535" y="141" text-anchor="middle" font-size="9" fill="#64748b">同 prompt 双采样</text>
+
+<line x1="535" y1="144" x2="535" y2="161" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="390" y="163" width="290" height="44" rx="4" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1"/>
+<text x="535" y="180" text-anchor="middle" font-size="10" fill="#7c2d12">评审模型按宪法打分</text>
+<text x="535" y="195" text-anchor="middle" font-size="9" fill="#64748b">给出偏好 choice (a 或 b)</text>
+
+<line x1="535" y1="207" x2="535" y2="224" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="390" y="226" width="290" height="34" rx="4" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1"/>
+<text x="535" y="243" text-anchor="middle" font-size="10" fill="#1e3a8a">AI 偏好对训奖励模型 R_φ</text>
+<text x="535" y="256" text-anchor="middle" font-size="9" fill="#64748b">无需人类标注</text>
+
+<line x1="535" y1="260" x2="535" y2="277" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="390" y="279" width="290" height="34" rx="4" fill="#dc2626" fill-opacity="0.10" stroke="#dc2626" stroke-width="1"/>
+<text x="535" y="296" text-anchor="middle" font-size="10" fill="#7f1d1d">PPO with KL constraint</text>
+<text x="535" y="309" text-anchor="middle" font-size="9" fill="#64748b">优化 M₁ → M₂</text>
+
+<line x1="535" y1="313" x2="535" y2="330" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<rect x="390" y="332" width="290" height="22" rx="4" fill="#9333ea" stroke="#9333ea" stroke-width="1.5"/>
+<text x="535" y="347" text-anchor="middle" font-size="10" font-weight="700" fill="#581c87">对齐模型 M₂</text>
+
+<!-- Inter-phase arrow -->
+<line x1="350" y1="120" x2="390" y2="120" stroke="#9333ea" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a-9333ea)"/>
+<text x="370" y="112" text-anchor="middle" font-size="9" fill="#581c87">M₁</text>
 </svg>

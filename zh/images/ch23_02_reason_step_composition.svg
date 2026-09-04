@@ -1,33 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent Loop 中 reason 步的方法组合示意图</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="380" fill="#fafbfc"/>
+<defs>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent Loop 中 reason 步的方法组合</text>
 
+<!-- ReAct 主体循环 (中心) -->
+<g transform="translate(290,140)">
+  <text x="60" y="-5" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Agent Loop (ReAct)</text>
+  <!-- Thought -->
+  <rect x="0" y="0" width="50" height="40" rx="4" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb"/>
+  <text x="25" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#2563eb">Thought</text>
+  <text x="25" y="32" text-anchor="middle" font-size="9" fill="#475569">reason()</text>
+  <!-- Action -->
+  <rect x="60" y="0" width="50" height="40" rx="4" fill="#d97706" fill-opacity="0.15" stroke="#d97706"/>
+  <text x="85" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#d97706">Action</text>
+  <text x="85" y="32" text-anchor="middle" font-size="9" fill="#475569">tool()</text>
+  <!-- Obs -->
+  <rect x="120" y="0" width="50" height="40" rx="4" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a"/>
+  <text x="145" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#16a34a">Obs</text>
+  <text x="145" y="32" text-anchor="middle" font-size="9" fill="#475569">env</text>
+  <!-- 箭头 -->
+  <line x1="50" y1="20" x2="60" y2="20" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="110" y1="20" x2="120" y2="20" stroke="#64748b" stroke-width="1.5"/>
+  <!-- 循环回 thought -->
+  <path d="M145 40 Q145 65 90 65 Q25 65 25 40" fill="none" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#a-64748b)"/>
+</g>
+
+<!-- reason 步的 6 种方法 (上方) -->
+<text x="80" y="60" font-size="11" font-weight="700" fill="#0f172a">reason 步可选方法:</text>
+
+<g>
+  <rect x="40" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="90" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">CoT</text>
+  <text x="90" y="100" text-anchor="middle" font-size="9" fill="#475569">写推理链</text>
+</g>
+<g>
+  <rect x="150" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="200" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">Self-Consistency</text>
+  <text x="200" y="100" text-anchor="middle" font-size="9" fill="#475569">采样 N 条投票</text>
+</g>
+<g>
+  <rect x="260" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="310" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">ToT / GoT</text>
+  <text x="310" y="100" text-anchor="middle" font-size="9" fill="#475569">树 / 图扩展</text>
+</g>
+<g>
+  <rect x="370" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="420" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">Least-to-Most</text>
+  <text x="420" y="100" text-anchor="middle" font-size="9" fill="#475569">拆子问题</text>
+</g>
+<g>
+  <rect x="480" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="530" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">PoT</text>
+  <text x="530" y="100" text-anchor="middle" font-size="9" fill="#475569">Python 代码</text>
+</g>
+<g>
+  <rect x="590" y="70" width="100" height="40" rx="4" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2"/>
+  <text x="640" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">Reflexion</text>
+  <text x="640" y="100" text-anchor="middle" font-size="9" fill="#475569">失败反思</text>
+</g>
+
+<!-- 箭头 (方法 → reason) -->
+<g stroke="#0891b2" stroke-width="1" stroke-dasharray="2 2" fill="none">
+  <line x1="90" y1="110" x2="280" y2="138"/>
+  <line x1="200" y1="110" x2="295" y2="138"/>
+  <line x1="310" y1="110" x2="310" y2="138"/>
+  <line x1="420" y1="110" x2="325" y2="138"/>
+  <line x1="530" y1="110" x2="335" y2="138"/>
+  <line x1="640" y1="110" x2="345" y2="138"/>
+</g>
+
+<!-- 底部: 团队核心能力 -->
+<rect x="40" y="240" width="640" height="120" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="60" y="262" font-size="12" font-weight="700" fill="#0f172a">顶级 Agent 团队的"神秘参数"</text>
+<text x="60" y="284" font-size="11" fill="#334155">同一 GPT-4, 不同 Agent 团队表现差 3 倍 — 真正差距就在 reason 步的组合策略.</text>
+
+<text x="60" y="312" font-size="11" font-weight="700" fill="#9333ea">实战模板:</text>
+<text x="60" y="330" font-size="11" fill="#475569">① 默认 ReAct 当骨架 ② 简单子问题 → CoT ③ 数学 → PoT ④ 长链路 → Reflexion buffer</text>
+<text x="60" y="348" font-size="11" fill="#475569">⑤ 复杂决策 → ToT 小范围展开 ⑥ 失败归因 → 重路由</text>
 </svg>

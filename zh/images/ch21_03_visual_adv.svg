@@ -1,33 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">FGSM/PGD/C&amp;W 三种视觉对抗样本示意 (扰动幅度肉眼不可见)</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<rect width="720" height="320" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">FGSM / PGD / C&amp;W 三种视觉对抗样本示意 (扰动肉眼不可见)</text>
 
+<!-- Three columns -->
+<!-- Column 1: Original -->
+<text x="120" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">原图 x</text>
+<text x="120" y="80" text-anchor="middle" font-size="9" fill="#64748b">"熊猫" 置信 99%</text>
+<rect x="60" y="90" width="120" height="120" rx="4" fill="#9ca3af" stroke="#64748b" stroke-width="1"/>
+<g transform="translate(120,150)">
+  <circle cx="0" cy="0" r="32" fill="#1f2937"/>
+  <circle cx="-10" cy="-8" r="5" fill="white"/>
+  <circle cx="10" cy="-8" r="5" fill="white"/>
+  <circle cx="-10" cy="-8" r="2" fill="#0f172a"/>
+  <circle cx="10" cy="-8" r="2" fill="#0f172a"/>
+  <ellipse cx="0" cy="6" rx="3" ry="2" fill="#0f172a"/>
+</g>
 
+<!-- Column 2: Adversarial -->
+<text x="360" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">对抗样本 x + δ</text>
+<text x="360" y="80" text-anchor="middle" font-size="9" fill="#64748b">"长臂猿" 置信 99%</text>
+<rect x="300" y="90" width="120" height="120" rx="4" fill="#9ca3af" stroke="#dc2626" stroke-width="2"/>
+<g transform="translate(360,150)">
+  <circle cx="0" cy="0" r="32" fill="#1f2937"/>
+  <!-- noise dots -->
+  <g opacity="0.8">
+    <rect x="-25" y="-20" width="2" height="2" fill="#fef3c7"/>
+    <rect x="15" y="-15" width="2" height="2" fill="#fef3c7"/>
+    <rect x="-20" y="10" width="2" height="2" fill="#fef3c7"/>
+    <rect x="20" y="15" width="2" height="2" fill="#fef3c7"/>
+    <rect x="-15" y="20" width="2" height="2" fill="#fef3c7"/>
+    <rect x="10" y="20" width="2" height="2" fill="#fef3c7"/>
+    <rect x="-25" y="-5" width="2" height="2" fill="#fef3c7"/>
+    <rect x="25" y="0" width="2" height="2" fill="#fef3c7"/>
+  </g>
+  <circle cx="-10" cy="-8" r="5" fill="white"/>
+  <circle cx="10" cy="-8" r="5" fill="white"/>
+  <circle cx="-10" cy="-8" r="2" fill="#0f172a"/>
+  <circle cx="10" cy="-8" r="2" fill="#0f172a"/>
+  <ellipse cx="0" cy="6" rx="3" ry="2" fill="#0f172a"/>
+</g>
+
+<!-- Column 3: Perturbation -->
+<text x="600" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">扰动 δ (放大显示)</text>
+<text x="600" y="80" text-anchor="middle" font-size="9" fill="#64748b">‖δ‖∞ ≤ ε = 8/255</text>
+<rect x="540" y="90" width="120" height="120" rx="4" fill="#0f172a"/>
+<g transform="translate(600,150)">
+  <!-- adversarial noise pattern (10x amplified) -->
+  <g>
+    <rect x="-30" y="-25" width="3" height="3" fill="#dc2626"/>
+    <rect x="20" y="-22" width="3" height="3" fill="#fafbfc"/>
+    <rect x="-15" y="-10" width="3" height="3" fill="#dc2626"/>
+    <rect x="25" y="-5" width="3" height="3" fill="#fafbfc"/>
+    <rect x="-25" y="5" width="3" height="3" fill="#dc2626"/>
+    <rect x="15" y="10" width="3" height="3" fill="#fafbfc"/>
+    <rect x="-10" y="20" width="3" height="3" fill="#dc2626"/>
+    <rect x="20" y="25" width="3" height="3" fill="#fafbfc"/>
+    <rect x="-30" y="15" width="3" height="3" fill="#dc2626"/>
+    <rect x="0" y="-25" width="3" height="3" fill="#fafbfc"/>
+    <rect x="-5" y="0" width="3" height="3" fill="#dc2626"/>
+    <rect x="30" y="0" width="3" height="3" fill="#fafbfc"/>
+  </g>
+</g>
+
+<!-- Bottom: methods -->
+<g transform="translate(40,240)">
+  <rect x="0" y="0" width="200" height="58" rx="4" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb"/>
+  <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">FGSM (2014)</text>
+  <text x="100" y="38" text-anchor="middle" font-size="10" fill="#334155">单步 · δ = ε · sign(∇L)</text>
+  <text x="100" y="52" text-anchor="middle" font-size="9" fill="#475569">便宜但弱</text>
+
+  <rect x="220" y="0" width="200" height="58" rx="4" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a"/>
+  <text x="320" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#14532d">PGD (2018)</text>
+  <text x="320" y="38" text-anchor="middle" font-size="10" fill="#334155">迭代 + 随机重启</text>
+  <text x="320" y="52" text-anchor="middle" font-size="9" fill="#475569">鲁棒性评估黄金标准</text>
+
+  <rect x="440" y="0" width="200" height="58" rx="4" fill="#dc2626" fill-opacity="0.10" stroke="#dc2626"/>
+  <text x="540" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">C&amp;W (2017)</text>
+  <text x="540" y="38" text-anchor="middle" font-size="10" fill="#334155">优化最小 L₂ + 置信度边界 κ</text>
+  <text x="540" y="52" text-anchor="middle" font-size="9" fill="#475569">绕过梯度混淆型防御</text>
+</g>
 </svg>

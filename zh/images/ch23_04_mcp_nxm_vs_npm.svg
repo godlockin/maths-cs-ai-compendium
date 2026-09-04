@@ -1,33 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Function Calling 的 N×M 集成 vs MCP 的 N+M 集成</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="420" fill="#fafbfc"/>
+<defs>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+</defs>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Function Calling N×M vs MCP N+M 集成复杂度</text>
+
+<!-- 左侧: N×M (Function Calling) -->
+<g transform="translate(20,60)">
+  <rect x="0" y="0" width="320" height="320" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="160" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">Function Calling · C_fc = O(N×M)</text>
+
+  <!-- 列 (LLM) -->
+  <g font-size="10" font-weight="700" fill="#dc2626">
+    <rect x="20" y="40" width="60" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="50" y="60" text-anchor="middle">OpenAI</text>
+    <rect x="20" y="80" width="60" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="50" y="100" text-anchor="middle">Anthropic</text>
+    <rect x="20" y="120" width="60" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="50" y="140" text-anchor="middle">Google</text>
+    <rect x="20" y="160" width="60" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="50" y="180" text-anchor="middle">Cohere</text>
+  </g>
+  <text x="50" y="208" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">N LLMs</text>
+
+  <!-- 行 (Tools) -->
+  <g font-size="10" font-weight="700" fill="#dc2626">
+    <rect x="100" y="40" width="80" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="140" y="60" text-anchor="middle">GitHub</text>
+    <rect x="100" y="80" width="80" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="140" y="100" text-anchor="middle">Slack</text>
+    <rect x="100" y="120" width="80" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="140" y="140" text-anchor="middle">Notion</text>
+    <rect x="100" y="160" width="80" height="30" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="140" y="180" text-anchor="middle">Postgres</text>
+  </g>
+  <text x="140" y="208" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">M Tools</text>
+
+  <!-- 4×4 网格点: 每个交点是 1 个 adapter -->
+  <g>
+    <line x1="50" y1="225" x2="50" y2="295" stroke="#dc2626" stroke-width="0.8"/>
+    <line x1="140" y1="225" x2="140" y2="295" stroke="#dc2626" stroke-width="0.8"/>
+    <line x1="80" y1="225" x2="80" y2="295" stroke="#dc2626" stroke-width="0.8"/>
+    <line x1="110" y1="225" x2="110" y2="295" stroke="#dc2626" stroke-width="0.8"/>
+
+    <g fill="#dc2626" font-size="9" font-weight="700" text-anchor="middle">
+      <rect x="42" y="227" width="16" height="14" fill="#dc2626"/>
+      <rect x="72" y="227" width="16" height="14" fill="#dc2626"/>
+      <rect x="102" y="227" width="16" height="14" fill="#dc2626"/>
+      <rect x="132" y="227" width="16" height="14" fill="#dc2626"/>
+      <rect x="42" y="247" width="16" height="14" fill="#dc2626"/>
+      <rect x="72" y="247" width="16" height="14" fill="#dc2626"/>
+      <rect x="102" y="247" width="16" height="14" fill="#dc2626"/>
+      <rect x="132" y="247" width="16" height="14" fill="#dc2626"/>
+      <rect x="42" y="267" width="16" height="14" fill="#dc2626"/>
+      <rect x="72" y="267" width="16" height="14" fill="#dc2626"/>
+      <rect x="102" y="267" width="16" height="14" fill="#dc2626"/>
+      <rect x="132" y="267" width="16" height="14" fill="#dc2626"/>
+      <rect x="42" y="287" width="16" height="14" fill="#dc2626"/>
+      <rect x="72" y="287" width="16" height="14" fill="#dc2626"/>
+      <rect x="102" y="287" width="16" height="14" fill="#dc2626"/>
+      <rect x="132" y="287" width="16" height="14" fill="#dc2626"/>
+    </g>
+    <text x="95" y="312" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">16 个 adapter</text>
+  </g>
+
+  <text x="200" y="68" text-anchor="middle" font-size="10" fill="#7f1d1d">↑ 4 × 4 = 16 集成</text>
+  <text x="200" y="118" text-anchor="middle" font-size="10" fill="#7f1d1d">每加 1 LLM,</text>
+  <text x="200" y="130" text-anchor="middle" font-size="10" fill="#7f1d1d">需重写 M 个 adapter</text>
+</g>
+
+<!-- 右侧: N+M (MCP) -->
+<g transform="translate(380,60)">
+  <rect x="0" y="0" width="320" height="320" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="160" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">MCP · C_mcp = O(N+M)</text>
+
+  <!-- 上: N 个 Client (每个 LLM 各 1) -->
+  <text x="160" y="44" text-anchor="middle" font-size="10" font-weight="700" fill="#16a34a">N 个 Client (集成一次)</text>
+  <g font-size="10" font-weight="700" fill="#16a34a">
+    <rect x="20" y="55" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="50" y="73" text-anchor="middle">OpenAI</text>
+    <rect x="90" y="55" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="120" y="73" text-anchor="middle">Anthropic</text>
+    <rect x="160" y="55" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="190" y="73" text-anchor="middle">Google</text>
+    <rect x="230" y="55" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="260" y="73" text-anchor="middle">Cohere</text>
+  </g>
+
+  <!-- 下: M 个 Server (每个工具各 1) -->
+  <text x="160" y="208" text-anchor="middle" font-size="10" font-weight="700" fill="#16a34a">M 个 Server (各实现一次)</text>
+  <g font-size="10" font-weight="700" fill="#16a34a">
+    <rect x="20" y="220" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="50" y="238" text-anchor="middle">GitHub</text>
+    <rect x="90" y="220" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="120" y="238" text-anchor="middle">Slack</text>
+    <rect x="160" y="220" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="190" y="238" text-anchor="middle">Notion</text>
+    <rect x="230" y="220" width="60" height="28" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="260" y="238" text-anchor="middle">Postgres</text>
+  </g>
+
+  <!-- 中间: MCP 协议总线 -->
+  <rect x="20" y="100" width="270" height="100" rx="6" fill="#16a34a" fill-opacity="0.08" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="155" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">MCP Protocol</text>
+  <text x="155" y="148" text-anchor="middle" font-size="10" fill="#166534">JSON-RPC 2.0</text>
+  <text x="155" y="164" text-anchor="middle" font-size="10" fill="#166534">stdio / Streamable HTTP</text>
+  <text x="155" y="182" text-anchor="middle" font-size="10" font-style="italic" fill="#166534">一次实现, 处处可用</text>
+
+  <text x="160" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="#16a34a">N + M = 8 集成</text>
+  <text x="160" y="298" text-anchor="middle" font-size="10" fill="#166534">新加 1 LLM → 写 1 个 Client</text>
+  <text x="160" y="312" text-anchor="middle" font-size="10" fill="#166534">新加 1 Tool → 写 1 个 Server</text>
+</g>
+
+<!-- 底部: 收益对比 -->
+<text x="360" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">当 N, M 各 10+ 时, MCP 复杂度比 FC 低一个数量级</text>
 
 </svg>

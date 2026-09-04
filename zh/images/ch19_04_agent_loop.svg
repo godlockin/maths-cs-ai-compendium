@@ -1,22 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="720" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
+<rect width="720" height="280" fill="#fafbfc"/>
   <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+    <marker id="a-2563eb" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="a-16a34a" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="a-d97706" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#d97706"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">智能体循环的推理-行动-观察闭环</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">智能体循环的推理-行动-观察闭环</text>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">智能体循环: 推理-行动-观察闭环 (ReAct)</text>
 
+  <!-- Center LLM -->
+  <circle cx="360" cy="140" r="48" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="2"/>
+  <text x="360" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">LLM</text>
+  <text x="360" y="152" text-anchor="middle" font-size="10" fill="#475569">决策中枢</text>
+  <text x="360" y="166" text-anchor="middle" font-size="9" fill="#64748b">(Claude / GPT)</text>
 
+  <!-- Thought (top) -->
+  <rect x="280" y="50" width="160" height="40" rx="20" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="360" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#7e22ce">Thought 思考</text>
+  <text x="360" y="82" text-anchor="middle" font-size="9" fill="#64748b">"需要先查订单"</text>
+
+  <!-- Action (right) -->
+  <rect x="540" y="120" width="140" height="40" rx="20" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1.5"/>
+  <text x="610" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">Action 行动</text>
+  <text x="610" y="152" text-anchor="middle" font-size="9" fill="#64748b">tool=查订单</text>
+
+  <!-- Observation (bottom) -->
+  <rect x="280" y="200" width="160" height="40" rx="20" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="360" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">Observation 观察</text>
+  <text x="360" y="232" text-anchor="middle" font-size="9" fill="#64748b">{"status":"shipped"}</text>
+
+  <!-- Tools external (left) -->
+  <rect x="40" y="120" width="140" height="40" rx="20" fill="#0891b2" fill-opacity="0.10" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="110" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#0891b2">Tools 工具</text>
+  <text x="110" y="152" text-anchor="middle" font-size="9" fill="#64748b">搜索/代码/API</text>
+
+  <!-- Arrows: Thought → Action → Observation → Thought (loop) -->
+  <!-- LLM → Action (right) -->
+  <path d="M 408 140 Q 470 140 540 140" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#a-d97706)"/>
+  <text x="475" y="132" text-anchor="middle" font-size="9" fill="#b45309">调用</text>
+
+  <!-- Action → Observation -->
+  <path d="M 540 162 Q 470 200 440 215" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#a-16a34a)"/>
+  <text x="475" y="195" text-anchor="middle" font-size="9" fill="#15803d">返回</text>
+
+  <!-- Observation → LLM -->
+  <path d="M 280 215 Q 250 175 312 165" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#a-2563eb)"/>
+  <text x="252" y="200" text-anchor="middle" font-size="9" fill="#1d4ed8">喂回</text>
+
+  <!-- LLM → Thought -->
+  <path d="M 320 110 Q 320 90 320 90" fill="none" stroke="#9333ea" stroke-width="2"/>
+  <line x1="320" y1="110" x2="320" y2="92" stroke="#9333ea" stroke-width="2" marker-end="url(#a-9333ea)"/>
+  <text x="280" y="105" text-anchor="middle" font-size="9" fill="#7e22ce">产生</text>
+
+  <!-- Thought → LLM (dashed: thought lives in prompt) -->
+  <line x1="345" y1="90" x2="395" y2="90" stroke="#9333ea" stroke-width="2"/>
+  <line x1="395" y1="90" x2="395" y2="100" stroke="#9333ea" stroke-width="2"/>
+  <polygon points="392,98 398,98 395,104" fill="#9333ea"/>
+  <text x="395" y="85" text-anchor="middle" font-size="9" fill="#7e22ce">prompt</text>
+
+  <!-- Tools bidirectional with LLM -->
+  <path d="M 180 140 Q 250 140 312 140" fill="none" stroke="#0891b2" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#a-0891b2)"/>
+  <text x="246" y="132" text-anchor="middle" font-size="9" fill="#0891b2">调用</text>
+
+  <!-- Bottom annotation -->
+  <text x="360" y="266" text-anchor="middle" font-size="11" fill="#475569">循环直至任务完成 (FINISH) 或达到最大步数</text>
 </svg>

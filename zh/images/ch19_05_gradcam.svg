@@ -1,23 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="720" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="170" fill="#fafbfc"/>
+<rect width="720" height="280" fill="#fafbfc"/>
   <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+    <radialGradient id="cam-heat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#d97706" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Grad-CAM 热图</text>
-  <rect x="150" y="104" width="400" height="34" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="350.0" y="126.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">在最后卷积层捕获梯度, 全局平均池化后加权回传到原</text>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Grad-CAM 热图: 梯度 → 全局平均池化 → 加权回传</text>
 
+  <!-- Left: chest X-ray + heatmap -->
+  <rect x="30" y="55" width="220" height="200" rx="6" fill="white" stroke="#64748b" stroke-width="1.5"/>
+  <text x="140" y="74" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">胸片 + Grad-CAM</text>
 
+  <ellipse cx="140" cy="160" rx="78" ry="78" fill="#1e293b" fill-opacity="0.9"/>
+  <line x1="140" y1="82" x2="140" y2="238" stroke="#94a3b8" stroke-width="1"/>
+  <ellipse cx="118" cy="160" rx="20" ry="28" fill="#0f172a"/>
+  <ellipse cx="162" cy="160" rx="20" ry="28" fill="#0f172a"/>
+  <!-- Heat blob on right lower lung -->
+  <ellipse cx="170" cy="190" rx="32" ry="22" fill="url(#cam-heat)"/>
+
+  <text x="140" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#dc2626">高亮右下肺野炎症区域</text>
+
+  <!-- Right: pipeline diagram -->
+  <!-- Step 1: Input -->
+  <rect x="280" y="65" width="100" height="38" rx="5" fill="#0891b2" fill-opacity="0.10" stroke="#0891b2" stroke-width="1.2"/>
+  <text x="330" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">输入图像</text>
+  <text x="330" y="96" text-anchor="middle" font-size="9" fill="#64748b">x ∈ ℝ^{H×W}</text>
+
+  <line x1="380" y1="84" x2="412" y2="84" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="412,80 412,88 420,84" fill="#64748b"/>
+
+  <!-- Step 2: CNN forward -->
+  <rect x="420" y="65" width="120" height="38" rx="5" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="480" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">前向传播</text>
+  <text x="480" y="96" text-anchor="middle" font-size="9" fill="#64748b">→ 最后卷积层 Aᵏ</text>
+
+  <line x1="540" y1="84" x2="572" y2="84" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="572,80 572,88 580,84" fill="#64748b"/>
+
+  <!-- Step 3: class score -->
+  <rect x="580" y="65" width="110" height="38" rx="5" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="1.2"/>
+  <text x="635" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#7e22ce">类别分数 yᶜ</text>
+  <text x="635" y="96" text-anchor="middle" font-size="9" fill="#64748b">"肺炎"概率</text>
+
+  <!-- Loop arrow: backprop -->
+  <path d="M 635 103 Q 635 140 480 140 Q 330 140 330 103" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="330,107 326,99 334,99" fill="#dc2626"/>
+  <text x="480" y="158" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">反向传播求 ∂yᶜ/∂Aᵏ</text>
+
+  <!-- Step 4: GAP -->
+  <rect x="280" y="180" width="125" height="40" rx="5" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1.2"/>
+  <text x="342" y="198" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">全局平均池化</text>
+  <text x="342" y="212" text-anchor="middle" font-size="9" fill="#64748b">αₖᶜ = GAP(∂yᶜ/∂Aᵏ)</text>
+
+  <line x1="405" y1="200" x2="437" y2="200" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="437,196 437,204 445,200" fill="#64748b"/>
+
+  <!-- Step 5: weighted sum -->
+  <rect x="445" y="180" width="125" height="40" rx="5" fill="#d97706" fill-opacity="0.10" stroke="#d97706" stroke-width="1.2"/>
+  <text x="507" y="198" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">加权求和</text>
+  <text x="507" y="212" text-anchor="middle" font-size="9" fill="#64748b">Σₖ αₖᶜ · Aᵏ</text>
+
+  <line x1="570" y1="200" x2="602" y2="200" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="602,196 602,204 610,200" fill="#64748b"/>
+
+  <!-- Step 6: ReLU + interp -->
+  <rect x="610" y="180" width="80" height="40" rx="5" fill="#16a34a" fill-opacity="0.10" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="650" y="198" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">ReLU</text>
+  <text x="650" y="212" text-anchor="middle" font-size="9" fill="#64748b">上采样到 H×W</text>
+
+  <!-- Bottom formula -->
+  <text x="380" y="252" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a" font-family="Cambria, 'Times New Roman', serif">Lᶜ_GradCAM = ReLU( Σₖ αₖᶜ · Aᵏ )</text>
 </svg>

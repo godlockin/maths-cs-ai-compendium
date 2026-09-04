@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,20 +14,87 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">BCI 三大门派位置示意</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
 
+  <text x="350" y="56" text-anchor="middle" font-size="11" fill="#64748b">深度 vs 分辨率 vs 创伤度 — 三者两两互斥的工程博弈</text>
+
+  <!-- Side view of brain silhouette -->
+  <g transform="translate(140,80)">
+    <!-- Brain silhouette -->
+    <path d="M 0,60 Q 0,0 60,0 Q 130,0 180,40 Q 200,80 180,140 Q 130,170 60,170 Q 0,160 0,100 Z" fill="#e2e8f0" stroke="#475569" stroke-width="1.4"/>
+    <!-- Inside lines (sulci) -->
+    <path d="M 30,40 Q 80,60 130,50 Q 160,55 175,90" fill="none" stroke="#94a3b8" stroke-width="1"/>
+    <path d="M 40,110 Q 90,100 140,115 Q 170,120 180,140" fill="none" stroke="#94a3b8" stroke-width="1"/>
+
+    <!-- Skull -->
+    <path d="M 0,55 Q 0,0 60,-5 Q 130,-5 180,40 Q 200,75 185,135 Q 130,170 60,170 Q 0,160 0,100 Z" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+    <!-- Scalp -->
+    <ellipse cx="90" cy="85" rx="100" ry="92" fill="none" stroke="#a16207" stroke-width="3" stroke-dasharray="3 2" opacity="0.7"/>
+
+    <!-- Invasive: Utah Array pins piercing through cortex -->
+    <g transform="translate(110,90)">
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="-4,50 4,50 0,62" fill="#dc2626"/>
+      <polygon points="-15,30 15,30 0,50" fill="#dc2626" opacity="0.6"/>
+      <polygon points="-22,30 22,30 0,50" fill="#dc2626" opacity="0.4"/>
+      <line x1="-12" y1="-10" x2="-12" y2="32" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="-16,32 -8,32 -12,44" fill="#dc2626"/>
+      <line x1="12" y1="-10" x2="12" y2="32" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="8,32 16,32 12,44" fill="#dc2626"/>
+    </g>
+
+    <!-- Semi-invasive ECoG grid on surface -->
+    <g transform="translate(125,50)">
+      <rect x="-14" y="-2" width="28" height="14" fill="#d97706" fill-opacity="0.6" stroke="#d97706"/>
+      <text x="0" y="8" text-anchor="middle" font-size="8" fill="white">ECoG</text>
+    </g>
+
+    <!-- Non-invasive EEG on scalp -->
+    <g transform="translate(80,0)">
+      <circle cx="0" cy="0" r="4" fill="#16a34a" stroke="#15803d"/>
+      <line x1="0" y1="4" x2="0" y2="80" stroke="#16a34a" stroke-dasharray="2 2"/>
+      <text x="8" y="2" font-size="8" font-weight="700" fill="#16a34a">EEG</text>
+    </g>
+    <g transform="translate(160,30)">
+      <circle cx="0" cy="0" r="4" fill="#16a34a" stroke="#15803d"/>
+    </g>
+    <g transform="translate(80,170)">
+      <circle cx="0" cy="0" r="4" fill="#16a34a" stroke="#15803d"/>
+    </g>
+
+    <!-- callout lines -->
+    <line x1="110" y1="100" x2="220" y2="100" stroke="#dc2626"/>
+    <text x="226" y="100" font-size="11" font-weight="700" fill="#dc2626">侵入式</text>
+    <text x="226" y="116" font-size="9" fill="#64748b">Utah Array · Neuralink N1</text>
+
+    <line x1="125" y1="58" x2="220" y2="58" stroke="#d97706"/>
+    <text x="226" y="58" font-size="11" font-weight="700" fill="#d97706">半侵入式</text>
+    <text x="226" y="74" font-size="9" fill="#64748b">ECoG · Stentrode 血管内</text>
+
+    <line x1="80" y1="0" x2="220" y2="-20" stroke="#16a34a"/>
+    <text x="226" y="-20" font-size="11" font-weight="700" fill="#16a34a">非侵入式</text>
+    <text x="226" y="-6" font-size="9" fill="#64748b">EEG / MEG / fNIRS</text>
+  </g>
+
+  <!-- LEGEND -->
+  <g transform="translate(60,260)">
+    <rect x="0" y="0" width="170" height="44" rx="4" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="10" y="16" font-size="11" font-weight="700" fill="#dc2626">侵入式</text>
+    <text x="10" y="32" font-size="9" fill="#475569">针/线刺入皮层</text>
+    <text x="10" y="42" font-size="9" fill="#64748b">亚毫秒, ~100-1024 通道</text>
+  </g>
+  <g transform="translate(250,260)">
+    <rect x="0" y="0" width="180" height="44" rx="4" fill="#fef3c7" stroke="#d97706"/>
+    <text x="10" y="16" font-size="11" font-weight="700" fill="#d97706">半侵入式</text>
+    <text x="10" y="32" font-size="9" fill="#475569">皮层表面/血管壁</text>
+    <text x="10" y="42" font-size="9" fill="#64748b">毫秒级, 16-256 通道</text>
+  </g>
+  <g transform="translate(450,260)">
+    <rect x="0" y="0" width="200" height="44" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="10" y="16" font-size="11" font-weight="700" fill="#16a34a">非侵入式</text>
+    <text x="10" y="32" font-size="9" fill="#475569">头皮/脑磁外部</text>
+    <text x="10" y="42" font-size="9" fill="#64748b">毫秒-秒, 低分辨率</text>
+  </g>
 
 </svg>

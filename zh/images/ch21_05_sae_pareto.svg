@@ -1,33 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">SAE 变体对比</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<rect width="720" height="360" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">SAE 变体 Pareto 曲线: JumpReLU / Top-K 优于 vanilla L1</text>
 
+<!-- Plot area -->
+<g transform="translate(80,60)">
+  <!-- Axes -->
+  <line x1="0" y1="240" x2="560" y2="240" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="0" y1="20" x2="0" y2="240" stroke="#94a3b8" stroke-width="1"/>
+  <!-- Y axis label -->
+  <text x="-12" y="130" text-anchor="middle" font-size="10" fill="#475569" transform="rotate(-90 -12 130)">Fraction of Variance Explained ↑</text>
+  <!-- X axis label -->
+  <text x="280" y="270" text-anchor="middle" font-size="10" fill="#475569">平均 L₀ (激活特征数) →</text>
 
+  <!-- X ticks -->
+  <g font-size="8" fill="#64748b" text-anchor="middle">
+    <text x="0" y="252">10</text>
+    <text x="100" y="252">30</text>
+    <text x="200" y="252">60</text>
+    <text x="300" y="252">100</text>
+    <text x="400" y="252">150</text>
+    <text x="500" y="252">200</text>
+  </g>
+
+  <!-- Vanilla L1 curve (low, left-leaning) -->
+  <path d="M 30 200 Q 100 165, 180 130 T 320 90 Q 380 80, 420 75" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+  <circle cx="60" cy="190" r="3" fill="#64748b"/>
+  <circle cx="120" cy="155" r="3" fill="#64748b"/>
+  <circle cx="200" cy="120" r="3" fill="#64748b"/>
+  <circle cx="300" cy="90" r="3" fill="#64748b"/>
+
+  <!-- Top-K curve (better at low L0) -->
+  <path d="M 10 175 Q 60 130, 120 95 T 220 60 Q 320 45, 420 40" stroke="#16a34a" stroke-width="2.5" fill="none"/>
+  <circle cx="40" cy="140" r="3" fill="#16a34a"/>
+  <circle cx="120" cy="95" r="3" fill="#16a34a"/>
+  <circle cx="220" cy="60" r="3" fill="#16a34a"/>
+  <circle cx="320" cy="48" r="3" fill="#16a34a"/>
+
+  <!-- JumpReLU curve (highest) -->
+  <path d="M 10 155 Q 50 100, 100 65 T 200 35 Q 320 22, 420 18" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+  <circle cx="40" cy="118" r="3" fill="#dc2626"/>
+  <circle cx="100" cy="65" r="3" fill="#dc2626"/>
+  <circle cx="200" cy="38" r="3" fill="#dc2626"/>
+  <circle cx="320" cy="25" r="3" fill="#dc2626"/>
+  <circle cx="420" cy="18" r="3" fill="#dc2626"/>
+
+  <!-- Optimal zone annotation -->
+  <rect x="100" y="35" width="200" height="80" fill="#16a34a" fill-opacity="0.06" stroke="#16a34a" stroke-dasharray="3,2"/>
+  <text x="200" y="55" text-anchor="middle" font-size="9" fill="#14532d" font-weight="600">甜点区: 低 L₀ + 高重建</text>
+
+  <!-- Arrow showing JumpReLU dominates -->
+  <line x1="380" y1="50" x2="340" y2="30" stroke="#dc2626" stroke-width="1.2" marker-end="url(#a-dc2626)"/>
+
+  <!-- Legend -->
+  <g transform="translate(380,180)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="26" y="4" font-size="10" fill="#334155">JumpReLU</text>
+    <text x="26" y="16" font-size="8" fill="#64748b">每特征阈值, 无偏</text>
+
+    <line x1="0" y1="32" x2="20" y2="32" stroke="#16a34a" stroke-width="2.5"/>
+    <text x="26" y="36" font-size="10" fill="#334155">Top-K</text>
+    <text x="26" y="48" font-size="8" fill="#64748b">硬约束稀疏度</text>
+
+    <line x1="0" y1="64" x2="20" y2="64" stroke="#64748b" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="26" y="68" font-size="10" fill="#334155">vanilla L1</text>
+    <text x="26" y="80" font-size="8" fill="#64748b">系统性偏低</text>
+  </g>
+</g>
+
+<!-- Bottom info box -->
+<rect x="40" y="320" width="640" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="360" y="340" text-anchor="middle" font-size="10" fill="#475569">同 L₀ 下, JumpReLU &gt; Top-K &gt; vanilla L1 · 调参目标: 把曲线推到左上角</text>
 </svg>

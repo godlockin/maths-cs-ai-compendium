@@ -1,33 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="700" height="280" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
   <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">LambdaMART Lambda 梯度直观示意</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">LambdaMART Lambda 梯度: 排序对反序能提升 NDCG, 梯度大; 反之梯度小</text>
 
+  <!-- Left: ranked list of 5 items, with pair arrows showing lambda -->
+  <text x="170" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">当前排序 (5 个文档)</text>
 
+  <!-- Items, ordered by score -->
+  <rect x="60" y="80" width="220" height="28" rx="4" fill="#16a34a" fill-opacity="0.18" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="170" y="99" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">D1 相关性=3 (最相关)</text>
+
+  <rect x="60" y="115" width="220" height="28" rx="4" fill="#16a34a" fill-opacity="0.14" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="170" y="134" text-anchor="middle" font-size="11" fill="#16a34a">D2 相关性=2</text>
+
+  <rect x="60" y="150" width="220" height="28" rx="4" fill="#94a3b8" fill-opacity="0.12" stroke="#64748b" stroke-width="1.2"/>
+  <text x="170" y="169" text-anchor="middle" font-size="11" fill="#475569">D3 相关性=1</text>
+
+  <rect x="60" y="185" width="220" height="28" rx="4" fill="#94a3b8" fill-opacity="0.12" stroke="#64748b" stroke-width="1.2"/>
+  <text x="170" y="204" text-anchor="middle" font-size="11" fill="#475569">D4 相关性=1</text>
+
+  <rect x="60" y="220" width="220" height="28" rx="4" fill="#94a3b8" fill-opacity="0.12" stroke="#64748b" stroke-width="1.2"/>
+  <text x="170" y="239" text-anchor="middle" font-size="11" fill="#475569">D5 相关性=0</text>
+
+  <!-- Right: Lambda arrows visualization -->
+  <text x="490" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">Lambda 梯度 (对反序对的力度)</text>
+
+  <!-- NDCG swap gain matrix -->
+  <!-- Pair (i,j): lambda_ij = |ΔNDCG| / (1 + exp(s_i - s_j)) -->
+  <!-- We'll show pairs where swapping helps NDCG, with arrow sizes proportional to lambda -->
+
+  <!-- D1 <-> D3 (swap helps) — large arrow down -->
+  <line x1="320" y1="94" x2="490" y2="164" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="490,164 480,156 480,172" fill="#dc2626"/>
+  <text x="370" y="125" font-size="10" font-weight="700" fill="#dc2626">λ=大 (反序)</text>
+
+  <!-- D1 <-> D4 -->
+  <line x1="320" y1="94" x2="490" y2="199" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="490,199 482,190 482,206" fill="#dc2626"/>
+  <text x="370" y="160" font-size="9" font-weight="600" fill="#dc2626">λ=中</text>
+
+  <!-- D1 <-> D5 -->
+  <line x1="320" y1="94" x2="490" y2="234" stroke="#dc2626" stroke-width="2.5"/>
+  <polygon points="490,234 481,224 481,242" fill="#dc2626"/>
+  <text x="370" y="190" font-size="9" font-weight="600" fill="#dc2626">λ=大</text>
+
+  <!-- D2 <-> D5 -->
+  <line x1="320" y1="129" x2="490" y2="234" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="490,234 484,226 484,238" fill="#d97706"/>
+  <text x="400" y="210" font-size="9" fill="#d97706">λ=小</text>
+
+  <!-- Caption -->
+  <text x="350" y="265" text-anchor="middle" font-size="10" fill="#64748b">λ_ij ∝ |ΔNDCG| · σ(s_i - s_j) — 反序对(高相关在后)获得大梯度, 正确顺序梯度≈0</text>
 </svg>

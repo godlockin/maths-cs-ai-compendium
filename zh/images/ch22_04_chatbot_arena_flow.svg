@@ -1,33 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Chatbot Arena 匿名 pairwise 投票 UI 与 rating 拟合流程示意</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="380" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Chatbot Arena 匿名 pairwise 投票 UI 与 rating 拟合流程</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">用户输入 prompt → 匿名对局 → 投票 → BT-MLE 拟合 → leaderboard</text>
 
+  <!-- Step 1: User prompt -->
+  <g transform="translate(30,90)">
+    <rect x="0" y="0" width="170" height="50" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+    <text x="85" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">用户输入</text>
+    <text x="85" y="40" text-anchor="middle" font-size="10" fill="#334155">"写一首关于秋天的诗"</text>
+  </g>
+  <line x1="200" y1="115" x2="232" y2="115" stroke="#64748b" stroke-width="1.5"/>
 
+  <!-- Step 2: Backend routing -->
+  <g transform="translate(232,90)">
+    <rect x="0" y="0" width="170" height="50" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5"/>
+    <text x="85" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#9333ea">后端随机路由</text>
+    <text x="85" y="40" text-anchor="middle" font-size="10" fill="#334155">2 个匿名模型同时回答</text>
+  </g>
+  <line x1="402" y1="115" x2="434" y2="115" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- Step 3: Side-by-side UI -->
+  <g transform="translate(434,90)">
+    <rect x="0" y="0" width="256" height="170" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="128" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">匿名并排展示 (UI)</text>
+    <rect x="10" y="30" width="115" height="80" rx="4" fill="#f1f5f9"/>
+    <text x="67" y="48" text-anchor="middle" font-size="9.5" fill="#64748b">Model A</text>
+    <text x="67" y="62" text-anchor="middle" font-size="9" fill="#334155">秋风扫落叶,</text>
+    <text x="67" y="76" text-anchor="middle" font-size="9" fill="#334155">黄昏独自行。</text>
+    <text x="67" y="90" text-anchor="middle" font-size="9" fill="#334155">寒霜凝枝上,</text>
+    <text x="67" y="104" text-anchor="middle" font-size="9" fill="#334155">归鸟入林鸣...</text>
+
+    <rect x="131" y="30" width="115" height="80" rx="4" fill="#f1f5f9"/>
+    <text x="188" y="48" text-anchor="middle" font-size="9.5" fill="#64748b">Model B</text>
+    <text x="188" y="62" text-anchor="middle" font-size="9" fill="#334155">Autumn wind, autumn</text>
+    <text x="188" y="76" text-anchor="middle" font-size="9" fill="#334155">leaves part the trees...</text>
+
+    <!-- Vote buttons -->
+    <rect x="10" y="125" width="70" height="30" rx="4" fill="#16a34a"/>
+    <text x="45" y="144" text-anchor="middle" font-size="10" font-weight="700" fill="white">A 更好</text>
+    <rect x="93" y="125" width="70" height="30" rx="4" fill="#94a3b8"/>
+    <text x="128" y="144" text-anchor="middle" font-size="10" font-weight="700" fill="white">平局</text>
+    <rect x="176" y="125" width="70" height="30" rx="4" fill="#dc2626"/>
+    <text x="211" y="144" text-anchor="middle" font-size="10" font-weight="700" fill="white">B 更好</text>
+  </g>
+
+  <!-- Arrow from UI to fit -->
+  <line x1="562" y1="260" x2="562" y2="290" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="557,290 562,300 567,290" fill="#64748b"/>
+
+  <!-- Step 4: BT-MLE -->
+  <g transform="translate(220,300)">
+    <rect x="0" y="0" width="280" height="50" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="140" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Bradley-Terry MLE 拟合</text>
+    <text x="140" y="40" text-anchor="middle" font-size="10" fill="#334155">P(a ≻ b) = σ(r_a − r_b), bootstrap 95% CI</text>
+  </g>
+
+  <!-- Step 5: Leaderboard -->
+  <line x1="500" y1="325" x2="640" y2="325" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="640,320 650,325 640,330" fill="#64748b"/>
+  <g transform="translate(560,290)">
+    <rect x="0" y="0" width="140" height="60" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+    <text x="70" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">Leaderboard</text>
+    <text x="70" y="38" text-anchor="middle" font-size="10" fill="#1e293b">GPT-4o · 1287</text>
+    <text x="70" y="52" text-anchor="middle" font-size="10" fill="#1e293b">Claude 3.5 · 1265</text>
+  </g>
+
+  <text x="360" y="370" text-anchor="middle" font-size="10" fill="#64748b" font-style="italic">300 万+ votes · 200+ 模型 · 体现新一代 LLM 迭代节奏</text>
 </svg>

@@ -1,33 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="720" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="720" height="280" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">分子生成的四种范式</text>
+
+  <!-- Card 1: VAE 潜空间 -->
+  <rect x="20" y="56" width="160" height="200" rx="6" fill="#16a34a" fill-opacity="0.08" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="100" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">VAE</text>
+  <text x="100" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#15803d">潜空间优化</text>
+  <text x="100" y="124" text-anchor="middle" font-size="10" fill="#475569">Gómez-Bombarelli</text>
+  <text x="100" y="138" text-anchor="middle" font-size="10" fill="#475569">2018 ACS Cent. Sci.</text>
+  <!-- Visual: latent space dots -->
+  <circle cx="60" cy="170" r="4" fill="#16a34a" fill-opacity="0.7"/>
+  <circle cx="80" cy="180" r="4" fill="#16a34a" fill-opacity="0.7"/>
+  <circle cx="100" cy="172" r="4" fill="#16a34a" fill-opacity="0.7"/>
+  <circle cx="120" cy="184" r="4" fill="#16a34a" fill-opacity="0.7"/>
+  <circle cx="140" cy="178" r="4" fill="#16a34a" fill-opacity="0.7"/>
+  <text x="100" y="220" text-anchor="middle" font-size="9" fill="#64748b">Encoder → z → Decoder</text>
+  <text x="100" y="234" text-anchor="middle" font-size="9" fill="#64748b">连续潜空间 + Bayesian 优化</text>
+  <text x="100" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#dc2626">劣势: 模糊, 多样性有限</text>
+
+  <!-- Card 2: GAN 图生成 -->
+  <rect x="200" y="56" width="160" height="200" rx="6" fill="#d97706" fill-opacity="0.08" stroke="#d97706" stroke-width="1.5"/>
+  <text x="280" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#d97706">GAN</text>
+  <text x="280" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#b45309">图直接生成</text>
+  <text x="280" y="124" text-anchor="middle" font-size="10" fill="#475569">MolGAN (De Cao 2018)</text>
+  <!-- Visual: G/D arrows -->
+  <circle cx="230" cy="172" r="14" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="230" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#d97706">G</text>
+  <circle cx="330" cy="172" r="14" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="330" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#d97706">D</text>
+  <line x1="244" y1="172" x2="316" y2="172" stroke="#d97706" stroke-width="1.2" marker-end="url(#a-d97706)"/>
+  <text x="280" y="220" text-anchor="middle" font-size="9" fill="#64748b">Generator + Discriminator</text>
+  <text x="280" y="234" text-anchor="middle" font-size="9" fill="#64748b">节点 + 边直接采样</text>
+  <text x="280" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#dc2626">劣势: 难训练, 模式崩塌</text>
+
+  <!-- Card 3: Diffusion -->
+  <rect x="380" y="56" width="160" height="200" rx="6" fill="#2563eb" fill-opacity="0.08" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="460" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">Diffusion</text>
+  <text x="460" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">去噪采样</text>
+  <text x="460" y="124" text-anchor="middle" font-size="10" fill="#475569">GeoDiff / DiffDock</text>
+  <!-- Visual: noise to molecule -->
+  <circle cx="410" cy="172" r="3" fill="#2563eb" fill-opacity="0.3"/>
+  <circle cx="425" cy="180" r="3" fill="#2563eb" fill-opacity="0.5"/>
+  <circle cx="440" cy="174" r="3" fill="#2563eb" fill-opacity="0.7"/>
+  <circle cx="455" cy="178" r="3" fill="#2563eb" fill-opacity="0.85"/>
+  <circle cx="470" cy="172" r="4" fill="#2563eb"/>
+  <circle cx="485" cy="180" r="4" fill="#2563eb"/>
+  <circle cx="500" cy="172" r="4" fill="#2563eb"/>
+  <line x1="470" y1="172" x2="485" y2="180" stroke="#2563eb" stroke-width="1.2"/>
+  <line x1="485" y1="180" x2="500" y2="172" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="460" y="220" text-anchor="middle" font-size="9" fill="#64748b">q(x_t|x_{t-1}) 加噪</text>
+  <text x="460" y="234" text-anchor="middle" font-size="9" fill="#64748b">SE(3) 等变图网络去噪</text>
+  <text x="460" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#16a34a">3D 构象 / 对接姿态 SOTA</text>
+
+  <!-- Card 4: Transformer -->
+  <rect x="560" y="56" width="140" height="200" rx="6" fill="#9333ea" fill-opacity="0.08" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="630" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#9333ea">Transformer</text>
+  <text x="630" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#7e22ce">自回归 SMILES</text>
+  <text x="630" y="124" text-anchor="middle" font-size="10" fill="#475569">MolGPT / MolFormer</text>
+  <!-- Visual: token sequence -->
+  <rect x="568" y="166" width="18" height="14" fill="#9333ea" fill-opacity="0.4"/>
+  <rect x="588" y="166" width="18" height="14" fill="#9333ea" fill-opacity="0.55"/>
+  <rect x="608" y="166" width="18" height="14" fill="#9333ea" fill-opacity="0.7"/>
+  <rect x="628" y="166" width="18" height="14" fill="#9333ea" fill-opacity="0.85"/>
+  <rect x="648" y="166" width="18" height="14" fill="#9333ea"/>
+  <text x="630" y="220" text-anchor="middle" font-size="9" fill="#64748b">SMILES → token → token</text>
+  <text x="630" y="234" text-anchor="middle" font-size="9" fill="#64748b">Decoder-only 自回归</text>
+  <text x="630" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#16a34a">条件生成 (logP / QED)</text>
+
   <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
     <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">分子生成的四种范式</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
-
-
 </svg>

@@ -1,22 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" width="700" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
 <style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
+  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">二阶方法生态</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">Newton -> Quasi-Newton (BFGS/L-BFGS) -> Gauss-Newton/LM (least-squares 专用) -> K-FAC/Shampoo/Sophia (DL 近似)</text>
+<rect width="700" height="380" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
+  <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
+  <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+</defs>
+<rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+<text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">二阶方法生态: 从精确 Newton 到 DL 近似</text>
 
+<!-- Root: Newton -->
+<g transform="translate(300,60)">
+  <rect x="0" y="0" width="120" height="44" rx="6" fill="#2563eb"/>
+  <text x="60" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="white">Newton</text>
+  <text x="60" y="36" text-anchor="middle" font-size="10" fill="#dbeafe">用真实 H = ∇²f</text>
+</g>
 
+<!-- Level 1: split branches -->
+<!-- Left: Quasi-Newton -->
+<line x1="320" y1="104" x2="180" y2="135" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<line x1="360" y1="104" x2="540" y2="135" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<line x1="340" y1="104" x2="340" y2="135" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+
+<g transform="translate(100,135)">
+  <rect x="0" y="0" width="160" height="44" rx="6" fill="#16a34a"/>
+  <text x="80" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="white">Quasi-Newton</text>
+  <text x="80" y="36" text-anchor="middle" font-size="10" fill="#dcfce7">用秩-2 更新逼近 H⁻¹</text>
+</g>
+
+<g transform="translate(280,135)">
+  <rect x="0" y="0" width="120" height="44" rx="6" fill="#d97706"/>
+  <text x="60" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="white">Gauss-Newton</text>
+  <text x="60" y="36" text-anchor="middle" font-size="10" fill="#fff7ed">专攻 LSQ</text>
+</g>
+
+<g transform="translate(460,135)">
+  <rect x="0" y="0" width="160" height="44" rx="6" fill="#9333ea"/>
+  <text x="80" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="white">DL 近似二阶</text>
+  <text x="80" y="36" text-anchor="middle" font-size="10" fill="#e9d5ff">Hessian 太贵 → 低秩近似</text>
+</g>
+
+<!-- Level 2: methods under each -->
+<!-- Quasi-Newton -->
+<line x1="140" y1="179" x2="100" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+<line x1="200" y1="179" x2="240" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<g transform="translate(40,210)">
+  <rect x="0" y="0" width="120" height="38" rx="6" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+  <text x="60" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">BFGS</text>
+  <text x="60" y="30" text-anchor="middle" font-size="10" fill="#475569">O(n²) 内存</text>
+</g>
+
+<g transform="translate(180,210)">
+  <rect x="0" y="0" width="120" height="38" rx="6" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+  <text x="60" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">L-BFGS</text>
+  <text x="60" y="30" text-anchor="middle" font-size="10" fill="#475569">有限内存, 大规模</text>
+</g>
+
+<!-- Gauss-Newton: LM child -->
+<line x1="340" y1="179" x2="340" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+<g transform="translate(280,210)">
+  <rect x="0" y="0" width="120" height="38" rx="6" fill="#fff" stroke="#d97706" stroke-width="2"/>
+  <text x="60" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#d97706">Levenberg-M.</text>
+  <text x="60" y="30" text-anchor="middle" font-size="10" fill="#475569">阻尼 + GN</text>
+</g>
+
+<!-- DL second-order -->
+<line x1="500" y1="179" x2="470" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+<line x1="540" y1="179" x2="540" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+<line x1="580" y1="179" x2="610" y2="210" stroke="#64748b" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+<g transform="translate(410,210)">
+  <rect x="0" y="0" width="80" height="38" rx="6" fill="#fff" stroke="#9333ea" stroke-width="2"/>
+  <text x="40" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#9333ea">K-FAC</text>
+  <text x="40" y="30" text-anchor="middle" font-size="9" fill="#475569">Kronecker</text>
+</g>
+<g transform="translate(500,210)">
+  <rect x="0" y="0" width="80" height="38" rx="6" fill="#fff" stroke="#9333ea" stroke-width="2"/>
+  <text x="40" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#9333ea">Shampoo</text>
+  <text x="40" y="30" text-anchor="middle" font-size="9" fill="#475569">二阶统计</text>
+</g>
+<g transform="translate(590,210)">
+  <rect x="0" y="0" width="80" height="38" rx="6" fill="#fff" stroke="#9333ea" stroke-width="2"/>
+  <text x="40" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#9333ea">Sophia</text>
+  <text x="40" y="30" text-anchor="middle" font-size="9" fill="#475569">Hessian对角</text>
+</g>
+
+<!-- Use cases -->
+<g transform="translate(40,278)">
+  <rect x="0" y="0" width="620" height="84" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="14" y="20" font-size="12" font-weight="700" fill="#1e293b">何时用哪个?</text>
+  <text x="14" y="38" font-size="10" fill="#16a34a" font-weight="600">• 中小凸问题 (&lt;10⁵ 参数): Newton / L-BFGS (首选)</text>
+  <text x="14" y="54" font-size="10" fill="#d97706" font-weight="600">• Least-squares (SLAM, 曲线拟合): Gauss-Newton / Levenberg-Marquardt</text>
+  <text x="14" y="70" font-size="10" fill="#9333ea" font-weight="600">• 深度学习 (billion+): K-FAC / Shampoo / Sophia, 主流仍 Adam/AdamW</text>
+</g>
 </svg>

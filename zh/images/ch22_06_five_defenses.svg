@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">防污染 benchmark 的五道防线</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">held-out split / 时间戳过滤 / canary 埋点 / rephrase 抗性 / 动态更新</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="360" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">防污染 benchmark 的五道防线</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">held-out split · 时间戳 · canary · rephrase · 动态更新</text>
 
+  <!-- 5 layered defense rows -->
+  <g>
+    <!-- Defense 1 -->
+    <rect x="30" y="80" width="660" height="44" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+    <rect x="30" y="80" width="22" height="44" rx="8" fill="#2563eb"/>
+    <rect x="30" y="80" width="22" height="44" fill="#2563eb"/>
+    <text x="41" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="white">1</text>
+    <text x="70" y="100" font-size="12" font-weight="700" fill="#2563eb">held-out split · 训练数据过滤</text>
+    <text x="70" y="118" font-size="10.5" fill="#475569">预训练前主动过滤已知 benchmark, 留 private test + 完整版本号</text>
 
+    <!-- Defense 2 -->
+    <rect x="30" y="130" width="660" height="44" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.2"/>
+    <rect x="30" y="130" width="22" height="44" rx="8" fill="#0891b2"/>
+    <text x="41" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="white">2</text>
+    <text x="70" y="150" font-size="12" font-weight="700" fill="#0891b2">时间戳过滤 · cutoff 之后才能评</text>
+    <text x="70" y="168" font-size="10.5" fill="#475569">T_pub &gt; T_c 才是合法测试题, LiveCodeBench / LiveBench 标准做法</text>
+
+    <!-- Defense 3 -->
+    <rect x="30" y="180" width="660" height="44" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.2"/>
+    <rect x="30" y="180" width="22" height="44" rx="8" fill="#9333ea"/>
+    <text x="41" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="white">3</text>
+    <text x="70" y="200" font-size="12" font-weight="700" fill="#9333ea">canary 字符串埋点</text>
+    <text x="70" y="218" font-size="10.5" fill="#475569">嵌入高熵 UUID · "a4b7c2d9-..." · 训练时遇 canary 自动丢弃 · Roberts 2023 标准</text>
+
+    <!-- Defense 4 -->
+    <rect x="30" y="230" width="660" height="44" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.2"/>
+    <rect x="30" y="230" width="22" height="44" rx="8" fill="#d97706"/>
+    <text x="41" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="white">4</text>
+    <text x="70" y="250" font-size="12" font-weight="700" fill="#d97706">rephrase 抗性 · 改写后掉分即污染信号</text>
+    <text x="70" y="268" font-size="10.5" fill="#475569">Yang 2023 · 题目释义后分数差, 直接显示模型见过来源数据</text>
+
+    <!-- Defense 5 -->
+    <rect x="30" y="280" width="660" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.2"/>
+    <rect x="30" y="280" width="22" height="44" rx="8" fill="#16a34a"/>
+    <text x="41" y="308" text-anchor="middle" font-size="13" font-weight="700" fill="white">5</text>
+    <text x="70" y="300" font-size="12" font-weight="700" fill="#16a34a">动态更新 · 流式 benchmark</text>
+    <text x="70" y="318" font-size="10.5" fill="#475569">Live Benchmark 每周筛新题 · 闭源题库 + 开源 harness · 6-12 个月刷新</text>
+  </g>
+
+  <text x="360" y="345" text-anchor="middle" font-size="10.5" fill="#475569" font-style="italic">5 道防线 = held-out + 时间戳 + canary + rephrase + 动态 — 任何一道单独不够, 必须叠加</text>
 </svg>

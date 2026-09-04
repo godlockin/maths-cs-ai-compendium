@@ -1,31 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720" height="180" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="720" height="180" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
-  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent Eval 全景</text>
-  <rect x="48" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="118.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">从 SWE-Bench (代码)</text>
-  <line x1="188" y1="82" x2="216" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="216" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="286.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">WebArena (浏览器)</text>
-  <line x1="356" y1="82" x2="384" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="384" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="454.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">OSWorld (桌面)</text>
-  <line x1="524" y1="82" x2="552" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="552" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="622.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">GAIA (通用助手) 的能力面覆盖</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="420" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Agent Eval 全景 · 从 SWE-Bench 到 WebArena / OSWorld / GAIA 的能力面覆盖</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">不同环境代表 agent 落地难度与评估范式</text>
 
+  <!-- 4 columns -->
+  <g>
+    <!-- Column 1: SWE-Bench -->
+    <rect x="30" y="80" width="155" height="280" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="30" y="80" width="155" height="40" rx="10" fill="#2563eb"/>
+    <rect x="30" y="106" width="155" height="14" fill="#2563eb"/>
+    <text x="107" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="white">SWE-Bench</text>
+
+    <text x="107" y="140" text-anchor="middle" font-size="10.5" fill="#475569" font-weight="600">代码仓库级</text>
+
+    <!-- icon area -->
+    <g transform="translate(75,150)">
+      <rect x="0" y="0" width="64" height="42" rx="4" fill="#2563eb" fill-opacity="0.08"/>
+      <text x="32" y="20" text-anchor="middle" font-size="9" fill="#2563eb" font-family="monospace">def fix(</text>
+      <text x="32" y="34" text-anchor="middle" font-size="9" fill="#2563eb" font-family="monospace">  bug):</text>
+    </g>
+
+    <text x="46" y="218" font-size="10" fill="#1e293b">· 来源: GitHub PR</text>
+    <text x="46" y="234" font-size="10" fill="#1e293b">· 题数: 2,294</text>
+    <text x="46" y="250" font-size="10" fill="#1e293b">· 验证: unit test</text>
+    <text x="46" y="266" font-size="10" fill="#1e293b">· pass@k 报告</text>
+    <text x="46" y="288" font-size="10" fill="#16a34a" font-weight="600">代表模型</text>
+    <text x="46" y="304" font-size="9.5" fill="#64748b">Claude 4: ~65%</text>
+    <text x="46" y="318" font-size="9.5" fill="#64748b">GPT-5: ~55%</text>
+    <text x="46" y="332" font-size="9.5" fill="#64748b">人类: 100%</text>
+    <text x="46" y="350" font-size="9" fill="#64748b" font-style="italic">agent scaffold 必须</text>
+  </g>
+
+  <!-- Column 2: WebArena -->
+  <g>
+    <rect x="195" y="80" width="155" height="280" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+    <rect x="195" y="80" width="155" height="40" rx="10" fill="#16a34a"/>
+    <rect x="195" y="106" width="155" height="14" fill="#16a34a"/>
+    <text x="272" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="white">WebArena</text>
+
+    <text x="272" y="140" text-anchor="middle" font-size="10.5" fill="#475569" font-weight="600">浏览器任务</text>
+
+    <g transform="translate(240,150)">
+      <rect x="0" y="0" width="64" height="42" rx="4" fill="#16a34a" fill-opacity="0.08"/>
+      <text x="32" y="20" text-anchor="middle" font-size="9" fill="#16a34a">浏览器</text>
+      <text x="32" y="34" text-anchor="middle" font-size="9" fill="#16a34a">.click()</text>
+    </g>
+
+    <text x="211" y="218" font-size="10" fill="#1e293b">· 来源: 真实 SaaS</text>
+    <text x="211" y="234" font-size="10" fill="#1e293b">· 题数: 812</text>
+    <text x="211" y="250" font-size="10" fill="#1e293b">· 验证: DOM 断言</text>
+    <text x="211" y="266" font-size="10" fill="#1e293b">· 成功率 + 步数</text>
+    <text x="211" y="288" font-size="10" fill="#16a34a" font-weight="600">代表模型</text>
+    <text x="211" y="304" font-size="9.5" fill="#64748b">GPT-4o + browsing: ~58%</text>
+    <text x="211" y="318" font-size="9.5" fill="#64748b">人类: 78%</text>
+    <text x="211" y="350" font-size="9" fill="#64748b" font-style="italic">网页结构对 LLM 友好</text>
+  </g>
+
+  <!-- Column 3: OSWorld -->
+  <g>
+    <rect x="360" y="80" width="155" height="280" rx="10" fill="#ffffff" stroke="#9333ea" stroke-width="1.5"/>
+    <rect x="360" y="80" width="155" height="40" rx="10" fill="#9333ea"/>
+    <rect x="360" y="106" width="155" height="14" fill="#9333ea"/>
+    <text x="437" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="white">OSWorld</text>
+
+    <text x="437" y="140" text-anchor="middle" font-size="10.5" fill="#475569" font-weight="600">桌面 OS 任务</text>
+
+    <g transform="translate(405,150)">
+      <rect x="0" y="0" width="64" height="42" rx="4" fill="#9333ea" fill-opacity="0.08"/>
+      <text x="32" y="20" text-anchor="middle" font-size="9" fill="#9333ea">GUI</text>
+      <text x="32" y="34" text-anchor="middle" font-size="9" fill="#9333ea">操作</text>
+    </g>
+
+    <text x="376" y="218" font-size="10" fill="#1e293b">· 来源: Win/macOS/Linux</text>
+    <text x="376" y="234" font-size="10" fill="#1e293b">· 题数: 369</text>
+    <text x="376" y="250" font-size="10" fill="#1e293b">· 验证: 截图比对</text>
+    <text x="376" y="266" font-size="10" fill="#1e293b">· 多步 + 多应用</text>
+    <text x="376" y="288" font-size="10" fill="#16a34a" font-weight="600">代表模型</text>
+    <text x="376" y="304" font-size="9.5" fill="#64748b">GPT-4o: ~12% (困难)</text>
+    <text x="376" y="318" font-size="9.5" fill="#64748b">人类: 75%</text>
+    <text x="376" y="350" font-size="9" fill="#64748b" font-style="italic">GUI 视觉推理是难点</text>
+  </g>
+
+  <!-- Column 4: GAIA -->
+  <g>
+    <rect x="525" y="80" width="155" height="280" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+    <rect x="525" y="80" width="155" height="40" rx="10" fill="#d97706"/>
+    <rect x="525" y="106" width="155" height="14" fill="#d97706"/>
+    <text x="602" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="white">GAIA</text>
+
+    <text x="602" y="140" text-anchor="middle" font-size="10.5" fill="#475569" font-weight="600">通用助手</text>
+
+    <g transform="translate(570,150)">
+      <rect x="0" y="0" width="64" height="42" rx="4" fill="#d97706" fill-opacity="0.08"/>
+      <text x="32" y="20" text-anchor="middle" font-size="9" fill="#d97706">搜索</text>
+      <text x="32" y="34" text-anchor="middle" font-size="9" fill="#d97706">+ 推理</text>
+    </g>
+
+    <text x="541" y="218" font-size="10" fill="#1e293b">· 来源: 真实任务</text>
+    <text x="541" y="234" font-size="10" fill="#1e293b">· 题数: 466</text>
+    <text x="541" y="250" font-size="10" fill="#1e293b">· 验证: 唯一答案</text>
+    <text x="541" y="266" font-size="10" fill="#1e293b">· 三级难度</text>
+    <text x="541" y="288" font-size="10" fill="#16a34a" font-weight="600">代表模型</text>
+    <text x="541" y="304" font-size="9.5" fill="#64748b">GPT-4 + browsing: 15%</text>
+    <text x="541" y="318" font-size="9.5" fill="#64748b">人类: 92%</text>
+    <text x="541" y="350" font-size="9" fill="#64748b" font-style="italic">headroom 巨大</text>
+  </g>
+
+  <text x="360" y="385" text-anchor="middle" font-size="10" fill="#64748b" font-style="italic">每一列代表 agent 落地的一种环境 — 综合评测用 AgentBench (8 类环境 / 200-500 题) 覆盖</text>
 </svg>

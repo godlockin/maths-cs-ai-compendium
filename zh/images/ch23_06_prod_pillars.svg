@@ -1,22 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Demo 到 Production 的九座桥梁</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">state / memory / sandbox / cost / latency / observability / error handling / testing / deployment</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<style> text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; } </style>
+<rect width="720" height="420" fill="#fafbfc"/>
 
+<!-- 顶部 Banner -->
+<rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+<text x="360" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="white">Demo → Production: 九座桥梁</text>
+
+<!-- 中心: Demo / Production -->
+<g>
+  <ellipse cx="160" cy="190" rx="80" ry="42" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#2563eb">Demo</text>
+  <text x="160" y="206" text-anchor="middle" font-size="10" fill="#475569">5 次成功 / happy path</text>
+</g>
+<g>
+  <ellipse cx="560" cy="190" rx="80" ry="42" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="2"/>
+  <text x="560" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">Production</text>
+  <text x="560" y="206" text-anchor="middle" font-size="10" fill="#475569">1000 次 / 长尾 / 60%</text>
+</g>
+
+<!-- 箭头 -->
+<line x1="245" y1="190" x2="478" y2="190" stroke="#64748b" stroke-width="2"/>
+
+<!-- 九座桥梁 (顶部 5, 底部 4) -->
+<g font-size="10" font-weight="700" text-anchor="middle">
+  <!-- 顶部 -->
+  <g transform="translate(270,80)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#9333ea" fill-opacity="0.12" stroke="#9333ea" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#9333ea">① 状态</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">State Mgmt</text>
+  </g>
+  <g transform="translate(370,80)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#0891b2" fill-opacity="0.12" stroke="#0891b2" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#0891b2">② 记忆</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Memory</text>
+  </g>
+  <g transform="translate(270,140)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#16a34a">③ 沙盒</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Sandbox</text>
+  </g>
+  <g transform="translate(370,140)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#d97706" fill-opacity="0.12" stroke="#d97706" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#d97706">④ 成本</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Cost Bound</text>
+  </g>
+  <g transform="translate(470,110)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#db2777" fill-opacity="0.12" stroke="#db2777" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#db2777">⑤ 延迟</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Latency</text>
+  </g>
+
+  <!-- 底部 -->
+  <g transform="translate(270,260)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#64748b" fill-opacity="0.12" stroke="#64748b" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#64748b">⑥ 可观测</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Observability</text>
+  </g>
+  <g transform="translate(370,260)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#dc2626">⑦ 错误处理</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Error Recovery</text>
+  </g>
+  <g transform="translate(270,320)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#2563eb">⑧ 测试</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Testing</text>
+  </g>
+  <g transform="translate(370,320)">
+    <rect x="0" y="0" width="80" height="44" rx="6" fill="#65a30d" fill-opacity="0.12" stroke="#65a30d" stroke-width="1.5"/>
+    <text x="40" y="18" fill="#65a30d">⑨ 部署</text>
+    <text x="40" y="33" font-size="8" font-weight="400" fill="#475569">Deployment</text>
+  </g>
+</g>
+
+<!-- 底部: 核心心法 -->
+<rect x="20" y="380" width="680" height="30" rx="6" fill="#fef2f2" stroke="#dc2626"/>
+<text x="360" y="400" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">生产四要素 = 可观测 + 可恢复 + 可控成本 + 可控风险</text>
 
 </svg>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
+<rect width="700" height="280" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,9 +14,97 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">神经形态芯片时间线</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">从 Mead 1990 模拟电路到 NorthPole 2023 近内存 ANN 推理</text>
 
+  <!-- horizontal timeline axis -->
+  <g transform="translate(60,150)">
+    <line x1="0" y1="0" x2="580" y2="0" stroke="#475569" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+    <!-- ticks + events -->
+    <!-- 1990 Mead -->
+    <g transform="translate(0,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#64748b"/>
+      <line x1="0" y1="0" x2="0" y2="-50" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-30" y="-80" width="80" height="34" rx="3" fill="#fafbfc" stroke="#64748b"/>
+      <text x="10" y="-64" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">Mead</text>
+      <text x="10" y="-52" text-anchor="middle" font-size="9" fill="#64748b">1990</text>
+      <text x="10" y="20" text-anchor="middle" font-size="9" fill="#64748b">模拟</text>
+      <text x="10" y="32" text-anchor="middle" font-size="9" fill="#64748b">aVLSI</text>
+    </g>
+    <!-- 2010 BrainScaleS -->
+    <g transform="translate(120,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#2563eb"/>
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#2563eb" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-30" y="50" width="90" height="34" rx="3" fill="#dbeafe" stroke="#2563eb"/>
+      <text x="15" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">BrainScaleS-1</text>
+      <text x="15" y="78" text-anchor="middle" font-size="9" fill="#2563eb">2010</text>
+      <text x="15" y="-12" text-anchor="middle" font-size="9" fill="#64748b">海德堡</text>
+    </g>
+    <!-- 2011 TrueNorth -->
+    <g transform="translate(220,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#0891b2"/>
+      <line x1="0" y1="0" x2="0" y2="-50" stroke="#0891b2" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-30" y="-80" width="90" height="34" rx="3" fill="#cffafe" stroke="#0891b2"/>
+      <text x="15" y="-64" text-anchor="middle" font-size="10" font-weight="600" fill="#0891b2">TrueNorth</text>
+      <text x="15" y="-52" text-anchor="middle" font-size="9" fill="#0891b2">IBM 2011</text>
+      <text x="15" y="20" text-anchor="middle" font-size="9" fill="#64748b">54亿晶体管</text>
+      <text x="15" y="32" text-anchor="middle" font-size="9" fill="#64748b">1M 神经元</text>
+    </g>
+    <!-- 2017 Loihi 1 -->
+    <g transform="translate(330,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#d97706"/>
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#d97706" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-30" y="50" width="90" height="34" rx="3" fill="#fef3c7" stroke="#d97706"/>
+      <text x="15" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#d97706">Loihi 1</text>
+      <text x="15" y="78" text-anchor="middle" font-size="9" fill="#d97706">Intel 2017</text>
+      <text x="15" y="-12" text-anchor="middle" font-size="9" fill="#64748b">14nm 数字</text>
+    </g>
+    <!-- 2019 Tianjic -->
+    <g transform="translate(430,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#dc2626"/>
+      <line x1="0" y1="0" x2="0" y2="-50" stroke="#dc2626" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-40" y="-92" width="100" height="40" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+      <text x="10" y="-75" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">Tianjic</text>
+      <text x="10" y="-62" text-anchor="middle" font-size="9" fill="#dc2626">清华 2019</text>
+      <text x="10" y="-50" text-anchor="middle" font-size="9" fill="#dc2626">SNN/ANN 异构</text>
+      <text x="10" y="20" text-anchor="middle" font-size="9" fill="#64748b">Nature</text>
+      <text x="10" y="32" text-anchor="middle" font-size="9" fill="#64748b">封面</text>
+    </g>
+    <!-- 2021 Loihi 2 -->
+    <g transform="translate(520,0)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#475569"/>
+      <circle cx="0" cy="0" r="5" fill="#16a34a"/>
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#16a34a" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-30" y="50" width="90" height="34" rx="3" fill="#dcfce7" stroke="#16a34a"/>
+      <text x="15" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#16a34a">Loihi 2</text>
+      <text x="15" y="78" text-anchor="middle" font-size="9" fill="#16a34a">Intel 2021</text>
+      <text x="15" y="-12" text-anchor="middle" font-size="9" fill="#64748b">Intel 4nm</text>
+    </g>
+
+    <!-- Final endpoint marker -->
+    <circle cx="580" cy="0" r="6" fill="#9333ea"/>
+    <line x1="580" y1="0" x2="580" y2="-30" stroke="#9333ea"/>
+    <text x="580" y="-40" text-anchor="middle" font-size="10" font-weight="700" fill="#9333ea">NorthPole</text>
+    <text x="580" y="-28" text-anchor="middle" font-size="9" fill="#9333ea">IBM 2023</text>
+  </g>
+
+  <!-- bottom annotations -->
+  <g transform="translate(60,250)">
+    <rect x="0" y="0" width="190" height="14" fill="none"/>
+    <text x="6" y="10" font-size="9" font-weight="600" fill="#64748b">模拟电路时代</text>
+    <line x1="120" y1="7" x2="220" y2="7" stroke="#94a3b8" stroke-dasharray="2 2"/>
+
+    <rect x="220" y="0" width="200" height="14" fill="none"/>
+    <text x="226" y="10" font-size="9" font-weight="600" fill="#2563eb">数字 SNN 时代</text>
+    <line x1="340" y1="7" x2="450" y2="7" stroke="#94a3b8" stroke-dasharray="2 2"/>
+
+    <rect x="450" y="0" width="200" height="14" fill="none"/>
+    <text x="456" y="10" font-size="9" font-weight="600" fill="#9333ea">近内存 ANN 推理时代</text>
+  </g>
 
 </svg>

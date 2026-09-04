@@ -1,28 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720" height="180" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
-<style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
-</style>
-<rect width="720" height="180" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <style>text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }</style>
+  <rect width="720" height="380" fill="#fafbfc"/>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
   <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">内部 Arena 数据采集 → BT-MLE 拟合 → leaderboard 展示的端到端流水线</text>
-  <rect x="90" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="160.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">内部 Arena 数据采集</text>
-  <line x1="230" y1="82" x2="300" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="300" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="370.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">BT-MLE 拟合</text>
-  <line x1="440" y1="82" x2="510" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="510" y="56" width="140" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="580.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">leaderboard 展示的端到端</text>
+  <text x="360" y="58" text-anchor="middle" font-size="11" fill="#64748b">主动学习 + 冷启动 Elo + 累计切 BT-MLE</text>
 
+  <!-- 5 stage flow -->
+  <!-- Stage 1: User Pool -->
+  <g transform="translate(20,90)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+    <rect x="0" y="0" width="120" height="22" rx="8" fill="#0891b2"/>
+    <rect x="0" y="14" width="120" height="8" fill="#0891b2"/>
+    <text x="60" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="white">1. 用户池</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#1e293b">内部员工 / 标注</text>
+    <text x="60" y="55" text-anchor="middle" font-size="10" fill="#1e293b">vendor 用户</text>
+  </g>
+  <line x1="140" y1="120" x2="170" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="170,115 180,120 170,125" fill="#64748b"/>
+
+  <!-- Stage 2: Anonymous Pairing -->
+  <g transform="translate(180,90)">
+    <rect x="0" y="0" width="130" height="60" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="22" rx="8" fill="#9333ea"/>
+    <rect x="0" y="14" width="130" height="8" fill="#9333ea"/>
+    <text x="65" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="white">2. 匿名配对</text>
+    <text x="65" y="40" text-anchor="middle" font-size="10" fill="#1e293b">冷启动: Elo K=24</text>
+    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#1e293b">主动学习选近邻</text>
+  </g>
+  <line x1="310" y1="120" x2="340" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="340,115 350,120 340,125" fill="#64748b"/>
+
+  <!-- Stage 3: Voting -->
+  <g transform="translate(350,90)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="0" y="0" width="120" height="22" rx="8" fill="#2563eb"/>
+    <rect x="0" y="14" width="120" height="8" fill="#2563eb"/>
+    <text x="60" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="white">3. 投票</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#1e293b">A 胜 / B 胜 / 平</text>
+    <text x="60" y="55" text-anchor="middle" font-size="10" fill="#1e293b">+ 数据卫生</text>
+  </g>
+  <line x1="470" y1="120" x2="500" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="500,115 510,120 500,125" fill="#64748b"/>
+
+  <!-- Stage 4: BT-MLE -->
+  <g transform="translate(510,90)">
+    <rect x="0" y="0" width="130" height="60" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="22" rx="8" fill="#16a34a"/>
+    <rect x="0" y="14" width="130" height="8" fill="#16a34a"/>
+    <text x="65" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="white">4. BT-MLE</text>
+    <text x="65" y="40" text-anchor="middle" font-size="10" fill="#1e293b">σ(r_a − r_b)</text>
+    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#1e293b">bootstrap CI</text>
+  </g>
+  <line x1="640" y1="120" x2="670" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="670,115 680,120 670,125" fill="#64748b"/>
+
+  <text x="685" y="123" font-size="10" fill="#64748b">→</text>
+
+  <!-- Stage 5: Style control + Leaderboard (split) -->
+  <g transform="translate(180,200)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+    <text x="90" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">5a. Style Control 回归</text>
+    <text x="90" y="40" text-anchor="middle" font-size="10" fill="#1e293b">剥离长度 / markdown / bold</text>
+    <text x="90" y="55" text-anchor="middle" font-size="10" fill="#64748b">θ_a − θ_b + γ(ℓ_a−ℓ_b) + φ·z(prompt)</text>
+  </g>
+
+  <g transform="translate(380,200)">
+    <rect x="0" y="0" width="200" height="70" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">5b. Leaderboard 展示</text>
+    <text x="100" y="40" text-anchor="middle" font-size="10" fill="#1e293b">· model · arena_score · ci_95</text>
+    <text x="100" y="55" text-anchor="middle" font-size="10" fill="#1e293b">· win_rate · n_votes</text>
+  </g>
+
+  <!-- Bottom annotation row -->
+  <rect x="20" y="290" width="680" height="70" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="360" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">实战 pitfall (必须避免)</text>
+  <text x="40" y="328" font-size="10" fill="#dc2626">· 不做 Style Control 上榜 — "爱写长 + markdown"模型不当占优</text>
+  <text x="40" y="344" font-size="10" fill="#475569">· tie 占比 &gt; 40% 的 pair 需换 prompt · 排名的 CI 重叠应视为并列</text>
+  <text x="380" y="328" font-size="10" fill="#dc2626">· 内部员工投票必须完全匿名, 不能看到模型名</text>
+  <text x="380" y="344" font-size="10" fill="#475569">· 5 分钟内重复投同一 pairing 视为重复</text>
 </svg>

@@ -1,33 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">DPO 家族</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+<rect width="720" height="360" fill="#fafbfc"/>
+<rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
+<text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">DPO 家族: loss 形状与治病目标对比</text>
 
+<!-- axis -->
+<line x1="40" y1="290" x2="690" y2="290" stroke="#94a3b8" stroke-width="1"/>
+<text x="40" y="305" font-size="9" fill="#64748b">log π(y_w)/π_ref - log π(y_l)/π_ref  (隐式奖励差)</text>
+<text x="365" y="320" text-anchor="middle" font-size="9" fill="#64748b">Δr̂</text>
+
+<!-- DPO loss curve: -log σ -->
+<g transform="translate(40,60)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">DPO</text>
+  <line x1="0" y1="200" x2="600" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="0" y1="20" x2="0" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <path d="M 0 60 C 150 55, 250 120, 300 175 T 600 195" stroke="#2563eb" stroke-width="2" fill="none"/>
+  <text x="320" y="80" font-size="10" fill="#1e3a8a">−log σ(βΔr̂)</text>
+  <text x="320" y="170" font-size="9" fill="#64748b">梯度在 Δr̂ 大时消失</text>
+  <text x="320" y="185" font-size="9" fill="#dc2626">饱和 → 过拟合具体 y_l</text>
+</g>
+
+<!-- IPO: MSE on identity -->
+<g transform="translate(40,140)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#581c87">IPO</text>
+  <line x1="0" y1="200" x2="600" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="0" y1="20" x2="0" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <path d="M 0 195 Q 150 175, 280 110 Q 300 100, 320 100 L 600 100" stroke="#9333ea" stroke-width="2" fill="none"/>
+  <line x1="320" y1="20" x2="320" y2="200" stroke="#9333ea" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="280" y="100" font-size="9" fill="#581c87" text-anchor="end">目标 margin 1/(2β)</text>
+  <text x="280" y="135" font-size="9" fill="#64748b" text-anchor="end">(Δr̂ − 1/2β)²</text>
+  <text x="380" y="80" font-size="9" fill="#16a34a">达到 margin 即停</text>
+</g>
+
+<!-- KTO: asymmetric -->
+<g transform="translate(40,220)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#14532d">KTO</text>
+  <line x1="0" y1="200" x2="600" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="0" y1="20" x2="0" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="20" x2="280" y2="200" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="280" y="15" font-size="9" fill="#14532d" text-anchor="middle">z_ref</text>
+  <path d="M 0 195 Q 100 180, 200 150 T 280 100 Q 360 60, 500 35" stroke="#16a34a" stroke-width="2" fill="none"/>
+  <text x="80" y="80" font-size="9" fill="#14532d">损失权重 &gt; 收益权重</text>
+  <text x="80" y="94" font-size="9" fill="#475569">(前景理论不对称)</text>
+</g>
+
+<!-- SimPO: ref-free -->
+<g transform="translate(40,300)">
+  <text x="100" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2d12">SimPO</text>
+  <line x1="0" y1="200" x2="600" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="0" y1="20" x2="0" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="340" y1="20" x2="340" y2="200" stroke="#d97706" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="340" y="15" font-size="9" fill="#7c2d12" text-anchor="middle">γ</text>
+  <path d="M 0 195 Q 100 180, 220 140 Q 290 110, 340 100 L 600 100" stroke="#d97706" stroke-width="2" fill="none"/>
+  <text x="500" y="90" font-size="9" fill="#7c2d12">长度归一化 + 无 ref</text>
+</g>
 
 </svg>

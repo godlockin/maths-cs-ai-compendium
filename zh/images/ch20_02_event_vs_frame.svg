@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
+<rect width="700" height="320" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,9 +14,67 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
   <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">事件相机 vs 传统相机</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">静止场景下传统相机反复输出相同画面, 事件相机完全静默</text>
 
+  <!-- Scene illustration at top: a moving object on left half (still scene) -->
+  <g transform="translate(40,55)">
+    <text x="140" y="0" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">静止场景: 三块方块</text>
+    <rect x="0" y="20" width="280" height="120" fill="#1e293b"/>
+    <!-- 3 static objects -->
+    <rect x="20" y="60" width="40" height="40" fill="#94a3b8"/>
+    <rect x="120" y="60" width="40" height="40" fill="#94a3b8"/>
+    <rect x="220" y="60" width="40" height="40" fill="#94a3b8"/>
+  </g>
+
+  <!-- Bottom: two columns: traditional vs event -->
+  <g transform="translate(40,180)">
+    <!-- Traditional camera -->
+    <text x="155" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">传统相机 (帧)</text>
+    <rect x="0" y="12" width="310" height="40" fill="#fef9c3" stroke="#d97706"/>
+    <text x="155" y="30" text-anchor="middle" font-size="11" fill="#475569">每帧输出完整画面</text>
+    <text x="155" y="46" text-anchor="middle" font-size="10" fill="#64748b">30-120 fps × 全像素</text>
+    <!-- timeline of identical frames -->
+    <g transform="translate(0,64)">
+      <line x1="0" y1="20" x2="310" y2="20" stroke="#94a3b8"/>
+      <g>
+        <rect x="6" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="34" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="62" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="90" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="118" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="146" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="174" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="202" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="230" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="258" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+        <rect x="286" y="6" width="20" height="28" fill="#d97706" opacity="0.7"/>
+      </g>
+      <text x="155" y="50" text-anchor="middle" font-size="9" fill="#64748b">重复帧, 信息冗余, ≈ 95% 像素无变化</text>
+    </g>
+  </g>
+
+  <g transform="translate(370,180)">
+    <!-- Event camera -->
+    <text x="155" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">事件相机 (DVS)</text>
+    <rect x="0" y="12" width="310" height="40" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="155" y="30" text-anchor="middle" font-size="11" fill="#475569">仅输出亮度变化事件 (x,y,t,p)</text>
+    <text x="155" y="46" text-anchor="middle" font-size="10" fill="#64748b">p = +1 变亮 / -1 变暗</text>
+
+    <g transform="translate(0,64)">
+      <line x1="0" y1="20" x2="310" y2="20" stroke="#94a3b8"/>
+      <!-- silent timeline -->
+      <line x1="0" y1="14" x2="310" y2="14" stroke="#94a3b8" stroke-dasharray="3 3"/>
+      <text x="8" y="10" font-size="9" font-style="italic" fill="#64748b">静默</text>
+      <text x="302" y="10" font-size="9" font-style="italic" fill="#64748b" text-anchor="end">静默</text>
+      <text x="155" y="50" text-anchor="middle" font-size="9" fill="#16a34a">完全无输出 (节省带宽与功耗)</text>
+    </g>
+  </g>
+
+  <!-- comparison row -->
+  <g transform="translate(60,290)">
+    <rect x="0" y="-8" width="600" height="20" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="300" y="6" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">对比: 时间分辨率 1µs (DVS) vs 30ms (常规)  ·  动态范围 &gt;120dB vs 60dB  ·  功耗 &lt;10mW vs 1W</text>
+  </g>
 
 </svg>

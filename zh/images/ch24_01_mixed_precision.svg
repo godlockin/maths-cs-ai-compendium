@@ -1,22 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
 <style>
-  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
+  text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
-  <defs>
-    <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
-  </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Mixed Precision 训练数据流</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">FP32 master + FP16/BF16 计算 + Loss Scaling</text>
+<rect width="700" height="320" fill="#fafbfc"/>
+<defs>
+  <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
+  <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+  <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
+  <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
+  <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
+  <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
+  <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+</defs>
+<rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
+<text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">Mixed Precision 训练数据流: FP32 master + 低精度计算</text>
 
+<!-- FP32 master weights -->
+<g transform="translate(40,70)">
+  <rect x="0" y="0" width="160" height="48" rx="6" fill="#2563eb"/>
+  <text x="80" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="white">FP32 master</text>
+  <text x="80" y="38" text-anchor="middle" font-size="11" fill="#dbeafe">权重 / 优化器状态</text>
+</g>
 
+<!-- Down arrow cast -->
+<line x1="120" y1="120" x2="120" y2="150" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<text x="130" y="138" font-size="9" fill="#64748b">cast (w→fp16)</text>
+
+<!-- FP16/BF16 compute -->
+<g transform="translate(40,156)">
+  <rect x="0" y="0" width="160" height="48" rx="6" fill="#9333ea"/>
+  <text x="80" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="white">FP16 / BF16</text>
+  <text x="80" y="38" text-anchor="middle" font-size="11" fill="#e9d5ff">前向 / 反向 matmul</text>
+</g>
+
+<!-- forward arrow to loss -->
+<line x1="200" y1="180" x2="280" y2="180" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<text x="240" y="172" text-anchor="middle" font-size="9" fill="#64748b">loss</text>
+
+<!-- Loss Scaling block -->
+<g transform="translate(290,150)">
+  <rect x="0" y="0" width="120" height="60" rx="6" fill="#d97706"/>
+  <text x="60" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="white">Loss Scaling</text>
+  <text x="60" y="38" text-anchor="middle" font-size="10" fill="#fff7ed">L × scale (s)</text>
+  <text x="60" y="52" text-anchor="middle" font-size="10" fill="#fff7ed">避免 fp16 下溢</text>
+</g>
+
+<!-- backward arrow to grads -->
+<line x1="410" y1="180" x2="490" y2="180" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
+<text x="450" y="172" text-anchor="middle" font-size="9" fill="#64748b">g = ∂L'/∂w</text>
+
+<!-- FP16 grads -->
+<g transform="translate(500,156)">
+  <rect x="0" y="0" width="160" height="48" rx="6" fill="#dc2626"/>
+  <text x="80" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="white">FP16 grads</text>
+  <text x="80" y="38" text-anchor="middle" font-size="11" fill="#fecaca">已乘 scale s</text>
+</g>
+
+<!-- unscale & cast up arrow -->
+<path d="M 580 156 L 580 120 L 120 120" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#a-16a34a)"/>
+<text x="350" y="110" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="700">unscale (÷s) → cast 回 FP32 → 更新 master 权重</text>
+
+<!-- bottom: legend -->
+<g transform="translate(40,232)">
+  <text x="0" y="0" font-size="11" font-weight="700" fill="#1e293b">关键三件套:</text>
+  <circle cx="10" cy="20" r="5" fill="#2563eb"/>
+  <text x="22" y="24" font-size="11" fill="#334155">FP32 master 权重: 累加更新精度保留</text>
+  <circle cx="10" cy="40" r="5" fill="#9333ea"/>
+  <text x="22" y="44" font-size="11" fill="#334155">FP16/BF16 前向反向: matmul / conv 加速 ~2x</text>
+  <circle cx="10" cy="60" r="5" fill="#d97706"/>
+  <text x="22" y="64" font-size="11" fill="#334155">Loss scaling: 放大梯度, 防 fp16 小梯度归零</text>
+</g>
+<g transform="translate(360,232)">
+  <text x="0" y="0" font-size="11" font-weight="700" fill="#1e293b">PyTorch API:</text>
+  <rect x="0" y="14" width="300" height="76" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="12" y="34" font-size="10" font-family="monospace" fill="#0f172a">with autocast():</text>
+  <text x="12" y="50" font-size="10" font-family="monospace" fill="#0f172a">    loss = model(x).cross_entropy(y)</text>
+  <text x="12" y="66" font-size="10" font-family="monospace" fill="#0f172a">scaler.scale(loss).backward()</text>
+  <text x="12" y="82" font-size="10" font-family="monospace" fill="#0f172a">scaler.step(optim); scaler.update()</text>
+</g>
 </svg>

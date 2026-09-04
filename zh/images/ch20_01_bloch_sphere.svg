@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
+<rect width="720" height="360" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -13,10 +13,62 @@
     <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
+    <marker id="arrowR" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="arrowG" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">单 qubit 在 Bloch 球上的几何</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">单 qubit 在 Bloch 球上的几何</text>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">单 qubit 在 Bloch 球上的几何</text>
 
+  <!-- Sphere body -->
+  <g transform="translate(360,200)">
+    <circle cx="0" cy="0" r="120" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+    <ellipse cx="0" cy="0" rx="120" ry="38" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="38" ry="120" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="86" ry="86" fill="none" stroke="#94a3b8" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- Axes -->
+    <line x1="0" y1="-140" x2="0" y2="140" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+    <line x1="-140" y1="0" x2="140" y2="0" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+    <line x1="-99" y1="99" x2="99" y2="-99" stroke="#475569" stroke-width="1.2" marker-end="url(#a-64748b)"/>
+
+    <!-- State vector -->
+    <line x1="0" y1="0" x2="-62" y2="-94" stroke="#dc2626" stroke-width="2.4" marker-end="url(#arrowR)"/>
+    <!-- Polar angle theta arc -->
+    <path d="M 0,-90 A 90,90 0 0 1 56,-71" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+    <text x="42" y="-92" font-size="11" fill="#16a34a" font-weight="600">θ</text>
+    <!-- phi arc on equator -->
+    <path d="M 90,0 A 90,90 0 0 1 -32,82" fill="none" stroke="#d97706" stroke-width="1.4"/>
+    <text x="-58" y="22" font-size="11" fill="#d97706" font-weight="600">φ</text>
+
+    <!-- Projections -->
+    <line x1="-62" y1="-94" x2="0" y2="0" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>
+    <line x1="-62" y1="-94" x2="-62" y2="0" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>
+    <line x1="-62" y1="0" x2="0" y2="0" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>
+
+    <!-- Pole labels -->
+    <text x="0" y="-148" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">|0&#x27E2;</text>
+    <text x="0" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">|1&#x27E2;</text>
+    <!-- Equator labels -->
+    <text x="148" y="-2" font-size="11" fill="#64748b">x</text>
+    <text x="-2" y="148" font-size="11" fill="#64748b" transform="translate(-8 0)">y</text>
+    <!-- State label -->
+    <circle cx="-62" cy="-94" r="4" fill="#dc2626"/>
+    <text x="-110" y="-92" font-size="12" font-weight="700" fill="#dc2626">|ψ&#x27E2;</text>
+    <text x="-110" y="-78" font-size="10" fill="#64748b">x = r·sinθ·cosφ</text>
+    <text x="-110" y="-66" font-size="10" fill="#64748b">y = r·sinθ·sinφ</text>
+    <text x="-110" y="-54" font-size="10" fill="#64748b">z = r·cosθ</text>
+  </g>
+
+  <!-- Side captions -->
+  <text x="60" y="80" font-size="11" font-weight="600" fill="#475569">几何直觉</text>
+  <text x="60" y="100" font-size="10" fill="#64748b">• 北极 = |0&#x27E2;, 南极 = |1&#x27E2;</text>
+  <text x="60" y="116" font-size="10" fill="#64748b">• 赤道 = 等概率叠加 1/√2</text>
+  <text x="60" y="132" font-size="10" fill="#64748b">• 任意单 qubit 门 = 球面旋转</text>
+  <text x="60" y="148" font-size="10" fill="#64748b">• 整体相位不可观测</text>
+
+  <text x="660" y="80" text-anchor="end" font-size="11" font-weight="600" fill="#475569">参数化</text>
+  <text x="660" y="100" text-anchor="end" font-size="10" fill="#64748b">|ψ&#x27E2; = cos(θ/2)|0&#x27E2;</text>
+  <text x="660" y="116" text-anchor="end" font-size="10" fill="#64748b">     + e^(iφ)·sin(θ/2)|1&#x27E2;</text>
+  <text x="660" y="132" text-anchor="end" font-size="10" fill="#64748b">θ ∈ [0, π], φ ∈ [0, 2π)</text>
 
 </svg>

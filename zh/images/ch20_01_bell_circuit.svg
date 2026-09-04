@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="720" height="280" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="200" fill="#fafbfc"/>
+<rect width="720" height="280" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,9 +14,65 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">一个典型的 Bell 态制备电路</text>
-  <text x="350" y="80" text-anchor="middle" font-size="13" fill="#475569">一个典型的 Bell 态制备电路</text>
+  <rect x="0" y="0" width="720" height="36" fill="#2563eb"/>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">一个典型的 Bell 态制备电路</text>
 
+  <!-- Qubit wires -->
+  <line x1="80" y1="120" x2="640" y2="120" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80" y1="180" x2="640" y2="180" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Initial states -->
+  <text x="50" y="124" text-anchor="end" font-size="13" font-weight="700" fill="#475569">|0&#x27E2;</text>
+  <text x="50" y="184" text-anchor="end" font-size="13" font-weight="700" fill="#475569">|0&#x27E2;</text>
+
+  <!-- H gate -->
+  <rect x="140" y="98" width="60" height="44" rx="4" fill="#2563eb"/>
+  <text x="170" y="127" text-anchor="middle" font-size="16" font-weight="700" fill="white">H</text>
+
+  <!-- CNOT box (control=q0, target=q1) -->
+  <rect x="290" y="98" width="60" height="44" rx="4" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+  <line x1="320" y1="120" x2="320" y2="180" stroke="#dc2626" stroke-width="1.8"/>
+  <circle cx="320" cy="120" r="5" fill="white" stroke="#dc2626" stroke-width="2"/>
+  <line x1="305" y1="166" x2="335" y2="196" stroke="#dc2626" stroke-width="2"/>
+  <line x1="305" y1="196" x2="335" y2="166" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="320" cy="207" r="14" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <line x1="305" y1="207" x2="335" y2="207" stroke="#dc2626" stroke-width="2"/>
+  <line x1="320" y1="192" x2="320" y2="222" stroke="#dc2626" stroke-width="2"/>
+
+  <!-- Measurement -->
+  <rect x="430" y="98" width="50" height="44" rx="3" fill="#0891b2" fill-opacity="0.18" stroke="#0891b2"/>
+  <path d="M 440,135 A 18,18 0 0 1 472,135" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <line x1="455" y1="118" x2="455" y2="142" stroke="#0891b2" stroke-width="2" marker-end="url(#a-0891b2)"/>
+  <text x="455" y="172" text-anchor="middle" font-size="11" fill="#0891b2">M</text>
+
+  <rect x="430" y="158" width="50" height="44" rx="3" fill="#0891b2" fill-opacity="0.18" stroke="#0891b2"/>
+  <path d="M 440,195 A 18,18 0 0 1 472,195" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <line x1="455" y1="178" x2="455" y2="202" stroke="#0891b2" stroke-width="2" marker-end="url(#a-0891b2)"/>
+  <text x="455" y="232" text-anchor="middle" font-size="11" fill="#0891b2">M</text>
+
+  <!-- Outputs -->
+  <line x1="455" y1="142" x2="600" y2="142" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="455" y1="202" x2="600" y2="202" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="610" y="146" font-size="13" font-weight="700" fill="#16a34a">c₀</text>
+  <text x="610" y="206" font-size="13" font-weight="700" fill="#16a34a">c₁</text>
+
+  <!-- Qubit labels -->
+  <text x="90" y="106" font-size="10" fill="#64748b">q₀</text>
+  <text x="90" y="166" font-size="10" fill="#64748b">q₁</text>
+
+  <!-- Histogram of measurement outcomes -->
+  <g transform="translate(80, 250)">
+    <text x="0" y="-2" font-size="10" fill="#64748b">10000 次采样结果:</text>
+    <rect x="0" y="0" width="40" height="12" fill="#16a34a" fill-opacity="0.6"/>
+    <text x="44" y="11" font-size="10" fill="#475569">|00&#x27E2;  49.8%</text>
+    <rect x="170" y="0" width="40" height="12" fill="#16a34a" fill-opacity="0.6"/>
+    <text x="214" y="11" font-size="10" fill="#475569">|11&#x27E2;  50.2%</text>
+    <text x="320" y="11" font-size="10" fill="#dc2626">|01&#x27E2;|10&#x27E2; ≈ 0  ← 纠缠证据</text>
+  </g>
+
+  <!-- Bell state formula -->
+  <rect x="500" y="98" width="180" height="56" rx="4" fill="#fafbfc" stroke="#16a34a" stroke-width="1.2" opacity="0.95"/>
+  <text x="510" y="120" font-size="11" font-weight="600" fill="#475569">末态 = Bell 态</text>
+  <text x="510" y="142" font-size="12" font-weight="700" fill="#16a34a">|Φ⁺&#x27E2; = (|00&#x27E2; + |11&#x27E2;)/√2</text>
 
 </svg>

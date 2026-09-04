@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" width="720" height="150" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720" height="180" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="720" height="150" fill="#fafbfc"/>
+<rect width="720" height="180" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
-    <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
-    <marker id="a-16a34a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker>
-    <marker id="a-dc2626" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
-    <marker id="a-9333ea" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#9333ea"/></marker>
-    <marker id="a-d97706" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/></marker>
-    <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
-    <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
   <rect x="0" y="0" width="720" height="36" fill="#2563eb" rx="0"/>
-  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">8 步圆环图</text>
-  <rect x="25" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="80.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">数据</text>
-  <line x1="135" y1="82" x2="140" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="140" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="195.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">特征</text>
-  <line x1="250" y1="82" x2="255" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="255" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="310.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">模型</text>
-  <line x1="365" y1="82" x2="370" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="370" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="425.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">上线</text>
-  <line x1="480" y1="82" x2="485" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="485" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="540.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">监控</text>
-  <line x1="595" y1="82" x2="600" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#a-64748b)"/>
-  <rect x="600" y="56" width="110" height="52" rx="5" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="655.0" y="87.0" text-anchor="middle" font-size="12" font-weight="600" fill="#2563eb">反馈回数据</text>
+  <text x="360" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">8 步圆环图: 用户在中心, 8 步依次环绕 (闭环)</text>
 
+  <!-- User center -->
+  <circle cx="360" cy="105" r="28" fill="#2563eb"/>
+  <text x="360" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="white">用户</text>
+  <text x="360" y="115" text-anchor="middle" font-size="9" fill="#dbeafe">在中心</text>
+
+  <!-- 8 nodes around the ring -->
+  <!-- Center (360,105), radius 78, top=North 12 o'clock, step every 45deg clockwise -->
+  <!-- step 1: top (360, 27) -->
+  <circle cx="360" cy="27" r="22" fill="#f1f5f9" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="360" y="23" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">1 Clarify</text>
+  <text x="360" y="36" text-anchor="middle" font-size="9" fill="#475569">需求澄清</text>
+
+  <!-- step 2: top-right (415, 50) -->
+  <circle cx="415" cy="50" r="22" fill="#f1f5f9" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="415" y="46" text-anchor="middle" font-size="9" font-weight="700" fill="#16a34a">2 Metrics</text>
+  <text x="415" y="59" text-anchor="middle" font-size="9" fill="#475569">指标</text>
+
+  <!-- step 3: right (438, 105) -->
+  <circle cx="438" cy="105" r="22" fill="#f1f5f9" stroke="#0891b2" stroke-width="1.8"/>
+  <text x="438" y="101" text-anchor="middle" font-size="9" font-weight="700" fill="#0891b2">3 Data</text>
+  <text x="438" y="114" text-anchor="middle" font-size="9" fill="#475569">数据</text>
+
+  <!-- step 4: bottom-right (415, 160) -->
+  <circle cx="415" cy="160" r="22" fill="#f1f5f9" stroke="#d97706" stroke-width="1.8"/>
+  <text x="415" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#d97706">4 Features</text>
+  <text x="415" y="169" text-anchor="middle" font-size="9" fill="#475569">特征</text>
+
+  <!-- step 5: bottom (360, 183) -->
+  <circle cx="360" cy="183" r="22" fill="#f1f5f9" stroke="#9333ea" stroke-width="1.8"/>
+  <text x="360" y="179" text-anchor="middle" font-size="9" font-weight="700" fill="#9333ea">5 Model</text>
+  <text x="360" y="192" text-anchor="middle" font-size="9" fill="#475569">模型</text>
+
+  <!-- step 6: bottom-left (305, 160) -->
+  <circle cx="305" cy="160" r="22" fill="#f1f5f9" stroke="#db2777" stroke-width="1.8"/>
+  <text x="305" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#db2777">6 Training</text>
+  <text x="305" y="169" text-anchor="middle" font-size="9" fill="#475569">训练</text>
+
+  <!-- step 7: left (282, 105) -->
+  <circle cx="282" cy="105" r="22" fill="#f1f5f9" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="282" y="101" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">7 Deploy</text>
+  <text x="282" y="114" text-anchor="middle" font-size="9" fill="#475569">部署</text>
+
+  <!-- step 8: top-left (305, 50) -->
+  <circle cx="305" cy="50" r="22" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="305" y="46" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">8 Monitor</text>
+  <text x="305" y="59" text-anchor="middle" font-size="9" fill="#475569">监控</text>
+
+  <!-- Arrows around the ring (small indicators) -->
+  <text x="392" y="40" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="430" y="80" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="430" y="138" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="392" y="178" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="328" y="178" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="290" y="138" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="290" y="80" font-size="14" font-weight="700" fill="#64748b">→</text>
+  <text x="328" y="40" font-size="14" font-weight="700" fill="#64748b">→</text>
+
+  <!-- Caption -->
+  <text x="40" y="170" font-size="9" fill="#64748b">闭环: 监控→反馈→指标重设</text>
 </svg>

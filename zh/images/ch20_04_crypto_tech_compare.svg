@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="700" height="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif">
 <style>
   text { font-family: system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; }
 </style>
-<rect width="700" height="240" fill="#fafbfc"/>
+<rect width="700" height="360" fill="#fafbfc"/>
   <defs>
     <marker id="a-64748b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/></marker>
     <marker id="a-2563eb" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
@@ -14,20 +14,81 @@
     <marker id="a-0891b2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0891b2"/></marker>
     <marker id="a-db2777" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#db2777"/></marker>
   </defs>
-  <rect x="0" y="0" width="700" height="36" fill="#2563eb" rx="0"/>
-  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">主流区块链技术对比</text>
-  <text x="100" y="83" text-anchor="end" font-size="11" fill="#334155">概念A</text>
-  <rect x="110" y="65" width="245.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="365.0" y="83" font-size="10" fill="#64748b">70%</text>
-  <text x="100" y="111" text-anchor="end" font-size="11" fill="#334155">概念B</text>
-  <rect x="110" y="93" width="192.5" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="312.5" y="111" font-size="10" fill="#64748b">55%</text>
-  <text x="100" y="139" text-anchor="end" font-size="11" fill="#334155">概念C</text>
-  <rect x="110" y="121" width="140.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="260.0" y="139" font-size="10" fill="#64748b">40%</text>
-  <text x="100" y="167" text-anchor="end" font-size="11" fill="#334155">概念D</text>
-  <rect x="110" y="149" width="105.0" height="22" rx="3" fill="#2563eb" fill-opacity="0.7"/>
-  <text x="225.0" y="167" font-size="10" fill="#64748b">30%</text>
+  <rect x="0" y="0" width="700" height="36" fill="#2563eb"/>
+  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="white">主流区块链共识机制对比</text>
 
+  <!-- 4-quadrant comparison table -->
+  <g transform="translate(40,60)">
+    <!-- header -->
+    <rect x="0" y="0" width="620" height="32" fill="#1e293b"/>
+    <text x="80" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="white">共识</text>
+    <text x="200" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="white">代表项目</text>
+    <text x="320" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="white">吞吐量 / 出块</text>
+    <text x="460" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="white">能耗</text>
+    <text x="580" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="white">特点</text>
+
+    <!-- PoW row -->
+    <g transform="translate(0,32)">
+      <rect x="0" y="0" width="620" height="56" fill="#fef3c7"/>
+      <rect x="0" y="0" width="160" height="56" fill="url(#nothing)"/>
+      <rect x="0" y="0" width="160" height="56" fill="#fbbf24"/>
+      <text x="80" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="white">PoW</text>
+      <text x="200" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">比特币 · 狗狗币</text>
+      <text x="200" y="40" text-anchor="middle" font-size="10" fill="#64748b">(BCH, LTC)</text>
+      <text x="320" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">~7 TPS</text>
+      <text x="320" y="40" text-anchor="middle" font-size="10" fill="#64748b">~10 min 出块</text>
+      <text x="460" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">极高</text>
+      <text x="580" y="22" text-anchor="middle" font-size="10" fill="#475569">算力比拼,</text>
+      <text x="580" y="40" text-anchor="middle" font-size="10" fill="#475569">最公平</text>
+    </g>
+
+    <!-- PoS row -->
+    <g transform="translate(0,88)">
+      <rect x="0" y="0" width="160" height="56" fill="#16a34a"/>
+      <rect x="160" y="0" width="460" height="56" fill="#dcfce7"/>
+      <text x="80" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="white">PoS</text>
+      <text x="200" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Ethereum 2.0</text>
+      <text x="200" y="40" text-anchor="middle" font-size="10" fill="#64748b">Cardano · Polkadot</text>
+      <text x="320" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">~10³ TPS</text>
+      <text x="320" y="40" text-anchor="middle" font-size="10" fill="#64748b">~12 s 出块</text>
+      <text x="460" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">低</text>
+      <text x="580" y="22" text-anchor="middle" font-size="10" fill="#475569">押注 + 罚没,</text>
+      <text x="580" y="40" text-anchor="middle" font-size="10" fill="#475569">门槛低</text>
+    </g>
+
+    <!-- DPoS row -->
+    <g transform="translate(0,144)">
+      <rect x="0" y="0" width="160" height="56" fill="#2563eb"/>
+      <rect x="160" y="0" width="460" height="56" fill="#dbeafe"/>
+      <text x="80" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="white">DPoS</text>
+      <text x="200" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">EOS · BNB Chain</text>
+      <text x="200" y="40" text-anchor="middle" font-size="10" fill="#64748b">BitShares · Tron</text>
+      <text x="320" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">~10³-10⁴ TPS</text>
+      <text x="320" y="40" text-anchor="middle" font-size="10" fill="#64748b">~3 s 出块</text>
+      <text x="460" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">低</text>
+      <text x="580" y="22" text-anchor="middle" font-size="10" fill="#475569">投票选 21 节点,</text>
+      <text x="580" y="40" text-anchor="middle" font-size="10" fill="#475569">快但偏中心</text>
+    </g>
+
+    <!-- BFT row -->
+    <g transform="translate(0,200)">
+      <rect x="0" y="0" width="160" height="56" fill="#9333ea"/>
+      <rect x="160" y="0" width="460" height="56" fill="#f3e8ff"/>
+      <text x="80" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="white">BFT</text>
+      <text x="200" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Hyperledger · Libra</text>
+      <text x="200" y="40" text-anchor="middle" font-size="10" fill="#64748b">JPM Quorum</text>
+      <text x="320" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">10³+ TPS</text>
+      <text x="320" y="40" text-anchor="middle" font-size="10" fill="#64748b">秒级终结</text>
+      <text x="460" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">极低</text>
+      <text x="580" y="22" text-anchor="middle" font-size="10" fill="#475569">许可链, 投票,</text>
+      <text x="580" y="40" text-anchor="middle" font-size="10" fill="#475569">最终性确定</text>
+    </g>
+  </g>
+
+  <!-- bottom caption -->
+  <g transform="translate(60,335)">
+    <rect x="0" y="-7" width="580" height="20" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="290" y="7" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">从能耗 (PoW) → 效率 (BFT) 是 区块链 × AI 选型的主流迁移方向</text>
+  </g>
 
 </svg>
