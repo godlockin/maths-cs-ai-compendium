@@ -7,16 +7,35 @@ mcp/package-lock.json
 .cache/
 __pycache__/
 
-# 公众号 (WeChat) content — html renders & pipeline assets, not part of the textbook
+# 公众号 (WeChat) 运营层 — 独立目录, 不属于教科书内容
+wechat/
 zh/**/*.html
 zh/**/_html/
 zh/*.bak-*
-zh/教辅/公众号关键词回复/
-zh/教辅/公众号文章/
+zh/教辅/审核报告/
+
+# 项目本地 skills (公众号/管线操作知识, 单机资产)
+.claude/skills/zhbook-*/
+
+# 构建产物与依赖 (发布管线中间产物, 不属于书源)
 images/png/
-imgs/
+zh/images/diagrams/
+zh/images/formulas/
 node_modules/
 .playwright-mcp/
 .serena/
+
+# 公众号/构建管线脚本 — 仅本地维护 (书仓库只保留翻译 QA: verify*/translation_rules/audit_jiaofu)
+scripts/*.mjs
+scripts/*.sh
+scripts/templates/
+scripts/.chrome-profile/
+scripts/normalize_punctuation.py
+scripts/scan-mermaid.py
+scripts/convert-mindmaps.py
+
+# 凭证
 .baoyu-skills/
-zh/教辅/审核报告/
+scripts/.chrome-profile/
+toPdfViaTempFile56245-0.html
+package.json
