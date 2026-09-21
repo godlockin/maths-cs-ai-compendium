@@ -1,0 +1,70 @@
+name: release-pdf
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+# Avoid concurrent runs on the same tag (uploads overwrite assets).
+concurrency:
+  group: release-pdf-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python (for PDF stamping)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pypdf reportlab
+
+      - name: Set up Bun (renders the infographic PDF via Playwright)
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Playwright + Chromium
+        run: |
+          bun add playwright --no-save
+          bunx playwright install --with-deps chromium
+
+      - name: Render 信息图审校DRAFT.pdf (full re-render)
+        run: |
+          bash ~/.claude/exec-task.sh release-render \
+              "node .review-2026-09-20/render-jiaofu-pdf.v24-base64-final.mjs"
+
+      - name: Watermark all PDFs ("Steven Chen")
+        run: |
+          python3 scripts/stamp-watermark.py
+
+      - name: Stage PDF artefacts
+        run: |
+          mkdir -p release-artifacts
+          cp pdfs/EN-Maths-CS-AI-Compendium-watermarked.pdf   release-artifacts/
+          cp pdfs/ZH-教辅资料-watermarked.pdf                  release-artifacts/
+          cp pdfs/ZH-Maths-CS-AI-Compendium-watermarked.pdf   release-artifacts/
+          cp pdfs/信息图审校DRAFT-watermarked.pdf              release-artifacts/
+          ls -la release-artifacts/
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            release-artifacts/*.pdf

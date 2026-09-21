@@ -11,7 +11,7 @@ permissions:
 jobs:
   build-pdfs:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,6 +21,16 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Set up Bun (mermaid preprocessing)
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Playwright + Chromium
+        run: |
+          bun add playwright --no-save
+          bunx playwright install --with-deps chromium
+
       - name: Install pandoc + weasyprint + fonts
         run: |
           sudo apt-get update -qq
@@ -28,12 +38,34 @@ jobs:
           pip install weasyprint
           sudo apt-get install -y -qq fonts-noto-cjk
 
+      - name: Preprocess mermaid blocks (render to PNG, rewrite md in place)
+        run: |
+          set -e
+          # All md files that may contain ```mermaid blocks. Rendered PNGs are
+          # cached under zh/images/diagrams (committed) so only changed/new
+          # blocks cost time.
+          mapfile -t MD_FILES < <(find . -path ./node_modules -prune -o -name '*.md' -print \
+            | grep -v -E '^\./(node_modules|\.git)/' || true)
+          echo "Scanning ${#MD_FILES[@]} md files for mermaid blocks..."
+          COUNT=0
+          for f in "${MD_FILES[@]}"; do
+            if grep -q '```mermaid' "$f"; then
+              echo "  preprocess: $f"
+              node ci/preprocess-mermaid.mjs "$f" --cache-dir=zh/images/diagrams --write
+              COUNT=$((COUNT+1))
+            fi
+          done
+          echo "Mermaid preprocessed in $COUNT files"
+
       - name: Generate CSS for PDF styling
         run: |
           # Download MathML CSS for proper math rendering in weasyprint
           curl -sL https://fred-wang.github.io/mathml.css/mathml.css -o /tmp/mathml.css || true
           cat > /tmp/pdf-style.css << 'CSSEOF'
+          /* Named landscape page for wide tables (see ci/wide-tables.lua).
+             WeasyPrint honors CSS named pages + the `page` property. */
           @page { size: A4; margin: 2cm 2.2cm; }
+          @page wide { size: A4 landscape; margin: 1.4cm 1.6cm; }
           body {
             font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', 'DejaVu Serif', serif;
             font-size: 11pt; line-height: 1.7; color: #1f2937;
@@ -45,7 +77,11 @@ jobs:
           pre { background: #f3f4f6; padding: 0.8em; border-radius: 4px; overflow-x: auto; }
           blockquote { border-left: 3px solid #d1d5db; padding-left: 1em; color: #6b7280; margin-left: 0; }
           table { border-collapse: collapse; width: 100%; margin: 1em 0; }
-          th, td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; text-align: left; }
+          /* Wide table → landscape named page. Don't force width:100% there,
+             and keep the table compact enough to fit one landscape page. */
+          table.wide { page: wide; width: auto; max-width: 100%; font-size: 8.5pt; }
+          table.wide img { max-height: 14em; width: auto; }
+          th, td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; text-align: left; vertical-align: top; }
           th { background: #f9fafb; font-weight: 600; }
           img { max-width: 100%; height: auto; }
           CSSEOF
@@ -137,6 +173,7 @@ jobs:
           xargs -a /tmp/en-files.txt -d '\n' pandoc -f markdown+smart \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=ci/wide-tables.lua \
             --lua-filter=/tmp/fix-paths.lua \
             --mathml \
             --metadata title="Mathematics, Computer Science & AI Compendium" \
@@ -152,6 +189,7 @@ jobs:
           xargs -a /tmp/zh-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=ci/wide-tables.lua \
             --lua-filter=/tmp/fix-paths.lua \
             --mathml \
             --metadata title="数学、计算机与 AI 综合手册 (中文版)" \
@@ -167,6 +205,7 @@ jobs:
           xargs -a /tmp/zh-jiaofu-files.txt -d '\n' pandoc -f markdown+smart-yaml_metadata_block \
             --pdf-engine=weasyprint \
             --css /tmp/pdf-style.css \
+            --lua-filter=ci/wide-tables.lua \
             --lua-filter=/tmp/fix-paths.lua \
             --mathml \
             --metadata title="数学、计算机与 AI 综合手册 — 教辅资料 (中文版)" \
