@@ -58,9 +58,14 @@ def stamp(src, dst):
         wm_path = wmf.name
     try:
         build_watermark(w, h, wm_path)
-        # qpdf --underlay draws `wm_path` under every page of `src` → `dst`.
+        # qpdf --underlay maps 1 overlay page → 1 input page by default,
+        # which would only stamp the first page of a long book. Use
+        # `--from=1 --to=1-z --repeat=1` to re-apply the single watermark
+        # page to every input page (1-z = every page).
         subprocess.run(
-            ['qpdf', '--underlay', wm_path, '--', src, dst],
+            ['qpdf', '--underlay', wm_path,
+             '--from=1', '--to=1-z', '--repeat=1',
+             '--', src, dst],
             check=True, capture_output=True,
         )
     finally:
