@@ -23,18 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - name: Resolve branch (dispatch input or triggering branch)
-        id: branch
-        run: |
-          BRANCH="${{ github.event.inputs.branch }}"
-          if [ -z "$BRANCH" ]; then BRANCH="${GITHUB_REF#refs/heads/}"; fi
-          echo "name=$BRANCH" >> "$GITHUB_OUTPUT"
-          echo "Building branch: $BRANCH"
+      # workflow_dispatch has no inputs: the user picks the branch from the
+      # "Use workflow from" dropdown on the Actions UI when triggering manually.
+      # No arbitrary branch input — avoids command injection from attacker-controlled
+      # values and avoids ci-cd trust (running untrusted code from a PR branch).
 
-      - name: Checkout branch
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          ref: ${{ steps.branch.outputs.name }}
           fetch-depth: 0
 
       - name: Set up Bun
@@ -68,14 +63,7 @@ jobs:
             --out="pdfs/ZH-教辅资料.pdf"
 
       - name: Commit rendered PDFs
-        run: |
-          ls -lh pdfs/
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add pdfs/
-          if git diff --cached --quiet; then
-            echo "No PDF changes"
-          else
-            git commit -m "build: render PDFs via Playwright (mermaid + landscape wide tables)"
-            git push origin "HEAD:${{ steps.branch.outputs.name }}"
-          fi
+        # PDFs are not committed (they're in .gitignore and would exceed
+        # GitHub's 100MB file limit anyway). The Release step below makes them
+        # available as release assets instead.
+        run: echo "PDFs hosted via GitHub Release assets; skipping repo commit."
