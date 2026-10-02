@@ -1,0 +1,118 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <style>
+    .root { fill: #1976d2; font-size: 28px; font-weight: bold; }
+    .node { fill: #ffffff; stroke: #1976d2; stroke-width: 2; rx: 10; }
+    .leaf { fill: #f0f7ff; stroke: #718096; stroke-width: 1.5; rx: 6; }
+    .title { font-size: 20px; font-weight: bold; fill: #1a202c; }
+    .item  { font-size: 15px; fill: #2d3748; }
+    .line  { stroke: #a0aec0; stroke-width: 1.5; fill: none; }
+    .badge { font-size: 13px; font-weight: bold; }
+  </style>
+
+  <text x="500" y="36" text-anchor="middle" class="root">Ch05 概率论 · 知识图谱 1/3</text>
+  <text x="500" y="60" text-anchor="middle" font-size="14" fill="#718096">计数三件套 + 概率公理 + 条件概率 + 独立性</text>
+
+  <!-- Root -->
+  <rect x="420" y="90" width="160" height="50" class="node"/>
+  <text x="500" y="122" text-anchor="middle" class="title">概率论基础</text>
+
+  <!-- 4 branches -->
+  <path class="line" d="M 460 140 Q 150 180 130 230"/>
+  <path class="line" d="M 480 140 Q 370 180 370 230"/>
+  <path class="line" d="M 520 140 Q 630 180 630 230"/>
+  <path class="line" d="M 540 140 Q 870 180 870 230"/>
+
+  <!-- Branch headers -->
+  <rect x="50" y="230" width="160" height="40" class="node"/>
+  <text x="130" y="256" text-anchor="middle" class="title">计数三件套</text>
+
+  <rect x="290" y="230" width="160" height="40" class="node"/>
+  <text x="370" y="256" text-anchor="middle" class="title">概率公理</text>
+
+  <rect x="550" y="230" width="160" height="40" class="node"/>
+  <text x="630" y="256" text-anchor="middle" class="title">条件概率</text>
+
+  <rect x="790" y="230" width="160" height="40" class="node"/>
+  <text x="870" y="256" text-anchor="middle" class="title">独立性</text>
+
+  <!-- Leaves: 计数 -->
+  <g>
+    <rect x="40" y="290" width="180" height="120" class="leaf"/>
+    <text x="50" y="312" class="item">🟢 加法 (互斥)</text>
+    <text x="50" y="335" class="item">  |A∪B| = |A|+|B|</text>
+    <text x="50" y="360" class="item">🟢 乘法 (独立)</text>
+    <text x="50" y="383" class="item">  总结果 = m × n</text>
+    <text x="50" y="405" class="item">🔴 容斥</text>
+  </g>
+  <g>
+    <rect x="40" y="425" width="180" height="120" class="leaf"/>
+    <text x="50" y="448" class="item">🟢 排列 P(n,r)</text>
+    <text x="50" y="471" class="item">  = n!/(n−r)!</text>
+    <text x="50" y="494" class="item">🟢 组合 C(n,r)</text>
+    <text x="50" y="517" class="item">  = n!/(r!(n−r)!)</text>
+    <text x="50" y="540" class="item">⭐ 隔板法 (重复)</text>
+  </g>
+
+  <!-- Leaves: 公理 -->
+  <g>
+    <rect x="280" y="290" width="180" height="120" class="leaf"/>
+    <text x="290" y="312" class="item">🟢 K1 非负</text>
+    <text x="290" y="335" class="item">  P(A) ≥ 0</text>
+    <text x="290" y="360" class="item">🟢 K2 归一</text>
+    <text x="290" y="383" class="item">  P(Ω) = 1</text>
+    <text x="290" y="405" class="item">🔴 K3 互斥可加</text>
+  </g>
+  <g>
+    <rect x="280" y="425" width="180" height="120" class="leaf"/>
+    <text x="290" y="448" class="item">🟢 样本空间 S</text>
+    <text x="290" y="471" class="item">🟢 事件 A ⊆ S</text>
+    <text x="290" y="494" class="item">🟡 补集 A'</text>
+    <text x="290" y="517" class="item">  S 中不在 A 部分</text>
+    <text x="290" y="540" class="item">⭐ 频率 vs Bayes 解释</text>
+  </g>
+
+  <!-- Leaves: 条件概率 -->
+  <g>
+    <rect x="540" y="290" width="180" height="120" class="leaf"/>
+    <text x="550" y="312" class="item">🔴 定义</text>
+    <text x="550" y="335" class="item">  P(A|B)</text>
+    <text x="550" y="358" class="item">  = P(A∩B)/P(B)</text>
+    <text x="550" y="383" class="item">🟡 联合 P(A∩B)</text>
+    <text x="550" y="405" class="item">🟡 边缘 P(A)</text>
+  </g>
+  <g>
+    <rect x="540" y="425" width="180" height="120" class="leaf"/>
+    <text x="550" y="448" class="item">🔴 Bayes 公式</text>
+    <text x="550" y="471" class="item">🟢 P(A|B) 反向</text>
+    <text x="550" y="494" class="item">🟡 似然 P(B|A)</text>
+    <text x="550" y="517" class="item">🟡 证据 P(B)</text>
+    <text x="550" y="540" class="item">⭐ 朴素 Bayes</text>
+  </g>
+
+  <!-- Leaves: 独立性 -->
+  <g>
+    <rect x="780" y="290" width="180" height="120" class="leaf"/>
+    <text x="790" y="312" class="item">🔴 独立</text>
+    <text x="790" y="335" class="item">  P(A∩B)</text>
+    <text x="790" y="358" class="item">  = P(A)P(B)</text>
+    <text x="790" y="383" class="item">🔴 互斥</text>
+    <text x="790" y="405" class="item">  P(A∩B) = 0</text>
+  </g>
+  <g>
+    <rect x="780" y="425" width="180" height="120" class="leaf"/>
+    <text x="790" y="448" class="item">🟡 互斥且独立</text>
+    <text x="790" y="471" class="item">  仅当 P(A)=0 或</text>
+    <text x="790" y="494" class="item">  P(B)=0 时成立</text>
+    <text x="790" y="517" class="item">🟢 频率派 / Bayes</text>
+    <text x="790" y="540" class="item">  共用同一套数学</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(50, 600)">
+    <text class="badge" fill="#38a169" x="0">🟢 入门</text>
+    <text class="badge" fill="#d69e2e" x="80">🟡 进阶</text>
+    <text class="badge" fill="#e53e3e" x="160">🔴 高阶</text>
+    <text class="badge" fill="#718096" x="240">⭐ 拓展</text>
+    <text x="500" class="item" font-size="14" fill="#718096">Ch05 · 1/3 · 概率基础 → 分布与推断 (2/3) → 信息论 (3/3)</text>
+  </g>
+</svg>

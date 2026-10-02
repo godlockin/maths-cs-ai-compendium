@@ -1,0 +1,122 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <style>
+    .root { fill: #1976d2; font-size: 28px; font-weight: bold; }
+    .node { fill: #ffffff; stroke: #1976d2; stroke-width: 2; rx: 10; }
+    .leaf { fill: #f0f7ff; stroke: #718096; stroke-width: 1.5; rx: 6; }
+    .title { font-size: 19px; font-weight: bold; fill: #1a202c; }
+    .item  { font-size: 14px; fill: #2d3748; }
+    .line  { stroke: #a0aec0; stroke-width: 1.5; fill: none; }
+    .badge { font-size: 13px; font-weight: bold; }
+  </style>
+
+  <text x="500" y="36" text-anchor="middle" class="root">Ch05 概率论 · 知识图谱 3/3</text>
+  <text x="500" y="60" text-anchor="middle" font-size="14" fill="#718096">KL 散度 + 熵 + 互信息 + 贝叶斯更新</text>
+
+  <rect x="420" y="85" width="160" height="50" class="node"/>
+  <text x="500" y="117" text-anchor="middle" class="title">信息论与更新</text>
+
+  <path class="line" d="M 460 135 Q 150 175 130 225"/>
+  <path class="line" d="M 480 135 Q 370 175 370 225"/>
+  <path class="line" d="M 520 135 Q 630 175 630 225"/>
+  <path class="line" d="M 540 135 Q 870 175 870 225"/>
+
+  <rect x="50" y="225" width="160" height="40" class="node"/>
+  <text x="130" y="251" text-anchor="middle" class="title">熵 / 自信息</text>
+
+  <rect x="290" y="225" width="160" height="40" class="node"/>
+  <text x="370" y="251" text-anchor="middle" class="title">KL 散度</text>
+
+  <rect x="550" y="225" width="160" height="40" class="node"/>
+  <text x="630" y="251" text-anchor="middle" class="title">互信息</text>
+
+  <rect x="790" y="225" width="160" height="40" class="node"/>
+  <text x="870" y="251" text-anchor="middle" class="title">贝叶斯更新</text>
+
+  <!-- 熵 -->
+  <g>
+    <rect x="40" y="285" width="180" height="160" class="leaf"/>
+    <text x="50" y="308" class="item">🟢 自信息</text>
+    <text x="62" y="328" class="item">  I(x) = −log₂ p(x)</text>
+    <text x="50" y="352" class="item">🟢 熵</text>
+    <text x="62" y="372" class="item">  H = E[I(X)]</text>
+    <text x="62" y="392" class="item">  = −Σp log₂p</text>
+    <text x="50" y="416" class="item">🟡 比特 (log₂)</text>
+    <text x="50" y="438" class="item">🟡 联合熵 H(X,Y)</text>
+  </g>
+  <g>
+    <rect x="40" y="460" width="180" height="120" class="leaf"/>
+    <text x="50" y="483" class="item">🟡 条件熵</text>
+    <text x="62" y="503" class="item">  H(Y|X)</text>
+    <text x="62" y="523" class="item">  = Σp(x) H(Y|X=x)</text>
+    <text x="50" y="546" class="item">🔴 微分熵</text>
+    <text x="62" y="566" class="item">  高斯: ½log(2πeσ²)</text>
+  </g>
+
+  <!-- KL -->
+  <g>
+    <rect x="280" y="285" width="180" height="160" class="leaf"/>
+    <text x="290" y="308" class="item">🔴 定义</text>
+    <text x="302" y="328" class="item">  Σp log₂(p/q)</text>
+    <text x="290" y="352" class="item">🔴 非负</text>
+    <text x="302" y="372" class="item">  D ≥ 0</text>
+    <text x="290" y="396" class="item">🔴 非对称</text>
+    <text x="302" y="416" class="item">  D(p‖q) ≠ D(q‖p)</text>
+    <text x="290" y="438" class="item">🟡 交叉熵 H(p,q)</text>
+  </g>
+  <g>
+    <rect x="280" y="460" width="180" height="120" class="leaf"/>
+    <text x="290" y="483" class="item">🟡 moment-match</text>
+    <text x="302" y="503" class="item">  min D(p‖q)</text>
+    <text x="290" y="526" class="item">🟡 mode-seek</text>
+    <text x="302" y="546" class="item">  min D(q‖p) — VI</text>
+    <text x="290" y="568" class="item">⭐ Jeffreys 散度</text>
+  </g>
+
+  <!-- MI -->
+  <g>
+    <rect x="540" y="285" width="180" height="160" class="leaf"/>
+    <text x="550" y="308" class="item">🔴 定义</text>
+    <text x="562" y="328" class="item">  I(X;Y)</text>
+    <text x="562" y="348" class="item">  = H(X)+H(Y)−H(X,Y)</text>
+    <text x="550" y="372" class="item">🔴 等价 KL</text>
+    <text x="562" y="392" class="item">  D(p(x,y)‖p(x)p(y))</text>
+    <text x="550" y="416" class="item">🟡 独立 ⇔ I = 0</text>
+    <text x="550" y="438" class="item">🟡 条件互信息</text>
+  </g>
+  <g>
+    <rect x="540" y="460" width="180" height="120" class="leaf"/>
+    <text x="550" y="483" class="item">🟡 对比学习</text>
+    <text x="562" y="503" class="item">  InfoNCE 下界</text>
+    <text x="550" y="526" class="item">⭐ 数据处理不等式</text>
+    <text x="562" y="546" class="item">  Markov 链不减</text>
+    <text x="550" y="568" class="item">⭐ 信道容量</text>
+  </g>
+
+  <!-- Bayes update -->
+  <g>
+    <rect x="780" y="285" width="180" height="160" class="leaf"/>
+    <text x="790" y="308" class="item">🔴 先验 P(θ)</text>
+    <text x="790" y="332" class="item">🔴 似然 P(D|θ)</text>
+    <text x="790" y="356" class="item">🔴 证据 P(D)</text>
+    <text x="790" y="380" class="item">🔴 后验</text>
+    <text x="802" y="400" class="item">  P(θ|D) ∝ lik × prior</text>
+    <text x="790" y="424" class="item">🟡 共轭更新</text>
+    <text x="802" y="442" class="item">  Beta→Beta</text>
+  </g>
+  <g>
+    <rect x="780" y="460" width="180" height="120" class="leaf"/>
+    <text x="790" y="483" class="item">🟡 信息投影</text>
+    <text x="802" y="503" class="item">  最小 KL 构造</text>
+    <text x="790" y="526" class="item">⭐ 后验采样</text>
+    <text x="802" y="546" class="item">  MCMC / HMC</text>
+    <text x="790" y="568" class="item">⭐ 序列模型 EM</text>
+  </g>
+
+  <g transform="translate(50, 610)">
+    <text class="badge" fill="#38a169" x="0">🟢 入门</text>
+    <text class="badge" fill="#d69e2e" x="80">🟡 进阶</text>
+    <text class="badge" fill="#e53e3e" x="160">🔴 高阶</text>
+    <text class="badge" fill="#718096" x="240">⭐ 拓展</text>
+    <text x="480" class="item" font-size="14" fill="#718096">Ch05 · 3/3 · 概率基础 (1/3) → 分布 (2/3) → 信息论与更新</text>
+  </g>
+</svg>

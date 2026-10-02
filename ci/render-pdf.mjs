@@ -516,7 +516,7 @@ th { background: #0F4C81; color: #fff; }
 
     const mermaidMap = new Map();
     for (const block of mermaid) {
-      const h = hashCode(block.code);
+      const h = hashCode(block.code.replace(/\n+$/, ''));
       const pngPath = join(DIAGRAM_DIR, `mermaid-${h}.png`);
       let aspect = 1;
       if (!existsSync(pngPath)) {
@@ -534,7 +534,7 @@ th { background: #0F4C81; color: #fff; }
 
     const formulaMap = new Map();
     for (const block of [...display, ...inline]) {
-      const h = hashCode(block.code);
+      const h = hashCode(block.code.replace(/\n+$/, ''));
       const pngPath = join(FORMULA_DIR, `formula-${h}.png`);
       const isMatrix = /\\begin\{(array|matrix|pmatrix|bmatrix|smallmatrix|align|aligned|cases)\}/.test(block.code)
         || /\\cr\b/.test(block.code);
@@ -589,6 +589,10 @@ th { background: #0F4C81; color: #fff; }
     const htmlPath = join(OUT_DIR, `_tmp_${stamp}.html`);
     const pdfPath = join(OUT_DIR, `_tmp_${stamp}.pdf`);
     writeFileSync(htmlPath, fullHtml);
+    // DEBUG_KEEP_HTML=true to preserve _tmp_*.html files
+    if (process.env.DEBUG_KEEP_HTML !== 'true') {
+      // cleanup is handled after merge in main()
+    }
 
     await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(400);
@@ -619,9 +623,11 @@ th { background: #0F4C81; color: #fff; }
   for (const p of [join(OUT_DIR, '_cover.html'), join(OUT_DIR, '_cover.pdf')]) {
     try { unlinkSync(p); } catch {}
   }
-  for (const f of readdirSync(OUT_DIR)) {
-    if (f.startsWith('_tmp_') && f.endsWith('.html')) {
-      try { unlinkSync(join(OUT_DIR, f)); } catch {}
+  if (process.env.DEBUG_KEEP_HTML !== 'true') {
+    for (const f of readdirSync(OUT_DIR)) {
+      if (f.startsWith('_tmp_') && f.endsWith('.html')) {
+        try { unlinkSync(join(OUT_DIR, f)); } catch {}
+      }
     }
   }
 }

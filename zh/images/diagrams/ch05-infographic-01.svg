@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <style>
+    .root { fill: #1976d2; font-size: 26px; font-weight: bold; }
+    .box  { fill: #ffffff; stroke: #1976d2; stroke-width: 2; rx: 8; }
+    .alt  { fill: #fff5f5; stroke: #e53e3e; stroke-width: 2; rx: 8; }
+    .b1   { fill: #f0fff4; stroke: #38a169; stroke-width: 2; rx: 8; }
+    .txt  { font-size: 15px; font-weight: bold; fill: #1a202c; }
+    .sub  { font-size: 12px; fill: #4a5568; }
+    .arrow { stroke: #4a5568; stroke-width: 2; fill: none; marker-end: url(#ah); }
+    .altline { stroke: #e53e3e; stroke-width: 1.8; stroke-dasharray: 6 4; fill: none; marker-end: url(#ahr); }
+    .grnline { stroke: #38a169; stroke-width: 1.8; stroke-dasharray: 6 4; fill: none; marker-end: url(#ahg); }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4a5568"/>
+    </marker>
+    <marker id="ahr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e53e3e"/>
+    </marker>
+    <marker id="ahg" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#38a169"/>
+    </marker>
+  </defs>
+
+  <text x="500" y="34" text-anchor="middle" class="root">Ch05 概率论 · 概念关系图</text>
+  <text x="500" y="58" text-anchor="middle" font-size="13" fill="#718096">主线: 计数 → 公理 → Bayes → 分布 → 估计 → 信息论;两学派双线汇聚</text>
+
+  <!-- Main horizontal chain -->
+  <g>
+    <rect x="30"  y="110" width="130" height="60" class="box"/>
+    <text x="95"  y="136" text-anchor="middle" class="txt">计数</text>
+    <text x="95"  y="156" text-anchor="middle" class="sub">加/乘/容斥</text>
+
+    <rect x="210" y="110" width="130" height="60" class="box"/>
+    <text x="275" y="136" text-anchor="middle" class="txt">概率公理</text>
+    <text x="275" y="156" text-anchor="middle" class="sub">K1 K2 K3</text>
+
+    <rect x="390" y="110" width="130" height="60" class="box"/>
+    <text x="455" y="136" text-anchor="middle" class="txt">条件 / Bayes</text>
+    <text x="455" y="156" text-anchor="middle" class="sub">独立 / 互斥</text>
+
+    <rect x="570" y="110" width="130" height="60" class="box"/>
+    <text x="635" y="136" text-anchor="middle" class="txt">常见分布</text>
+    <text x="635" y="156" text-anchor="middle" class="sub">离散 / 连续</text>
+
+    <rect x="750" y="110" width="130" height="60" class="box"/>
+    <text x="815" y="136" text-anchor="middle" class="txt">MLE / MAP</text>
+    <text x="815" y="156" text-anchor="middle" class="sub">参数估计</text>
+  </g>
+  <path class="arrow" d="M 160 140 L 210 140"/>
+  <path class="arrow" d="M 340 140 L 390 140"/>
+  <path class="arrow" d="M 520 140 L 570 140"/>
+  <path class="arrow" d="M 700 140 L 750 140"/>
+
+  <!-- Information theory continuation -->
+  <rect x="750" y="250" width="130" height="60" class="box"/>
+  <text x="815" y="276" text-anchor="middle" class="txt">信息论</text>
+  <text x="815" y="296" text-anchor="middle" class="sub">熵 / KL / MI</text>
+  <path class="arrow" d="M 815 170 L 815 250"/>
+
+  <!-- Sampling branch (down from distributions) -->
+  <rect x="570" y="250" width="130" height="60" class="box"/>
+  <text x="635" y="276" text-anchor="middle" class="txt">抽样分布</text>
+  <text x="635" y="296" text-anchor="middle" class="sub">CLT / SE</text>
+  <path class="arrow" d="M 635 170 L 635 250"/>
+
+  <!-- Two schools converging -->
+  <rect x="300" y="380" width="170" height="70" class="b1"/>
+  <text x="385" y="408" text-anchor="middle" class="txt">频率学派</text>
+  <text x="385" y="430" text-anchor="middle" class="sub">长期频率 · MLE · 区间</text>
+
+  <rect x="530" y="380" width="170" height="70" class="alt"/>
+  <text x="615" y="408" text-anchor="middle" class="txt">贝叶斯学派</text>
+  <text x="615" y="430" text-anchor="middle" class="sub">信念强度 · 后验 · MAP</text>
+
+  <text x="500" y="500" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a202c">⇣ 双线汇聚 ⇣</text>
+
+  <rect x="350" y="520" width="300" height="60" rx="10" fill="#ebf8ff" stroke="#1976d2" stroke-width="2.5"/>
+  <text x="500" y="548" text-anchor="middle" class="txt">同一套概率数学</text>
+  <text x="500" y="568" text-anchor="middle" class="sub">区间估计 · 后验推断 · 预测</text>
+
+  <path class="grnline" d="M 385 450 Q 430 490 450 520"/>
+  <path class="altline" d="M 615 450 Q 570 490 550 520"/>
+
+  <!-- Side note -->
+  <text x="90" y="300" font-size="12" fill="#718096">ML 联系:</text>
+  <text x="90" y="322" font-size="12" fill="#718096">SGD 方差 / 朴素 Bayes /</text>
+  <text x="90" y="342" font-size="12" fill="#718096">VAE KL / InfoNCE</text>
+</svg>
