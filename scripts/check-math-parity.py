@@ -26,3 +26,4 @@ for i, line in enumerate(open(path, encoding="utf-8"), 1):
         if bad <= 5:
             print(i, line[:90].rstrip())
 print("odd-dollar lines:", bad)
+sys.exit(1 if bad else 0)
