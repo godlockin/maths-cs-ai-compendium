@@ -19,6 +19,8 @@ PROCESS_LANG = re.compile(
     r'原增补|尚待核实|未直接核到|采信前|查无此模型|不确\)|已删。|核过但未写入'
 )
 MARKER_RE = re.compile(r'<!--\s*FIX|%%\s*FIX|__SENTINEL__|\{\{|TODO:?\s*发布前')
+# 价格假公式: "$10/$50" 这类裸美元价格能通过奇偶门禁但会配对成垃圾公式 (Ch07 §05 事故)
+PRICE_RE = re.compile(r'(?<![\\\w])\$\d[\d.,]*/\s*[\d$]')
 # 测试卷: 题型行 "选择题 10 题（30 分）" 与节标题 "一、选择题（10 × 3 = 30 分）"
 SCORE_ITEM = re.compile(r'([一二三四五六]、[^（(]*?)（?\(?(\d+)\s*[×x]\s*(\d+)\s*=\s*(\d+)\s*分')
 SCORE_HEADER = re.compile(r'(\S+?)\s*(\d+)\s*题[（(]\s*(\d+)\s*分[）)]')
@@ -34,6 +36,8 @@ def check_file(path: str) -> list[str]:
             problems.append(f'{path}:{i} 编辑过程语泄漏: {line.strip()[:80]}')
         if MARKER_RE.search(line):
             problems.append(f'{path}:{i} 内部标记残留: {line.strip()[:80]}')
+        if PRICE_RE.search(line):
+            problems.append(f'{path}:{i} 裸美元价格 (需 \\$ 转义): {line.strip()[:80]}')
     # 分值自检 (仅当文件像测试卷: 含 "总分" 且含题型行)
     if '总分' in text:
         claimed = {}   # 题型名 -> 声明分
