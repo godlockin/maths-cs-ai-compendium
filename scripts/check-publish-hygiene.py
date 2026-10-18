@@ -20,7 +20,8 @@ PROCESS_LANG = re.compile(
 )
 MARKER_RE = re.compile(r'<!--\s*FIX|%%\s*FIX|__SENTINEL__|\{\{|TODO:?\s*发布前')
 # 价格假公式: "$10/$50" 这类裸美元价格能通过奇偶门禁但会配对成垃圾公式 (Ch07 §05 事故)
-PRICE_RE = re.compile(r'(?<![\\\w])\$\d[\d.,]*/\s*[\d$]')
+# 要求 / 后紧跟 $ (即 $N/$M 形态); 数学分数 $1/8$ 不误报 (Ch08 §05 误报回填)
+PRICE_RE = re.compile(r'(?<![\\\w])\$\d[\d.,]*/\s*\$')
 # 测试卷: 题型行 "选择题 10 题（30 分）" 与节标题 "一、选择题（10 × 3 = 30 分）"
 SCORE_ITEM = re.compile(r'([一二三四五六]、[^（(]*?)（?\(?(\d+)\s*[×x]\s*(\d+)\s*=\s*(\d+)\s*分')
 SCORE_HEADER = re.compile(r'(\S+?)\s*(\d+)\s*题[（(]\s*(\d+)\s*分[）)]')
@@ -29,15 +30,20 @@ SCORE_HEADER = re.compile(r'(\S+?)\s*(\d+)\s*题[（(]\s*(\d+)\s*分[）)]')
 def check_file(path: str) -> list[str]:
     problems = []
     text = open(path, encoding='utf-8', errors='replace').read()
+    in_fence = False
     for i, line in enumerate(text.split('\n'), 1):
+        # 代码围栏内的 {{ (python f-string 转义) 与 $ 价格属合法内容, 跳过这两类检查
+        if line.lstrip().startswith('```'):
+            in_fence = not in_fence
         if CONTROL_RE.search(line):
             problems.append(f'{path}:{i} 控制字符: {line[:60]!r}')
         if PROCESS_LANG.search(line):
             problems.append(f'{path}:{i} 编辑过程语泄漏: {line.strip()[:80]}')
-        if MARKER_RE.search(line):
-            problems.append(f'{path}:{i} 内部标记残留: {line.strip()[:80]}')
-        if PRICE_RE.search(line):
-            problems.append(f'{path}:{i} 裸美元价格 (需 \\$ 转义): {line.strip()[:80]}')
+        if not in_fence:
+            if MARKER_RE.search(line):
+                problems.append(f'{path}:{i} 内部标记残留: {line.strip()[:80]}')
+            if PRICE_RE.search(line):
+                problems.append(f'{path}:{i} 裸美元价格 (需 \\$ 转义): {line.strip()[:80]}')
     # 分值自检 (仅当文件像测试卷: 含 "总分" 且含题型行)
     if '总分' in text:
         claimed = {}   # 题型名 -> 声明分
