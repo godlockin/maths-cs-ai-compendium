@@ -25,6 +25,12 @@ PRICE_RE = re.compile(r'(?<![\\\w])\$\d[\d.,]*/\s*\$')
 # 测试卷: 题型行 "选择题 10 题（30 分）" 与节标题 "一、选择题（10 × 3 = 30 分）"
 SCORE_ITEM = re.compile(r'([一二三四五六]、[^（(]*?)（?\(?(\d+)\s*[×x]\s*(\d+)\s*=\s*(\d+)\s*分')
 SCORE_HEADER = re.compile(r'(\S+?)\s*(\d+)\s*题[（(]\s*(\d+)\s*分[）)]')
+# 尾部总分声明: "**总评**: 100 分" / "**总分：100 分**" (半角或全角冒号)
+TOTAL_SCORE = re.compile(r'\*\*(?:总分|总评)\*\*\s*[:：]?\s*(\d+)\s*分')
+# "**分布**: 选择 10×3 + 填空 5×4 + ... = 30+20+30+20 = 100, 共 25 题" — 取最后一个 "=" 后的数
+TOTAL_DIST = re.compile(r'\*\*分布\*\*[^\n]*?=\s*(\d+)\s*[,，]?\s*共')
+# 分布行里的 "N×M" 分项
+DIST_PAIR = re.compile(r'(\d+)\s*[×x]\s*(\d+)')
 
 
 def check_file(path: str) -> list[str]:
@@ -44,8 +50,8 @@ def check_file(path: str) -> list[str]:
                 problems.append(f'{path}:{i} 内部标记残留: {line.strip()[:80]}')
             if PRICE_RE.search(line):
                 problems.append(f'{path}:{i} 裸美元价格 (需 \\$ 转义): {line.strip()[:80]}')
-    # 分值自检 (仅当文件像测试卷: 含 "总分" 且含题型行)
-    if '总分' in text:
+    # 分值自检 (仅当文件像测试卷: 含 "总分/总评" 且含题型行)
+    if '总分' in text or '总评' in text:
         claimed = {}   # 题型名 -> 声明分
         computed = {}  # 题型名 -> 题数×每题分
         for m in SCORE_HEADER.finditer(text):
@@ -57,6 +63,23 @@ def check_file(path: str) -> list[str]:
             if n * per != total:
                 problems.append(f'{path} 分值算术错: "{name}" {n}×{per}={n*per} ≠ 标称 {total}')
             computed[name] = n * per
+        # 尾部声明的总分: "**总评**: 100 分" 或 "**分布**: ... = 30+20+30+20 = 100, 共 25 题"
+        claims = []
+        for m in TOTAL_SCORE.finditer(text):
+            claims.append((int(m.group(1)), m.group(0)))
+        for m in TOTAL_DIST.finditer(text):
+            claims.append((int(m.group(1)), m.group(0)))
+        for claimed_total, raw in claims:
+            if computed:
+                s_comp = sum(computed.values())
+                if s_comp != claimed_total:
+                    problems.append(
+                        f'{path} 总分对不上: 尾部声明 {claimed_total} 分 vs 题型节标题合计 {s_comp} 分')
+            # 分布行里的 N×M 分项也要自洽 (每个分项不得超过总分)
+            for dm in DIST_PAIR.finditer(raw):
+                a, b = int(dm.group(1)), int(dm.group(2))
+                if a * b > claimed_total:
+                    problems.append(f'{path} 分布行算术错: {a}×{b}={a*b} 已超总分 {claimed_total}')
         if claimed and computed:
             for name, c in computed.items():
                 key = next((k for k in claimed if k[:2] in name or name[:2] in k), None)
